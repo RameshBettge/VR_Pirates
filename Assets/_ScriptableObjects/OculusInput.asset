@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0279a7a31f59646969e8ba49511090, type: 3}
+  m_Name: OculusInput
+  m_EditorClassIdentifier: 
+  Right:
+    button1: 0
+    button1_Touch: 10
+    button2: 1
+    button2_Touch: 11
+    index_Touch: 15
+    thumb_Touch: 17
+    thumb_Press: 9
+    thumbX: 4
+    thumbXInverted: 0
+    thumbY: 5
+    thumbYInverted: 1
+    index: 10
+    indexInverted: 0
+    grab: 12
+    grabInverted: 0
+    Index:
+      name: Axis10
+    Grab:
+      name: Axis12
+  Left:
+    button1: 2
+    button1_Touch: 12
+    button2: 3
+    button2_Touch: 13
+    index_Touch: 14
+    thumb_Touch: 16
+    thumb_Press: 8
+    thumbX: 1
+    thumbXInverted: 0
+    thumbY: 2
+    thumbYInverted: 1
+    index: 9
+    indexInverted: 0
+    grab: 11
+    grabInverted: 0
+    Index:
+      name: Axis9
+    Grab:
+      name: Axis11
+  LastApplied: 11/22/2018 - 12:42 PM
