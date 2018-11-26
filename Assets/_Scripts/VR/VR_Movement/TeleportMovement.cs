@@ -80,7 +80,7 @@ public class TeleportMovement : MonoBehaviour
         if (Physics.Raycast(line.transform.position, line.transform.up * lineLength, out hit))
         {
             line.material.SetFloat("uMaxPos", hit.distance / lineLength / rightHand.transform.lossyScale.x);
-            //line.material.SetFloatArray("uColor", lineColorAble.ToArray());
+            line.material.SetFloatArray("uColor", lineColorAble.ToArray());
 
             //line color = blue
             canTeleport = true;
@@ -88,7 +88,7 @@ public class TeleportMovement : MonoBehaviour
         else
         {
             line.material.SetFloat("uMaxPos", 100);
-            //line.material.SetFloatArray("uColor", lineColorUnable.ToArray());
+            line.material.SetFloatArray("uColor", lineColorUnable.ToArray());
 
 
             // line color = red

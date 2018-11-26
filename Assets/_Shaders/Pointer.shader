@@ -21,8 +21,7 @@
 		Pass
 		{
 			CGPROGRAM
-//// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
-//#pragma exclude_renderers d3d11 gles
+
 			#pragma vertex vert
 			#pragma fragment frag
 
@@ -53,7 +52,7 @@
 			int _FadeOutAbruptness;
 
 			uniform float uMaxPos;
-			//uniform float[4] uColor;
+			uniform float uColor [4];
 
 			
 			v2f vert (appdata v)
@@ -72,8 +71,8 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 texCol = tex2D(_MainTex, i.uv);
-				//fixed4 col = fixed4(uColor.r, uColor.g, uColor.b, 0)
-				fixed4 col = fixed4(1, 1, 1, 1);
+				fixed4 col = fixed4(uColor[0], uColor[1], uColor[2], 0);
+				//fixed4 col = fixed4(1, 1, 1, 1);
 
 				 //apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);

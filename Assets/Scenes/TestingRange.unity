@@ -435,10 +435,10 @@ MonoBehaviour:
   lineColorUnable: {r: 1, g: 0.2783019, b: 0.4202655, a: 1}
   TeleportDisplayButton:
     leftHand: 0
-    button: 6
+    button: 3
   TeleportButton:
-    leftHand: 1
-    button: 6
+    leftHand: 0
+    button: 2
   debugF: 0
 --- !u!1 &464695798
 GameObject:
@@ -787,6 +787,10 @@ Prefab:
     - target: {fileID: 400000, guid: ba9e7013a430b684f97e753d78efa261, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba9e7013a430b684f97e753d78efa261, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba9e7013a430b684f97e753d78efa261, type: 3}
