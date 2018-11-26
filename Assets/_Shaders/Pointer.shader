@@ -20,6 +20,7 @@
 
 		Pass
 		{
+
 			CGPROGRAM
 
 			#pragma vertex vert
@@ -54,6 +55,10 @@
 			uniform float uMaxPos;
 			uniform float uColor [4];
 
+			fixed4 ArrayToCol(float array[4]) 
+			{ 
+				return fixed4(array[0], array[1], array[2], array[3]); 
+			}
 			
 			v2f vert (appdata v)
 			{
@@ -71,7 +76,7 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 texCol = tex2D(_MainTex, i.uv);
-				fixed4 col = fixed4(uColor[0], uColor[1], uColor[2], 0);
+				fixed4 col = ArrayToCol(uColor);
 				//fixed4 col = fixed4(1, 1, 1, 1);
 
 				 //apply fog
@@ -79,7 +84,7 @@
 
 				col.a = texCol.a;
 
-				float alpha = 1 - pow((i.localPos.y / uMaxPos), _FadeOutAbruptness);
+				float alpha = 1 - pow((i.localPos.y / uMaxPos), 1.25);
 
 				col.a = min(alpha, col.a);
 
