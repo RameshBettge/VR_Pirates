@@ -89,7 +89,7 @@ public class TeleportMovement : MonoBehaviour
         {
             line.material.SetFloat("uMaxPos", hit.distance / lineLength / handScale);
 
-            if (hit.collider.CompareTag("VRWalkable"))
+            if (hit.collider.CompareTag("VRWalkable") && hit.normal.y > 0.2f)
             {
                 line.material.SetFloatArray("uColor", lineColorAble.ToArray());
                 canTeleport = true;
