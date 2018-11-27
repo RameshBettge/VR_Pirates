@@ -21,13 +21,14 @@ public class TeleportMovement : MonoBehaviour
     float turnDegrees = 15f;
 
     [SerializeField]
-    float turnArea = 0.75f;
+    float turnTriggerAmount = 0.75f;
 
     [SerializeField]
-    float teleportationOffset;
+    float turnInterval = 0.1f;
 
     [SerializeField]
     float lineLength = 100f;
+
 
     [SerializeField]
     Color lineColorAble;
@@ -42,6 +43,10 @@ public class TeleportMovement : MonoBehaviour
     ButtonPicker TeleportButton;
     InputButton teleportButton;
 
+    [SerializeField]
+    AxisPicker TurnAxis;
+    InputAxis turnAxis;
+
     RaycastHit hit;
     bool canTeleport;
 
@@ -53,14 +58,19 @@ public class TeleportMovement : MonoBehaviour
 
     float handScale;
 
+    float lastTurn;
+
     private void Awake()
     {
         teleDisplayButton = TeleportDisplayButton.GetButton(VRInput);
         teleportButton = TeleportButton.GetButton(VRInput);
+        turnAxis = TurnAxis.GetAxis(VRInput);
 
         Vector3 lineScale = line.transform.localScale;
         lineScale.y = lineLength;
         line.transform.localScale = lineScale;
+
+        handScale = rightHand.transform.lossyScale.x;
     }
 
     private void Update()
@@ -72,24 +82,24 @@ public class TeleportMovement : MonoBehaviour
 
     private void Teleportation()
     {
+        canTeleport = false;
 
         // TODO: don't set shader values if the renderer isn't active anyway
         if (Physics.Raycast(line.transform.position, line.transform.up * lineLength, out hit))
         {
-            line.material.SetFloat("uMaxPos", hit.distance / lineLength / rightHand.transform.lossyScale.x);
-            line.material.SetFloatArray("uColor", lineColorAble.ToArray());
+            line.material.SetFloat("uMaxPos", hit.distance / lineLength / handScale);
 
-            //line color = blue
-            canTeleport = true;
+            if (hit.collider.CompareTag("VRWalkable"))
+            {
+                line.material.SetFloatArray("uColor", lineColorAble.ToArray());
+                canTeleport = true;
+            }
         }
-        else
+
+        if (!canTeleport)
         {
             line.material.SetFloat("uMaxPos", 100);
             line.material.SetFloatArray("uColor", lineColorUnable.ToArray());
-
-
-            // line color = red
-            canTeleport = false;
         }
 
         if (teleDisplayButton.IsPressed)
@@ -104,27 +114,13 @@ public class TeleportMovement : MonoBehaviour
 
         if (teleportButton.IsPressed)
         {
-
-
-            if (!teleported)
+            if (canTeleport && !teleported)
             {
+                transform.position = hit.point;
 
-                Debug.DrawRay(rightHand.position, rightHand.forward * 100f, Color.cyan);
+                // TODO: check if near wall. set player away from it.
 
-
-                if (canTeleport)
-                {
-                    Vector3 dir = hit.point - transform.position;
-                    dir.y = 0f;
-                    dir = dir.normalized * teleportationOffset;
-
-                    Vector3 target = hit.point + dir;
-                    target.y = transform.position.y;
-
-                    transform.position = target;
-
-                    teleported = true;
-                }
+                teleported = true;
             }
         }
         else if (teleported)
@@ -135,35 +131,39 @@ public class TeleportMovement : MonoBehaviour
 
     private void Turn()
     {
-        float input = VRInput.Right.ThumbAxes.X;
+        float input = turnAxis.Value;
 
-        if (turnedRight)
+        bool turnTime = (Time.time - lastTurn) > turnInterval;
+
+        if (turnedRight && !turnTime)
         {
-            if (input < turnArea)
+            if (input < turnTriggerAmount)
             {
                 turnedRight = false;
             }
         }
         else
         {
-            if (input > turnArea)
+            if (input > turnTriggerAmount)
             {
+                lastTurn = Time.time;
                 turnedRight = true;
                 transform.eulerAngles += Vector3.up * turnDegrees;
             }
         }
 
-        if (turnedLeft)
+        if (turnedLeft && !turnTime)
         {
-            if (input > -turnArea)
+            if (input > -turnTriggerAmount)
             {
                 turnedLeft = false;
             }
         }
         else
         {
-            if (input < -turnArea)
+            if (input < -turnTriggerAmount)
             {
+                lastTurn = Time.time;
                 turnedLeft = true;
                 transform.eulerAngles -= Vector3.up * turnDegrees;
             }

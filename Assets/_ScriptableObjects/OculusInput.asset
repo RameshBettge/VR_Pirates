@@ -35,6 +35,12 @@ MonoBehaviour:
       button: 331
     Button2_Touch:
       button: 341
+    ThumbX:
+      name: Axis4
+      inverted: 0
+    ThumbY:
+      name: Axis5
+      inverted: 1
     ThumbAxes:
       x:
         name: Axis4
@@ -78,6 +84,12 @@ MonoBehaviour:
       button: 333
     Button2_Touch:
       button: 343
+    ThumbX:
+      name: Axis1
+      inverted: 0
+    ThumbY:
+      name: Axis2
+      inverted: 1
     ThumbAxes:
       x:
         name: Axis1
@@ -97,4 +109,4 @@ MonoBehaviour:
     Grab:
       name: Axis11
       inverted: 0
-  LastApplied: 11/27/2018 - 12:22 PM
+  LastApplied: 11/27/2018 - 2:23 PM

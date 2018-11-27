@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 // TODO: Make sure the variables reflect the actual state even when set by VRInputSetup.cs!
 [ExecuteInEditMode]
@@ -13,6 +14,7 @@ public class VRController
     [Space(10)]
 
     [SerializeField] int index_Touch = -1;
+
     [SerializeField] int thumb_Touch = -1;
     [Space(10)]
 
@@ -42,27 +44,27 @@ public class VRController
 
     // ----
 
-    [SerializeField] public InputButton Button1;
-    [SerializeField] public InputButton Button1_Touch;
+    [HideInInspector] [SerializeField] public InputButton Button1;
+    [HideInInspector] [SerializeField] public InputButton Button1_Touch;
     [Space(10)]
 
-    [SerializeField] public InputButton Button2;
-    [SerializeField] public InputButton Button2_Touch;
+    [HideInInspector] [SerializeField] public InputButton Button2;
+    [HideInInspector] [SerializeField] public InputButton Button2_Touch;
     [Space(10)]
 
-    InputAxis ThumbX;
-    InputAxis ThumbY;
-    [SerializeField] public InputAxisPair ThumbAxes;
+    [HideInInspector] public InputAxis ThumbX;
+    [HideInInspector] public InputAxis ThumbY;
+    [HideInInspector] [SerializeField] public InputAxisPair ThumbAxes;
 
-    [SerializeField] public InputButton Thumb_Touch;
-    [SerializeField] public InputButton Thumb_Press;
+    [HideInInspector] [SerializeField] public InputButton Thumb_Touch;
+    [HideInInspector] [SerializeField] public InputButton Thumb_Press;
     [Space(10)]
 
 
-    [SerializeField] public InputAxis Index;
-    [SerializeField] public InputButton Index_Touch;
+    [HideInInspector] [SerializeField] public InputAxis Index;
+    [HideInInspector] [SerializeField] public InputButton Index_Touch;
     [Space(10)]
-    [SerializeField] public InputAxis Grab;
+    [HideInInspector] [SerializeField] public InputAxis Grab;
 
     //InputAxis rIndex_NearTouch;
     public void CopyFromSetup(VRInputSetup s)
@@ -168,34 +170,6 @@ public class VRController
         Index_Touch = new InputButton(index_Touch);
         Grab = new InputAxis(grab, grabInverted);
     }
-
-    public InputButton ButtonByEnum(VRButton b)
-    {
-        switch (b)
-        {
-            case VRButton.Button1:
-                return Button1;
-
-            case VRButton.Button1_Touch:
-                return Button1_Touch;
-            case VRButton.Button2:
-                return Button2;
-            case VRButton.Button2_Touch:
-                return Button2_Touch;
-            case VRButton.Thumb_Touch:
-                return Thumb_Touch;
-            case VRButton.Thumb_Press:
-                return Thumb_Press;
-            case VRButton.Index_Touch:
-                return Index_Touch;
-        }
-
-        return null;
-    }
 }
 
 
-public enum VRButton
-{
-    Button1, Button1_Touch, Button2, Button2_Touch, Thumb_Touch, Thumb_Press, Index_Touch
-}
