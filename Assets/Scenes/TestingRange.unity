@@ -432,7 +432,7 @@ MonoBehaviour:
   teleportationOffset: 0
   lineLength: 100
   lineColorAble: {r: 0, g: 0.62258625, b: 1, a: 1}
-  lineColorUnable: {r: 1, g: 0.2783019, b: 0.4202655, a: 1}
+  lineColorUnable: {r: 0.5943396, g: 0.13737096, b: 0.22653571, a: 0.30588236}
   TeleportDisplayButton:
     leftHand: 0
     button: 3

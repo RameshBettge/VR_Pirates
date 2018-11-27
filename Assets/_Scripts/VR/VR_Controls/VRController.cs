@@ -42,27 +42,27 @@ public class VRController
 
     // ----
 
-    [HideInInspector] [SerializeField] public InputButton Button1;
-    [HideInInspector] [SerializeField] public InputButton Button1_Touch;
+    [SerializeField] public InputButton Button1;
+    [SerializeField] public InputButton Button1_Touch;
     [Space(10)]
 
-    [HideInInspector] [SerializeField] public InputButton Button2;
-    [HideInInspector] [SerializeField] public InputButton Button2_Touch;
+    [SerializeField] public InputButton Button2;
+    [SerializeField] public InputButton Button2_Touch;
     [Space(10)]
 
     InputAxis ThumbX;
     InputAxis ThumbY;
-    [HideInInspector] [SerializeField] public InputAxisPair ThumbAxes;
+    [SerializeField] public InputAxisPair ThumbAxes;
 
-    [HideInInspector] [SerializeField] public InputButton Thumb_Touch;
-    [HideInInspector] [SerializeField] public InputButton Thumb_Press;
+    [SerializeField] public InputButton Thumb_Touch;
+    [SerializeField] public InputButton Thumb_Press;
     [Space(10)]
 
 
-    [HideInInspector] [SerializeField] public InputAxis Index;
-    [HideInInspector] [SerializeField] public InputButton Index_Touch;
+    [SerializeField] public InputAxis Index;
+    [SerializeField] public InputButton Index_Touch;
     [Space(10)]
-    [HideInInspector] [SerializeField] public InputAxis Grab;
+    [SerializeField] public InputAxis Grab;
 
     //InputAxis rIndex_NearTouch;
     public void CopyFromSetup(VRInputSetup s)

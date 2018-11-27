@@ -61,9 +61,6 @@ public class TeleportMovement : MonoBehaviour
         Vector3 lineScale = line.transform.localScale;
         lineScale.y = lineLength;
         line.transform.localScale = lineScale;
-
-        //line.material.SetFloat("uMaxPos", 100);
-        //line.material.SetFloatArray("uColor", lineColorUnable.ToArray());
     }
 
     private void Update()

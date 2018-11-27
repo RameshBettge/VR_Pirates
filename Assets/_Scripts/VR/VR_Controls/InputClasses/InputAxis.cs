@@ -3,13 +3,16 @@
 [System.Serializable]
 public class InputAxis
 {
+    [SerializeField]
     public string name;
+    [SerializeField]
     bool inverted;
 
     public InputAxis(int axisNum, bool inverted)
     {
         this.inverted = inverted;
         name = "Axis" + axisNum;
+
     }
 
     public float Value

@@ -31,8 +31,11 @@ public class VRControllerEditor : Editor
 
         VRInputLookup script = (VRInputLookup)target;
 
+
         if (GUILayout.Button("Apply Settings"))
         {
+            EditorUtility.SetDirty(target);
+
             script.Right.Apply();
             script.Left.Apply();
 

@@ -3,7 +3,9 @@
 [System.Serializable]
 public class InputAxisPair
 {
+    [SerializeField]
     InputAxis x;
+    [SerializeField]
     InputAxis y;
 
     public InputAxisPair(InputAxis x, InputAxis y)

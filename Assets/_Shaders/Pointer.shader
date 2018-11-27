@@ -82,7 +82,7 @@
 				 //apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 
-				col.a = texCol.a;
+				col.a *= texCol.a;
 
 				float alpha = 1 - pow((i.localPos.y / uMaxPos), _FadeOutAbruptness);
 
