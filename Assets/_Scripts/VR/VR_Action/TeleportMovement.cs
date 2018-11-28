@@ -10,12 +10,8 @@ public class TeleportMovement : MonoBehaviour
     [SerializeField]
     Renderer line;
 
-    // TODO: hand is just used for getting it's scale. Implement a method that doesn't need a serialized field.
-    [SerializeField]
-    Transform rightHand;
 
-    [SerializeField]
-    VRInputLookup VRInput;
+    public VRInputLookup VRInput;
 
     [SerializeField]
     float turnDegrees = 15f;
@@ -60,8 +56,12 @@ public class TeleportMovement : MonoBehaviour
 
     float lastTurn;
 
-    private void Awake()
+    private void Start()
     {
+        VRComponentFinder finder = GetComponent<VRComponentFinder>();
+        handScale = finder.RightHand.transform.lossyScale.x;
+        VRInput = finder.lookup;
+
         teleDisplayButton = TeleportDisplayButton.GetButton(VRInput);
         teleportButton = TeleportButton.GetButton(VRInput);
         turnAxis = TurnAxis.GetAxis(VRInput);
@@ -70,7 +70,6 @@ public class TeleportMovement : MonoBehaviour
         lineScale.y = lineLength;
         line.transform.localScale = lineScale;
 
-        handScale = rightHand.transform.lossyScale.x;
     }
 
     private void Update()
