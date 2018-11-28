@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class TeleportMovement : MonoBehaviour
 {
-
-
     [SerializeField]
     Renderer line;
-
 
     public VRInputLookup VRInput;
 
@@ -56,9 +53,11 @@ public class TeleportMovement : MonoBehaviour
 
     float lastTurn;
 
+    VRComponentFinder finder;
+
     private void Start()
     {
-        VRComponentFinder finder = GetComponent<VRComponentFinder>();
+        finder = GetComponent<VRComponentFinder>();
         handScale = finder.RightHand.transform.lossyScale.x;
         VRInput = finder.lookup;
 
@@ -115,7 +114,12 @@ public class TeleportMovement : MonoBehaviour
         {
             if (canTeleport && !teleported)
             {
-                transform.position = hit.point;
+                Vector3 targetPos = hit.point;
+                Vector3 newHeadPos = Vector3.zero;
+                newHeadPos.y = finder.Head.localPosition.y;
+                finder.Head.localPosition = newHeadPos;
+
+                transform.position = hit.point - finder.Head.localPosition;
 
                 // TODO: check if near wall. set player away from it.
 

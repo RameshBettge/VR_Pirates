@@ -158,7 +158,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 552fdf43acee38145bde87b7c326c428, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -223,26 +223,6 @@ Prefab:
     - target: {fileID: 4882067357800904, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114168944566834072, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1,
-        type: 2}
-      propertyPath: angularVelocityFactor
-      value: 96.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114995877206164898, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1,
-        type: 2}
-      propertyPath: angularVelocityFactor
-      value: 96.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114168944566834072, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1,
-        type: 2}
-      propertyPath: maxAngularVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114995877206164898, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1,
-        type: 2}
-      propertyPath: maxAngularVelocity
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1, type: 2}
@@ -518,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabThreshold: 0.5
   releaseThreshold: 0.25
-  grabRange: 0.1
+  grabRange: 0.05
   mask:
     serializedVersion: 2
     m_Bits: 512
@@ -1193,7 +1173,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0f4b2452ba2e0594fa716c47c7bde282, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1249,7 +1229,6 @@ MonoBehaviour:
   maxVelocity: 3.5
   velocityFactor: 1.5
   angularVelocityFactor: 1
-  maxAngularVelocity: 5
   extraGravity: 300
   setRotOnGrab: 0
   defaultRot: {x: 0, y: 0, z: 0}
@@ -1515,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 1246983354227936, guid: ad4fcc08c77e4fd4dbd619e9cbacc3b1, type: 2}
-  offset: {x: 0, y: -0.5, z: -0.2}
+  offset: {x: 0, y: -0.5, z: -0.15}
 --- !u!1 &1747844502
 GameObject:
   m_ObjectHideFlags: 0
