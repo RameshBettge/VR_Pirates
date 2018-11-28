@@ -460,6 +460,116 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
+  leftData:
+    controller:
+      button1_Touch: -1
+      button2_Touch: -1
+      index_Touch: -1
+      thumb_Touch: -1
+      button1: -1
+      button2: -1
+      thumb_Press: -1
+      thumbX: -1
+      thumbXInverted: 0
+      thumbY: -1
+      thumbYInverted: 0
+      index: -1
+      indexInverted: 0
+      grab: -1
+      grabInverted: 0
+      Button1:
+        button: 0
+      Button1_Touch:
+        button: 0
+      Button2:
+        button: 0
+      Button2_Touch:
+        button: 0
+      ThumbX:
+        name: 
+        inverted: 0
+      ThumbY:
+        name: 
+        inverted: 0
+      ThumbAxes:
+        x:
+          name: 
+          inverted: 0
+        y:
+          name: 
+          inverted: 0
+      Thumb_Touch:
+        button: 0
+      Thumb_Press:
+        button: 0
+      Index:
+        name: 
+        inverted: 0
+      Index_Touch:
+        button: 0
+      Grab:
+        name: 
+        inverted: 0
+    hand: {fileID: 0}
+    isGrabbing: 0
+    grabbedObject: {fileID: 0}
+    AverageMovement: {x: 0, y: 0, z: 0}
+    AverageRotation: {x: 0, y: 0, z: 0}
+  rightData:
+    controller:
+      button1_Touch: -1
+      button2_Touch: -1
+      index_Touch: -1
+      thumb_Touch: -1
+      button1: -1
+      button2: -1
+      thumb_Press: -1
+      thumbX: -1
+      thumbXInverted: 0
+      thumbY: -1
+      thumbYInverted: 0
+      index: -1
+      indexInverted: 0
+      grab: -1
+      grabInverted: 0
+      Button1:
+        button: 0
+      Button1_Touch:
+        button: 0
+      Button2:
+        button: 0
+      Button2_Touch:
+        button: 0
+      ThumbX:
+        name: 
+        inverted: 0
+      ThumbY:
+        name: 
+        inverted: 0
+      ThumbAxes:
+        x:
+          name: 
+          inverted: 0
+        y:
+          name: 
+          inverted: 0
+      Thumb_Touch:
+        button: 0
+      Thumb_Press:
+        button: 0
+      Index:
+        name: 
+        inverted: 0
+      Index_Touch:
+        button: 0
+      Grab:
+        name: 
+        inverted: 0
+    hand: {fileID: 0}
+    isGrabbing: 0
+    grabbedObject: {fileID: 0}
+    AverageMovement: {x: 0, y: 0, z: 0}
+    AverageRotation: {x: 0, y: 0, z: 0}
   debugF: 0
 --- !u!1 &464695798
 GameObject:
@@ -1075,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeOnStart: 1
   maxVelocity: 3.5
-  velocityFactor: 2
+  velocityFactor: 1.5
   extraGravity: 300
   isGrabbed: 0
 --- !u!54 &1587861067
@@ -1086,7 +1196,7 @@ Rigidbody:
   m_GameObject: {fileID: 1587861061}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 0.25
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0

@@ -15,7 +15,7 @@ public class GrabbableObject : MonoBehaviour
     [SerializeField]
     float maxVelocity = 5f;
     [SerializeField]
-    float velocityFactor = 4f;
+    float velocityFactor = 1.5f;
 
 
     [SerializeField]
@@ -58,21 +58,12 @@ public class GrabbableObject : MonoBehaviour
 
         Vector3 averageVelocity = data.AverageMovement;
 
-        //lastFrameMovement = data.hand.TransformDirection(lastFrameMovement);
-
-
-
         Vector3 velocity = averageVelocity;
 
-        print(velocity.magnitude);
         velocity = Vector3.ClampMagnitude(velocity, maxVelocity);
 
         rb.velocity = velocity * velocityFactor;
 
-
-        // TODO: apply angular velocity to thrown object.
-
-        //Quaternion angularVelocity = Quaternion.FromToRotation(data.lastForward, data.hand.forward);
-        //rb.angularVelocity = angularVelocity.eulerAngles / deltaTime;
+        rb.angularVelocity = data.AverageRotation;
     }
 }

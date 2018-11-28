@@ -18,8 +18,8 @@ public class VRGrab : MonoBehaviour
     VRComponentFinder finder;
     VRInputLookup vrInput;
 
-    GrabData leftData = new GrabData();
-    GrabData rightData = new GrabData();
+    public GrabData leftData = new GrabData();
+    public GrabData rightData = new GrabData();
 
     public float debugF;
 
@@ -52,8 +52,7 @@ public class VRGrab : MonoBehaviour
                 Release(data);
             }
 
-            data.SetVelocity(data.hand.localPosition, Time.deltaTime);
-            data.lastForward = data.hand.forward;
+            data.SetVelocity(data.hand.localPosition, data.hand.forward, Time.deltaTime);
         }
         else
         {
@@ -132,6 +131,7 @@ public class VRGrab : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class GrabData
 {
     public VRController controller;
@@ -142,16 +142,14 @@ public class GrabData
     Vector3 lastPos;
     int maxVelocitySamples = 10;
     int velocitySamples = 0;
-    public Vector3 lastForward;
+    Vector3 lastForward;
 
-    public Vector3 AverageMovement { get; private set; }
+    public Vector3 AverageMovement;
+    public Vector3 AverageRotation;
 
-    public void SetVelocity(Vector3 currentPos, float deltaTime)
+    public void SetVelocity(Vector3 currentPos, Vector3 currentForward, float deltaTime)
     {
         Vector3 difference = (currentPos - lastPos)/deltaTime;
-
-        //Debug.Log(difference + " difference | pos " + currentPos + " lastpos: " +lastPos);
-
 
         if (!(velocitySamples >= maxVelocitySamples))
         {
@@ -167,15 +165,42 @@ public class GrabData
             AverageMovement = AverageMovement / (velocitySamples) * (velocitySamples - 1);
             AverageMovement += (difference / velocitySamples);
 
-            //Debug.Log(difference + " difference | average " + AverageMovement);
         }
 
         lastPos = currentPos;
+
+
+        // Rotation
+
+        if (velocitySamples == 1)
+        {
+            AverageRotation = Vector3.zero;
+        }
+        else
+        {
+            AverageRotation = AverageRotation / velocitySamples * (velocitySamples - 1);
+            Vector3 rot = Quaternion.FromToRotation(lastForward, currentForward).eulerAngles;
+
+            for (int i = 0; i < 3; i++)
+            {
+                if(rot[i]> 180f)
+                {
+                    rot[i] = (rot[i] - 360f);
+                }
+            }
+            rot /= Time.deltaTime;
+            rot /= velocitySamples;
+
+            AverageRotation += rot;
+        }
+
+        lastForward = currentForward;
     }
 
     public void ResetVelocity()
     {
         velocitySamples = 0;
         AverageMovement = Vector3.zero;
+        AverageRotation = Vector3.zero;
     }
 }
