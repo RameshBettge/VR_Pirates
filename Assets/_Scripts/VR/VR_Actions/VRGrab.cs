@@ -12,14 +12,19 @@ public class VRGrab : MonoBehaviour
     [SerializeField]
     float grabRange = 1;
 
+    [Tooltip("How many of the last frames are taken into consideration " +
+        "when calculating thrown object's velocity and angular velocity.")]
+    [SerializeField]
+    int maxVelocitySamples = 12;
+
     [SerializeField]
     LayerMask mask;
 
     VRComponentFinder finder;
     VRInputLookup vrInput;
 
-    public GrabData leftData = new GrabData();
-    public GrabData rightData = new GrabData();
+    public GrabData leftData;
+    public GrabData rightData;
 
     public float debugF;
 
@@ -28,11 +33,15 @@ public class VRGrab : MonoBehaviour
         finder = GetComponent<VRComponentFinder>();
         vrInput = finder.lookup;
 
+        leftData = new GrabData(maxVelocitySamples);
+        rightData = new GrabData(maxVelocitySamples);
+
         leftData.controller = vrInput.Left;
         leftData.hand = finder.LeftHand;
 
         rightData.controller = vrInput.Right;
         rightData.hand = finder.RightHand;
+
     }
 
     private void Update()
@@ -52,7 +61,10 @@ public class VRGrab : MonoBehaviour
                 Release(data);
             }
 
-            data.SetVelocity(data.hand.localPosition, data.hand.forward, Time.deltaTime);
+            //Vector3 localForward = finder.RightHand.parent.InverseTransformDirection(data.hand.forward);
+            Vector3 localForward = transform.InverseTransformDirection(data.hand.forward);
+
+            data.SetVelocity(data.hand.localPosition, localForward, Time.deltaTime);
         }
         else
         {
@@ -77,7 +89,7 @@ public class VRGrab : MonoBehaviour
             gObject = cols[i].GetComponent<GrabbableObject>();
             if (gObject == null)
             {
-                Debug.LogError("There was no VRInputSetup-component found on " + 
+                Debug.LogError("There was no VRInputSetup-component found on " +
                     cols[i].gameObject.name +
                     ", even though it is on layer specified by mask.");
                 return;
@@ -122,7 +134,7 @@ public class VRGrab : MonoBehaviour
         data.grabbedObject.transform.parent = null;
 
 
-        data.grabbedObject.OnRelease(data, Time.deltaTime);
+        data.grabbedObject.OnRelease(data, transform, Time.deltaTime);
         data.grabbedObject = null;
 
         data.isGrabbing = false;
@@ -131,6 +143,7 @@ public class VRGrab : MonoBehaviour
     }
 }
 
+// TODO: Extract into seperate file
 [System.Serializable]
 public class GrabData
 {
@@ -140,16 +153,31 @@ public class GrabData
     public GrabbableObject grabbedObject;
 
     Vector3 lastPos;
-    int maxVelocitySamples = 10;
-    int velocitySamples = 0;
+    int maxVelocitySamples;
+    public int velocitySamples = 0;
     Vector3 lastForward;
 
     public Vector3 AverageMovement;
-    public Vector3 AverageRotation;
-
-    public void SetVelocity(Vector3 currentPos, Vector3 currentForward, float deltaTime)
+    Vector3 averageRotation;
+    public Vector3 AverageRotation
     {
-        Vector3 difference = (currentPos - lastPos)/deltaTime;
+        get
+        {
+            //Vector3 output = averageRotation / maxVelocitySamples / maxVelocitySamples * velocitySamples * velocitySamples;
+            //Debug.Log("output: " + output + " - averageRotation: " + averageRotation + " - maxVelocitySamples: " + maxVelocitySamples + " - velocitySamples: " + velocitySamples);
+            return averageRotation;
+        }
+        private set { averageRotation = value; }
+    }
+
+    public GrabData(int maxVelocitySamples)
+    {
+        this.maxVelocitySamples = maxVelocitySamples;
+    }
+
+    public void SetVelocity(Vector3 currentPos, Vector3 currentLocalForward, float deltaTime)
+    {
+        Vector3 difference = (currentPos - lastPos) / deltaTime;
 
         if (!(velocitySamples >= maxVelocitySamples))
         {
@@ -179,11 +207,11 @@ public class GrabData
         else
         {
             AverageRotation = AverageRotation / velocitySamples * (velocitySamples - 1);
-            Vector3 rot = Quaternion.FromToRotation(lastForward, currentForward).eulerAngles;
+            Vector3 rot = Quaternion.FromToRotation(lastForward, currentLocalForward).eulerAngles;
 
             for (int i = 0; i < 3; i++)
             {
-                if(rot[i]> 180f)
+                if (rot[i] > 180f)
                 {
                     rot[i] = (rot[i] - 360f);
                 }
@@ -194,7 +222,7 @@ public class GrabData
             AverageRotation += rot;
         }
 
-        lastForward = currentForward;
+        lastForward = currentLocalForward;
     }
 
     public void ResetVelocity()

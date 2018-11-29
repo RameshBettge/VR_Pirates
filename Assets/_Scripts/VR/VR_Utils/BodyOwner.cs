@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyOwner : MonoBehaviour {
+public class BodyOwner : MonoBehaviour
+{
 
 
     [SerializeField]
@@ -13,17 +14,28 @@ public class BodyOwner : MonoBehaviour {
 
     Transform body;
 
-	void Awake () {
+    public Vector3 debugRot;
+
+    void Awake()
+    {
         body = Instantiate(bodyPrefab, transform).transform;
         body.position = transform.position + offset;
         body.rotation = Quaternion.identity;
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
+        debugRot = transform.localEulerAngles;
+
         Vector3 localOffset = transform.forward;
 
         localOffset.y = 0f;
         localOffset = localOffset.normalized * offset.z;
+
+        //if (transform.localEulerAngles.x > 90f)
+        //{
+        //    localOffset *= -1;
+        //}
         localOffset.y = offset.y;
 
         body.rotation = Quaternion.identity;

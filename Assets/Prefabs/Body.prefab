@@ -398,8 +398,9 @@ MonoBehaviour:
   disabledUntilGrabbed: 1
   maxVelocity: 4
   velocityFactor: 3
-  angularVelocityFactor: 96.5
-  extraGravity: 150
+  angularVelocityFactor: 0.1
+  maxAngularVelocity: 15
+  extraGravity: 300
   setRotOnGrab: 1
   defaultRot: {x: 0, y: -90, z: 0}
   isGrabbed: 0
@@ -417,8 +418,9 @@ MonoBehaviour:
   disabledUntilGrabbed: 1
   maxVelocity: 4
   velocityFactor: 3
-  angularVelocityFactor: 96.5
-  extraGravity: 150
+  angularVelocityFactor: 0.1
+  maxAngularVelocity: 15
+  extraGravity: 300
   setRotOnGrab: 1
   defaultRot: {x: 0, y: -90, z: 0}
   isGrabbed: 0
