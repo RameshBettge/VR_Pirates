@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: call pistol.shoot if index-axis is pressed
+
 public class VRGrab : MonoBehaviour
 {
     [SerializeField]
@@ -26,8 +28,6 @@ public class VRGrab : MonoBehaviour
     public GrabData leftData;
     public GrabData rightData;
 
-    public float debugF;
-
     private void Start()
     {
         finder = GetComponent<VRComponentFinder>();
@@ -37,11 +37,13 @@ public class VRGrab : MonoBehaviour
         rightData = new GrabData(maxVelocitySamples);
 
         leftData.controller = vrInput.Left;
-        leftData.hand = finder.LeftHand;
-
         rightData.controller = vrInput.Right;
+
+        leftData.hand = finder.LeftHand;
         rightData.hand = finder.RightHand;
 
+         leftData.anim = finder.LeftHand.GetComponentInChildren<Animator>();
+         rightData.anim = finder.RightHand.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -53,7 +55,6 @@ public class VRGrab : MonoBehaviour
     void CheckInput(GrabData data)
     {
         float input = data.controller.Grab.Value;
-        debugF = input;
         if (data.isGrabbing)
         {
             if (input < releaseThreshold)
@@ -72,6 +73,11 @@ public class VRGrab : MonoBehaviour
             {
                 Grab(data);
             }
+        }
+
+        if(data.pistol != null)
+        {
+
         }
     }
 
@@ -114,10 +120,8 @@ public class VRGrab : MonoBehaviour
         {
             return;
         }
+
         gObject = grabbed.GetComponent<GrabbableObject>();
-
-
-
 
         grabbed.transform.parent = data.hand;
         grabbed.localPosition = Vector3.zero;
@@ -125,6 +129,18 @@ public class VRGrab : MonoBehaviour
         gObject.OnGrab();
 
         data.grabbedObject = gObject;
+
+        Pistol pistol = gObject.GetComponent<Pistol>();
+        if(pistol != null)
+        {
+            data.pistol = pistol;
+
+            data.anim.SetBool("Pistol", true);
+        }
+        else
+        {
+            // Set other bool in animator
+        }
 
         data.isGrabbing = true;
     }
@@ -138,8 +154,7 @@ public class VRGrab : MonoBehaviour
         data.grabbedObject = null;
 
         data.isGrabbing = false;
-        data.ResetVelocity();
-
+        data.Reset();
     }
 }
 
@@ -147,10 +162,14 @@ public class VRGrab : MonoBehaviour
 [System.Serializable]
 public class GrabData
 {
+    public Animator anim;
+
     public VRController controller;
     public Transform hand;
     public bool isGrabbing;
     public GrabbableObject grabbedObject;
+
+    public Pistol pistol;
 
     Vector3 lastPos;
     int maxVelocitySamples;
@@ -225,11 +244,16 @@ public class GrabData
         lastForward = currentLocalForward;
     }
 
-    public void ResetVelocity()
+    public void Reset()
     {
         velocitySamples = 0;
         AverageMovement = Vector3.zero;
         AverageRotation = Vector3.zero;
+
+        anim.SetBool("Pistol", false);
+        // TODO: reset all other bools;
+
+        pistol = null;
     }
 }
 

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54949198229226514}
   - component: {fileID: 114168944566834072}
   - component: {fileID: 65925000568764626}
+  - component: {fileID: 114902188746678226}
   m_Layer: 9
   m_Name: '''Pistol'' (1)'
   m_TagString: Untagged
@@ -107,6 +108,7 @@ GameObject:
   - component: {fileID: 54385053627773806}
   - component: {fileID: 114995877206164898}
   - component: {fileID: 65830981940363272}
+  - component: {fileID: 114515301264912024}
   m_Layer: 9
   m_Name: '''Pistol'''
   m_TagString: Untagged
@@ -404,6 +406,28 @@ MonoBehaviour:
   setRotOnGrab: 1
   defaultRot: {x: 0, y: -90, z: 0}
   isGrabbed: 0
+--- !u!114 &114515301264912024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996643258285062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420a9fe1beea68a43873a7d89b641e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114902188746678226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113959418310952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420a9fe1beea68a43873a7d89b641e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114995877206164898
 MonoBehaviour:
   m_ObjectHideFlags: 1

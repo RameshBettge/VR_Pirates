@@ -6,8 +6,6 @@ public class BodyHolder : MonoBehaviour
 {
     Transform body;
 
-    public Vector3 debug;
-
     void Start()
     {
         body = transform.GetChild(0);
@@ -15,12 +13,8 @@ public class BodyHolder : MonoBehaviour
 
     void Update()
     {
-        Vector3 euler = transform.eulerAngles;
+        Vector3 euler = new Vector3(0f, transform.eulerAngles.y, 0f);
 
-        debug = euler;
-
-        euler.x = 0f;
-        euler.z = 0f;
         transform.eulerAngles = euler;
     }
 }
