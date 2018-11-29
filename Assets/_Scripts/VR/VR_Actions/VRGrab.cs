@@ -10,6 +10,10 @@ public class VRGrab : MonoBehaviour
     float grabThreshold = 0.5f;
     [SerializeField]
     float releaseThreshold = 0.25f;
+    [SerializeField]
+    float shootThreshold = 0.8f;
+    [SerializeField]
+    float shootResetThreshold = 0.2f;
 
     [SerializeField]
     float grabRange = 1;
@@ -19,6 +23,7 @@ public class VRGrab : MonoBehaviour
     [SerializeField]
     int maxVelocitySamples = 12;
 
+
     [SerializeField]
     LayerMask mask;
 
@@ -27,6 +32,8 @@ public class VRGrab : MonoBehaviour
 
     public GrabData leftData;
     public GrabData rightData;
+
+    bool alreadyShot = false;
 
     private void Start()
     {
@@ -42,8 +49,8 @@ public class VRGrab : MonoBehaviour
         leftData.hand = finder.LeftHand;
         rightData.hand = finder.RightHand;
 
-         leftData.anim = finder.LeftHand.GetComponentInChildren<Animator>();
-         rightData.anim = finder.RightHand.GetComponentInChildren<Animator>();
+        leftData.anim = finder.LeftHand.GetComponentInChildren<Animator>();
+        rightData.anim = finder.RightHand.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -54,10 +61,10 @@ public class VRGrab : MonoBehaviour
 
     void CheckInput(GrabData data)
     {
-        float input = data.controller.Grab.Value;
+        float grabInput = data.controller.Grab.Value;
         if (data.isGrabbing)
         {
-            if (input < releaseThreshold)
+            if (grabInput < releaseThreshold)
             {
                 Release(data);
             }
@@ -69,14 +76,30 @@ public class VRGrab : MonoBehaviour
         }
         else
         {
-            if (input > grabThreshold)
+            if (grabInput > grabThreshold)
             {
                 Grab(data);
             }
         }
 
-        if(data.pistol != null)
+
+        if (data.pistol != null)
         {
+            float indexInput = data.controller.Index.Value;
+
+            data.anim.SetFloat("IndexValue", indexInput);
+
+            if (alreadyShot)
+            {
+                if (indexInput < shootResetThreshold)
+                {
+                    alreadyShot = false;
+                }
+            }
+            else if (indexInput > shootThreshold)
+            {
+                alreadyShot = true;
+            }
 
         }
     }
@@ -131,7 +154,7 @@ public class VRGrab : MonoBehaviour
         data.grabbedObject = gObject;
 
         Pistol pistol = gObject.GetComponent<Pistol>();
-        if(pistol != null)
+        if (pistol != null)
         {
             data.pistol = pistol;
 
