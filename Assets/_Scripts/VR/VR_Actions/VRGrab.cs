@@ -7,9 +7,13 @@ using UnityEngine;
 public class VRGrab : MonoBehaviour
 {
     [SerializeField]
-    float grabThreshold = 0.5f;
+    float grabThreshold = 0.25f;
+    [Tooltip("When the grabbed object is dropped")]
     [SerializeField]
-    float releaseThreshold = 0.25f;
+    float hardReleaseThreshold = 0.2f;
+    [Tooltip("How far the hand has to be open until another grab can be attempted")]
+    [SerializeField]
+    float softReleaseThreshold = 0.5f;
     [SerializeField]
     float shootThreshold = 0.8f;
     [SerializeField]
@@ -64,20 +68,29 @@ public class VRGrab : MonoBehaviour
     void CheckInput(GrabData data)
     {
         float grabInput = data.controller.Grab.Value;
+        data.anim.SetFloat("GrabValue", grabInput);
+
         if (data.isGrabbing)
         {
-            if (grabInput < releaseThreshold)
+            if (grabInput < hardReleaseThreshold)
             {
                 Release(data);
             }
 
-            //Vector3 localForward = finder.RightHand.parent.InverseTransformDirection(data.hand.forward);
             Vector3 localForward = transform.InverseTransformDirection(data.hand.forward);
 
             data.SetVelocity(data.hand.localPosition, localForward, Time.deltaTime);
         }
+        else if (data.hasAttemptedGrab)
+        {
+            if (grabInput < softReleaseThreshold)
+            {
+                data.hasAttemptedGrab = false;
+            }
+        }
         else
         {
+            // Attempt to grab sth.
             if (grabInput > grabThreshold)
             {
                 Grab(data);
@@ -143,6 +156,7 @@ public class VRGrab : MonoBehaviour
 
         if (grabbed == null) // nothing to be grabbed
         {
+            data.hasAttemptedGrab = true;
             return;
         }
 
@@ -194,6 +208,7 @@ public class GrabData
     public VRController controller;
     public Transform hand;
     public bool isGrabbing;
+    public bool hasAttemptedGrab;
     public GrabbableObject grabbedObject;
 
     public Pistol pistol;
