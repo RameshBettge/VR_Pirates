@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SpatialTracking;
 
 
+
 public class VRComponentFinder : MonoBehaviour
 {
     public VRInputLookup lookup;
@@ -11,6 +12,8 @@ public class VRComponentFinder : MonoBehaviour
     public Transform Head { get; private set; }
     public Transform RightHand { get; private set; }
     public Transform LeftHand { get; private set; }
+
+
 
 
     private void Awake()
@@ -25,17 +28,30 @@ public class VRComponentFinder : MonoBehaviour
                     Head = drivers[i].transform;
                     break;
                 case TrackedPoseDriver.TrackedPose.LeftPose:
-                    LeftHand = drivers[i].transform;
+                    if (LeftHand == null)
+                    {
+                        LeftHand = drivers[i].transform;
+                    }
+                    else
+                    {
+                        Debug.LogError("Left VR controller found twice!");
+                    }
                     break;
                 case TrackedPoseDriver.TrackedPose.RightPose:
-                    RightHand = drivers[i].transform;
+                    if (RightHand == null)
+                    {
+                        RightHand = drivers[i].transform;
+                    }
+                    else
+                    {
+                        Debug.LogError("Right VR controller found twice!");
+                    }
                     break;
                 default:
                     break;
             }
         }
-
-        if(Head == null)
+        if (Head == null)
         {
             LogMissingError("Head");
         }
@@ -54,3 +70,6 @@ public class VRComponentFinder : MonoBehaviour
         Debug.LogError("VR component '" + partname + "' could not be found.");
     }
 }
+
+
+
