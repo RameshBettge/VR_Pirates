@@ -51,6 +51,8 @@ public class VRGrab : MonoBehaviour
 
         leftData.anim = finder.LeftHand.GetComponentInChildren<Animator>();
         rightData.anim = finder.RightHand.GetComponentInChildren<Animator>();
+
+        leftData.isLeft = true;
     }
 
     private void Update()
@@ -149,7 +151,7 @@ public class VRGrab : MonoBehaviour
         grabbed.transform.parent = data.hand;
         grabbed.localPosition = Vector3.zero;
 
-        gObject.OnGrab();
+        gObject.OnGrab(data);
 
         data.grabbedObject = gObject;
 
@@ -185,6 +187,8 @@ public class VRGrab : MonoBehaviour
 [System.Serializable]
 public class GrabData
 {
+    public bool isLeft;
+
     public Animator anim;
 
     public VRController controller;

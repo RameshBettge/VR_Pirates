@@ -6,6 +6,7 @@ using UnityEditor;
 
 // TODO: (optional) disable collider when grabbed until directly after it is released.
 // TODO: put inspector in own file
+// TODO: sometimes applying angular velocity on thrown objects isn't working properly, fix it. It seems like it only occurs around the forward-axis.
 
 [RequireComponent(typeof(Rigidbody))]
 public class GrabbableObject : MonoBehaviour
@@ -26,10 +27,13 @@ public class GrabbableObject : MonoBehaviour
     [SerializeField]
     float extraGravity = 40f;
 
-    
-    public bool setRotOnGrab = false;
+
+    public bool setRotationOnGrab = false;
+    public bool setPositionOnGrab = false;
     [HideInInspector]
     public Vector3 defaultRot;
+    [HideInInspector]
+    public Vector3 defaultPos;
 
 
     [HideInInspector]
@@ -69,11 +73,23 @@ public class GrabbableObject : MonoBehaviour
         rb.AddForce(Vector3.down * Time.deltaTime * extraGravity);
     }
 
-    public void OnGrab()
+    public void OnGrab(GrabData data)
     {
-        if (setRotOnGrab)
+
+        if (setRotationOnGrab)
         {
             transform.localEulerAngles = defaultRot;
+        }
+        if (setPositionOnGrab)
+        {
+            Vector3 newPos = defaultPos;
+
+            if (data.isLeft)
+            {
+                newPos.x *= -1f;
+            }
+
+            transform.localPosition = newPos;
         }
 
         rb.isKinematic = true;
@@ -116,12 +132,22 @@ public class GrabbableObjectInspector : Editor
 
         GrabbableObject script = (GrabbableObject)target;
 
-        if (script.setRotOnGrab)
+        if (script.setRotationOnGrab)
         {
-            Vector3 newRot = EditorGUILayout.Vector3Field("Default Rot",script.defaultRot);
-            if(newRot != script.defaultRot)
+            Vector3 newRot = EditorGUILayout.Vector3Field("Default Rot", script.defaultRot);
+            if (newRot != script.defaultRot)
             {
                 script.defaultRot = newRot;
+                EditorUtility.SetDirty(target);
+            }
+        }
+        if (script.setPositionOnGrab)
+        {
+
+            Vector3 newPos = EditorGUILayout.Vector3Field("Default Pos", script.defaultPos);
+            if (newPos != script.defaultPos)
+            {
+                script.defaultPos = newPos;
                 EditorUtility.SetDirty(target);
             }
         }
