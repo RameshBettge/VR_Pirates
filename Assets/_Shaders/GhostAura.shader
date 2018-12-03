@@ -13,11 +13,11 @@
 		_BlendScrollX ("BlendScroll X", Range(0.01, 10)) = 1
 		_BlendScrollY ("BlendScroll Y", Range(0.01, 10)) = 1
 
-		_ViewWeight("View Weight", Range(0, 1)) = 0.25
+		_MaxViewWeight("Max View Weight", Range(0, 1)) = 0.25
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent+1"}
+		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
 		LOD 100
 
 		Pass
@@ -58,7 +58,7 @@
 			float _BlendScrollX;
 			float _BlendScrollY;
 
-			float _ViewWeight;
+			float _MaxViewWeight;
 			
 			v2f vert (appdata v)
 			{
@@ -82,14 +82,12 @@
 
 				float localNoiseA = tex2D(_NoiseTex, localUV);
 				float viewNoiseA = tex2D(_NoiseTex, viewUV);
-				//fixed4 col = tex2D(_NoiseTex, i.uv);
 				fixed4 col = _Color;
 
-				//col.a *= (viewNoiseA * _ViewWeight) + (localNoiseA * (1 - _ViewWeight)); // permanent weight method
-
 				float noiseBlending = tex2D(_NoiseTex, i.viewPos.xy + blendTimeOffset);
-				col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
+				noiseBlending = min(noiseBlending, _MaxViewWeight);
 				col.rgb = _Color * noiseBlending + _Color2*(1-noiseBlending);
+				col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
 				col.a *= 2;
 
 
