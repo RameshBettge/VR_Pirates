@@ -13,7 +13,7 @@
 		_BlendScrollX ("BlendScroll X", Range(0.01, 10)) = 1
 		_BlendScrollY ("BlendScroll Y", Range(0.01, 10)) = 1
 
-		_MaxViewWeight("Max View Weight", Range(0, 1)) = 0.25
+		_MaxSecondaryWeight("Max Secondary Weight", Range(0, 1)) = 0.25
 	}
 	SubShader
 	{
@@ -45,6 +45,9 @@
 				float4 vertex : SV_POSITION;
 				float4 localPos : TEXCOORD1;
 				float3 viewPos : TEXCOORD2;
+
+				float3 normal : TEXCOORD3;
+				float3 worldPos : TEXCOORD4;
 			};
 
 			sampler2D _NoiseTex;
@@ -58,7 +61,7 @@
 			float _BlendScrollX;
 			float _BlendScrollY;
 
-			float _MaxViewWeight;
+			float _MaxSecondaryWeight;
 			
 			v2f vert (appdata v)
 			{
@@ -68,6 +71,10 @@
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.viewPos = UnityObjectToViewPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _NoiseTex);
+
+				o.normal = UnityObjectToWorldNormal(v.normal);
+				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+
 				return o;
 			}
 			
@@ -81,13 +88,22 @@
 
 
 				float localNoiseA = tex2D(_NoiseTex, localUV);
-				float viewNoiseA = tex2D(_NoiseTex, viewUV);
+
 				fixed4 col = _Color;
 
-				float noiseBlending = tex2D(_NoiseTex, i.viewPos.xy + blendTimeOffset);
-				noiseBlending = min(noiseBlending, _MaxViewWeight);
+				// Effect based on fragment position in view - commented out because worldCoords are used.
+				//float viewNoiseA = tex2D(_NoiseTex, viewUV);
+				//float noiseBlending = tex2D(_NoiseTex, i.viewPos.xy + blendTimeOffset);
+				//col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
+
+				// Effect based on world position
+				float worldNoiseA = tex2D(_NoiseTex, i.worldPos.xy);
+				float noiseBlending = tex2D(_NoiseTex, float2(i.worldPos.x + i.worldPos.z, i.worldPos.y) + blendTimeOffset);
+				noiseBlending = min(noiseBlending, _MaxSecondaryWeight);
+				col.a *= (worldNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
+
+
 				col.rgb = _Color * noiseBlending + _Color2*(1-noiseBlending);
-				col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
 				col.a *= 2;
 
 

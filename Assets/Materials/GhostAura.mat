@@ -78,8 +78,8 @@ Material:
     - Vector1_E26763D5: 0
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlendScrollX: 0.15
-    - _BlendScrollY: 0.33
+    - _BlendScrollX: 0.99
+    - _BlendScrollY: 1.63
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -88,6 +88,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxSecondaryWeight: 0.297
+    - _MaxViewWeight: 0.243
     - _Metallic: 0
     - _NoiseScrollX: 2.81
     - _NoiseScrollY: 2.56
