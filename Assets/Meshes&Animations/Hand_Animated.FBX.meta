@@ -248,7 +248,7 @@ ModelImporter:
       name: GunGrab
       takeName: Take 001
       firstFrame: 22
-      lastFrame: 26
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -275,8 +275,8 @@ ModelImporter:
     - serializedVersion: 16
       name: GunHold
       takeName: Take 001
-      firstFrame: 26
-      lastFrame: 26.1
+      firstFrame: 25
+      lastFrame: 25.1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

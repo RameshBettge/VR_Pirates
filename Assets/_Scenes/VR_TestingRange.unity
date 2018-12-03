@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c494de98da141fa409b150f39ad1f26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabThreshold: 0.5
+  grabThreshold: 0.3
   hardReleaseThreshold: 0.2
   softReleaseThreshold: 0.5
   shootThreshold: 0.8
