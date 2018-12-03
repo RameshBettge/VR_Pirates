@@ -14,6 +14,8 @@
 		_BlendScrollY ("BlendScroll Y", Range(0.01, 10)) = 1
 
 		_MaxSecondaryWeight("Max Secondary Weight", Range(0, 1)) = 0.25
+
+		_NoiseSize("Noise Size Multiplier", Range(0.01, 1)) = 0.1
 	}
 	SubShader
 	{
@@ -62,6 +64,7 @@
 			float _BlendScrollY;
 
 			float _MaxSecondaryWeight;
+			float _NoiseSize;
 			
 			v2f vert (appdata v)
 			{
@@ -84,21 +87,26 @@
 
 				float2 noiseTimeOffset = float2(_NoiseScrollX, _NoiseScrollY) * _Time.x;
 				float2 localUV = noiseTimeOffset + float2(i.localPos.x + i.localPos.z, i.localPos.y);
-				float2 viewUV = noiseTimeOffset + i.viewPos.xy;
 
+				localUV *= _NoiseSize;
 
 				float localNoiseA = tex2D(_NoiseTex, localUV);
+
 
 				fixed4 col = _Color;
 
 				// Effect based on fragment position in view - commented out because worldCoords are used.
+				//viewUV *= _NoiseSize;
+				//float2 viewUV = noiseTimeOffset + i.viewPos.xy;
 				//float viewNoiseA = tex2D(_NoiseTex, viewUV);
 				//float noiseBlending = tex2D(_NoiseTex, i.viewPos.xy + blendTimeOffset);
 				//col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
 
 				// Effect based on world position
-				float worldNoiseA = tex2D(_NoiseTex, i.worldPos.xy);
-				float noiseBlending = tex2D(_NoiseTex, float2(i.worldPos.x + i.worldPos.z, i.worldPos.y) + blendTimeOffset);
+				float2 worldUV = float2(i.worldPos.x + i.worldPos.z, i.worldPos.y);
+				worldUV *= _NoiseSize;
+				float worldNoiseA = tex2D(_NoiseTex, worldUV * _NoiseSize);
+				float noiseBlending = tex2D(_NoiseTex, worldUV + blendTimeOffset);
 				noiseBlending = min(noiseBlending, _MaxSecondaryWeight);
 				col.a *= (worldNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
 
