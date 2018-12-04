@@ -5,7 +5,7 @@
 		_NoiseTex ("Noise", 2D) = "white" {}
 		_Color ("Color", color) = (1, 1, 1, 1)
 		_Color2 ("Color2", color) = (1, 1, 1, 1)
-		_Thickness ("Thickness", Range(0.01, 0.2)) = 0.5
+		_Thickness ("Thickness", float) = 0.5
 
 		_NoiseScrollX ("NoiseScroll X", Range(0.01, 10)) = 1
 		_NoiseScrollY ("NoiseScroll Y", Range(0.01, 10)) = 1
@@ -16,15 +16,17 @@
 		_MaxSecondaryWeight("Max Secondary Weight", Range(0, 1)) = 0.25
 
 		_NoiseSize("Noise Size Multiplier", Range(0.01, 1)) = 0.1
+
+		_Smoothness("Smoothness", float) = 3
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
+		Tags { "RenderType"="Transparent" "Queue"="Transparent+1"}
 		LOD 100
 
 		Pass
 		{
-			Cull Front
+			Cull Back
 			ZWrite Off
 			blend SrcAlpha OneMinusSrcAlpha // TODO: experiment with kinds of blending
 
@@ -65,18 +67,19 @@
 
 			float _MaxSecondaryWeight;
 			float _NoiseSize;
+			float _Smoothness;
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
+				o.normal = UnityObjectToWorldNormal(v.normal);
+				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 				v.vertex += (v.normal * _Thickness);
 				o.localPos = v.vertex;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.viewPos = UnityObjectToViewPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _NoiseTex);
 
-				o.normal = UnityObjectToWorldNormal(v.normal);
-				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 
 				return o;
 			}
@@ -113,6 +116,17 @@
 
 				col.rgb = _Color * noiseBlending + _Color2*(1-noiseBlending);
 				col.a *= 2;
+
+
+				// ADDING FADE-OUT TO THE SIDES (UNFUNCTIONAL)
+
+				float3 viewDir = normalize(_WorldSpaceCameraPos.xyz -
+				i.worldPos.xyz);
+				float NdotV = max(0,dot(i.normal, viewDir));
+				float alpha = ((0.5 * NdotV + 0.5));
+
+				col.a *= pow(alpha, _Smoothness);
+				//col.rgb = float3(0, 0, 0);
 
 
 				return col;
