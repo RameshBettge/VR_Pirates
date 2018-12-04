@@ -53,8 +53,8 @@ public class VRGrab : MonoBehaviour
         leftData.hand = finder.LeftHand;
         rightData.hand = finder.RightHand;
 
-        leftData.anim = finder.LeftHand.GetComponentInChildren<Animator>();
-        rightData.anim = finder.RightHand.GetComponentInChildren<Animator>();
+        leftData.anims = finder.LeftHand.GetComponentsInChildren<Animator>();
+        rightData.anims = finder.RightHand.GetComponentsInChildren<Animator>();
 
         leftData.isLeft = true;
     }
@@ -68,7 +68,10 @@ public class VRGrab : MonoBehaviour
     void CheckInput(GrabData data)
     {
         float grabInput = data.controller.Grab.Value;
-        data.anim.SetFloat("GrabValue", grabInput);
+        for (int i = 0; i < 2; i++)
+        {
+            data.anims[i].SetFloat("GrabValue", grabInput);
+        }
 
         if (data.isGrabbing)
         {
@@ -102,7 +105,10 @@ public class VRGrab : MonoBehaviour
         {
             float indexInput = data.controller.Index.Value;
 
-            data.anim.SetFloat("IndexValue", indexInput);
+            for (int i = 0; i < 2; i++)
+            {
+                data.anims[i].SetFloat("IndexValue", indexInput);
+            }
 
             if (alreadyShot)
             {
@@ -174,7 +180,10 @@ public class VRGrab : MonoBehaviour
         {
             data.pistol = pistol;
 
-            data.anim.SetBool("Pistol", true);
+            for (int i = 0; i < 2; i++)
+            {
+                data.anims[i].SetBool("Pistol", true);
+            }
         }
         else
         {
@@ -203,7 +212,7 @@ public class GrabData
 {
     public bool isLeft;
 
-    public Animator anim;
+    public Animator[] anims;
 
     public VRController controller;
     public Transform hand;
@@ -292,7 +301,10 @@ public class GrabData
         AverageMovement = Vector3.zero;
         AverageRotation = Vector3.zero;
 
-        anim.SetBool("Pistol", false);
+        for (int i = 0; i < 2; i++)
+        {
+            anims[i].SetBool("Pistol", false);
+        }
         // TODO: reset all other bools;
 
         pistol = null;

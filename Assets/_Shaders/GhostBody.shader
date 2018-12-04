@@ -13,7 +13,7 @@
 		Pass
 		{
 			Cull Back
-			ZWrite On
+			ZWrite Off
 			blend SrcAlpha OneMinusSrcAlpha // TODO: experiment with kinds of blending
 
 			CGPROGRAM
