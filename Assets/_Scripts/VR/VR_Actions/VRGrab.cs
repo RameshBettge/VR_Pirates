@@ -37,7 +37,6 @@ public class VRGrab : MonoBehaviour
     public GrabData leftData;
     public GrabData rightData;
 
-    bool alreadyShot = false;
 
     private void Start()
     {
@@ -67,7 +66,7 @@ public class VRGrab : MonoBehaviour
 
     void CheckInput(GrabData data)
     {
-        float grabInput = data.controller.Grab.Value;
+        float grabInput = Mathf.Abs(data.controller.Grab.Value);
         for (int i = 0; i < 2; i++)
         {
             data.anims[i].SetFloat("GrabValue", grabInput);
@@ -103,23 +102,26 @@ public class VRGrab : MonoBehaviour
 
         if (data.pistol != null)
         {
-            float indexInput = data.controller.Index.Value;
+            float indexInput = Mathf.Abs(data.controller.Index.Value);
 
             for (int i = 0; i < 2; i++)
             {
                 data.anims[i].SetFloat("IndexValue", indexInput);
             }
 
-            if (alreadyShot)
+            if (data.alreadyShot)
             {
                 if (indexInput < shootResetThreshold)
                 {
-                    alreadyShot = false;
+                    Debug.Log("ShootReset: " + indexInput);
+                    data.alreadyShot = false;
                 }
             }
             else if (indexInput > shootThreshold)
             {
-                alreadyShot = true;
+                data.pistol.Shoot();
+                Debug.Log("Shoot: " + indexInput);
+                data.alreadyShot = true;
             }
 
         }
@@ -210,6 +212,7 @@ public class VRGrab : MonoBehaviour
 [System.Serializable]
 public class GrabData
 {
+    public bool alreadyShot = true;
     public bool isLeft;
 
     public Animator[] anims;
