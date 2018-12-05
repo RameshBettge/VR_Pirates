@@ -66,7 +66,7 @@ public class VRGrab : MonoBehaviour
 
     void CheckInput(GrabData data)
     {
-        float grabInput = Mathf.Abs(data.controller.Grab.Value);
+        float grabInput = data.controller.Grab.Value;
         for (int i = 0; i < 2; i++)
         {
             data.anims[i].SetFloat("GrabValue", grabInput);
@@ -102,7 +102,7 @@ public class VRGrab : MonoBehaviour
 
         if (data.pistol != null)
         {
-            float indexInput = Mathf.Abs(data.controller.Index.Value);
+            float indexInput = data.controller.Index.Value;
 
             for (int i = 0; i < 2; i++)
             {

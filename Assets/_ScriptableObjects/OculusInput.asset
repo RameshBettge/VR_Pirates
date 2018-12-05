@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
     thumbXInverted: 0
     thumbY: 2
     thumbYInverted: 1
-    index: 3
+    index: 8
     indexInverted: 1
     grab: 11
     grabInverted: 0
@@ -102,11 +102,11 @@ MonoBehaviour:
     Thumb_Press:
       button: 338
     Index:
-      name: Axis3
+      name: Axis8
       inverted: 1
     Index_Touch:
       button: 344
     Grab:
       name: Axis11
       inverted: 0
-  LastApplied: 11/27/2018 - 2:23 PM
+  LastApplied: 12/5/2018 - 1:53 PM
