@@ -72,8 +72,8 @@ MonoBehaviour:
     thumbXInverted: 0
     thumbY: 2
     thumbYInverted: 1
-    index: 8
-    indexInverted: 1
+    index: 9
+    indexInverted: 0
     grab: 11
     grabInverted: 0
     Button1:
@@ -102,11 +102,11 @@ MonoBehaviour:
     Thumb_Press:
       button: 338
     Index:
-      name: Axis8
-      inverted: 1
+      name: Axis9
+      inverted: 0
     Index_Touch:
       button: 344
     Grab:
       name: Axis11
       inverted: 0
-  LastApplied: 12/5/2018 - 1:53 PM
+  LastApplied: 12/5/2018 - 1:58 PM
