@@ -299,6 +299,12 @@ public class VRInputSetup : MonoBehaviour
         }
     }
 
+    public string HandStatus()
+    {
+        return Controller == Hand.Left ? "Left" : "Right";
+    }
+
+#if UNITY_EDITOR
     public void DisplayManual()
     {
         string message =
@@ -366,10 +372,6 @@ public class VRInputSetup : MonoBehaviour
         }
     }
 
-    public string HandStatus()
-    {
-        return Controller == Hand.Left ? "Left" : "Right";
-    }
 
 
 
@@ -387,6 +389,7 @@ public class VRInputSetup : MonoBehaviour
             SwitchController();
         }
     }
+#endif
 
     public void SwitchController()
     {

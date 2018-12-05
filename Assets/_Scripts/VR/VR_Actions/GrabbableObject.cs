@@ -120,7 +120,7 @@ public class GrabbableObject : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 [ExecuteInEditMode]
 [CanEditMultipleObjects]
 [CustomEditor(typeof(GrabbableObject))]
@@ -154,3 +154,4 @@ public class GrabbableObjectInspector : Editor
     }
 
 }
+#endif

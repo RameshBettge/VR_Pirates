@@ -21,7 +21,7 @@ public class VRInputLookup : ScriptableObject
 }
 
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(VRInputLookup))]
 public class VRControllerEditor : Editor
 {
@@ -43,3 +43,4 @@ public class VRControllerEditor : Editor
         }
     }
 }
+#endif
