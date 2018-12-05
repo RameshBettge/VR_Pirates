@@ -23,6 +23,9 @@ public class PC_Floater : MonoBehaviour {
         head = transform.GetComponentInChildren<Camera>().transform;
 
         sqrMaxSpeed = maxSpeed * maxSpeed;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
