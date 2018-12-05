@@ -78,9 +78,15 @@ Material:
     - Vector1_E26763D5: 0
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlendScrollX: 0.99
-    - _BlendScrollY: 1.63
+    - _BlendScrollX: 4.8
+    - _BlendScrollX2: -3
+    - _BlendScrollY: 6.5
+    - _BlendScrollY2: 1
     - _BumpScale: 1
+    - _ColorScrollX: 2.1
+    - _ColorScrollX2: -2.8
+    - _ColorScrollY: 1.4
+    - _ColorScrollY2: 1.6
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -88,22 +94,27 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MaxSecondaryWeight: 0.46
+    - _MaxSecondaryWeight: 1
     - _MaxViewWeight: 0.243
+    - _MaxVisibility: 0.319
     - _Metallic: 0
-    - _NoiseScrollX: 2.81
-    - _NoiseScrollY: 2.56
-    - _NoiseSize: 0.532
+    - _NoiseScrollX: 2
+    - _NoiseScrollX2: -2.3
+    - _NoiseScrollY: -0.7
+    - _NoiseScrollY2: 3.3
+    - _NoiseSize: 1
+    - _NoiseWorldUVMultiplier: 1.34
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _PatchSize: 12.8
     - _ScrollX: 2
     - _ScrollY: 2
-    - _Smoothness: 2
+    - _Smoothness: 4
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thickness: 0.0005
+    - _Thickness: 0.001
     - _UVSec: 0
     - _ViewWeight: 0
     - _WorkflowMode: 1
@@ -113,7 +124,7 @@ Material:
     - Vector2_9F5DD802: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _AuraColor: {r: 0.40610534, g: 0.6238224, b: 0.735849, a: 1}
     - _BodyColor: {r: 1, g: 0.3066036, b: 0.3066036, a: 1}
-    - _Color: {r: 0.9316038, g: 0.8632076, b: 1, a: 1}
-    - _Color2: {r: 0.31470278, g: 0.18049121, b: 0.9811321, a: 1}
+    - _Color: {r: 1, g: 0.808275, b: 0.6745283, a: 1}
+    - _Color2: {r: 0.49056602, g: 0, b: 0.47525102, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

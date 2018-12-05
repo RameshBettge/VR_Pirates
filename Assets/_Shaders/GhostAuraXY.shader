@@ -1,4 +1,4 @@
-﻿Shader "Custom/GhostAura"
+﻿Shader "Custom/GhostAuraXY"
 {
 	Properties
 	{
@@ -11,7 +11,7 @@
 		_MaxVisibility("Maximal visibility", Range(0.01, 1)) = 0.8
 
 		// NOTE: this could be used to create a spawn effect. Slide this from 0 to 100 and then put in the actual texture of the enemy behind it. Then slide it back to 0.
-		_PatchSize("Patch Size", range(0.1, 10)) = 2
+		_PatchSize("Patch Size", range(0.1, 50)) = 2
 
 		_Thickness ("Thickness", float) = 0.5
 
@@ -24,15 +24,14 @@
 
 		[Space(10)]
 
-		_BlendScrollX ("BlendScroll X", Range(-10, 10)) = 1
-		_BlendScrollY ("BlendScroll Y", Range(-10, 10)) = 1
+		_ColorScrollX ("ColorScroll X", Range(-10, 10)) = 1
+		_ColorScrollY ("ColorScroll Y", Range(-10, 10)) = 1
+		_ColorScrollX2 ("ColorScroll X2", Range(-10, 10)) = 1
+		_ColorScrollY2 ("ColorScroll Y2", Range(-10, 10)) = 1
 
 		[Space(20)]
 
-		_MaxSecondaryWeight("Max Secondary Weight", Range(0, 1)) = 0.25
-
 		_NoiseSize("Noise Size Multiplier", Range(0.01, 1)) = 0.1
-		_NoiseWorldUVMultiplier("NoiseWorldUVMultiplier", float) = 1
 
 		_Smoothness("Smoothness", float) = 3
 	}
@@ -65,7 +64,6 @@
 				float2 uv : TEXCOORD0;
 				float4 vertex : SV_POSITION;
 				float4 localPos : TEXCOORD1;
-				float3 viewPos : TEXCOORD2;
 
 				float3 normal : TEXCOORD3;
 				float3 worldPos : TEXCOORD4;
@@ -85,13 +83,14 @@
 			float _NoiseScrollY2;
 
 
-			float _BlendScrollX;
-			float _BlendScrollY;
+			float _ColorScrollX;
+			float _ColorScrollY;
+			float _ColorScrollX2;
+			float _ColorScrollY2;
 
-			float _MaxSecondaryWeight;
+			//float _MaxSecondaryWeight;
 			float _NoiseSize;
 			float _Smoothness;
-			float _NoiseWorldUVMultiplier;
 			
 			v2f vert (appdata v)
 			{
@@ -101,7 +100,6 @@
 				v.vertex += (v.normal * _Thickness);
 				o.localPos = v.vertex;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.viewPos = UnityObjectToViewPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _NoiseTex);
 
 
@@ -110,41 +108,32 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float2 blendTimeOffset = float2(_BlendScrollX, _BlendScrollY) * _Time.x;
+				float2 localUV = float2(i.localPos.x, i.localPos.y);
+
+				float2 colorBlendTimeOffset = float2(_ColorScrollX, _ColorScrollY) * _Time.x;
+				float2 colorBlendTimeOffset2 = float2(_ColorScrollX2, _ColorScrollY2) * _Time.x;
 
 				float2 noiseTimeOffset = float2(_NoiseScrollX, _NoiseScrollY) * _Time.x;
 				float2 noiseTimeOffset2 = float2(_NoiseScrollX2, _NoiseScrollY2) * _Time.x;
-				float2 localUV = noiseTimeOffset + float2(i.localPos.x, i.localPos.y);
-				float2 localUV2 = noiseTimeOffset2 + float2(i.localPos.x, i.localPos.y);
+				float2 localUV1= noiseTimeOffset + localUV;
+				float2 localUV2 = noiseTimeOffset2 + localUV;
 
-				localUV *= _NoiseSize;
+				localUV1*= _NoiseSize;
 
-				float localNoiseA = (tex2D(_NoiseTex, localUV) + tex2D(_NoiseTex, localUV2)) * _PatchSize;
-				
-
-
+				float localNoiseA = (tex2D(_NoiseTex, localUV) * tex2D(_NoiseTex, localUV2)) * _PatchSize;
 
 				fixed4 col = _Color;
 
-				// Effect based on fragment position in view - commented out because worldCoords are used.
-				//viewUV *= _NoiseSize;
-				//float2 viewUV = noiseTimeOffset + i.viewPos.xy;
-				//float viewNoiseA = tex2D(_NoiseTex, viewUV);
-				//float noiseBlending = tex2D(_NoiseTex, i.viewPos.xy + blendTimeOffset);
-				//col.a *= (viewNoiseA * noiseBlending) + (localNoiseA * (1 - noiseBlending)); 
-
-				// Effect based on world position
-				float2 worldUV = float2(i.worldPos.x + i.worldPos.z, i.worldPos.y);
-				worldUV *= _NoiseSize * _NoiseWorldUVMultiplier;
-				float worldNoiseA = tex2D(_NoiseTex, worldUV * _NoiseSize);
-				float noiseBlending = tex2D(_NoiseTex, worldUV + blendTimeOffset);
-				noiseBlending = min(noiseBlending, _MaxSecondaryWeight);
-
-				col.a *= (worldNoiseA * noiseBlending) * (localNoiseA * (1 - noiseBlending) * 10); 
+				// Blend Colors
+				float2 localUV3 = localUV + colorBlendTimeOffset;
+				float2 localUV4 = localUV + colorBlendTimeOffset2;
+				float colorBlending = tex2D(_NoiseTex, localUV3) * tex2D(_NoiseTex, localUV);
 
 
-				col.rgb = _Color * noiseBlending + _Color2*(1-noiseBlending);
-				col.a *= 2;
+
+				col.rgb = _Color * colorBlending + _Color2*(1-colorBlending);
+
+				col.a = localNoiseA;
 
 
 				// ADDING FADE-OUT TO THE SIDES (UNFUNCTIONAL)
