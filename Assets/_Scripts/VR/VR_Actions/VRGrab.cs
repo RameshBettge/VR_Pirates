@@ -113,14 +113,14 @@ public class VRGrab : MonoBehaviour
             {
                 if (indexInput < shootResetThreshold)
                 {
-                    Debug.Log("ShootReset: " + indexInput);
+                    //Debug.Log("ShootReset: " + indexInput);
                     data.alreadyShot = false;
                 }
             }
             else if (indexInput > shootThreshold)
             {
                 data.pistol.Shoot();
-                Debug.Log("Shoot: " + indexInput);
+                //Debug.Log("Shoot: " + indexInput);
                 data.alreadyShot = true;
             }
 

@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class TeleportMovement : MonoBehaviour
 {
+    enum TeleportHand { Left, Right, Both }
     [SerializeField]
-    Renderer line;
+    TeleportHand teleportHand;
+
+    [SerializeField]
+    Renderer rightLine;
+
+    [SerializeField]
+    Renderer leftLine;
 
     public VRInputLookup VRInput;
 
@@ -29,12 +36,16 @@ public class TeleportMovement : MonoBehaviour
     Color lineColorUnable;
 
     [SerializeField]
-    ButtonPicker TeleportDisplayButton;
-    InputButton teleDisplayButton;
+    VRButton teleportDisplay;
+    //ButtonPicker TeleportDisplayButton;
+    InputButton teleDisplayButtonL;
+    InputButton teleDisplayButtonR;
 
     [SerializeField]
-    ButtonPicker TeleportButton;
-    InputButton teleportButton;
+    VRButton teleport;
+    //ButtonPicker TeleportButton;
+    InputButton teleportButtonL;
+    InputButton teleportButtonR;
 
     [SerializeField]
     AxisPicker TurnAxis;
@@ -45,7 +56,8 @@ public class TeleportMovement : MonoBehaviour
 
     bool turnedRight;
     bool turnedLeft;
-    bool teleported;
+    bool teleportedL;
+    bool teleportedR;
 
     public float debugF;
 
@@ -61,25 +73,50 @@ public class TeleportMovement : MonoBehaviour
         handScale = finder.RightHand.transform.lossyScale.x;
         VRInput = finder.lookup;
 
-        teleDisplayButton = TeleportDisplayButton.GetButton(VRInput);
-        teleportButton = TeleportButton.GetButton(VRInput);
+
+        //teleDisplayButton = TeleportDisplayButton.GetButton(VRInput);
+        //teleportButton = TeleportButton.GetButton(VRInput);
         turnAxis = TurnAxis.GetAxis(VRInput);
 
-        Vector3 lineScale = line.transform.localScale;
+        Vector3 lineScale = rightLine.transform.localScale;
         lineScale.y = lineLength;
-        line.transform.localScale = lineScale;
+        rightLine.transform.localScale = lineScale;
+        leftLine.transform.localScale = lineScale;
 
+        rightLine.enabled = false;
+        leftLine.enabled = false;
     }
 
     private void Update()
     {
-        Teleportation();
+        // Enable teleporting for the hand(s) which is specified by teleportHand-enum
+        switch (teleportHand)
+        {
+            case TeleportHand.Left:
+                teleportedL = Teleportation(true, VRInput, teleportedL);
+                break;
+            case TeleportHand.Right:
+                teleportedR = Teleportation(false, VRInput, teleportedR);
+                break;
+            case TeleportHand.Both:
+                teleportedL = Teleportation(true, VRInput, teleportedL);
+                teleportedR = Teleportation(false, VRInput, teleportedR);
+                break;
+            default:
+                break;
+        }
+
         Turn();
 
     }
 
-    private void Teleportation()
+    private bool Teleportation(bool left, VRInputLookup l, bool teleported)
     {
+        Renderer line = left ? leftLine : rightLine;
+
+        InputButton teleDisplayButton = ButtonPicker.GetButton(l, teleportDisplay, left);
+        InputButton teleportButton = ButtonPicker.GetButton(l, teleport, left);
+
         canTeleport = false;
 
         // TODO: don't set shader values if the renderer isn't active anyway
@@ -130,6 +167,8 @@ public class TeleportMovement : MonoBehaviour
         {
             teleported = false;
         }
+
+        return teleported;
     }
 
     private void Turn()
@@ -171,5 +210,6 @@ public class TeleportMovement : MonoBehaviour
                 transform.eulerAngles -= Vector3.up * turnDegrees;
             }
         }
+
     }
 }
