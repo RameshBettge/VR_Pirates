@@ -5,16 +5,25 @@ using UnityEngine;
 
 public class EnemyTotalHealth : MonoBehaviour
 {
+    [HideInInspector]
     public Vector3 bodyScale;
+
+    [HideInInspector]
+    public bool hasLostLimb = false;
 
     int health = 5;
 
     private void Awake()
     {
         bodyScale = transform.localScale;
-    }
 
-    public bool hasLostLimb = false;
+        LimbHealth[] limbs =  GetComponentsInChildren<LimbHealth>();
+        for (int i = 0; i < limbs.Length; i++)
+        {
+            limbs[i].totalHealth = this;
+        }
+    }
+   
 
     public void TakeDamage(int damage)
     {
@@ -27,6 +36,8 @@ public class EnemyTotalHealth : MonoBehaviour
 
     private void Die()
     {
+        // TODO: Call LoseLimb() on all limbs. Also instantiate Head with accessoires, torso and hips.
+
         throw new NotImplementedException();
     }
 }
