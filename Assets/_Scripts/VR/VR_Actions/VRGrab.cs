@@ -93,7 +93,7 @@ public class VRGrab : MonoBehaviour
         else
         {
             // Attempt to grab sth.
-            if (grabInput > grabThreshold)
+            if (grabInput > grabThreshold && !data.isGrabbing)
             {
                 Grab(data);
             }
@@ -139,6 +139,17 @@ public class VRGrab : MonoBehaviour
         for (int i = 0; i < cols.Length; i++)
         {
             gObject = cols[i].GetComponent<GrabbableObject>();
+
+            Transform t = cols[i].transform;
+
+            if (gObject == null)
+            {
+                gObject = cols[i].transform.parent.GetComponent<GrabbableObject>();
+
+                Debug.Log(cols[i].transform.parent.name);
+                t = cols[i].transform.parent;
+            }
+
             if (gObject == null)
             {
                 Debug.LogError("There was no GrabbableObject-component found on " +
@@ -158,9 +169,11 @@ public class VRGrab : MonoBehaviour
             if (sqrDist < leastDistance)
             {
                 leastDistance = sqrDist;
-                grabbed = cols[i].transform;
+                grabbed = t;
             }
         }
+
+
 
         if (grabbed == null) // nothing to be grabbed
         {

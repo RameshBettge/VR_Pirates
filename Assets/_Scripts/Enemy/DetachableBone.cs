@@ -59,6 +59,8 @@ public class DetachableBone : MonoBehaviour
             return;
         }
 
+        // TODO: ADD Force depending on info 
+
         transform.parent = null;
         rb.isKinematic = false;
 

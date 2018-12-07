@@ -36,14 +36,15 @@ public class TeleportMovement : MonoBehaviour
     Color lineColorUnable;
 
     [SerializeField]
+    LayerMask teleportRayMask;
+
+    [SerializeField]
     VRButton teleportDisplay;
-    //ButtonPicker TeleportDisplayButton;
     InputButton teleDisplayButtonL;
     InputButton teleDisplayButtonR;
 
     [SerializeField]
     VRButton teleport;
-    //ButtonPicker TeleportButton;
     InputButton teleportButtonL;
     InputButton teleportButtonR;
 
@@ -73,9 +74,6 @@ public class TeleportMovement : MonoBehaviour
         handScale = finder.RightHand.transform.lossyScale.x;
         VRInput = finder.lookup;
 
-
-        //teleDisplayButton = TeleportDisplayButton.GetButton(VRInput);
-        //teleportButton = TeleportButton.GetButton(VRInput);
         turnAxis = TurnAxis.GetAxis(VRInput);
 
         Vector3 lineScale = rightLine.transform.localScale;
@@ -120,7 +118,7 @@ public class TeleportMovement : MonoBehaviour
         canTeleport = false;
 
         // TODO: don't set shader values if the renderer isn't active anyway
-        if (Physics.Raycast(line.transform.position, line.transform.up * lineLength, out hit))
+        if (Physics.Raycast(line.transform.position, line.transform.up * lineLength, out hit, teleportRayMask))
         {
             line.material.SetFloat("uMaxPos", hit.distance / lineLength / handScale);
 

@@ -41,7 +41,7 @@ public class Skeleton : MonoBehaviour
 
     private void Die(ShotInfo info)
     {
-        // TODO: Also Detach all weapons.
+        // TODO: Make sure all equipped weapons are detached! Stop Celina's logic
 
 
         for (int i = 0; i < bones.Length; i++)

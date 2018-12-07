@@ -46,6 +46,8 @@ public class Limb : MonoBehaviour
 
     public void TakeDamage(ShotInfo info)
     {
+        if (destroyed) { return; }
+
         skeleton.TakeDamage(info);
 
         health -= info.damage;

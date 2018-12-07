@@ -6,9 +6,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ChangeRenderer : MonoBehaviour
+public class RuntimeChanges : MonoBehaviour
 {
-    public void ChangeRenderers()
+    [SerializeField]
+    Rigidbody rbToCopy;
+
+    public void CopyRBSettings()
+    {
+        Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
+
+        for (int i = 0; i < bodies.Length; i++)
+        {
+            bodies[i].drag = rbToCopy.drag;
+            bodies[i].angularDrag = rbToCopy.angularDrag;
+        }
+    }
+
+    public void RuntimeChangess()
     {
 
         SkinnedMeshRenderer[] skinnedRends = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -42,19 +56,27 @@ public class ChangeRenderer : MonoBehaviour
             }
         }
     }
+
+
 }
 
 [ExecuteInEditMode]
-[CustomEditor(typeof(ChangeRenderer))]
-public class ChangeRendererEditor : Editor
+[CustomEditor(typeof(RuntimeChanges))]
+public class RuntimeChangesEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        ChangeRenderer script = (ChangeRenderer)target;
+        RuntimeChanges script = (RuntimeChanges)target;
 
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("Copy RB Settings", GUILayout.Height(25)))
+        {
+            script.CopyRBSettings();
+        }
         if (GUILayout.Button("Change Renderers", GUILayout.Height(25)))
         {
-            script.ChangeRenderers();
+            script.RuntimeChangess();
         }
 
         if (GUILayout.Button("Add RB", GUILayout.Height(25)))
