@@ -7,14 +7,16 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     LayerMask mask;
 
-    float speed = 10;
+    float speed = 10f;
 
-    Vector3 lastPos;
+    Vector3 lastPos = Vector3.zero;
 
     RaycastHit hit;
 
     float lifeTime = 10f;
     float timer;
+
+    int debugInt = 0;
 
     private void Awake()
     {
@@ -29,13 +31,21 @@ public class Bullet : MonoBehaviour
             Destroy(this);
         }
 
+        debugInt++;
+
+
         transform.position += transform.forward * speed * Time.deltaTime;
 
         // Check for collision
         if (lastPos != Vector3.zero)
         {
             Vector3 dir = transform.position - lastPos;
-            if (Physics.Raycast(transform.position, dir, out hit, mask))
+
+            Debug.DrawRay(transform.position, -dir * 100f, Color.red);
+
+            Ray ray = new Ray(transform.position, -dir);
+
+            if (Physics.Raycast(ray, out hit, dir.magnitude))
             {
                 // TODO: check if hit object is an enemy
                 DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
@@ -47,19 +57,18 @@ public class Bullet : MonoBehaviour
                 if(bone != null)
                 {
                     ShotInfo info = new ShotInfo(hit.point, transform.forward, 1f, 10);
+                }
 
-                    Debug.Log("Shot hit: " + hit.collider.transform.parent.name);
-                }
-                else
-                {
-                    Debug.Log("Hit: " + hit.collider.name);
-                }
+
+                //Debug.Log("Hit " + hit.collider.transform.parent.name +" with dir" + dir * 100f +  " on frame " + debugInt);
 
 
                 // TODO: put bullet into pool instead
                 Destroy(gameObject);
                 Destroy(this);
             }
+
+
 
         }
 
