@@ -57,8 +57,9 @@ public class Bullet : MonoBehaviour
 
                 if(bone != null)
                 {
-                    ShotInfo info = new ShotInfo(hit.point, transform.forward, 1f, 10);
+                    ShotInfo info = new ShotInfo(hit.point, transform.forward, 1f, 1);
 
+                    bone.TakeDamage(info);
                     // apply damage to bone
                 }
 

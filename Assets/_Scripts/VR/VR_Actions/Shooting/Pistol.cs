@@ -14,7 +14,7 @@ public class Pistol : MonoBehaviour
 
 
 
-    int magazineSize = 5;
+    int magazineSize = 50;
 
     int bulletsInMagazine;
 
@@ -36,5 +36,22 @@ public class Pistol : MonoBehaviour
 
         bulletsInMagazine--;
         //Debug.Log("pew! bullets left: " + bulletsInMagazine);
+    }
+}
+
+public struct ShotInfo
+{
+    public Vector3 hitPos;
+    public Vector3 shotForward;
+    public float force;
+    public int damage;
+
+
+    public ShotInfo(Vector3 hitPos, Vector3 shotForward, float force, int damage)
+    {
+        this.hitPos = hitPos;
+        this.shotForward = shotForward.normalized;
+        this.force = force;
+        this.damage = damage;
     }
 }

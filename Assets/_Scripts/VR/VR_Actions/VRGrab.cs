@@ -141,7 +141,7 @@ public class VRGrab : MonoBehaviour
             gObject = cols[i].GetComponent<GrabbableObject>();
             if (gObject == null)
             {
-                Debug.LogError("There was no VRInputSetup-component found on " +
+                Debug.LogError("There was no GrabbableObject-component found on " +
                     cols[i].gameObject.name +
                     ", even though it is on layer specified by mask.");
                 return;

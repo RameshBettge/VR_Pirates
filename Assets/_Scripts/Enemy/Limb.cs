@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class Limb : MonoBehaviour
 {
-    [SerializeField]
-    GameObject limbPrefab;
-
-    [SerializeField]
-    Transform CorrespondingRigBone;
-
-    [Tooltip("How many bones' transform should be transformed. Used to avoid adjusting every little finger bone.")]
-    [SerializeField]
-    int transformDepth = 3;
-
     [HideInInspector]
     public Skeleton skeleton;
 
@@ -44,25 +34,26 @@ public class Limb : MonoBehaviour
 
     private void Update()
     {
-        // DEBUGGING
+        //// DEBUGGING
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            destroyed = false;
-            ShotInfo testInfo = new ShotInfo(Vector3.zero, Vector3.right, 1f, 1);
-            LoseLimb(testInfo);
-        }
+        //if (Input.GetButtonDown("Jump"))
+        //{
+        //    destroyed = false;
+        //    ShotInfo testInfo = new ShotInfo(Vector3.zero, Vector3.right, 1f, 1);
+        //    LoseLimb(testInfo);
+        //}
     }
 
     public void TakeDamage(ShotInfo info)
     {
-        skeleton.TakeDamage(info.damage);
+        skeleton.TakeDamage(info);
 
-        health--;
+        health -= info.damage;
 
         if (health < 1 && !skeleton.hasLostLimb)
         {
             LoseLimb(info);
+            skeleton.hasLostLimb = true;
         }
     }
 
