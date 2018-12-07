@@ -19,7 +19,7 @@ TagManager:
   - Grabbable
   - VR_Only
   - PC_Only
-  - Bullet
+  - DEPRECATED
   - Skeleton
   - BulletIgnore
   - 

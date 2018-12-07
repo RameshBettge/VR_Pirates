@@ -41,11 +41,12 @@ public class Bullet : MonoBehaviour
         {
             Vector3 dir = transform.position - lastPos;
 
-            Debug.DrawRay(transform.position, -dir * 100f, Color.red);
+            Debug.DrawRay(transform.position, -dir, Color.red);
 
-            Ray ray = new Ray(transform.position, -dir);
+            Ray ray = new Ray(transform.position, -dir.normalized);
 
-            if (Physics.Raycast(ray, out hit, dir.magnitude))
+            
+            if (Physics.Raycast(ray, out hit, dir.magnitude, mask))
             {
                 // TODO: check if hit object is an enemy
                 DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
@@ -57,10 +58,13 @@ public class Bullet : MonoBehaviour
                 if(bone != null)
                 {
                     ShotInfo info = new ShotInfo(hit.point, transform.forward, 1f, 10);
+
+                    // apply damage to bone
                 }
 
 
-                //Debug.Log("Hit " + hit.collider.transform.parent.name +" with dir" + dir * 100f +  " on frame " + debugInt);
+                //Debug.Log("Hit " + hit.collider.transform.parent.name + " with dir" + dir * 100f + " on frame " + debugInt);
+                //Debug.Log("Hit " + hit.collider.transform.parent.name + " on frame " + debugInt);
 
 
                 // TODO: put bullet into pool instead
