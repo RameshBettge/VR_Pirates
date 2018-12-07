@@ -11,22 +11,57 @@ public class RuntimeChanges : MonoBehaviour
     [SerializeField]
     Rigidbody rbToCopy;
 
+    [Tooltip("Values to copy: maxVelocity, maxAngularVelocity, VelocityFactor, angularVelocityFactor, extraGravity")]
+    [SerializeField]
+    GrabbableObject grabToCopy;
+
     public void CopyRBSettings()
     {
         Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
 
         for (int i = 0; i < bodies.Length; i++)
         {
-            if(bodies[i].gameObject == gameObject) { return; } // Don't set the rigidbody of the skeleton itself.
+            if (bodies[i].gameObject == gameObject) { return; } // Don't set the rigidbody of the skeleton itself.
 
             bodies[i].drag = rbToCopy.drag;
             bodies[i].angularDrag = rbToCopy.angularDrag;
         }
     }
 
-    public void RuntimeChangess()
+    public void CopyGrabbableSettings()
     {
+        GrabbableObject[] grabbables = GetComponentsInChildren<GrabbableObject>();
 
+        for (int i = 0; i < grabbables.Length; i++)
+        {
+            grabbables[i].maxVelocity = grabToCopy.maxVelocity;
+            grabbables[i].maxAngularVelocity = grabToCopy.maxAngularVelocity;
+
+            grabbables[i].velocityFactor = grabToCopy.velocityFactor;
+            grabbables[i].angularVelocityFactor= grabToCopy.angularVelocityFactor;
+            grabbables[i].extraGravity = grabToCopy.extraGravity;
+
+            EditorUtility.SetDirty(grabbables[i]);
+        }
+    }
+
+    public void AddGrabbableObject()
+    {
+        DetachableBone[] bones = GetComponentsInChildren<DetachableBone>();
+
+        for (int i = 0; i < bones.Length; i++)
+        {
+            GrabbableObject grabObj = bones[i].GetComponent<GrabbableObject>();
+
+            if(grabObj == null)
+            {
+                bones[i].gameObject.AddComponent<GrabbableObject>();
+            }
+        }
+    }
+
+    public void ChangeRends()
+    {
         SkinnedMeshRenderer[] skinnedRends = GetComponentsInChildren<SkinnedMeshRenderer>();
         print("total: " + skinnedRends.Length);
 
@@ -39,9 +74,6 @@ public class RuntimeChanges : MonoBehaviour
             gO.AddComponent<MeshRenderer>();
             MeshFilter filter = gO.AddComponent<MeshFilter>();
             filter.mesh = mesh;
-
-
-            //Debug.Log(object.name);
         }
     }
 
@@ -51,9 +83,9 @@ public class RuntimeChanges : MonoBehaviour
 
         for (int i = 0; i < bones.Length; i++)
         {
-            if(bones[i].GetComponent<Rigidbody>() == null)
+            if (bones[i].GetComponent<Rigidbody>() == null)
             {
-                Rigidbody rb =  bones[i].gameObject.AddComponent<Rigidbody>();
+                Rigidbody rb = bones[i].gameObject.AddComponent<Rigidbody>();
                 rb.isKinematic = true;
             }
         }
@@ -76,9 +108,20 @@ public class RuntimeChangesEditor : Editor
         {
             script.CopyRBSettings();
         }
-        if (GUILayout.Button("Change Renderers", GUILayout.Height(25)))
+
+        if (GUILayout.Button("Copy GrabbableObjects Settings", GUILayout.Height(25)))
         {
-            script.RuntimeChangess();
+            script.CopyGrabbableSettings();
+        }
+
+        if (GUILayout.Button("Add Grabbable Object", GUILayout.Height(25)))
+        {
+            script.AddGrabbableObject();
+        }
+
+            if (GUILayout.Button("Change Renderers", GUILayout.Height(25)))
+        {
+            script.ChangeRends();
         }
 
         if (GUILayout.Button("Add RB", GUILayout.Height(25)))

@@ -12,20 +12,20 @@ using UnityEditor;
 public class GrabbableObject : MonoBehaviour
 {
     [SerializeField]
-    bool disabledUntilGrabbed = true;
+    bool disabledUntilGrabbed = false;
 
     [SerializeField]
-    float maxVelocity = 5f;
+    public float maxVelocity = 5f;
     [SerializeField]
-    float velocityFactor = 1.5f;
+    public float velocityFactor = 1.5f;
     [SerializeField]
-    float angularVelocityFactor = 0.5f;
+    public float angularVelocityFactor = 0.5f;
     [SerializeField]
-    float maxAngularVelocity = 10f;
+    public float maxAngularVelocity = 10f;
 
 
     [SerializeField]
-    float extraGravity = 40f;
+    public float extraGravity = 40f;
 
 
     public bool setRotationOnGrab = false;

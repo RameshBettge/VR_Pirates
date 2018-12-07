@@ -138,8 +138,6 @@ public class VRGrab : MonoBehaviour
 
         for (int i = 0; i < cols.Length; i++)
         {
-            print("Col" + i + ": " + cols[i].name + " child of " + cols[i].transform.parent.name);
-
             gObject = cols[i].GetComponent<GrabbableObject>();
 
             Transform t = cols[i].transform;
@@ -148,8 +146,6 @@ public class VRGrab : MonoBehaviour
             {
                 gObject = cols[i].transform.parent.GetComponent<GrabbableObject>();
                 t = cols[i].transform.parent;
-
-                Debug.Log(t.name);
             }
 
             if (gObject == null)
@@ -169,8 +165,6 @@ public class VRGrab : MonoBehaviour
             Vector3 closest = cols[i].ClosestPoint(handPos);
             float sqrDist = (closest - handPos).sqrMagnitude;
 
-            print(sqrDist + " current distance - least distance " + leastDistance);
-
             if (sqrDist < leastDistance)
             {
                 leastDistance = sqrDist;
@@ -183,8 +177,6 @@ public class VRGrab : MonoBehaviour
         if (grabbed == null) // nothing to be grabbed
         {
             data.hasAttemptedGrab = true;
-
-            Debug.Log("Nothing to be grabbed...");
             return;
         }
 
@@ -196,8 +188,6 @@ public class VRGrab : MonoBehaviour
         gObject.OnGrab(data);
 
         data.grabbedObject = gObject;
-
-        Debug.Log("Grabbed Object: " + gObject.name);
 
         Pistol pistol = gObject.GetComponent<Pistol>();
         if (pistol != null)

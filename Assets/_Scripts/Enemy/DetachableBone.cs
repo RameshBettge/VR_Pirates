@@ -84,9 +84,6 @@ public class DetachableBone : MonoBehaviour
 
     void SetGrabbable()
     {
-
-        // TODO: Add GrabbableObject.cs to all bones
-
         if (GetComponent<Collider>() != null)
         {
             gameObject.layer = grabLayer;
