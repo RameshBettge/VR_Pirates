@@ -12,6 +12,8 @@ public class Pistol : MonoBehaviour
     [SerializeField]
     Transform bulletSpawn;
 
+
+
     int magazineSize = 5;
 
     int bulletsInMagazine;

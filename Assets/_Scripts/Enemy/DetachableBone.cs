@@ -5,12 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(Rigidbody))]
 public class DetachableBone : MonoBehaviour
 {
+    public Limb limb;
+
     Rigidbody rb;
     Collider[] cols;
 
     float forceModifier = 100f;
 
-    void Awake()
+    float maxDistance = 1f;
+
+    bool detached;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
@@ -18,7 +24,7 @@ public class DetachableBone : MonoBehaviour
         cols = GetComponentsInChildren<Collider>();
         for (int i = 0; i < cols.Length; i++)
         {
-            cols[i].enabled = false;
+            cols[i].enabled = true;
         }
 
         if(cols.Length < 1)
@@ -27,19 +33,24 @@ public class DetachableBone : MonoBehaviour
         }
     }
 
-    void Update()
+    public void TakeDamage(ShotInfo info)
     {
+        limb.TakeDamage(info);
     }
 
-    public void Detach(Vector3 force)
+    public void Detach(ShotInfo info)
     {
+        if (detached) { return; }
+
         transform.parent = null;
         rb.isKinematic = false;
-        rb.AddForce(force * forceModifier);
 
-        for (int i = 0; i < cols.Length; i++)
-        {
-            cols[i].enabled = true;
-        }
+        Vector3 dist = transform.position - info.hitPos;
+
+
+
+        //rb.AddForce(force * forceModifier);
+
+        detached = true;
     }
 }

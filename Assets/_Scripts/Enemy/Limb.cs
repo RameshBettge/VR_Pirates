@@ -31,9 +31,14 @@ public class Limb : MonoBehaviour
         bones = GetComponentsInChildren<DetachableBone>();
 
         Renderer rend = GetComponent<Renderer>();
-        if(rend != null)
+        if (rend != null)
         {
             Debug.LogWarning(name + "(Limb) has a renderer attached. A limb should always be the bone of a rig!");
+        }
+
+        for (int i = 0; i < bones.Length; i++)
+        {
+            bones[i].limb = this;
         }
     }
 
@@ -68,7 +73,7 @@ public class Limb : MonoBehaviour
         // unparent all bones. set their rigidbody.isKinematic to false. Add force to send them flying
         for (int i = 0; i < bones.Length; i++)
         {
-            bones[i].Detach(Vector3.one);
+            bones[i].Detach(info);
         }
 
         destroyed = true;
