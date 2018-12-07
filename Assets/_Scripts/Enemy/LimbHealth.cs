@@ -7,6 +7,13 @@ public class LimbHealth : MonoBehaviour
     [SerializeField]
     GameObject limbPrefab;
 
+    [SerializeField]
+    Transform CorrespondingRigBone;
+
+    [Tooltip("How many bones' transform should be transformed. Used to avoid adjusting every little finger bone.")]
+    [SerializeField]
+    int transformDepth = 3;
+
     [HideInInspector]
     public EnemyTotalHealth totalHealth;
 
@@ -77,12 +84,12 @@ public class LimbHealth : MonoBehaviour
 
         GameObject seperated = Instantiate(limbPrefab);
 
-        Transform rigBone = transform.GetComponent<SkinnedMeshRenderer>().bones[0];
+        //Transform rigBone = transform.GetComponent<SkinnedMeshRenderer>().bones[0];
         //seperated.transform.position = rigBone.position;
         //seperated.transform.localRotation = rigBone.rotation;
         ////seperated.transform.localEulerAngles += Vector3.up * 180;
 
-        SetSeperatedTransform(transform, seperated.transform);
+        SetSeperatedTransform(CorrespondingRigBone, seperated.transform);
 
         seperated.transform.localScale = totalHealth.bodyScale;
 
@@ -94,25 +101,27 @@ public class LimbHealth : MonoBehaviour
         destroyed = true;
     }
 
-    void SetSeperatedTransform(Transform original, Transform seperated)
+    void SetSeperatedTransform(Transform original, Transform seperated, int currentDepth = 0)
     {
-        Transform rigBone = original.GetComponent<SkinnedMeshRenderer>().bones[0];
+        //Transform rigBone = original.GetComponent<SkinnedMeshRenderer>().bones[0];
 
         //seperated.parent = original.parent;
         //seperated.localScale = Vector3.one;
 
-        //seperated.position = original.localPosition;
-        //seperated.rotation = original.localRotation;
+        seperated.position = original.position;
+        seperated.localRotation = original.localRotation;
 
         //seperated.localPosition = rigBone.position;
         //seperated.localRotation = rigBone.rotation;
 
         //seperated.localScale = Vector3.one;
 
-
-        for (int i = 0; i < original.childCount; i++)
+        if (currentDepth < transformDepth)
         {
-            SetSeperatedTransform(original.GetChild(i), seperated.GetChild(i));
+            for (int i = 0; i < original.childCount; i++)
+            {
+                SetSeperatedTransform(original.GetChild(i), seperated.GetChild(i), currentDepth + 1);
+            }
         }
     }
 }
