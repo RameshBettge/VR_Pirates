@@ -63,12 +63,15 @@ public class DetachableBone : MonoBehaviour
 
         transform.parent = null;
         rb.isKinematic = false;
+        rb.useGravity = true;
 
         Vector3 dist = transform.position - info.hitPos;
 
 
-
-        SetGrabbable(transform);
+        if (GetComponent<GrabbableObject>() != null)
+        {
+            SetGrabbable();
+        }
 
         detached = true;
 
@@ -79,15 +82,19 @@ public class DetachableBone : MonoBehaviour
         // TODO: Implement behaviour if seperated limb is shot again
     }
 
-    void SetGrabbable(Transform t)
+    void SetGrabbable()
     {
 
         // TODO: Add GrabbableObject.cs to all bones
-        t.gameObject.layer = grabLayer;
 
-        for (int i = 0; i < t.childCount; i++)
+        if (GetComponent<Collider>() != null)
         {
-            SetGrabbable(t.GetChild(i));
+            gameObject.layer = grabLayer;
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.layer = grabLayer;
         }
     }
 }

@@ -50,14 +50,16 @@ public class GrabbableObject : MonoBehaviour
         rb.useGravity = false;
         rb.maxAngularVelocity = maxAngularVelocity;
 
+        isGrabbed = false;
 
         //rb.maxAngularVelocity = maxAngularVelocity;
 
         int grabLayer = LayerMask.NameToLayer("Grabbable");
         if (gameObject.layer != grabLayer)
         {
-            gameObject.layer = grabLayer;
-            Debug.LogError(gameObject.name + "'s layer was changed to 'grabbable' - otherwise it couldn't be grabbed.");
+            //gameObject.layer = grabLayer;
+            //Debug.LogError(gameObject.name + "'s layer was changed to 'grabbable' - otherwise it couldn't be grabbed.");
+            Debug.LogWarning(gameObject.name + "'s layer is not set to 'grabbable' - it cannot be grabbed.");
         }
     }
 

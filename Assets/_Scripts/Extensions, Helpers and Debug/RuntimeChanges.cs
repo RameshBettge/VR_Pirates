@@ -17,6 +17,8 @@ public class RuntimeChanges : MonoBehaviour
 
         for (int i = 0; i < bodies.Length; i++)
         {
+            if(bodies[i].gameObject == gameObject) { return; } // Don't set the rigidbody of the skeleton itself.
+
             bodies[i].drag = rbToCopy.drag;
             bodies[i].angularDrag = rbToCopy.angularDrag;
         }
