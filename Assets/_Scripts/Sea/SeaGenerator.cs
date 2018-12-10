@@ -88,20 +88,33 @@ public class SeaGenerator : MonoBehaviour
         int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity); // No +1 for testing.
 
 
+        bool middleVertAdded = false;
         // test if a multiple of vertex density equals 1. If so, a vertex has to be added because one will be in the middle.
         float testOne = lod.vertexDensity;
         //while (testOne < 1.0001f)
         while (testOne < 1.0001f)
-            {
+        {
             if (testOne >= 1f) // if there is a vertex in the middle
             {
                 rowVertexCount++;
+                middleVertAdded = true;
             }
 
             testOne += lod.vertexDensity;
         }
+        while (testOne < lod.maxDistanceToBoat + 0.001f && !middleVertAdded)
+        {
+            if(testOne >= lod.maxDistanceToBoat)
+            {
+                rowVertexCount++;
+            }
+            testOne += lod.vertexDensity;
+
+        }
+
+
         // some other numbers have a vertex in the middle as well, but that may depend on the relation to the maxDistance to boat.
-        if ((lod.vertexDensity == 2 || lod.vertexDensity == 5) && lod.vertexDensity != 6 && lod.vertexDensity != 0.4f) { rowVertexCount++; }
+        //if ((lod.vertexDensity == 2 || lod.vertexDensity == 5) && lod.vertexDensity != 6 && lod.vertexDensity != 0.4f) { rowVertexCount++; }
 
         //int numberofRows = Mathf.FloorToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
         int numberofRows = Mathf.CeilToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
