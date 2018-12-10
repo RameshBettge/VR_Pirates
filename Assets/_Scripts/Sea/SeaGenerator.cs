@@ -35,6 +35,7 @@ public class SeaGenerator : MonoBehaviour
         filter = GetComponent<MeshFilter>();
 
         lods = new SeaLOD[lodList.Count];
+        vertices = new List<Vector3>();
 
         int index = 0;
         while (lodList.Count > 0) // bring LODs in order
@@ -43,23 +44,19 @@ public class SeaGenerator : MonoBehaviour
             index++;
         }
 
-        //for (int i = 0; i < lods.Length; i++)
-        //{
-        //    SeaLOD? last = null;
-        //    SeaLOD? next = null;
+        for (int i = 0; i < lods.Length; i++)
+        {
+            float minDistance = 0;
 
-        //    if (i > 0) { last = lods[i - 1]; }
+            if (i < lods.Length - 1) { minDistance = lods[i + 1].maxDistanceToBoat; }
 
-        //    if (i < lods.Length - 1) { next = lods[i + 1]; }
+            CreateLOD(lods[i], minDistance, i); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
+        }
 
-        //    CreateLOD(last, lods[i], next); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
-        //}
 
-        vertices = new List<Vector3>();
-
-        //CreateLOD(lods[0], lods[1].maxDistanceToBoat, 0);
-        CreateLOD(lods[1], lods[2].maxDistanceToBoat, 1);
-        //CreateLOD(lods[2], 0, 2);
+        ////CreateLOD(lods[0], lods[1].maxDistanceToBoat, 0);
+        //CreateLOD(lods[1], lods[2].maxDistanceToBoat, 1);
+        ////CreateLOD(lods[2], 0, 2);
 
 
         CreateSea();
@@ -86,15 +83,29 @@ public class SeaGenerator : MonoBehaviour
     void CreateLOD(SeaLOD lod, float min, int num)
     {
         // TODO: This count is just valid for one of the larger quarters.
-        int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity) + 1; // +1 stands for the vertex at 0.
-        //int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity); // No +1 for testing.
+        //int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity) + 1; // +1 stands for the vertex at 0.
+        //float rawRow = (lod.maxDistanceToBoat * 2f) / lod.vertexDensity);
+        int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity); // No +1 for testing.
 
-        //if((lod.vertexDensity % 2 == 0 || lod.vertexDensity == 1 || lod.vertexDensity == 5) &&lod.vertexDensity != 6) { rowVertexCount++; }
 
-        int numberofRows = Mathf.FloorToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both.
+        // test if a multiple of vertex density equals 1. If so, a vertex has to be added because one will be in the middle.
+        float testOne = lod.vertexDensity;
+        //while (testOne < 1.0001f)
+        while (testOne < 1.0001f)
+            {
+            if (testOne >= 1f) // if there is a vertex in the middle
+            {
+                rowVertexCount++;
+            }
+
+            testOne += lod.vertexDensity;
+        }
+        // some other numbers have a vertex in the middle as well, but that may depend on the relation to the maxDistance to boat.
+        if ((lod.vertexDensity == 2 || lod.vertexDensity == 5) && lod.vertexDensity != 6 && lod.vertexDensity != 0.4f) { rowVertexCount++; }
+
+        //int numberofRows = Mathf.FloorToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
+        int numberofRows = Mathf.CeilToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
         int totalVertices = rowVertexCount * numberofRows;
-
-        int currentCount = vertices.Count;
 
         float xPos = -lod.maxDistanceToBoat;
         int end = lod.maxDistanceToBoat;
@@ -107,26 +118,42 @@ public class SeaGenerator : MonoBehaviour
 
         int index = 0;
 
-        while (zPos <= -min)
+        bool isFinished = false;
+
+        while (!isFinished)
+        //while (zPos <= -min)
         {
-            //increment = GetBestIncrement(xPos, zPos);
             if (xPos <= end)
             {
                 AddVertex(xPos, zPos);
-                currentVertices[index] = new Vector3(xPos,0f, zPos);
+                currentVertices[index] = new Vector3(xPos, 0f, zPos);
                 index++;
                 xPos += increment;
             }
             else
             {
+                //if (zPos == -min)
+                if (index >= totalVertices - 1) // have while loop until index reaches totalvertices -1 instead.
+                {
+                    isFinished = true;
+                }
                 zPos += increment;
                 xPos = -lod.maxDistanceToBoat;
             }
+
+            //if (zPos > -min)
+            if (index == totalVertices - rowVertexCount || zPos > -min)
+            {
+                zPos = -min;
+            }
         }
+
+        if (!isFinished) { zPos = -min; }
 
         CreateMesh(currentVertices, rowVertexCount, numberofRows);
 
     }
+
 
     void CreateMesh(Vector3[] verts, int rowVertexCount, int numberOfRows)
     {
@@ -142,7 +169,7 @@ public class SeaGenerator : MonoBehaviour
         {
             for (int j = 0; j < rowVertexCount - 1; j++, tri += 6)
             {
-                int vert = rowVertexCount * i + j ;
+                int vert = rowVertexCount * i + j;
 
                 triangles[tri] = vert;
                 triangles[tri + 1] = vert + rowVertexCount;
@@ -192,7 +219,7 @@ public class SeaGenerator : MonoBehaviour
 
     private void Update()
     {
-       movement.MoveSea(filter);
+        movement.MoveSea(filter);
     }
 
     private void OnDrawGizmos()
@@ -201,7 +228,7 @@ public class SeaGenerator : MonoBehaviour
 
         for (int i = 0; i < vertices.Count; i++)
         {
-            Gizmos.DrawSphere(vertices[i], 0.05f);
+            Gizmos.DrawSphere(vertices[i], 0.1f);
         }
 
         //Gizmos.color = Color.blue;
@@ -211,7 +238,7 @@ public class SeaGenerator : MonoBehaviour
         //}
         Gizmos.color = Color.magenta;
 
-        Gizmos.DrawWireSphere(filter.mesh.vertices[debug], 1f);
+        //Gizmos.DrawWireSphere(filter.mesh.vertices[debug], 1f);
     }
 }
 
