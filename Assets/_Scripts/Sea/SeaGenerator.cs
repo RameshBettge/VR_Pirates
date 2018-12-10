@@ -11,7 +11,7 @@ public class SeaGenerator : MonoBehaviour
     List<SeaLOD> lodList;
 
 
-   public  SeaLOD[] lods;
+    SeaLOD[] lods;
 
     SeaMovement movement;
 
@@ -57,9 +57,9 @@ public class SeaGenerator : MonoBehaviour
 
         vertices = new List<Vector3>();
 
-        CreateLOD(lods[0], lods[1].maxDistanceToBoat, 0);
+        //CreateLOD(lods[0], lods[1].maxDistanceToBoat, 0);
         CreateLOD(lods[1], lods[2].maxDistanceToBoat, 1);
-        CreateLOD(lods[2], 0, 2);
+        //CreateLOD(lods[2], 0, 2);
 
 
         CreateSea();
@@ -87,7 +87,11 @@ public class SeaGenerator : MonoBehaviour
     {
         // TODO: This count is just valid for one of the larger quarters.
         int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity) + 1; // +1 stands for the vertex at 0.
-        int numberofRows = Mathf.CeilToInt((lod.maxDistanceToBoat - min + 1) / lod.vertexDensity); // +1 because the row where two LODs meet, is used by both.
+        //int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity); // No +1 for testing.
+
+        //if((lod.vertexDensity % 2 == 0 || lod.vertexDensity == 1 || lod.vertexDensity == 5) &&lod.vertexDensity != 6) { rowVertexCount++; }
+
+        int numberofRows = Mathf.FloorToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both.
         int totalVertices = rowVertexCount * numberofRows;
 
         int currentCount = vertices.Count;
@@ -200,11 +204,14 @@ public class SeaGenerator : MonoBehaviour
             Gizmos.DrawSphere(vertices[i], 0.05f);
         }
 
-        Gizmos.color = Color.blue;
+        //Gizmos.color = Color.blue;
         //for (int i = 0; i < filter.mesh.vertices.Length; i++)
         //{
+        //    Gizmos.DrawWireSphere(filter.mesh.vertices[i], 1f);
         //}
-            //Gizmos.DrawWireSphere(filter.mesh.vertices[debug], 1f);
+        Gizmos.color = Color.magenta;
+
+        Gizmos.DrawWireSphere(filter.mesh.vertices[debug], 1f);
     }
 }
 
