@@ -146,7 +146,7 @@ public class SeaGenerator : MonoBehaviour
             // Middle Square
             CreateSection(lod, -lod.maxDistanceToBoat, rowVertexCount, numberofRows * 2 - 1, totalVertices * 2 - rowVertexCount, increment);
         }
-        else if(num == 0)
+        else
         {
             // Front
             CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, increment);
@@ -159,6 +159,9 @@ public class SeaGenerator : MonoBehaviour
 
             // Right
             CreateSection(lod, -nextSmallerLOD.maxDistanceToBoat, rowVertexCount, numberofRows, totalVertices, increment, true, true);
+
+            // Left
+            CreateSection(lod, -nextSmallerLOD.maxDistanceToBoat, rowVertexCount, numberofRows, totalVertices, increment, false, true);
 
         }
     }
@@ -191,7 +194,13 @@ public class SeaGenerator : MonoBehaviour
         {
             if (xPos <= end)
             {
-                if (side)
+                if(side && flipped)
+                {
+                    AddVertex(-zPos, xPos);
+                    currentVertices[index] = new Vector3(-zPos, 0f, xPos);
+
+                }
+                else if (side)
                 {
                     AddVertex(zPos, xPos);
                     currentVertices[index] = new Vector3(zPos, 0f, xPos);
@@ -241,6 +250,8 @@ public class SeaGenerator : MonoBehaviour
                 }
             }
         }
+
+        if (side) { flipped = !flipped; }
 
         CreateMesh(currentVertices, rowVertexCount, numberofRows, flipped);
     }
