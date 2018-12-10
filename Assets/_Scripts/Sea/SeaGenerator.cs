@@ -42,17 +42,23 @@ public class SeaGenerator : MonoBehaviour
         int index = 0;
         while (lodList.Count > 0) // bring LODs in order
         {
-            lods[index] = GetLeastLOD();
+            lods[index] = GetBiggestLOD();
             index++;
         }
 
         for (int i = 0; i < lods.Length; i++)
         {
             float minDistance = 0;
+            SeaLOD lastLOD = new SeaLOD(); // won't be used if current lod is smallest one.
 
-            if (i < lods.Length - 1) { minDistance = lods[i + 1].maxDistanceToBoat; }
+            if (i < lods.Length - 1)
+            {
+                minDistance = lods[i + 1].maxDistanceToBoat;
 
-            CreateLOD(lods[i], minDistance, i); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
+                lastLOD = lods[i + 1];
+            }
+
+            CreateLOD(lods[i], minDistance, i, lastLOD); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
         }
 
         CreateSea();
@@ -99,7 +105,7 @@ public class SeaGenerator : MonoBehaviour
         //}
     }
 
-    void CreateLOD(SeaLOD lod, float min, int num)
+    void CreateLOD(SeaLOD lod, float min, int num, SeaLOD nextSmallerLOD)
     {
         // TODO: This count is just valid for one of the larger quarters.
         //int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity) + 1; // +1 stands for the vertex at 0.
@@ -110,7 +116,6 @@ public class SeaGenerator : MonoBehaviour
         bool middleVertAdded = false;
         // test if a multiple of vertex density equals 1. If so, a vertex has to be added because one will be in the middle.
         float testOne = lod.vertexDensity;
-        //while (testOne < 1.0001f)
         while (testOne < 1.0001f)
         {
             if (testOne >= 1f) // if there is a vertex in the middle
@@ -131,36 +136,46 @@ public class SeaGenerator : MonoBehaviour
 
         }
 
-
-        // some other numbers have a vertex in the middle as well, but that may depend on the relation to the maxDistance to boat.
-        //if ((lod.vertexDensity == 2 || lod.vertexDensity == 5) && lod.vertexDensity != 6 && lod.vertexDensity != 0.4f) { rowVertexCount++; }
-
-        //int numberofRows = Mathf.FloorToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
         int numberofRows = Mathf.CeilToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
         int totalVertices = rowVertexCount * numberofRows;
 
-        float zPos = -lod.maxDistanceToBoat;
 
         float increment = lod.vertexDensity;
-        if(num == lods.Length - 1)
+        if (num == lods.Length - 1)
         {
-            CreateSection(lod, -lod.maxDistanceToBoat, rowVertexCount, numberofRows * 2-1, totalVertices * 2 - rowVertexCount, zPos, increment);
-            //CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, zPos, increment);
-            //CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, -zPos, -increment, true);
-
+            // Middle Square
+            CreateSection(lod, -lod.maxDistanceToBoat, rowVertexCount, numberofRows * 2 - 1, totalVertices * 2 - rowVertexCount, increment);
         }
-        else
+        else if(num == 0)
         {
-        CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, zPos, increment);
-        CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, -zPos, -increment, true);
+            // Front
+            CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, increment);
+            // Back
+            CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, increment, true);
+
+            // Adjust counts so that the sections on the side don't overlap with the wider sections of the same LOD.
+            rowVertexCount = Mathf.CeilToInt((nextSmallerLOD.maxDistanceToBoat * 2f) / lod.vertexDensity);
+            totalVertices = rowVertexCount * numberofRows;
+
+            // Right
+            CreateSection(lod, -nextSmallerLOD.maxDistanceToBoat, rowVertexCount, numberofRows, totalVertices, increment, true, true);
 
         }
     }
 
-    private void CreateSection(SeaLOD lod, float min, int rowVertexCount, int numberofRows, int totalVertices, float zPos, float increment, bool flipped = false)
+    private void CreateSection(SeaLOD lod, float min, int rowVertexCount, int numberofRows, int totalVertices, float increment, bool flipped = false, bool side = false)
     {
-        float xPos = -lod.maxDistanceToBoat;
-        int end = lod.maxDistanceToBoat;
+
+
+        float end = lod.maxDistanceToBoat;
+        float zPos = -lod.maxDistanceToBoat;
+
+        if (side)
+        {
+            end = -min;
+        }
+
+        float xPos = -end;
 
 
         Vector3[] currentVertices = new Vector3[totalVertices];
@@ -176,8 +191,22 @@ public class SeaGenerator : MonoBehaviour
         {
             if (xPos <= end)
             {
-                AddVertex(xPos, zPos);
-                currentVertices[index] = new Vector3(xPos, 0f, zPos);
+                if (side)
+                {
+                    AddVertex(zPos, xPos);
+                    currentVertices[index] = new Vector3(zPos, 0f, xPos);
+                }
+                else if (flipped)
+                {
+                    AddVertex(xPos, -zPos);
+                    currentVertices[index] = new Vector3(xPos, 0f, -zPos);
+                }
+                else
+                {
+                    AddVertex(xPos, zPos);
+                    currentVertices[index] = new Vector3(xPos, 0f, zPos);
+
+                }
                 index++;
                 xPos += Mathf.Abs(increment);
 
@@ -196,13 +225,20 @@ public class SeaGenerator : MonoBehaviour
                     isFinished = true;
                 }
                 zPos += increment;
-                xPos = -lod.maxDistanceToBoat;
+                xPos = -end;
             }
 
             //if (zPos > -min)
             if (index == totalVertices - rowVertexCount)
             {
-                zPos = -min;
+                if (side || flipped)
+                {
+                    zPos = min;
+                }
+                else
+                {
+                    zPos = -min;
+                }
             }
         }
 
@@ -262,7 +298,7 @@ public class SeaGenerator : MonoBehaviour
     }
 
 
-    SeaLOD GetLeastLOD()
+    SeaLOD GetBiggestLOD()
     {
         if (lodList.Count < 1)
         {
@@ -270,20 +306,20 @@ public class SeaGenerator : MonoBehaviour
         }
 
         float most = 0;
-        SeaLOD leastLOD = new SeaLOD();
+        SeaLOD biggestLOD = new SeaLOD();
 
         for (int i = 0; i < lodList.Count; i++)
         {
             if (i == 0 || lodList[i].maxDistanceToBoat > most)
             {
                 most = lodList[i].maxDistanceToBoat;
-                leastLOD = lodList[i];
+                biggestLOD = lodList[i];
             }
         }
 
-        lodList.Remove(leastLOD);
+        lodList.Remove(biggestLOD);
 
-        return leastLOD;
+        return biggestLOD;
     }
 
     private void Update()
@@ -299,7 +335,7 @@ public class SeaGenerator : MonoBehaviour
         {
             Vector3 vert = vertices[i];
             vert.y = -i * 0.01f;
-            Gizmos.DrawSphere(vert, 0.01f);
+            Gizmos.DrawSphere(vert, 0.1f);
         }
 
         //Gizmos.color = Color.blue;

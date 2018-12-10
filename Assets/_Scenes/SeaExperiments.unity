@@ -292,9 +292,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lodList:
   - maxDistanceToBoat: 5
-    vertexDensity: 1
+    vertexDensity: 0.5
   - maxDistanceToBoat: 20
-    vertexDensity: 0.4
+    vertexDensity: 1
   - maxDistanceToBoat: 30
     vertexDensity: 7
   debug: 0
