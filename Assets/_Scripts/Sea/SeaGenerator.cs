@@ -205,6 +205,12 @@ public class SeaGenerator : MonoBehaviour
 
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
+        Vector2[] uv = new Vector2[verts.Length];
+        for (int i = 0; i < verts.Length; i++)
+        {
+            uv[i] = new Vector2(verts[i].x, verts[i].z);
+        }
+
         //filter.mesh = mesh;
         meshes.Add(mesh);
     }
