@@ -144,7 +144,7 @@ public class SeaGenerator : MonoBehaviour
         float increment = lod.vertexDensity;
         if(num == lods.Length - 1)
         {
-            CreateSection(lod, min, rowVertexCount, numberofRows * 2-1, totalVertices * 2 - rowVertexCount, zPos, increment);
+            CreateSection(lod, -lod.maxDistanceToBoat, rowVertexCount, numberofRows * 2-1, totalVertices * 2 - rowVertexCount, zPos, increment);
             //CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, zPos, increment);
             //CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, -zPos, -increment, true);
 
@@ -299,7 +299,7 @@ public class SeaGenerator : MonoBehaviour
         {
             Vector3 vert = vertices[i];
             vert.y = -i * 0.01f;
-            Gizmos.DrawSphere(vert, 0.1f);
+            Gizmos.DrawSphere(vert, 0.01f);
         }
 
         //Gizmos.color = Color.blue;

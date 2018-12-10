@@ -291,13 +291,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lodList:
-  - maxDistanceToBoat: 10
-    vertexDensity: 0.15
+  - maxDistanceToBoat: 5
+    vertexDensity: 1
   - maxDistanceToBoat: 20
     vertexDensity: 0.4
   - maxDistanceToBoat: 30
     vertexDensity: 7
   debug: 0
+  debugMat: {fileID: 0}
 --- !u!1 &1605627407
 GameObject:
   m_ObjectHideFlags: 0
