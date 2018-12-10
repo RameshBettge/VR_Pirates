@@ -133,6 +133,8 @@ public class SeaGenerator : MonoBehaviour
 
         bool isFinished = false;
 
+        int currentRowPos = 1;
+
         while (!isFinished)
         //while (zPos <= -min)
         {
@@ -142,6 +144,13 @@ public class SeaGenerator : MonoBehaviour
                 currentVertices[index] = new Vector3(xPos, 0f, zPos);
                 index++;
                 xPos += increment;
+
+                currentRowPos++;
+                if(currentRowPos == rowVertexCount)
+                {
+                    xPos = end;
+                    currentRowPos = 0;
+                }
             }
             else
             {
@@ -239,10 +248,10 @@ public class SeaGenerator : MonoBehaviour
     {
         if (vertices == null) { return; }
 
-        for (int i = 0; i < vertices.Count; i++)
-        {
-            Gizmos.DrawSphere(vertices[i], 0.1f);
-        }
+        //for (int i = 0; i < vertices.Count; i++)
+        //{
+        //    Gizmos.DrawSphere(vertices[i], 0.1f);
+        //}
 
         //Gizmos.color = Color.blue;
         //for (int i = 0; i < filter.mesh.vertices.Length; i++)
