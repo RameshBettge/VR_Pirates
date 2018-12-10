@@ -25,6 +25,8 @@ public class SeaGenerator : MonoBehaviour
 
     public int debug = 0;
 
+    public Material debugMat;
+
     void Start()
     {
         meshes = new List<Mesh>();
@@ -53,12 +55,6 @@ public class SeaGenerator : MonoBehaviour
             CreateLOD(lods[i], minDistance, i); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
         }
 
-
-        ////CreateLOD(lods[0], lods[1].maxDistanceToBoat, 0);
-        //CreateLOD(lods[1], lods[2].maxDistanceToBoat, 1);
-        ////CreateLOD(lods[2], 0, 2);
-
-
         CreateSea();
     }
 
@@ -75,9 +71,32 @@ public class SeaGenerator : MonoBehaviour
         Mesh combinedMesh = new Mesh();
 
         combinedMesh.CombineMeshes(combines);
+
+        // Resetting UVs
+        Vector2[] uvs = new Vector2[combinedMesh.vertices.Length];
+        for (int i = 0; i < combinedMesh.vertices.Length; i++)
+        {
+            uvs[i] = new Vector2(combinedMesh.vertices[i].x, combinedMesh.vertices[i].z);
+        }
+        combinedMesh.uv = uvs;
+
         filter.mesh = combinedMesh;
 
         //filter.mesh = meshes[0];
+
+
+        // USED FOR DEBUGGING: Doesn't use combine meshes but instantiates one gameObject per mesh instead. 
+        //for (int i = 0; i < meshes.Count; i++)
+        //{
+        //    Mesh mesh = meshes[i];
+
+        //    GameObject gO = new GameObject();
+        //    MeshRenderer rend = gO.AddComponent<MeshRenderer>();
+        //    rend.material = debugMat;
+        //    MeshFilter filter = gO.AddComponent<MeshFilter>();
+        //    filter.mesh = mesh;
+
+        //}
     }
 
     void CreateLOD(SeaLOD lod, float min, int num)
@@ -104,7 +123,7 @@ public class SeaGenerator : MonoBehaviour
         }
         while (testOne < lod.maxDistanceToBoat + 0.001f && !middleVertAdded)
         {
-            if(testOne >= lod.maxDistanceToBoat)
+            if (testOne >= lod.maxDistanceToBoat)
             {
                 rowVertexCount++;
             }
@@ -120,12 +139,29 @@ public class SeaGenerator : MonoBehaviour
         int numberofRows = Mathf.CeilToInt((lod.maxDistanceToBoat - min) / lod.vertexDensity + 1); // +1 because the row where two LODs meet, is used by both. // +1 again for testing
         int totalVertices = rowVertexCount * numberofRows;
 
-        float xPos = -lod.maxDistanceToBoat;
-        int end = lod.maxDistanceToBoat;
-
         float zPos = -lod.maxDistanceToBoat;
 
         float increment = lod.vertexDensity;
+        if(num == lods.Length - 1)
+        {
+            CreateSection(lod, min, rowVertexCount, numberofRows * 2-1, totalVertices * 2 - rowVertexCount, zPos, increment);
+            //CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, zPos, increment);
+            //CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, -zPos, -increment, true);
+
+        }
+        else
+        {
+        CreateSection(lod, min, rowVertexCount, numberofRows, totalVertices, zPos, increment);
+        CreateSection(lod, -min, rowVertexCount, numberofRows, totalVertices, -zPos, -increment, true);
+
+        }
+    }
+
+    private void CreateSection(SeaLOD lod, float min, int rowVertexCount, int numberofRows, int totalVertices, float zPos, float increment, bool flipped = false)
+    {
+        float xPos = -lod.maxDistanceToBoat;
+        int end = lod.maxDistanceToBoat;
+
 
         Vector3[] currentVertices = new Vector3[totalVertices];
 
@@ -135,18 +171,18 @@ public class SeaGenerator : MonoBehaviour
 
         int currentRowPos = 1;
 
-        while (!isFinished)
         //while (zPos <= -min)
+        while (!isFinished)
         {
             if (xPos <= end)
             {
                 AddVertex(xPos, zPos);
                 currentVertices[index] = new Vector3(xPos, 0f, zPos);
                 index++;
-                xPos += increment;
+                xPos += Mathf.Abs(increment);
 
                 currentRowPos++;
-                if(currentRowPos == rowVertexCount)
+                if (currentRowPos == rowVertexCount)
                 {
                     xPos = end;
                     currentRowPos = 0;
@@ -164,20 +200,16 @@ public class SeaGenerator : MonoBehaviour
             }
 
             //if (zPos > -min)
-            if (index == totalVertices - rowVertexCount || zPos > -min)
+            if (index == totalVertices - rowVertexCount)
             {
                 zPos = -min;
             }
         }
 
-        if (!isFinished) { zPos = -min; }
-
-        CreateMesh(currentVertices, rowVertexCount, numberofRows);
-
+        CreateMesh(currentVertices, rowVertexCount, numberofRows, flipped);
     }
 
-
-    void CreateMesh(Vector3[] verts, int rowVertexCount, int numberOfRows)
+    void CreateMesh(Vector3[] verts, int rowVertexCount, int numberOfRows, bool flipped)
     {
         Mesh mesh = new Mesh();
         mesh.vertices = verts;
@@ -193,23 +225,32 @@ public class SeaGenerator : MonoBehaviour
             {
                 int vert = rowVertexCount * i + j;
 
-                triangles[tri] = vert;
-                triangles[tri + 1] = vert + rowVertexCount;
-                triangles[tri + 2] = vert + 1;
 
-                triangles[tri + 3] = vert + 1;
-                triangles[tri + 4] = vert + rowVertexCount;
-                triangles[tri + 5] = vert + rowVertexCount + 1;
+                if (flipped)
+                {
+                    triangles[tri] = vert;
+                    triangles[tri + 2] = vert + rowVertexCount;
+                    triangles[tri + 1] = vert + 1;
+
+                    triangles[tri + 3] = vert + 1;
+                    triangles[tri + 5] = vert + rowVertexCount;
+                    triangles[tri + 4] = vert + rowVertexCount + 1;
+                }
+                else
+                {
+                    triangles[tri] = vert;
+                    triangles[tri + 1] = vert + rowVertexCount;
+                    triangles[tri + 2] = vert + 1;
+
+                    triangles[tri + 3] = vert + 1;
+                    triangles[tri + 4] = vert + rowVertexCount;
+                    triangles[tri + 5] = vert + rowVertexCount + 1;
+
+                }
             }
         }
 
         mesh.triangles = triangles;
-        mesh.RecalculateNormals();
-        Vector2[] uv = new Vector2[verts.Length];
-        for (int i = 0; i < verts.Length; i++)
-        {
-            uv[i] = new Vector2(verts[i].x, verts[i].z);
-        }
 
         //filter.mesh = mesh;
         meshes.Add(mesh);
@@ -254,10 +295,12 @@ public class SeaGenerator : MonoBehaviour
     {
         if (vertices == null) { return; }
 
-        //for (int i = 0; i < vertices.Count; i++)
-        //{
-        //    Gizmos.DrawSphere(vertices[i], 0.1f);
-        //}
+        for (int i = 0; i < vertices.Count; i++)
+        {
+            Vector3 vert = vertices[i];
+            vert.y = -i * 0.01f;
+            Gizmos.DrawSphere(vert, 0.1f);
+        }
 
         //Gizmos.color = Color.blue;
         //for (int i = 0; i < filter.mesh.vertices.Length; i++)

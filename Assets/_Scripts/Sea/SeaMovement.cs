@@ -48,11 +48,11 @@ public class SeaMovement : MonoBehaviour
 
             verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
 
-            if (Time.time > lastTest + 5f)
-            {
-                Debug.Log("Working... " + movement);
-                lastTest = Time.time;
-            }
+            //if (Time.time > lastTest + 5f)
+            //{
+            //    Debug.Log("Working... " + movement);
+            //    lastTest = Time.time;
+            //}
         }
 
         filter.mesh.vertices = verts;
