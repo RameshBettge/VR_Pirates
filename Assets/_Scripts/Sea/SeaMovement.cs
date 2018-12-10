@@ -13,11 +13,13 @@ public class SeaMovement : MonoBehaviour
     [SerializeField]
     float heightModifier = 10f;
 
-    float movement;
 
     float lastTest;
 
     float halfTexWidth;
+
+    public float movement;
+    public float percentage;
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class SeaMovement : MonoBehaviour
             movement += Time.deltaTime * moveSpeed;
 
 
+
             // movement gets stuck after hitting 2040 somehow.
             if (movement > halfTexWidth)
             {
@@ -48,6 +51,25 @@ public class SeaMovement : MonoBehaviour
 
             verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
 
+
+
+            // Todo:    If height == 0.5f -> 0 in local space. 
+            //          Values should be inverted based on sinus-function (first white = 1, black = -1 ; then the other way round.)
+            //          Problem:    
+            //                      if the sinus function returns 0, the sea will be perfectly flat. 
+            //
+            //          Possible Solution:
+            //                      Maybe this change should be offset with noise,
+            //                      or only occur in an area indicated by another texture (e.g. the HalfTransparentSmooth which scrolls over the sea.)
+
+            //percentage = Mathf.Sin(movement * 0.1f);
+            //percentage = (percentage + 0.5f) * 0.5f;
+
+            //height = Mathf.Lerp(height, -height, percentage);
+
+            //verts[i] = new Vector3(verts[i].x, height * heightModifier * percentage, verts[i].z);
+
+
             //if (Time.time > lastTest + 5f)
             //{
             //    Debug.Log("Working... " + movement);
@@ -57,7 +79,7 @@ public class SeaMovement : MonoBehaviour
 
         filter.mesh.vertices = verts;
 
-        // TODO: Check how costly the recalculation is and if it is worth it.
+        // TODO: Check when to recalculate the normals instead of doing it every frame.
         filter.mesh.RecalculateNormals();
     }
 
