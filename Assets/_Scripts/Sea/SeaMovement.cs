@@ -81,6 +81,10 @@ public class SeaMovement : MonoBehaviour
             //verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
             verts[i] = new Vector3(verts[i].x, height * heightModifier * offset, verts[i].z);
 
+            if(i == 0)
+            {
+                Debug.Log(verts[i]);
+            }
         }
 
         if (Time.time >= nextTest)
