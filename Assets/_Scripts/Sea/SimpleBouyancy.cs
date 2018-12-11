@@ -9,7 +9,10 @@ public class SimpleBouyancy : MonoBehaviour
     SeaMovement sea;
 
     [SerializeField]
-    int smoothingSamples = 10;
+    float maxUpMovementPerSecond;
+
+    [SerializeField]
+    int maxTiltSamples = 10;
 
     int samples;
 
@@ -65,9 +68,10 @@ public class SimpleBouyancy : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(averageFwd, upDir);
 
+        //Vector3 newPos = GetSeaPosition(transform);
         transform.position = GetSeaPosition(transform);
 
-        if (samples < smoothingSamples)
+        if (samples < maxTiltSamples)
         {
             samples++;
         }

@@ -600,7 +600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sea: {fileID: 1978919122}
-  smoothingSamples: 300
+  maxUpMovementPerSecond: 0
+  maxTiltSamples: 10
   front: {fileID: 1312800341}
   back: {fileID: 2062501500}
   left: {fileID: 1313276870}
