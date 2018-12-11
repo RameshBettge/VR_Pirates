@@ -9,9 +9,15 @@ public class SeaMovement : MonoBehaviour
     [SerializeField]
     float texScale;
     [SerializeField]
-    float moveSpeed = 10f;
+    float offsetScale;
+    [SerializeField]
+    Vector2 moveSpeed = new Vector2(20f, 20f);
+    [SerializeField]
+    Vector2 offsetSpeed = new Vector2(10f, 10f);
+
     [SerializeField]
     float heightModifier = 10f;
+
 
 
     float lastTest;
@@ -33,12 +39,23 @@ public class SeaMovement : MonoBehaviour
 
         for (int i = 0; i < verts.Length; i++)
         {
-            int xUV = (int)(verts[i].x * texScale);
-            int yUV = (int)(verts[i].z * texScale);
+            float x = verts[i].x;
+            float z = verts[i].z;
 
-            xUV += (int)movement;
-            movement += Time.deltaTime * moveSpeed;
+            float xUV = x * texScale;
+            float zUV = z * texScale;
 
+            xUV += moveSpeed.x * Time.time;
+            zUV += moveSpeed.y * Time.time;
+
+            float xOffsetUV = x * offsetScale;
+            float zOffsetUV = z * offsetScale;
+
+            xOffsetUV += offsetSpeed.x * Time.time;
+            zOffsetUV += offsetSpeed.y * Time.time;
+
+
+            //movement += Time.deltaTime * moveSpeed;
 
 
             // movement gets stuck after hitting 2040 somehow.
@@ -47,28 +64,14 @@ public class SeaMovement : MonoBehaviour
                 movement -= halfTexWidth;
             }
 
-            float height = tex.GetPixel(xUV, yUV).grayscale;
+            //float height = tex.GetPixelBilinear(xUV, zUV).grayscale;
 
-            verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
+            float height = tex.GetPixel((int)xUV, (int)zUV).grayscale;
+            float offset = tex.GetPixel((int)xOffsetUV, (int)zOffsetUV).grayscale;
+            offset = (offset - 0.5f) * 2f;
 
-
-
-            // Todo:    If height == 0.5f -> 0 in local space. 
-            //          Values should be inverted based on sinus-function (first white = 1, black = -1 ; then the other way round.)
-            //          Problem:    
-            //                      if the sinus function returns 0, the sea will be perfectly flat. 
-            //
-            //          Possible Solution:
-            //                      Maybe this change should be offset with noise,
-            //                      or only occur in an area indicated by another texture (e.g. the HalfTransparentSmooth which scrolls over the sea.)
-
-            //percentage = Mathf.Sin(movement * 0.1f);
-            //percentage = (percentage + 0.5f) * 0.5f;
-
-            //height = Mathf.Lerp(height, -height, percentage);
-
-            //verts[i] = new Vector3(verts[i].x, height * heightModifier * percentage, verts[i].z);
-
+            //verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
+            verts[i] = new Vector3(verts[i].x, height * heightModifier * offset, verts[i].z);
 
             //if (Time.time > lastTest + 5f)
             //{
