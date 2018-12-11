@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleBouyancy : MonoBehaviour {
+public class SimpleBouyancy : MonoBehaviour
+{
 
     [SerializeField]
     SeaMovement sea;
+
+    [SerializeField]
+    int smoothingSamples = 10;
+
+    int samples;
 
     [SerializeField]
     Transform front;
@@ -21,8 +27,12 @@ public class SimpleBouyancy : MonoBehaviour {
 
     float distanceToBack;
 
+    Vector3 averageFwd;
+    Vector3 averageRight;
+
     private void Start()
     {
+        samples = 1;
         //distanceToBack = (transform.position - back.position).magnitude;
     }
 
@@ -32,13 +42,35 @@ public class SimpleBouyancy : MonoBehaviour {
 
         Vector3 rightDir = GetTiltDir(left, right);
 
-        Vector3 upDir = Vector3.Cross(fwdDir, rightDir);
 
-        transform.rotation = Quaternion.LookRotation(fwdDir, upDir);
+        if (samples == 1)
+        //if (true)
+        {
+            averageFwd = fwdDir;
+            averageRight = rightDir;
+        }
+        else
+        {
+            averageFwd /= samples;
+            averageFwd *= (samples - 1);
+            averageFwd += fwdDir / samples;
 
-        //Vector3 boatPos = transform.position;
-        //boatPos.y = sea.GetHeight(transform.position);
+
+            averageRight /= samples;
+            averageRight *= (samples - 1);
+            averageRight += rightDir / samples;
+        }
+
+        Vector3 upDir = Vector3.Cross(averageFwd.normalized, averageRight.normalized);
+
+        transform.rotation = Quaternion.LookRotation(averageFwd, upDir);
+
         transform.position = GetSeaPosition(transform);
+
+        if (samples < smoothingSamples)
+        {
+            samples++;
+        }
     }
 
     Vector3 GetTiltDir(Transform minus, Transform plus)
