@@ -5,6 +5,9 @@ using UnityEngine;
 public class Skeleton : MonoBehaviour
 {
     [HideInInspector]
+    public ScriptableCurve boneDetachCurve;
+
+    [HideInInspector]
     public bool hasLostLimb = false;
 
     DetachableBone[] bones;
@@ -14,6 +17,8 @@ public class Skeleton : MonoBehaviour
 
     private void Awake()
     {
+        boneDetachCurve = Resources.Load<ScriptableCurve>("ScriptableObjects/BoneDetachCurve");
+
         bones = GetComponentsInChildren<DetachableBone>();
 
         for (int i = 0; i < bones.Length; i++)

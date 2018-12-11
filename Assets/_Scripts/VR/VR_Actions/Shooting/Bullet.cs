@@ -7,7 +7,14 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     LayerMask mask;
 
+    [SerializeField]
     float speed = 10f;
+
+    [SerializeField]
+    float force = 1f;
+
+    [SerializeField]
+    int damage = 1;
 
     Vector3 lastPos = Vector3.zero;
 
@@ -18,6 +25,7 @@ public class Bullet : MonoBehaviour
 
     int debugInt = 0;
 
+
     private void Awake()
     {
         hit = new RaycastHit();
@@ -25,7 +33,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if(timer > lifeTime)
+        if (timer > lifeTime)
         {
             Destroy(gameObject);
             Destroy(this);
@@ -45,19 +53,19 @@ public class Bullet : MonoBehaviour
 
             Ray ray = new Ray(transform.position, -dir.normalized);
 
-            
+
             if (Physics.Raycast(ray, out hit, dir.magnitude, mask))
             {
                 // TODO: check if hit object is an enemy
                 DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
-                if(bone == null)
+                if (bone == null)
                 {
                     bone = hit.collider.transform.GetComponent<DetachableBone>();
                 }
 
-                if(bone != null)
+                if (bone != null)
                 {
-                    ShotInfo info = new ShotInfo(hit.point, transform.forward, 1f, 1);
+                    ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage);
 
                     bone.TakeDamage(info);
                     // apply damage to bone

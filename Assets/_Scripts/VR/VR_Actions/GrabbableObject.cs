@@ -55,7 +55,7 @@ public class GrabbableObject : MonoBehaviour
         //rb.maxAngularVelocity = maxAngularVelocity;
 
         int grabLayer = LayerMask.NameToLayer("Grabbable");
-        if (gameObject.layer != grabLayer)
+        if (gameObject.layer != grabLayer && GetComponent<DetachableBone>() == null)
         {
             //gameObject.layer = grabLayer;
             //Debug.LogError(gameObject.name + "'s layer was changed to 'grabbable' - otherwise it couldn't be grabbed.");

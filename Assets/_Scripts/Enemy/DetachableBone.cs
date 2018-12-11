@@ -16,14 +16,18 @@ public class DetachableBone : MonoBehaviour
 
     int grabLayer;
 
-    float forceModifier = 100f;
-
     float maxDistance = 1f;
+    float sqrMaxDistance;
 
     bool detached;
 
+    float detachForceMultiplier = 0.25f;
+    float knockbackForceMultiplier = 1f;
+
     void Start()
     {
+        sqrMaxDistance = maxDistance * maxDistance;
+
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
@@ -59,7 +63,23 @@ public class DetachableBone : MonoBehaviour
             return;
         }
 
-        // TODO: ADD Force depending on info 
+        // Changing velocity depending on info
+
+        Vector3 detachVelocity = Vector3.zero;
+
+        float sqrDistance = (transform.position - info.hitPos).sqrMagnitude;
+        sqrDistance = Mathf.Clamp(sqrDistance, 0f, sqrMaxDistance);
+        float distancePercentage = sqrMaxDistance / sqrDistance;
+
+        if(skeleton.boneDetachCurve != null)
+        {
+            distancePercentage = skeleton.boneDetachCurve.curve.Evaluate(distancePercentage);
+        }
+
+        detachVelocity += info.shotForward * info.force * detachForceMultiplier * distancePercentage;
+
+        //rb.AddForce(detachVelocity * 1000000f, ForceMode.Force); // Doesn't seem to do anything
+        rb.velocity = detachVelocity / rb.mass;
 
         transform.parent = null;
         rb.isKinematic = false;
@@ -74,7 +94,6 @@ public class DetachableBone : MonoBehaviour
         }
 
         detached = true;
-
     }
 
     void KnockBack(ShotInfo info)
