@@ -50,41 +50,8 @@ public class SeaMovement : MonoBehaviour
             float x = verts[i].x;
             float z = verts[i].z;
 
-            float xUV = x * texScale;
-            float zUV = z * texScale;
-
-            xUV += moveSpeed.x * Time.time;
-            zUV += moveSpeed.y * Time.time;
-
-            float xOffsetUV = x * offsetScale;
-            float zOffsetUV = z * offsetScale;
-
-            xOffsetUV += offsetSpeed.x * Time.time;
-            zOffsetUV += offsetSpeed.y * Time.time;
-
-
-            //movement += Time.deltaTime * moveSpeed;
-
-
-            // movement gets stuck after hitting 2040 somehow.
-            if (movement > halfTexWidth)
-            {
-                movement -= halfTexWidth;
-            }
-
-            //float height = tex.GetPixelBilinear(xUV, zUV).grayscale;
-
-            float height = tex.GetPixel((int)xUV, (int)zUV).grayscale;
-            float offset = tex.GetPixel((int)xOffsetUV, (int)zOffsetUV).grayscale;
-            offset = (offset - 0.5f) * 2f;
-
-            //verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
-            verts[i] = new Vector3(verts[i].x, height * heightModifier * offset, verts[i].z);
-
-            if(i == 0)
-            {
-                Debug.Log(verts[i]);
-            }
+            float yPos = GetHeight(x, z);
+            verts[i] = new Vector3(verts[i].x, yPos, verts[i].z);
         }
 
         if (Time.time >= nextTest)
@@ -98,4 +65,40 @@ public class SeaMovement : MonoBehaviour
         // TODO: Check when to recalculate the normals instead of doing it every frame.
     }
 
+    public float GetHeight(Vector3 pos)
+    {
+        return GetHeight(pos.x, pos.z);
+
+    }
+
+    public float GetHeight(float x, float z)
+    {
+        float xUV = x * texScale;
+        float zUV = z * texScale;
+
+        xUV += moveSpeed.x * Time.time;
+        zUV += moveSpeed.y * Time.time;
+
+        float xOffsetUV = x * offsetScale;
+        float zOffsetUV = z * offsetScale;
+
+        xOffsetUV += offsetSpeed.x * Time.time;
+        zOffsetUV += offsetSpeed.y * Time.time;
+
+        // movement gets stuck after hitting 2040 somehow.
+        if (movement > halfTexWidth)
+        {
+            movement -= halfTexWidth;
+        }
+
+        // Doesn't work, even though it might improve the soothness of the sea if it would
+        //float height = tex.GetPixelBilinear(xUV, zUV).grayscale;
+
+        float height = tex.GetPixel((int)xUV, (int)zUV).grayscale;
+        float offset = tex.GetPixel((int)xOffsetUV, (int)zOffsetUV).grayscale;
+        offset = (offset - 0.5f) * 2f;
+
+        float yPos = height * heightModifier * offset;
+        return yPos;
+    }
 }
