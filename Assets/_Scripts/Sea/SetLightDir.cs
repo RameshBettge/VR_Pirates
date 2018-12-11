@@ -15,6 +15,6 @@ public class SetLightDir : MonoBehaviour {
 	void Update () {
 		
         Vector3 fwd = transform.forward;
-        seaMat.SetVector("LightDir", new Vector4(fwd.x, fwd.y, fwd.z, 0f));
+        seaMat.SetVector("_LightDir", new Vector4(fwd.x, fwd.y, fwd.z, 0f));
 	}
 }
