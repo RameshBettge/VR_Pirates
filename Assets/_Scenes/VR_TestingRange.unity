@@ -114,6 +114,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12833469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744212962669716, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &12833471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12833469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &61716008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1477093740083044, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &61716010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 61716008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &72405605
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,37 +304,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    - target: {fileID: 114860457092650862, guid: e99f5012c3795044aaea2e16bb9bcb28,
         type: 2}
-      propertyPath: setRotationOnGrab
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+      propertyPath: rbToCopy
+      value: 
+      objectReference: {fileID: 1714817550}
+    - target: {fileID: 114860457092650862, guid: e99f5012c3795044aaea2e16bb9bcb28,
         type: 2}
-      propertyPath: maxVelocity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
-        type: 2}
-      propertyPath: velocityFactor
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 54548803935731702, guid: e99f5012c3795044aaea2e16bb9bcb28,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 54552204324074848, guid: e99f5012c3795044aaea2e16bb9bcb28,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0.8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114000358339559338, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
-    - {fileID: 135759151685362126, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
-    - {fileID: 135240059772705878, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: grabToCopy
+      value: 
+      objectReference: {fileID: 72405606}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &93239286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485030342755530, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &93239288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93239286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &103998414
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +552,65 @@ Transform:
   m_Father: {fileID: 699629847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &137619512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1895927820045986, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &137619514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 137619512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &143283120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1494770653210898, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!4 &143283121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4502463221465082, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &143283122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143283120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1001 &143417385
 Prefab:
   m_ObjectHideFlags: 0
@@ -543,6 +665,33 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &160965783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724751709218394, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &160965785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160965783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &170023057
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +955,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211753367}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &216633635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190836036949188, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &216633637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 216633635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &232380544
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +1010,33 @@ Transform:
   m_Father: {fileID: 1307749751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &236525518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724751709218394, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &236525520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236525518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &237067944
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,17 +1067,44 @@ Transform:
   m_Father: {fileID: 170023058}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &264031902 stripped
+--- !u!1 &263887489 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1526199818155372, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1420891772431244, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &264031908
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &263887491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 264031902}
+  m_GameObject: {fileID: 263887489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &266209094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485030342755530, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &266209096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266209094}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -938,6 +1168,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 143417385}
+--- !u!1 &309442859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1507338487867778, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &309442861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309442859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &318694883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1895927820045986, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &318694885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318694883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &322866836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1548929163910166, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!4 &322866837 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4562976960605084, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &322866838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322866836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &333096077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1330,209 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333096077}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &344928311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1477093740083044, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &344928313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344928311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &355614573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1351863915108370, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &355614575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355614573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &367645013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420891772431244, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &367645015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367645013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &379784704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1777075507044932, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &379784706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379784704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &404945257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404945258}
+  - component: {fileID: 404945259}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404945258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404945257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1561042393}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &404945259
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404945257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
+--- !u!1 &410883424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1858652445698638, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &410883426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 410883424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &427871864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623160704846964, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &427871866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 427871864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &437262235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1594,155 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &448717390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1494770653210898, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!4 &448717391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4502463221465082, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &448717392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448717390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1001 &464755685
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: setRotationOnGrab
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: maxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: velocityFactor
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54548803935731702, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54552204324074848, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494951867021592, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_Name
+      value: DestroyableSkeleton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567953832370344, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278146298162964, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948518162172038, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000358339559338, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135759151685362126, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135240059772705878, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &467336790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420891772431244, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &467336792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467336790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &475038090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,17 +2011,179 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 489628012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &593222392 stripped
+--- !u!1 &495719422 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1163932208461302, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1116712064739884, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &593222394
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &495719424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 593222392}
+  m_GameObject: {fileID: 495719422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &506141280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404055372271052, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &506141282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506141280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1001 &520152856
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: setRotationOnGrab
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: maxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: velocityFactor
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54548803935731702, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54552204324074848, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494951867021592, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_Name
+      value: DestroyableSkeleton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567953832370344, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948518162172038, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278146298162964, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000358339559338, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135759151685362126, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135240059772705878, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &530524070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &530524071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530524070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe24f48dc4f9e8d4cb5d19a36754829e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbToCopy: {fileID: 1714817550}
+  grabToCopy: {fileID: 72405606}
+--- !u!1 &583667910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1163932208461302, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &583667912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583667910}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -1362,6 +2192,60 @@ MonoBehaviour:
   disabledUntilGrabbed: 0
   maxVelocity: 8
   velocityFactor: 1.8
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &595621423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1090274341076812, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &595621425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595621423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &598964293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1858652445698638, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &598964295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598964293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
   angularVelocityFactor: 0.5
   maxAngularVelocity: 10
   extraGravity: 40
@@ -1447,6 +2331,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 921394738}
+--- !u!1 &655404964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116712064739884, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &655404966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655404964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1001 &676424408
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: setRotationOnGrab
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: maxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: velocityFactor
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54548803935731702, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54552204324074848, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494951867021592, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_Name
+      value: DestroyableSkeleton (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567953832370344, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278146298162964, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948518162172038, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000358339559338, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135759151685362126, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135240059772705878, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &699629846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +2550,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &704149840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1477093740083044, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &704149842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704149840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1001 &717325470
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654990953388450, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: setRotationOnGrab
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: maxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993774942386504, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: velocityFactor
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54548803935731702, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54552204324074848, guid: e99f5012c3795044aaea2e16bb9bcb28,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494951867021592, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_Name
+      value: DestroyableSkeleton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567953832370344, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278146298162964, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948518162172038, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000358339559338, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135759151685362126, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+    - {fileID: 135240059772705878, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: e99f5012c3795044aaea2e16bb9bcb28, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &719746601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +2700,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 929507272}
+--- !u!1 &736776419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736776420}
+  - component: {fileID: 736776421}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736776420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736776419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128841038}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &736776421
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736776419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
+--- !u!1 &737465769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116712064739884, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &737465771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737465769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &756387451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,17 +2853,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756387451}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &810556580 stripped
+--- !u!1 &799350435 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1420891772431244, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1724751709218394, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &810556586
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &799350437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 810556580}
+  m_GameObject: {fileID: 799350435}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -1768,6 +2954,60 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 477cf7676222dab4fb90e4ea06228345, type: 3}
   m_IsPrefabAsset: 0
+--- !u!1 &842607152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623160704846964, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &842607154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842607152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &870181125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190836036949188, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &870181127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870181125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1001 &921394738
 Prefab:
   m_ObjectHideFlags: 0
@@ -1822,6 +3062,47 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &928775062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928775063}
+  - component: {fileID: 928775064}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928775063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928775062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 448717391}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &928775064
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928775062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
 --- !u!1001 &929507272
 Prefab:
   m_ObjectHideFlags: 0
@@ -1876,6 +3157,60 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &939878776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404055372271052, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &939878778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 939878776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &945173035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404055372271052, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &945173037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945173035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &948100470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +3343,96 @@ Transform:
   m_Father: {fileID: 948100471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &959044829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1163932208461302, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &959044831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 959044829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 1.8
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1017399690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1017399691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017399690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe24f48dc4f9e8d4cb5d19a36754829e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbToCopy: {fileID: 1714817550}
+  grabToCopy: {fileID: 72405606}
+--- !u!1 &1022405241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485030342755530, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1022405243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022405241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1032710602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1032710603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1032710602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe24f48dc4f9e8d4cb5d19a36754829e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbToCopy: {fileID: 1714817550}
+  grabToCopy: {fileID: 72405606}
 --- !u!1 &1033562159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,17 +3515,90 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1060552164 stripped
+--- !u!1 &1052115202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052115203}
+  - component: {fileID: 1052115204}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1052115203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052115202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1371491247}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1052115204
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052115202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
+--- !u!1 &1057291335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1507338487867778, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1060552170
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1057291337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060552164}
+  m_GameObject: {fileID: 1057291335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1070734259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1548929163910166, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!4 &1070734260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4562976960605084, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1070734261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070734259}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -2159,6 +3657,60 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1093959064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1507338487867778, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &1093959066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093959064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1107885383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1163932208461302, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1107885385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107885383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 1.8
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1113224973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +3783,65 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113224973}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1114108365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190836036949188, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1114108367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1114108365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1120022954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1548929163910166, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!4 &1120022955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4562976960605084, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1120022956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120022954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1122696943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,38 +3927,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122696943}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1126827783 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1548929163910166, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!4 &1126827784 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4562976960605084, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1126827790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1126827783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
 --- !u!1 &1130058056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,17 +4114,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1159381975 stripped
+--- !u!1 &1144836406 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1477093740083044, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1351863915108370, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1159381981
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1144836408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159381975}
+  m_GameObject: {fileID: 1144836406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -2562,47 +4141,6 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
---- !u!1 &1163111351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1163111352}
-  - component: {fileID: 1163111353}
-  m_Layer: 13
-  m_Name: Col
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1163111352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1163111351}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1126827784}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1163111353
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1163111351}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.11
-  m_Center: {x: 0.02, y: 0, z: -0.11}
 --- !u!1 &1164356415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +4171,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1193347072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1777075507044932, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1193347074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193347072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1196581241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +4259,87 @@ Transform:
   m_Father: {fileID: 480148146}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1215895698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1777075507044932, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1215895700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215895698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1221763151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404055372271052, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1221763153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221763151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1224884904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1526199818155372, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1224884906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224884904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1001 &1231019420
 Prefab:
   m_ObjectHideFlags: 0
@@ -2769,24 +4415,33 @@ Transform:
   m_Father: {fileID: 1947042349}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1290820994 stripped
+--- !u!1 &1293530450 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1858652445698638, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1290820995
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1293530452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1290820994}
+  m_GameObject: {fileID: 1293530450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe24f48dc4f9e8d4cb5d19a36754829e, type: 3}
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbToCopy: {fileID: 1714817550}
-  grabToCopy: {fileID: 72405606}
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!4 &1307749751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
@@ -2820,6 +4475,119 @@ Transform:
   m_Father: {fileID: 625098467}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332149305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1090274341076812, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &1332149307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1332149305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1364259686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623160704846964, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1364259688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364259686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1371491246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1494770653210898, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!4 &1371491247 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4502463221465082, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1371491248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1371491246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1382044731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623160704846964, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1382044733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382044731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1394316689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,60 +4673,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394316689}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1402154621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1351863915108370, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1402154627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1402154621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
---- !u!1 &1405016770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1858652445698638, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1405016776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1405016770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
 --- !u!1 &1419976155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,17 +4701,17 @@ Transform:
   m_Father: {fileID: 1534654449}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1422558286 stripped
+--- !u!1 &1425977789 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1777075507044932, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1526199818155372, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1422558292
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1425977791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1422558286}
+  m_GameObject: {fileID: 1425977789}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -3014,47 +4728,6 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
---- !u!1 &1432675127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1432675128}
-  - component: {fileID: 1432675129}
-  m_Layer: 13
-  m_Name: Col
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1432675128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1432675127}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2008676754}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1432675129
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1432675127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.11
-  m_Center: {x: 0.02, y: 0, z: -0.11}
 --- !u!1001 &1451200712
 Prefab:
   m_ObjectHideFlags: 0
@@ -3121,44 +4794,17 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 505380055dec67142b022dd4477f7be9, type: 3}
   m_IsPrefabAsset: 0
---- !u!1 &1476740838 stripped
+--- !u!1 &1461350500 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1744212962669716, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1477093740083044, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1476740844
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1461350502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1476740838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
---- !u!1 &1490839913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1623160704846964, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1490839919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1490839913}
+  m_GameObject: {fileID: 1461350500}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -3438,6 +5084,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 1608239813}
+--- !u!1 &1537486531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1895927820045986, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1537486533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537486531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1001 &1551995941
 Prefab:
   m_ObjectHideFlags: 0
@@ -3492,17 +5165,49 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1572293070 stripped
+--- !u!1 &1561042392 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1116712064739884, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1494770653210898, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1572293076
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!4 &1561042393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4502463221465082, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1561042394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572293070}
+  m_GameObject: {fileID: 1561042392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1579106235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724751709218394, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1579106237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1579106235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -3608,6 +5313,87 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a31851bcebb114781fbf7310e65b11, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1615590644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1526199818155372, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &1615590646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615590644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1621552218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1163932208461302, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1621552220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621552218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 1.8
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1636163695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1895927820045986, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1636163697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636163695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1657933538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,6 +5479,47 @@ Transform:
   m_Father: {fileID: 475038091}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1702567882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702567883}
+  - component: {fileID: 1702567884}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702567883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702567882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1120022955}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1702567884
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702567882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
 --- !u!1 &1714817549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +5564,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1750416564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750416565}
+  - component: {fileID: 1750416566}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1750416565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750416564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322866837}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1750416566
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750416564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
 --- !u!1 &1772316133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,6 +5635,33 @@ Transform:
   m_Father: {fileID: 1496489221}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1778782140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420891772431244, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1778782142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778782140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1786490328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,6 +5840,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789277543}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1792906101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744212962669716, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1792906103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792906101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1794553761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,17 +5952,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1794553761}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1826901695 stripped
+--- !u!1 &1797965652 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1190836036949188, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1744212962669716, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1826901701
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1797965654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1826901695}
+  m_GameObject: {fileID: 1797965652}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -4057,17 +5979,44 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
---- !u!1 &1842660059 stripped
+--- !u!1 &1809764118 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1485030342755530, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1090274341076812, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1842660065
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1809764120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1842660059}
+  m_GameObject: {fileID: 1809764118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1852121340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744212962669716, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1852121342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852121340}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -4112,33 +6061,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1860809622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1895927820045986, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1860809628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860809622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
 --- !u!1 &1868974892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,17 +6209,85 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1871425190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1928584356 stripped
+--- !u!1 &1880409944 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1724751709218394, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1351863915108370, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &1928584362
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1880409946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1928584356}
+  m_GameObject: {fileID: 1880409944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &1896683951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896683952}
+  - component: {fileID: 1896683953}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896683952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1896683951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1070734260}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1896683953
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1896683951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
+--- !u!1 &1945239710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1858652445698638, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &1945239712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1945239710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -4319,6 +6309,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 1035749464}
+--- !u!1 &1951221555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951221556}
+  - component: {fileID: 1951221557}
+  m_Layer: 13
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951221556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951221555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 143283121}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1951221557
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951221555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.02, y: 0, z: -0.11}
+--- !u!1 &1955513993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1351863915108370, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 717325470}
+--- !u!114 &1955513995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1955513993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &1955631171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,22 +6407,44 @@ Transform:
   m_Father: {fileID: 1136009576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &2008676753 stripped
+--- !u!1 &1989010952 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1494770653210898, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1507338487867778, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!4 &2008676754 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4502463221465082, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &2008676760
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &1989010954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2008676753}
+  m_GameObject: {fileID: 1989010952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &2018975076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1526199818155372, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 676424408}
+--- !u!114 &2018975078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018975076}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -4411,17 +6491,17 @@ Transform:
   m_Father: {fileID: 481539294}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &2049456035 stripped
+--- !u!1 &2069480524 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1404055372271052, guid: e99f5012c3795044aaea2e16bb9bcb28,
+  m_CorrespondingSourceObject: {fileID: 1777075507044932, guid: e99f5012c3795044aaea2e16bb9bcb28,
     type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &2049456041
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &2069480526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2049456035}
+  m_GameObject: {fileID: 2069480524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -4438,6 +6518,78 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
+--- !u!1 &2071904550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485030342755530, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &2071904552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071904550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &2072792719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1090274341076812, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &2072792721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072792719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
+--- !u!1 &2078937947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1926307158434024, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &2078937948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2078937947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe24f48dc4f9e8d4cb5d19a36754829e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbToCopy: {fileID: 1714817550}
+  grabToCopy: {fileID: 72405606}
 --- !u!1 &2086758397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,6 +6805,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2092775424}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2098510444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116712064739884, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &2098510446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098510444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &2114059731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,6 +6867,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2117968768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190836036949188, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 464755685}
+--- !u!114 &2117968770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117968768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!4 &2118228566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4800917026614206, guid: 8e20853bfbc72134f9feb8fba5be9454,
@@ -4769,6 +6975,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2126763431}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2128841037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1548929163910166, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!4 &2128841038 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4562976960605084, guid: e99f5012c3795044aaea2e16bb9bcb28,
+    type: 2}
+  m_PrefabInternal: {fileID: 520152856}
+--- !u!114 &2128841039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128841037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledUntilGrabbed: 0
+  maxVelocity: 8
+  velocityFactor: 2.5
+  angularVelocityFactor: 0.5
+  maxAngularVelocity: 10
+  extraGravity: 40
+  setRotationOnGrab: 0
+  setPositionOnGrab: 0
+  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 0, z: 0}
+  isGrabbed: 0
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,30 +7073,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 130.112, y: 65.76599, z: 12.98999}
---- !u!1 &2141574094 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1090274341076812, guid: e99f5012c3795044aaea2e16bb9bcb28,
-    type: 2}
-  m_PrefabInternal: {fileID: 83089451}
---- !u!114 &2141574100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141574094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0

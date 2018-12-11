@@ -21,8 +21,8 @@ public class DetachableBone : MonoBehaviour
 
     bool detached;
 
-    float detachForceMultiplier = 0.25f;
-    float knockbackForceMultiplier = 1f;
+    float detachForceMultiplier = 0.22f;
+    float knockbackForceMultiplier = 5f;
 
     void Start()
     {
@@ -47,6 +47,11 @@ public class DetachableBone : MonoBehaviour
 
     public void TakeDamage(ShotInfo info)
     {
+        if (detached)
+        {
+            KnockBack(info);
+        }
+
         if (limb == null)
         {
             skeleton.TakeDamage(info, true);
@@ -59,26 +64,21 @@ public class DetachableBone : MonoBehaviour
     {
         if (detached)
         {
-            KnockBack(info);
             return;
         }
 
         // Changing velocity depending on info
-
-        Vector3 detachVelocity = Vector3.zero;
-
         float sqrDistance = (transform.position - info.hitPos).sqrMagnitude;
         sqrDistance = Mathf.Clamp(sqrDistance, 0f, sqrMaxDistance);
         float distancePercentage = sqrMaxDistance / sqrDistance;
 
-        if(skeleton.boneDetachCurve != null)
+        if (skeleton.boneDetachCurve != null)
         {
             distancePercentage = skeleton.boneDetachCurve.curve.Evaluate(distancePercentage);
         }
 
-        detachVelocity += info.shotForward * info.force * detachForceMultiplier * distancePercentage;
+        Vector3 detachVelocity = info.shotForward * info.force * detachForceMultiplier * distancePercentage;
 
-        //rb.AddForce(detachVelocity * 1000000f, ForceMode.Force); // Doesn't seem to do anything
         rb.velocity = detachVelocity / rb.mass;
 
         transform.parent = null;
@@ -86,7 +86,7 @@ public class DetachableBone : MonoBehaviour
         rb.useGravity = true;
 
         Vector3 dist = transform.position - info.hitPos;
-
+        
 
         if (GetComponent<GrabbableObject>() != null)
         {
@@ -98,7 +98,9 @@ public class DetachableBone : MonoBehaviour
 
     void KnockBack(ShotInfo info)
     {
-        // TODO: Implement behaviour if seperated limb is shot again
+        Vector3 knockBackVelocity = info.shotForward * info.force * knockbackForceMultiplier;
+
+        rb.velocity = knockBackVelocity / rb.mass;
     }
 
     void SetGrabbable()
