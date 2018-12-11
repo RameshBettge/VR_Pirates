@@ -6,21 +6,29 @@ public class SeaMovement : MonoBehaviour
 {
     public Texture2D tex;
 
+    [Space(10)]
     [SerializeField]
     float texScale;
     [SerializeField]
     float offsetScale;
+    [Space(10)]
+
     [SerializeField]
     Vector2 moveSpeed = new Vector2(20f, 20f);
     [SerializeField]
     Vector2 offsetSpeed = new Vector2(10f, 10f);
+    [Space(10)]
 
     [SerializeField]
     float heightModifier = 10f;
+    [Space(10)]
+
+    [SerializeField]
+    float normalRecalculationInterval = 0.05f;
 
 
 
-    float lastTest;
+    float nextTest;
 
     float halfTexWidth;
 
@@ -73,17 +81,17 @@ public class SeaMovement : MonoBehaviour
             //verts[i] = new Vector3(verts[i].x, height * heightModifier, verts[i].z);
             verts[i] = new Vector3(verts[i].x, height * heightModifier * offset, verts[i].z);
 
-            //if (Time.time > lastTest + 5f)
-            //{
-            //    Debug.Log("Working... " + movement);
-            //    lastTest = Time.time;
-            //}
+        }
+
+        if (Time.time >= nextTest)
+        {
+            filter.mesh.RecalculateNormals();
+            nextTest = normalRecalculationInterval;
         }
 
         filter.mesh.vertices = verts;
 
         // TODO: Check when to recalculate the normals instead of doing it every frame.
-        filter.mesh.RecalculateNormals();
     }
 
 }
