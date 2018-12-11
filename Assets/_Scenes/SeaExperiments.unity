@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17735611, g: 0.21538392, b: 0.26609468, a: 1}
+  m_IndirectSpecularColor: {r: 0.1773574, g: 0.21538603, b: 0.26609695, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -362,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605627409}
   - component: {fileID: 1605627408}
+  - component: {fileID: 1605627410}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -412,13 +413,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1605627407}
-  m_LocalRotation: {x: 0.53382283, y: -0.8277364, z: 0.030106768, w: 0.17023283}
+  m_LocalRotation: {x: 0.52543753, y: -0.84280574, z: 0.09893983, w: 0.0616829}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 13.391001, y: -165.12901, z: -63.882004}
+  m_LocalEulerAnglesHint: {x: 13.391001, y: -180, z: -63.882004}
+--- !u!114 &1605627410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605627407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0cb471de1450b438cc146d3140d9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seaMat: {fileID: 2100000, guid: 9284a267a0beff34890d121f842bdb4e, type: 2}
 --- !u!1 &1747103291
 GameObject:
   m_ObjectHideFlags: 0
