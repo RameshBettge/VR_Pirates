@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +14,12 @@ public class SimpleBouyancy : MonoBehaviour
 
     [SerializeField]
     int maxTiltSamples = 10;
+    int tiltSamples;
 
-    int samples;
+    [SerializeField]
+    int maxHeightSamples = 10;
+    int heightSamples;
+
 
     [SerializeField]
     Transform front;
@@ -33,20 +38,67 @@ public class SimpleBouyancy : MonoBehaviour
     Vector3 averageFwd;
     Vector3 averageRight;
 
+    float averageHeight;
+
+
     private void Start()
     {
-        samples = 1;
+        tiltSamples = 1;
+        heightSamples = 1;
         //distanceToBack = (transform.position - back.position).magnitude;
     }
 
     private void Update()
+    {
+        SetRotation();
+        SetBoatHeight();
+    }
+
+    private void SetBoatHeight()
+    {
+        Vector3 newPos = GetSeaPosition(transform);
+
+
+        if (heightSamples == 1)
+        {
+            averageHeight = newPos.y;
+        }
+        else
+        {
+            averageHeight /= heightSamples;
+            averageHeight *= (heightSamples - 1);
+            averageHeight += newPos.y / heightSamples;
+        }
+
+        //float heightDifference = newPos.y - transform.position.y;
+
+        //float sign = Mathf.Sign(heightDifference);
+
+        //float absDifference = Mathf.Abs(heightDifference);
+        //float maxMovement = maxUpMovementPerSecond * Time.deltaTime;
+        //if (absDifference > maxMovement)
+        //{
+        //    absDifference = maxMovement;
+        //}
+
+        //newPos.y = transform.position.y + absDifference * sign;
+        newPos.y = averageHeight;
+        transform.position = newPos;
+
+        if (heightSamples < maxHeightSamples)
+        {
+            heightSamples++;
+        }
+    }
+
+    void SetRotation()
     {
         Vector3 fwdDir = GetTiltDir(back, front);
 
         Vector3 rightDir = GetTiltDir(left, right);
 
 
-        if (samples == 1)
+        if (tiltSamples == 1)
         //if (true)
         {
             averageFwd = fwdDir;
@@ -54,26 +106,23 @@ public class SimpleBouyancy : MonoBehaviour
         }
         else
         {
-            averageFwd /= samples;
-            averageFwd *= (samples - 1);
-            averageFwd += fwdDir / samples;
+            averageFwd /= tiltSamples;
+            averageFwd *= (tiltSamples - 1);
+            averageFwd += fwdDir / tiltSamples;
 
 
-            averageRight /= samples;
-            averageRight *= (samples - 1);
-            averageRight += rightDir / samples;
+            averageRight /= tiltSamples;
+            averageRight *= (tiltSamples - 1);
+            averageRight += rightDir / tiltSamples;
         }
 
         Vector3 upDir = Vector3.Cross(averageFwd.normalized, averageRight.normalized);
 
         transform.rotation = Quaternion.LookRotation(averageFwd, upDir);
 
-        //Vector3 newPos = GetSeaPosition(transform);
-        transform.position = GetSeaPosition(transform);
-
-        if (samples < maxTiltSamples)
+        if (tiltSamples < maxTiltSamples)
         {
-            samples++;
+            tiltSamples++;
         }
     }
 
