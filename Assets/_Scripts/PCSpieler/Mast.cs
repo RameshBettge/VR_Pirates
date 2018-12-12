@@ -3,6 +3,7 @@
 public class Mast : MonoBehaviour
 {
     public float health = 2000;
+    public GameObject[] masts;
 
     void OnTriggerEnter(Collider other)
     {
@@ -36,7 +37,12 @@ public class Mast : MonoBehaviour
                 GameObject.Find("SkelotonFinal-Animated PREFAB 1(Clone)").SendMessage("Idle");
                 GameObject.Find("SkelotonFinal-Animated PREFAB 2(Clone)").SendMessage("Idle");
                 GameObject.Find("SkelotonFinal-Animated PREFAB 3(Clone)").SendMessage("Idle");
-                Destroy(GameObject.FindWithTag("Target"));
+
+                masts = GameObject.FindGameObjectsWithTag("Target");
+                for (int i = 0; i < masts.Length; i++)
+                {
+                    Destroy(masts[i]);
+                }
             }
         }
     }
