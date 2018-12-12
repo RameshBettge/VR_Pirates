@@ -6,6 +6,11 @@ using UnityEngine;
 public class DetachableBone : MonoBehaviour, IDamageable
 {
     [HideInInspector]
+    public float lifeTime;
+
+    float despawnTime;
+
+    [HideInInspector]
     public Limb limb;
 
     [HideInInspector]
@@ -13,11 +18,21 @@ public class DetachableBone : MonoBehaviour, IDamageable
 
     Rigidbody rb;
     Collider[] cols;
+    Collider[] Cols
+    {
+        get
+        {
+            if (cols == null)
+            {
+                cols = GetComponentsInChildren<Collider>(true);
+
+            }
+            return cols;
+        }
+    }
+        
 
     int grabLayer;
-
-    float maxDistance = 1f;
-    float sqrMaxDistance;
 
     bool detached;
 
@@ -26,22 +41,37 @@ public class DetachableBone : MonoBehaviour, IDamageable
 
     void Start()
     {
-        sqrMaxDistance = maxDistance * maxDistance;
-
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
         grabLayer = LayerMask.NameToLayer("Grabbable");
 
-        cols = GetComponentsInChildren<Collider>();
-        for (int i = 0; i < cols.Length; i++)
+        for (int i = 0; i < Cols.Length; i++)
         {
-            cols[i].enabled = true;
+            Cols[i].enabled = true;
         }
 
-        if (cols.Length < 1)
+        if (Cols.Length < 1)
         {
             Debug.LogWarning(name + " (DetachableBone) has no collider!");
+        }
+    }
+
+    private void Update()
+    {
+        if (!detached) { return; }
+        if(Time.time >= despawnTime || transform.position.y < -10f)
+        {
+            Destroy(gameObject);
+            // Not destroying this script because it should only cause harm if it was null
+        }
+    }
+
+    public void SetCols(bool active)
+    {
+        for (int i = 0; i < Cols.Length; i++)
+        {
+            Cols[i].gameObject.SetActive(active);
         }
     }
 
@@ -54,10 +84,12 @@ public class DetachableBone : MonoBehaviour, IDamageable
 
         if (limb == null)
         {
-            skeleton.TakeDamage(info, true);
-            return;
+            skeleton.TakeDamageFromBone(info, true);
         }
-        limb.TakeDamage(info);
+        else
+        {
+            limb.TakeDamage(info);
+        }
     }
 
     public void Detach(ShotInfo info)
@@ -68,9 +100,9 @@ public class DetachableBone : MonoBehaviour, IDamageable
         }
 
         // Changing velocity depending on info
-        float sqrDistance = (transform.position - info.hitPos).sqrMagnitude;
-        sqrDistance = Mathf.Clamp(sqrDistance, 0f, sqrMaxDistance);
-        float distancePercentage = sqrMaxDistance / sqrDistance;
+        
+
+        float distancePercentage = info.GetDistancePercentage(transform);
 
         if (skeleton.boneDetachCurve != null)
         {
@@ -86,7 +118,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
         rb.useGravity = true;
 
         Vector3 dist = transform.position - info.hitPos;
-        
+
 
         if (GetComponent<GrabbableObject>() != null)
         {
@@ -94,6 +126,8 @@ public class DetachableBone : MonoBehaviour, IDamageable
         }
 
         detached = true;
+
+        despawnTime = Time.time + lifeTime;
     }
 
     void KnockBack(ShotInfo info)

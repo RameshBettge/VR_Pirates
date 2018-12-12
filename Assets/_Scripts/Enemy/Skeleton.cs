@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : MonoBehaviour
+public class Skeleton : MonoBehaviour, IDamageable
 {
-    [HideInInspector]
+    [Tooltip("If disabled, skeletons will only have an approximate hitbox when in boat.")]
+    [SerializeField]
+    bool exactCols = false;
+
+    [SerializeField]
+    float lifeTime = 30f;
+
+    //[HideInInspector]
     public ScriptableCurve boneDetachCurve;
 
     [HideInInspector]
@@ -14,7 +21,7 @@ public class Skeleton : MonoBehaviour
     public bool destroyed = false;
 
     [HideInInspector]
-    public bool boarded = false;
+    public bool boarded { get; private set; }
 
     DetachableBone[] bones;
 
@@ -22,16 +29,18 @@ public class Skeleton : MonoBehaviour
 
     int health = 5;
 
-
-    private void Awake()
+    private void Start()
     {
         boneDetachCurve = Resources.Load<ScriptableCurve>("ScriptableObjects/BoneDetachCurve");
+
+        if(boneDetachCurve == null) { Debug.LogError("BoneDetachCurve couldn't be found!"); }
 
         bones = GetComponentsInChildren<DetachableBone>();
 
         for (int i = 0; i < bones.Length; i++)
         {
             bones[i].skeleton = this;
+            bones[i].lifeTime = lifeTime;
         }
 
         Limb[] limbs = GetComponentsInChildren<Limb>();
@@ -40,7 +49,22 @@ public class Skeleton : MonoBehaviour
             limbs[i].skeleton = this;
         }
 
+        if (exactCols)
+        {
+            gameObject.layer = LayerMask.NameToLayer("BulletIgnore");
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Skeleton");
+
+            for (int i = 0; i < bones.Length; i++)
+            {
+                bones[i].SetCols(false);
+            }
+        }
+
         behaviour = GetComponent<EnemyBehaiviour>();
+
         // TODO: Remove null check when prefab is done
         if (behaviour != null)
         {
@@ -48,8 +72,19 @@ public class Skeleton : MonoBehaviour
         }
     }
 
+    public void OnBoarding()
+    {
+        if (!exactCols)
+        {
+            for (int i = 0; i < bones.Length; i++)
+            {
+                bones[i].SetCols(true);
+            }
+        }
+    }
 
-    public void TakeDamage(ShotInfo info, bool bodyShot = false)
+
+    public void TakeDamageFromBone(ShotInfo info, bool bodyShot = false)
     {
         health -= info.damage;
 
@@ -72,18 +107,22 @@ public class Skeleton : MonoBehaviour
 
         destroyed = true;
 
-        if (behaviour != null)
+        if (behaviour != null && boarded)
         {
-            if (boarded)
-            {
-                behaviour.Die();
-            }
-            else
-            {
-                // TODO: Check if destroying is save and not despawning loose bones/items
-                Destroy(this);
-                Destroy(gameObject);
-            }
+
+            behaviour.Die();
         }
+        else
+        {
+            // TODO: Check if destroying is save and not despawning loose bones/items
+            Destroy(this);
+            Destroy(gameObject);
+        }
+    }
+
+    // Only used for sniper
+    public void TakeDamage(ShotInfo info)
+    {
+        TakeDamageFromBone(info);
     }
 }

@@ -3,9 +3,20 @@ using System.Collections.Generic;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField]
+    LayerMask mask;
+
+    [Tooltip("How far the shot direction should be lerped to Vector3.up")]
+    [SerializeField]
+    [Range(0, 1)]
+    float upwardsKnockbackModifier = 0.25f;
+
+    [SerializeField]
+    float knockbackFalloffDistance = 1f;
+
     public int damage = 10;
     public float range = 3000f;
-    public float impactForce = 100f;
+    public float impactForce = 300f;
     public float timeBetweenShots = 2f;
 
     public Camera cam;
@@ -14,31 +25,8 @@ public class Shooting : MonoBehaviour
 
     public Recoil recoilScript;
 
-    public List<Vector3> debugs = new List<Vector3>();
-
-    private void OnDrawGizmos()
-    {
-        if(debugs == null) { return; }
-
-        for (int i = 0; i < debugs.Count; i++)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawSphere(debugs[i], 0.75f);
-        }
-    }
-
     void Update()
     {
-        debugs.Clear();
-        float debugIncrement = 20f;
-        float distance = debugIncrement;
-        while(distance <= range)
-        {
-            debugs.Add(cam.transform.position + cam.transform.forward * distance);
-            distance += debugIncrement;
-        }
-
-        Debug.DrawRay(cam.transform.position, cam.transform.forward * range, Color.magenta);
         if (Time.time >= timestamp && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
@@ -48,13 +36,14 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, mask))
         {
-            Debug.Log(hit.collider.name);
+            Debug.Log(hit.collider.gameObject.name);
 
             IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
 
-            ShotInfo info = new ShotInfo(hit.point, transform.forward, impactForce, damage);
+            Vector3 knockbackDir =Vector3.Lerp (transform.forward, transform.up, upwardsKnockbackModifier);
+            ShotInfo info = new ShotInfo(hit.point, knockbackDir, impactForce, damage, knockbackFalloffDistance);
 
             Transform parent = hit.collider.transform.parent;
             if (damageable == null && parent != null)

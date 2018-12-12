@@ -54,7 +54,7 @@ public class SkeletonBoat : MonoBehaviour
                 if (!skeletons[i].destroyed && !skeletons[i].boarded)
                 {
                     docker.OnDocking(skeletons[i]);
-                    skeletons[i].boarded = true;
+                    skeletons[i].OnBoarding();
                     nextBoarding = Time.time + boardingInterval;
 
                     break;

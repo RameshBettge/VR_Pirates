@@ -45,13 +45,26 @@ public struct ShotInfo
     public Vector3 shotForward;
     public float force;
     public int damage;
+    float sqrMaxDistance;
 
 
-    public ShotInfo(Vector3 hitPos, Vector3 shotForward, float force, int damage)
+    public ShotInfo(Vector3 hitPos, Vector3 shotForward, float force, int damage, float knockbackInfluenceDistance)
     {
         this.hitPos = hitPos;
         this.shotForward = shotForward.normalized;
         this.force = force;
         this.damage = damage;
+        sqrMaxDistance = knockbackInfluenceDistance;
+    }
+
+    public float GetDistancePercentage(Transform t)
+    {
+        float sqrDistance = (t.position - hitPos).sqrMagnitude;
+        sqrDistance = Mathf.Clamp(sqrDistance, 0.001f, sqrMaxDistance);
+
+        // if distance is high -> percentage is low.
+        float distancePercentage = 1 - (sqrDistance / sqrMaxDistance);
+
+        return distancePercentage;
     }
 }

@@ -4,7 +4,7 @@ public class Recoil : MonoBehaviour
 {
     public bool isRecoiling = false;
 
-    float maxRecoilx = -20f;
+    float maxRecoilx = -5f;
     float recoilSpeed = 10f;
     float recoilTimer = 0.2f;
     float recoilDuration = 0.2f;

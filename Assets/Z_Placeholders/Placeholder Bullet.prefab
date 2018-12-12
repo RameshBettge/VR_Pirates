@@ -127,3 +127,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 8705
+  speed: 10
+  force: 1
+  damage: 1
+  knockbackFalloffDistance: 2

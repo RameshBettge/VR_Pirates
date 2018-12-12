@@ -10,11 +10,16 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float speed = 10f;
 
+    // TODO: Change force to a higher value - sniper needs around 100 to look good.
+    //       (Please don't forget to adjust value on perfab and not here ;) )
     [SerializeField]
     float force = 1f;
 
     [SerializeField]
     int damage = 1;
+
+    [SerializeField]
+    float knockbackFalloffDistance = 0.8f;
 
     Vector3 lastPos = Vector3.zero;
 
@@ -58,7 +63,7 @@ public class Bullet : MonoBehaviour
             {
                 IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
 
-                ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage);
+                ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage, knockbackFalloffDistance);
 
                 Transform parent = hit.collider.transform.parent;
                 if (damageable == null && parent != null)
