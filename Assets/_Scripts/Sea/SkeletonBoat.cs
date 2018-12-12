@@ -5,7 +5,9 @@ using UnityEngine;
 public class SkeletonBoat : MonoBehaviour
 {
     [SerializeField]
-    Skeleton[] skeletons;
+    Transform skeletonParent;
+
+    public Skeleton[] skeletons;
 
     [SerializeField]
     float boardingInterval = 0.5f;
@@ -15,11 +17,16 @@ public class SkeletonBoat : MonoBehaviour
 
     private void Start()
     {
+        skeletons = new Skeleton[skeletonParent.childCount];
+
         for (int i = 0; i < skeletons.Length; i++)
         {
+            skeletons[i] = skeletonParent.GetChild(i).GetComponent<Skeleton>();
+
             // TODO: acces rigidbody via celina's script (skeleton needs to get a reference to that script in awake.)
             skeletons[i].GetComponent<Rigidbody>().isKinematic = true;
         }
+
     }
 
     public bool CheckCrewDead()

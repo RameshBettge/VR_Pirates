@@ -29,10 +29,13 @@ public class Docker : MonoBehaviour
     {
         // TODO: make celina's logic work from here
         skeleton.GetComponent<Rigidbody>().isKinematic = false;
-        skeleton.transform.parent = ship;
 
         Vector3 spawnPosition = spawnPoint.position;
         spawnPosition.x += UnityEngine.Random.Range(-2, 2);
         skeleton.transform.position = spawnPosition;
+        //skeleton.transform.localRotation = spawnPoint.localRotation;
+        skeleton.transform.rotation = Quaternion.identity;
+
+        skeleton.transform.parent = ship;
     }
 }
