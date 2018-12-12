@@ -7,7 +7,7 @@ public class SkeletonBoat : MonoBehaviour
     [SerializeField]
     Transform skeletonParent;
 
-    public Skeleton[] skeletons;
+    Skeleton[] skeletons;
 
     [SerializeField]
     float boardingInterval = 0.5f;

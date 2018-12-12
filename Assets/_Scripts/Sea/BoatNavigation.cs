@@ -6,11 +6,6 @@ using UnityEngine;
 public class BoatNavigation : MonoBehaviour
 {
     [SerializeField]
-    Docker docker;
-
-    bool docking;
-
-    [SerializeField]
     float speed = 3f;
     [SerializeField]
     float sailSpeedBonus = 5f;
@@ -33,6 +28,8 @@ public class BoatNavigation : MonoBehaviour
     [SerializeField]
     AnimationCurve sinkCurve;
 
+    Docker docker;
+
     SkeletonBoat skeletonBoat;
 
     public SkeletonSail sail;
@@ -49,16 +46,21 @@ public class BoatNavigation : MonoBehaviour
 
     void Awake()
     {
-        // TODO: Find the nearest docker to steer towards instead of having a serializedField
-        directionToDocker = (docker.transform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(directionToDocker, Vector3.up);
-
         bouyancy = GetComponent<SimpleBouyancy>();
         bouyancy.manualUpdate = true;
 
         skeletonBoat = GetComponent<SkeletonBoat>();
 
         sail = GetComponentInChildren<SkeletonSail>();
+    }
+
+    public void OnSpawn(Docker docker, SeaMovement sea)
+    {
+        this.docker = docker;
+        bouyancy.sea = sea;
+
+        directionToDocker = (docker.transform.position - transform.position).normalized;
+        transform.rotation = Quaternion.LookRotation(directionToDocker, Vector3.up);
     }
 
 

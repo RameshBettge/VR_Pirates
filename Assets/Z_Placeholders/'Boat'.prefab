@@ -21476,7 +21476,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039634913980912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -115.4, y: 8.97, z: -29.5}
+  m_LocalPosition: {x: -50, y: 8.969999, z: 325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4718281434504764}
@@ -47013,13 +47013,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4407ea435f71842b4dfff763bbfd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  docker: {fileID: 0}
   speed: 10
   sailSpeedBonus: 10
   driftSpeed: 7
   dockingDistance: 3
-  dockingTime: 3
-  sinkTime: 20
+  dockingTime: 1.5
+  sinkTime: 5
   sinkDepth: 10
   sinkCurve:
     serializedVersion: 2
@@ -47034,10 +47033,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7844872
-      value: 0.38922194
-      inSlope: 1.6651084
-      outSlope: 1.6651084
+      time: 0.76365894
+      value: 0.52139354
+      inSlope: 1.353912
+      outSlope: 1.353912
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -50668,8 +50667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonParent: {fileID: 4726714016268652}
-  skeletons: []
-  boardingInterval: 1.5
+  boardingInterval: 0.8
 --- !u!114 &114546937962409540
 MonoBehaviour:
   m_ObjectHideFlags: 1

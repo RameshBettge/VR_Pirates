@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SimpleBouyancy : MonoBehaviour
 {
-    [SerializeField]
-    SeaMovement sea;
+    [HideInInspector]
+    public SeaMovement sea;
 
     [SerializeField]
     bool adjustTilt = true;
