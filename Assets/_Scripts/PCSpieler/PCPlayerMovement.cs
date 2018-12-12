@@ -3,6 +3,7 @@
 public class PCPlayerMovement : MonoBehaviour
 {
     public Transform thirdPersonCam;
+    public Transform thirdPersonCam2;
     public Transform firstPersonCam;
     public Transform helperTransform;
     public Transform cannon;
@@ -42,12 +43,13 @@ public class PCPlayerMovement : MonoBehaviour
             Vector3 oldRot = cameraRot;
 
             cameraRot += new Vector3(xRot, 0f, 0f);
-            if (cameraRot.x < -90 || cameraRot.x > 70f)
+            if (cameraRot.x < -90 || cameraRot.x > 50f)
             {
                 cameraRot = oldRot;
             }
             helperTransform.localRotation = Quaternion.Euler(cameraRot.x, 0f, 0f);
             thirdPersonCam.localRotation = Quaternion.Euler(cameraRot.x, thirdPersonCam.rotation.y, thirdPersonCam.rotation.z);
+            thirdPersonCam2.localRotation = Quaternion.Euler(cameraRot.x, thirdPersonCam2.rotation.y, thirdPersonCam2.rotation.z);
             firstPersonCam.localRotation = Quaternion.Euler(cameraRot.x, firstPersonCam.rotation.y, firstPersonCam.rotation.z); 
         }
     }

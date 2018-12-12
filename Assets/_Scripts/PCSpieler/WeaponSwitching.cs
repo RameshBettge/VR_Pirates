@@ -10,6 +10,7 @@ public class WeaponSwitching : MonoBehaviour
     public GameObject fist1;
     public GameObject fist2;
     public GameObject sniper;
+    public GameObject crosshair;
 
     public Throwing throwingScript;
     public CameraSwitching switchScript;
@@ -48,6 +49,7 @@ public class WeaponSwitching : MonoBehaviour
             fist1.SetActive(false);
             fist2.SetActive(false);
             sniper.SetActive(true);
+            crosshair.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -71,6 +73,7 @@ public class WeaponSwitching : MonoBehaviour
             fist1.SetActive(false);
             fist2.SetActive(false);
             sniper.SetActive(false);
+            crosshair.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -80,7 +83,7 @@ public class WeaponSwitching : MonoBehaviour
             {
                 throwingScript.enabled = false;
             }
-            switchScript.ThirdPerson();
+            switchScript.ThirdPerson2();
             if (cannonScript.enabled == false)
             {
                 cannonScript.enabled = true;
@@ -94,6 +97,7 @@ public class WeaponSwitching : MonoBehaviour
             fist1.SetActive(true);
             fist2.SetActive(true);
             sniper.SetActive(true);
+            crosshair.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)

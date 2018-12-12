@@ -5,7 +5,7 @@ public class Cannon : MonoBehaviour
     public float shootForce;
     public GameObject cannonBallPrefab;
     public GameObject player;
-    public Transform cannon;
+    public Transform cannonSpawn;
 
     private Vector3 rot;
 
@@ -21,9 +21,9 @@ public class Cannon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject cannonBall = Instantiate(cannonBallPrefab, cannon.transform.position, cannon.transform.rotation);
+        GameObject cannonBall = Instantiate(cannonBallPrefab, cannonSpawn.transform.position, cannonSpawn.transform.rotation);
         Rigidbody rb = cannonBall.GetComponent<Rigidbody>();
-        rb.AddForce(-transform.up * shootForce, ForceMode.VelocityChange);
+        rb.AddForce(-cannonSpawn.transform.right * shootForce, ForceMode.VelocityChange);
     }
 
     public void ActivateCannon()
