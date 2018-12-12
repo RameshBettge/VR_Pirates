@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class SimpleBouyancy : MonoBehaviour
 {
-
     [SerializeField]
     SeaMovement sea;
 
     [SerializeField]
-    float maxUpMovementPerSecond;
+    bool adjustTilt = true;
 
     [SerializeField]
     int maxTiltSamples = 10;
@@ -50,7 +49,10 @@ public class SimpleBouyancy : MonoBehaviour
 
     private void Update()
     {
-        SetRotation();
+        if (adjustTilt)
+        {
+            SetTilt();
+        }
         SetBoatHeight();
     }
 
@@ -91,7 +93,7 @@ public class SimpleBouyancy : MonoBehaviour
         }
     }
 
-    void SetRotation()
+    void SetTilt()
     {
         Vector3 fwdDir = GetTiltDir(back, front);
 
