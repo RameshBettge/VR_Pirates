@@ -19,6 +19,8 @@ public class SimpleBouyancy : MonoBehaviour
     int maxHeightSamples = 10;
     int heightSamples;
 
+    public bool manualUpdate;
+
 
     [SerializeField]
     Transform front;
@@ -34,8 +36,10 @@ public class SimpleBouyancy : MonoBehaviour
 
     float distanceToBack;
 
-    Vector3 averageFwd;
-    Vector3 averageRight;
+    [HideInInspector]
+    public Vector3 averageFwd;
+    [HideInInspector]
+    public Vector3 averageRight;
 
     float averageHeight;
 
@@ -48,6 +52,14 @@ public class SimpleBouyancy : MonoBehaviour
     }
 
     private void Update()
+    {
+        if (!manualUpdate)
+        {
+            UpdateBouyancy();
+        }
+    }
+
+    public void UpdateBouyancy()
     {
         if (adjustTilt)
         {
