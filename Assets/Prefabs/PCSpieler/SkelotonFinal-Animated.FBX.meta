@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 58b63abab760d8b41a39128e189e1f1f
+guid: 82903c9b3567c1a46b1e0f7c7c6ffe04
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Becken
     100002: Bip001
@@ -535,6 +535,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

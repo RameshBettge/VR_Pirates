@@ -1,5 +1,5 @@
 ﻿
-#if UNITY_EDITOR
+
 
 using System.Collections;
 using System.Collections.Generic;
@@ -38,10 +38,12 @@ public class RuntimeChanges : MonoBehaviour
             grabbables[i].maxAngularVelocity = grabToCopy.maxAngularVelocity;
 
             grabbables[i].velocityFactor = grabToCopy.velocityFactor;
-            grabbables[i].angularVelocityFactor= grabToCopy.angularVelocityFactor;
+            grabbables[i].angularVelocityFactor = grabToCopy.angularVelocityFactor;
             grabbables[i].extraGravity = grabToCopy.extraGravity;
 
+#if UNITY_EDITOR
             EditorUtility.SetDirty(grabbables[i]);
+#endif
         }
     }
 
@@ -53,7 +55,7 @@ public class RuntimeChanges : MonoBehaviour
         {
             GrabbableObject grabObj = bones[i].GetComponent<GrabbableObject>();
 
-            if(grabObj == null)
+            if (grabObj == null)
             {
                 bones[i].gameObject.AddComponent<GrabbableObject>();
             }
@@ -94,6 +96,7 @@ public class RuntimeChanges : MonoBehaviour
 
 }
 
+#if UNITY_EDITOR
 [ExecuteInEditMode]
 [CustomEditor(typeof(RuntimeChanges))]
 public class RuntimeChangesEditor : Editor
@@ -119,7 +122,7 @@ public class RuntimeChangesEditor : Editor
             script.AddGrabbableObject();
         }
 
-            if (GUILayout.Button("Change Renderers", GUILayout.Height(25)))
+        if (GUILayout.Button("Change Renderers", GUILayout.Height(25)))
         {
             script.ChangeRends();
         }
