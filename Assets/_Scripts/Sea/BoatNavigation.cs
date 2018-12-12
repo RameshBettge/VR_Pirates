@@ -23,6 +23,8 @@ public class BoatNavigation : MonoBehaviour
     [SerializeField]
     float sinkTime = 10f;
     [SerializeField]
+    float driftStartTimePercentage = 0.5f;
+    [SerializeField]
     float sinkDepth = 10f;
 
     [SerializeField]
@@ -113,9 +115,9 @@ public class BoatNavigation : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer < 1f)
+        if (timer < sinkTime * driftStartTimePercentage)
         {
-            speedModifier = timer;
+            speedModifier = timer / sinkTime;
         }
 
         float percentage = timer / sinkTime;

@@ -8,11 +8,19 @@ public class CameraZoom : MonoBehaviour
     [HideInInspector]
     public bool isZoomed = false;
 
+    Camera cam;
+
+    private void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             isZoomed = false;
+            cam.fieldOfView = normal;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -22,11 +30,11 @@ public class CameraZoom : MonoBehaviour
 
         if (isZoomed)
         {
-            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
+            cam.fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
         }
         else
         {
-            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
+            cam.fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
         }
     }
 }
