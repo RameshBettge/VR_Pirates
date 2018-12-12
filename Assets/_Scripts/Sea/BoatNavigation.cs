@@ -42,9 +42,7 @@ public class BoatNavigation : MonoBehaviour
 
     SimpleBouyancy bouyancy;
 
-
-
-    void Awake()
+    public void OnSpawn(Docker docker, SeaMovement sea)
     {
         bouyancy = GetComponent<SimpleBouyancy>();
         bouyancy.manualUpdate = true;
@@ -52,10 +50,8 @@ public class BoatNavigation : MonoBehaviour
         skeletonBoat = GetComponent<SkeletonBoat>();
 
         sail = GetComponentInChildren<SkeletonSail>();
-    }
 
-    public void OnSpawn(Docker docker, SeaMovement sea)
-    {
+        Debug.Log(docker.name);
         this.docker = docker;
         bouyancy.sea = sea;
 

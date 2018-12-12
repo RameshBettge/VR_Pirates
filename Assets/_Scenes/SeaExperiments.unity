@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586432562
 GameObject:
@@ -447,67 +447,6 @@ Transform:
   m_Father: {fileID: 103443520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &836716153
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 8.969999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 325
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114443371099987478, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sea
-      value: 
-      objectReference: {fileID: 1978919122}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: dockingTime
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543709352013194, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: boardingInterval
-      value: 0.8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &889240550
 Prefab:
   m_ObjectHideFlags: 0
@@ -621,131 +560,6 @@ Transform:
   m_Father: {fileID: 188371676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1034477394
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -86.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -17.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -292.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: docker
-      value: 
-      objectReference: {fileID: 889240553}
-    - target: {fileID: 114443371099987478, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sea
-      value: 
-      objectReference: {fileID: 1978919122}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].time
-      value: 0.7844872
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].value
-      value: 0.38922194
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].inSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].outSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_Name
-      value: '''Boat'' (1)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &1178307586
 Prefab:
   m_ObjectHideFlags: 0
@@ -924,7 +738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b727218011353ca41b062b71c8249df9, type: 2}
@@ -993,7 +807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 13.391001, y: -165.12901, z: -63.882004}
 --- !u!1 &1633084342
 GameObject:
@@ -1023,131 +837,6 @@ Transform:
   m_Father: {fileID: 188371676}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1637665790
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 184.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -17.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -275
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: docker
-      value: 
-      objectReference: {fileID: 1757519047}
-    - target: {fileID: 114443371099987478, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sea
-      value: 
-      objectReference: {fileID: 1978919122}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].time
-      value: 0.7844872
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].value
-      value: 0.38922194
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].inSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].outSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_Name
-      value: '''Boat'' (2)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1638128224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,7 +1194,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1979833267
 GameObject:
@@ -1621,7 +1310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff347bccd44109498dce0f93a1f78d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatPrefab: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
+  boatPrefab: {fileID: 1457348281064726, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
   sea: {fileID: 1978919122}
   dockerParent: {fileID: 76406821}
   spawnInterval: 5
@@ -1641,133 +1330,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2062885522
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 759
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -17.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 208
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481800250952534, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: docker
-      value: 
-      objectReference: {fileID: 127841739}
-    - target: {fileID: 114443371099987478, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sea
-      value: 
-      objectReference: {fileID: 1978919122}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].time
-      value: 0.7844872
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].value
-      value: 0.38922194
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].inSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].outSlope
-      value: 1.6651084
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: sinkTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_Name
-      value: '''Boat'' (3)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114183536787620, guid: cc640e24b619fe44eb1e2691dd169ec3,
-        type: 2}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039634913980912, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
-  m_IsPrefabAsset: 0
