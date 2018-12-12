@@ -22,6 +22,22 @@ public class SkeletonBoat : MonoBehaviour
         }
     }
 
+    public bool CheckCrewDead()
+    {
+        bool allDead = true;
+
+        for (int i = 0; i < skeletons.Length; i++)
+        {
+            if (!skeletons[i].destroyed)
+            {
+                allDead = false;
+                break;
+            }
+        }
+
+        return allDead;
+    }
+
     public bool Board(Docker docker)
     {
         if (Time.time >= nextBoarding)

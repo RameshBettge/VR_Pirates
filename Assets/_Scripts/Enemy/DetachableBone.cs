@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(Rigidbody))]
-public class DetachableBone : MonoBehaviour
+public class DetachableBone : MonoBehaviour, IDamageable
 {
     [HideInInspector]
     public Limb limb;

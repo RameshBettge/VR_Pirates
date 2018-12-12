@@ -12,6 +12,8 @@ public class BoatNavigation : MonoBehaviour
 
     [SerializeField]
     float speed = 3f;
+    [SerializeField]
+    float sailSpeedBonus = 5f;
 
     [SerializeField]
     float driftSpeed = 1f;
@@ -33,6 +35,8 @@ public class BoatNavigation : MonoBehaviour
 
     SkeletonBoat skeletonBoat;
 
+    public SkeletonSail sail;
+
     float timer;
 
     Vector3 directionToDocker;
@@ -53,6 +57,8 @@ public class BoatNavigation : MonoBehaviour
         bouyancy.manualUpdate = true;
 
         skeletonBoat = GetComponent<SkeletonBoat>();
+
+        sail = GetComponentInChildren<SkeletonSail>();
     }
 
 
@@ -60,11 +66,22 @@ public class BoatNavigation : MonoBehaviour
     {
         bouyancy.UpdateBouyancy();
 
+
         switch (state)
         {
             case BoatState.Moving:
-                Move(directionToDocker, speed);
+                float totalSpeed = speed;
+                if (!sail.destroyed)
+                {
+                    totalSpeed += sailSpeedBonus;
+                }
+                Move(directionToDocker, totalSpeed);
                 CheckDistance();
+
+                if (skeletonBoat.CheckCrewDead())
+                {
+                    state = BoatState.Sinking;
+                }
                 break;
 
             case BoatState.Docking:

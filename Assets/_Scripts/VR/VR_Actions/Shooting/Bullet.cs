@@ -56,25 +56,35 @@ public class Bullet : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, dir.magnitude, mask))
             {
-                // TODO: check if hit object is an enemy
-                DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
-                if (bone == null)
+                IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
+
+                ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage);
+
+                Transform parent = hit.collider.transform.parent;
+                if (damageable == null && parent != null)
                 {
-                    bone = hit.collider.transform.GetComponent<DetachableBone>();
+                    damageable = (IDamageable)parent.GetComponent(typeof(IDamageable));
                 }
 
-                if (bone != null)
+                if (damageable != null)
                 {
-                    ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage);
-
-                    bone.TakeDamage(info);
-                    // apply damage to bone
+                    damageable.TakeDamage(info);
                 }
 
 
-                //Debug.Log("Hit " + hit.collider.transform.parent.name + " with dir" + dir * 100f + " on frame " + debugInt);
-                //Debug.Log("Hit " + hit.collider.transform.parent.name + " on frame " + debugInt);
+                // TODO: Remove the commented out lines - they fell out of use after IDamageable was implemented but are kept jsut to be sure.
+                //DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
+                //if (bone == null)
+                //{
+                //    bone = hit.collider.transform.GetComponent<DetachableBone>();
+                //}
 
+                //if (bone != null)
+                //{
+
+                //    bone.TakeDamage(info);
+                //    // apply damage to bone
+                //}
 
                 // TODO: put bullet into pool instead
                 Destroy(gameObject);
