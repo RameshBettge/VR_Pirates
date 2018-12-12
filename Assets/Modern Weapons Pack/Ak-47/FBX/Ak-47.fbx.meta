@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: cd8d56469cf64654eaa21e15c6ae7c18
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Ak47Body
@@ -22,7 +22,23 @@ ModelImporter:
     4300004: Cube_001
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ak47Body__Untitled
+    second: {fileID: 2100000, guid: 975544c7f0aa2fa488bac6f7cb72bfb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ak47Mag__Normals_Mag
+    second: {fileID: 2100000, guid: 6a12cf738358309408258643c954bef2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 894cbf79128bb455a8e49e4708f67559, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,6 +89,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
