@@ -5,22 +5,34 @@ using UnityEngine;
 
 public class Docker : MonoBehaviour
 {
+    public Transform spawnPoint;
+    Transform ship;
 
-    Transform spawnPoint;
-
-    public void OnDocking(int numberOfSkeletons)
+    void Awake()
     {
-        for (int i = 0; i < numberOfSkeletons; i++)
+        GetShip(transform.parent);
+    }
+
+    void GetShip(Transform t)
+    {
+        if(t.parent == null)
         {
-            SpawnSkeleton();
+            ship = t;
+        }
+        else
+        {
+            GetShip(t.parent);
         }
     }
 
-    private void SpawnSkeleton()
+    public void OnDocking(Skeleton skeleton)
     {
-        // TODO: Spawn Skeleton at spawnPoint.
+        // TODO: make celina's logic work from here
+        skeleton.GetComponent<Rigidbody>().isKinematic = false;
+        skeleton.transform.parent = ship;
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //cube.transform.position = spawnPoint.position;
+        Vector3 spawnPosition = spawnPoint.position;
+        spawnPosition.x += UnityEngine.Random.Range(-2, 2);
+        skeleton.transform.position = spawnPosition;
     }
 }

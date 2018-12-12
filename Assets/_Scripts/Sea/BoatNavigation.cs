@@ -31,6 +31,8 @@ public class BoatNavigation : MonoBehaviour
     [SerializeField]
     AnimationCurve sinkCurve;
 
+    SkeletonBoat skeletonBoat;
+
     float timer;
 
     Vector3 directionToDocker;
@@ -49,6 +51,8 @@ public class BoatNavigation : MonoBehaviour
 
         bouyancy = GetComponent<SimpleBouyancy>();
         bouyancy.manualUpdate = true;
+
+        skeletonBoat = GetComponent<SkeletonBoat>();
     }
 
 
@@ -62,15 +66,30 @@ public class BoatNavigation : MonoBehaviour
                 Move(directionToDocker, speed);
                 CheckDistance();
                 break;
+
             case BoatState.Docking:
                 Dock();
                 break;
-            case BoatState.Docked:
 
+            case BoatState.Boarding:
+                Boarding();
+                break;
+
+            case BoatState.Sinking:
                 Sink();
                 break;
+
             default:
                 break;
+        }
+    }
+
+    void Boarding()
+    {
+        bool finished = skeletonBoat.Board(docker);
+        if (finished)
+        {
+            state = BoatState.Sinking;
         }
     }
 
@@ -133,12 +152,10 @@ public class BoatNavigation : MonoBehaviour
 
     private void OnDocking()
     {
-        state = BoatState.Docked;
+        state = BoatState.Boarding;
         bouyancy.averageFwd = docker.transform.forward;
         bouyancy.averageRight = docker.transform.right;
         transform.position = docker.transform.position;
-
-        docker.OnDocking(1);
 
         timer = 0f;
     }
@@ -151,5 +168,5 @@ public class BoatNavigation : MonoBehaviour
 
 public enum BoatState
 {
-    Moving, Docking, Docked
+    Moving, Docking, Sinking, Boarding
 }

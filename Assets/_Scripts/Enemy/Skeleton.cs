@@ -10,6 +10,12 @@ public class Skeleton : MonoBehaviour
     [HideInInspector]
     public bool hasLostLimb = false;
 
+    [HideInInspector]
+    public bool destroyed = false;
+
+    [HideInInspector]
+    public bool boarded = false;
+
     DetachableBone[] bones;
 
     int health = 5;
@@ -51,7 +57,10 @@ public class Skeleton : MonoBehaviour
 
         for (int i = 0; i < bones.Length; i++)
         {
+            // TODO: Despawn bones
             bones[i].Detach(info);
         }
+
+        destroyed = true;
     }
 }
