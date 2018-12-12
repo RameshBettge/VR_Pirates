@@ -2,6 +2,12 @@
 
 public class PCPlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    CameraZoom zoom;
+
+    [SerializeField]
+    float zoomSensitivity = 0.3f;
+
     public Transform thirdPersonCam;
     public Transform thirdPersonCam2;
     public Transform firstPersonCam;
@@ -31,6 +37,13 @@ public class PCPlayerMovement : MonoBehaviour
     {
         float yRot;
         yRot = Input.GetAxis("Mouse X");
+
+
+        if (zoom.isZoomed)
+        {
+            yRot *= zoomSensitivity;
+        }
+
         transform.rotation *= Quaternion.Euler(0f, yRot, 0f);
     }
 
@@ -40,6 +53,10 @@ public class PCPlayerMovement : MonoBehaviour
         {
             float xRot = Input.GetAxis("Mouse Y");
             xRot *= -1;
+            if (zoom.isZoomed)
+            {
+                xRot *= zoomSensitivity;
+            }
             Vector3 oldRot = cameraRot;
 
             cameraRot += new Vector3(xRot, 0f, 0f);

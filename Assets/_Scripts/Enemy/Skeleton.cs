@@ -18,6 +18,8 @@ public class Skeleton : MonoBehaviour
 
     DetachableBone[] bones;
 
+    EnemyBehaiviour behaviour;
+
     int health = 5;
 
 
@@ -37,6 +39,13 @@ public class Skeleton : MonoBehaviour
         {
             limbs[i].skeleton = this;
         }
+
+        behaviour = GetComponent<EnemyBehaiviour>();
+        // TODO: Remove null check when prefab is done
+        if (behaviour != null)
+        {
+            behaviour.enabled = false;
+        }
     }
 
 
@@ -53,7 +62,7 @@ public class Skeleton : MonoBehaviour
     private void Die(ShotInfo info)
     {
         // TODO: Make sure all equipped weapons are detached! Stop Celina's logic
-
+        if (destroyed) { return; }
 
         for (int i = 0; i < bones.Length; i++)
         {
@@ -62,5 +71,19 @@ public class Skeleton : MonoBehaviour
         }
 
         destroyed = true;
+
+        if (behaviour != null)
+        {
+            if (boarded)
+            {
+                behaviour.Die();
+            }
+            else
+            {
+                // TODO: Check if destroying is save and not despawning loose bones/items
+                Destroy(this);
+                Destroy(gameObject);
+            }
+        }
     }
 }

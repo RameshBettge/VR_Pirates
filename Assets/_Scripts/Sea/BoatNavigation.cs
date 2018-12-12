@@ -51,7 +51,6 @@ public class BoatNavigation : MonoBehaviour
 
         sail = GetComponentInChildren<SkeletonSail>();
 
-        Debug.Log(docker.name);
         this.docker = docker;
         bouyancy.sea = sea;
 

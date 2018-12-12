@@ -36,9 +36,12 @@ public class EnemyBehaiviour : MonoBehaviour
         }
     }
 
+
+    // TODO: Call this on Skeleton.Die()
     public void Die()
     {
         anim.SetTrigger(id_death_trigger);
+        Destroy(this, 1f);
         Destroy(gameObject, 1f);
         if (moveScript.enabled == true)
         {

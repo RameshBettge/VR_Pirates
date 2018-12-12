@@ -2,13 +2,19 @@
 
 public class CameraZoom : MonoBehaviour
 {
-    int zoom = 1;
+    int zoom = 10;
     int normal = 60;
     float smooth = 5f;
-    bool isZoomed = false;
+    [HideInInspector]
+    public bool isZoomed = false;
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            isZoomed = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             isZoomed = !isZoomed;
