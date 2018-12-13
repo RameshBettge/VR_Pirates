@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class SimpleBouyancy : MonoBehaviour
 {
-    //[HideInInspector]
+
+
+    [HideInInspector]
     public SeaMovement sea;
 
     [SerializeField]

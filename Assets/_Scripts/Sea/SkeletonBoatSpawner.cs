@@ -43,12 +43,12 @@ public class SkeletonBoatSpawner : MonoBehaviour
     {
         if (Time.time > nextSpawn)
         {
-            float zOffset = Random.Range(-maxSpawnZOffset, maxSpawnZOffset);
+            float xOffset = Random.Range(-maxSpawnZOffset, maxSpawnZOffset);
 
 
             attackConeNarrowness *= -1;
 
-            Vector3 spawnPos = new Vector3(attackConeNarrowness, 0f, zOffset);
+            Vector3 spawnPos = new Vector3(xOffset, 0f, attackConeNarrowness);
             spawnPos = spawnPos.normalized * spawnDistance;
             SpawnBoat(spawnPos);
             nextSpawn = Time.time + spawnInterval;
@@ -57,6 +57,8 @@ public class SkeletonBoatSpawner : MonoBehaviour
 
     void SpawnBoat(Vector3 pos)
     {
+        pos += dockerParent.position;
+
         GameObject boat = Instantiate(boatPrefab, pos, Quaternion.identity);
 
         Docker closestDocker = GetClosestDocker(pos);
