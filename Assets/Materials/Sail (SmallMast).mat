@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sail (Enemy)
+  m_Name: Sail (SmallMast)
   m_Shader: {fileID: 4800000, guid: 9efe80fd98d48f84aa07e13425b10429, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -70,9 +70,9 @@ Material:
     - Vector1_118CB836: 0.25
     - Vector1_1C75910A: 1
     - Vector1_71C054A7: 0.485
-    - Vector1_87566B9: 1
-    - Vector1_AAEC5481: 2
-    - Vector1_E26763D5: 1.5
+    - Vector1_87566B9: 5.08
+    - Vector1_AAEC5481: 7.17
+    - Vector1_E26763D5: 5.57
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
