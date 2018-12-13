@@ -74,6 +74,8 @@ public class Skeleton : MonoBehaviour, IDamageable
 
     public void OnBoarding()
     {
+        boarded = true;
+
         if (!exactCols)
         {
             for (int i = 0; i < bones.Length; i++)
