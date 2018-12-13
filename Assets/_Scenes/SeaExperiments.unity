@@ -1181,8 +1181,6 @@ MonoBehaviour:
     vertexDensity: 25
   - maxDistanceToBoat: 1000
     vertexDensity: 35
-  debug: 0
-  debugMat: {fileID: 0}
 --- !u!4 &1978919124
 Transform:
   m_ObjectHideFlags: 0
@@ -1310,7 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff347bccd44109498dce0f93a1f78d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatPrefab: {fileID: 1457348281064726, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
+  boatPrefab: {fileID: 1795319850084228, guid: a6c303e861d67a84383138fdcfed8cda, type: 2}
   sea: {fileID: 1978919122}
   dockerParent: {fileID: 76406821}
   spawnInterval: 5

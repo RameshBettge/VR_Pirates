@@ -28,6 +28,9 @@ public class BoatNavigation : MonoBehaviour
     float sinkDepth = 10f;
 
     [SerializeField]
+    float surfaceTime = 3f;
+
+    [SerializeField]
     AnimationCurve sinkCurve;
 
     Docker docker;
@@ -40,7 +43,7 @@ public class BoatNavigation : MonoBehaviour
 
     Vector3 directionToDocker;
 
-    BoatState state = BoatState.Moving;
+    BoatState state = BoatState.Surfacing;
 
     SimpleBouyancy bouyancy;
 
@@ -60,6 +63,10 @@ public class BoatNavigation : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(directionToDocker, Vector3.up);
     }
 
+    private void Awake()
+    {
+        Surface();
+    }
 
     void Update()
     {
@@ -68,6 +75,9 @@ public class BoatNavigation : MonoBehaviour
 
         switch (state)
         {
+            case BoatState.Surfacing:
+                Surface();
+                break;
             case BoatState.Moving:
                 float totalSpeed = speed;
                 if (!sail.destroyed)
@@ -97,6 +107,27 @@ public class BoatNavigation : MonoBehaviour
 
             default:
                 break;
+        }
+    }
+
+    private void Surface()
+    {
+        timer += Time.deltaTime;
+
+
+        float percentage = timer / surfaceTime;
+
+        percentage = sinkCurve.Evaluate(1 - percentage);
+
+        Vector3 pos = transform.position;
+        pos.y -= sinkDepth * percentage;
+        transform.position = pos;
+
+        Move(directionToDocker, speed + sailSpeedBonus);
+
+        if (percentage <= 0f)
+        {
+            state = BoatState.Moving;
         }
     }
 
@@ -184,5 +215,5 @@ public class BoatNavigation : MonoBehaviour
 
 public enum BoatState
 {
-    Moving, Docking, Sinking, Boarding
+    Moving, Docking, Sinking, Boarding, Surfacing
 }

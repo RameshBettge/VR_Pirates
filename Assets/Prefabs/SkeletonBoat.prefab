@@ -24600,7 +24600,8 @@ MonoBehaviour:
   dockingTime: 1.5
   sinkTime: 5
   driftStartTimePercentage: 0.5
-  sinkDepth: 10
+  sinkDepth: 20
+  surfaceTime: 3
   sinkCurve:
     serializedVersion: 2
     m_Curve:
