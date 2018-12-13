@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TeleportMovement : MonoBehaviour
 {
+    [SerializeField]
+    float turnFaceOffset = 0.25f;
+
     enum TeleportHand { Left, Right, Both }
     [SerializeField]
     TeleportHand teleportHand;
@@ -153,11 +156,10 @@ public class TeleportMovement : MonoBehaviour
                 Vector3 targetPos = hit.point;
                 Vector3 newHeadPos = Vector3.zero;
                 newHeadPos.y = finder.Head.localPosition.y;
+
+                transform.position = hit.point;
                 finder.Head.localPosition = newHeadPos;
 
-                transform.position = hit.point - finder.Head.localPosition;
-
-                // TODO: check if near wall. set player away from it.
 
                 teleported = true;
             }
@@ -215,13 +217,29 @@ public class TeleportMovement : MonoBehaviour
     // TODO: Make sure turning doesn't affect the head's position
     private void DoTurn(int dir)
     {
-        //Vector3 pos = finder.Head.position;
+        Vector3 headPos = finder.Head.position;
+
+        Vector3 pos = transform.position;
+        pos.x = headPos.x;
+        pos.z = headPos.z;
+
+        transform.position = pos;
+
+        Vector3 headFwd = finder.Head.forward;
+        headFwd.y = 0f;
+
+
+        headPos.x = 0f;
+        headPos.z = 0f;
+
+        headPos += headFwd.normalized * turnFaceOffset;
+        finder.Head.position = headPos;
+
 
         lastTurn = Time.time;
 
         transform.eulerAngles += Vector3.up * turnDegrees * dir;
 
-        //finder.Head.position = pos;
 
         //Vector3 planarPos = finder.Head.position - transform.position;
         //planarPos.y = 0f;
