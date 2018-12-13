@@ -24601,7 +24601,7 @@ MonoBehaviour:
   sinkTime: 5
   driftStartTimePercentage: 0.5
   sinkDepth: 20
-  surfaceTime: 3
+  surfaceTime: 5
   sinkCurve:
     serializedVersion: 2
     m_Curve:

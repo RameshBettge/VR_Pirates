@@ -13,6 +13,7 @@ public class EditorPath : MonoBehaviour
         theArray = GetComponentsInChildren<Transform>();
         pathObjs.Clear();
 
+        //search for pathObject and put it in the list, if not this transform
         foreach (Transform pathObj in theArray)
         {
             if (pathObj != this.transform)

@@ -5,8 +5,7 @@ using UnityEngine;
 public class Skeleton : MonoBehaviour, IDamageable
 {
     [Tooltip("If disabled, skeletons will only have an approximate hitbox when in boat.")]
-    [SerializeField]
-    bool exactCols = false;
+    public bool exactCols = false;
 
     [SerializeField]
     float lifeTime = 30f;
@@ -21,7 +20,7 @@ public class Skeleton : MonoBehaviour, IDamageable
     public bool destroyed = false;
 
     [HideInInspector]
-    public bool boarded { get; private set; }
+    public bool boarded = true;
 
     DetachableBone[] bones;
 
@@ -33,14 +32,17 @@ public class Skeleton : MonoBehaviour, IDamageable
     {
         boneDetachCurve = Resources.Load<ScriptableCurve>("ScriptableObjects/BoneDetachCurve");
 
-        if(boneDetachCurve == null) { Debug.LogError("BoneDetachCurve couldn't be found!"); }
+        if (boneDetachCurve == null) { Debug.LogError("BoneDetachCurve couldn't be found!"); }
 
-        bones = GetComponentsInChildren<DetachableBone>();
-
-        for (int i = 0; i < bones.Length; i++)
+        if (bones == null)
         {
-            bones[i].skeleton = this;
-            bones[i].lifeTime = lifeTime;
+            bones = GetComponentsInChildren<DetachableBone>();
+
+            for (int i = 0; i < bones.Length; i++)
+            {
+                bones[i].skeleton = this;
+                bones[i].lifeTime = lifeTime;
+            }
         }
 
         Limb[] limbs = GetComponentsInChildren<Limb>();
@@ -65,24 +67,38 @@ public class Skeleton : MonoBehaviour, IDamageable
 
         behaviour = GetComponent<EnemyBehaiviour>();
 
-        // TODO: Remove null check when prefab is done
-        if (behaviour != null)
-        {
-            behaviour.enabled = false;
-        }
     }
 
     public void OnBoarding()
     {
         boarded = true;
+        if (behaviour == null)
+        {
+            behaviour = GetComponent<EnemyBehaiviour>();
+
+        }
+        behaviour.Board();
 
         if (!exactCols)
         {
+            if (bones == null)
+            {
+                bones = GetComponentsInChildren<DetachableBone>();
+
+                for (int i = 0; i < bones.Length; i++)
+                {
+                    bones[i].skeleton = this;
+                    bones[i].lifeTime = lifeTime;
+                }
+            }
+
             for (int i = 0; i < bones.Length; i++)
             {
                 bones[i].SetCols(true);
             }
         }
+
+        exactCols = true;
     }
 
 
@@ -110,7 +126,6 @@ public class Skeleton : MonoBehaviour, IDamageable
 
         if (behaviour != null && boarded)
         {
-
             behaviour.Die();
         }
         else

@@ -25,6 +25,7 @@ public class SkeletonBoat : MonoBehaviour
 
             // TODO: acces rigidbody via celina's script (skeleton needs to get a reference to that script in awake.)
             skeletons[i].GetComponent<Rigidbody>().isKinematic = true;
+            skeletons[i].boarded = false;
         }
 
     }

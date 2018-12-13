@@ -2,6 +2,8 @@
 
 public class MoveOnPath : MonoBehaviour
 {
+    Skeleton skeleton;
+
     public EditorPath pathToFollow;
     public int currentWayPointID = 0;
     public float speed;
@@ -14,11 +16,14 @@ public class MoveOnPath : MonoBehaviour
 
     void Start()
     {
+        skeleton = GetComponent<Skeleton>();
         lastPosition = transform.position;
     }
 
     void Update()
     {
+        if (!skeleton.boarded) { return; }
+
         if (currentWayPointID <= pathToFollow.pathObjs.Count - 1)
         {
             float distance = Vector3.Distance(pathToFollow.pathObjs[currentWayPointID].position, transform.position);

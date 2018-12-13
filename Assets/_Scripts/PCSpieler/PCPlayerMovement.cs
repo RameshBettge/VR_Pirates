@@ -28,11 +28,10 @@ public class PCPlayerMovement : MonoBehaviour
     {
         Rotate();
         Noding();
-        RotateCannon();
-        LockMouse();
-        ReleaseMouse();
+        RotateToCannon();
     }
 
+    //rotate left/right
     void Rotate()
     {
         float yRot;
@@ -47,6 +46,7 @@ public class PCPlayerMovement : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0f, yRot, 0f);
     }
 
+    //rotate up/down, only if not cannon selected
     void Noding()
     {
         if (!weaponScript.cannonSelected)
@@ -71,28 +71,12 @@ public class PCPlayerMovement : MonoBehaviour
         }
     }
 
-    void RotateCannon()
+    void RotateToCannon()
     {
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Vector3 newRotation = new Vector3(0, cannon.transform.eulerAngles.y, 0);
             player.transform.eulerAngles = newRotation;
-        }
-    }
-
-    public void LockMouse()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
-    public void ReleaseMouse()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

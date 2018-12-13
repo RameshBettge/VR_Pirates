@@ -24,6 +24,7 @@ public class Cannon : MonoBehaviour
         GameObject cannonBall = Instantiate(cannonBallPrefab, cannonSpawn.transform.position, cannonSpawn.transform.rotation);
         Rigidbody rb = cannonBall.GetComponent<Rigidbody>();
         rb.AddForce(-cannonSpawn.transform.right * shootForce, ForceMode.VelocityChange);
+        //-cannonSpawn.transform.right, because pivot of object is twisted
     }
 
     public void ActivateCannon()

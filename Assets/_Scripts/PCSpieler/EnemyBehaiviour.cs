@@ -12,7 +12,7 @@ public class EnemyBehaiviour : MonoBehaviour
 
     public float health = 50f;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
         id_attack_trigger = Animator.StringToHash("attack");
@@ -20,6 +20,12 @@ public class EnemyBehaiviour : MonoBehaviour
         id_walking_trigger = Animator.StringToHash("walking");
         id_idle_trigger = Animator.StringToHash("idle");
         moveScript.enabled = true;
+    }
+
+    public void Board()
+    {
+
+        anim.SetTrigger("Boarding");
     }
 
     public void Attack()
@@ -57,5 +63,14 @@ public class EnemyBehaiviour : MonoBehaviour
     public void Idle()
     {
         anim.SetTrigger(id_idle_trigger);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Target")
+        {
+            GetComponent<MoveOnPath>().speed = 0f;
+            Attack();
+        }
     }
 }

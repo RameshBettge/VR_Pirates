@@ -2,17 +2,17 @@
 
 public class Throwing : MonoBehaviour
 {
-    public GameObject grenadePrefab;
+    public GameObject bucketPrefab;
     public GameObject player;
     public Transform weaponHolder;
 
-    public float grenadeDistance = 0.75f;
+    public float bucketDistance = 0.75f;
 
-    private bool holdingGrenade = true;
+    private bool holdingBucket = true;
 
-    private GameObject grenade;
+    private GameObject bucket;
 
-    Transform childGranate;
+    Transform childBucket;
     public bool detachChild;
 
     float start;
@@ -21,20 +21,21 @@ public class Throwing : MonoBehaviour
 
     void Start()
     {
-        grenade = Instantiate(grenadePrefab, weaponHolder);
-        grenade.transform.SetSiblingIndex(0);
+        bucket = Instantiate(bucketPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-90f, 0f, 0f), weaponHolder);
+        bucket.transform.SetSiblingIndex(0);
     }
 
     void Update()
     {
-        GrenadeThrow();
+        BucketThrow();
     }
 
-    void GrenadeThrow()
+    void BucketThrow()
     {
-        if (holdingGrenade)
+        if (holdingBucket)
         {
-            grenade.transform.position = player.transform.position + player.transform.forward * grenadeDistance + -player.transform.right * 0.6f + player.transform.up * 0.5f;
+            bucket.transform.position = player.transform.position + player.transform.forward * bucketDistance + -player.transform.right * 0.6f;
+            //-player.transform.right, because pivot of object is twisted
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 start = Time.time;
@@ -43,17 +44,18 @@ public class Throwing : MonoBehaviour
             {
                 end = Time.time;
                 force = (end - start) * 1000;
-                holdingGrenade = false;
-                grenade.GetComponent<Rigidbody>().useGravity = true;
-                grenade.GetComponent<Rigidbody>().AddForce(-player.transform.right * force);
+                holdingBucket = false;
+                bucket.GetComponent<Rigidbody>().useGravity = true;
+                bucket.GetComponent<Rigidbody>().AddForce(-player.transform.right * force);
+                //-player.transform.right -> look above comment
                 if (detachChild == true)
                 {
-                    grenade.transform.parent = null;
-                    Destroy(grenade, 3.0f);
+                    bucket.transform.parent = null;
+                    Destroy(bucket, 3.0f);
                 }
-                grenade = Instantiate(grenadePrefab, grenadePrefab.transform.position, grenadePrefab.transform.rotation, weaponHolder);
-                grenade.transform.SetSiblingIndex(0);
-                holdingGrenade = true;
+                bucket = Instantiate(bucketPrefab, bucketPrefab.transform.position, bucketPrefab.transform.rotation, weaponHolder);
+                bucket.transform.SetSiblingIndex(0);
+                holdingBucket = true;
             }
         }
     }
