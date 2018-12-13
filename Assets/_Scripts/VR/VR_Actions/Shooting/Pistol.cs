@@ -20,6 +20,9 @@ public class Pistol : MonoBehaviour
     float timeUntilDespawn = 5f;
 
     [HideInInspector]
+    public Holster holster;
+
+    [HideInInspector]
     public bool discarded = false;
 
     int magazineSize = 50;
@@ -36,12 +39,15 @@ public class Pistol : MonoBehaviour
     public void OnGrab()
     {
         discarded = false;
+        holster.OnDrawPistol();
+
     }
 
     public void Discard()
     {
         discarded = true;
         despawnTime = Time.time + timeUntilDespawn;
+
     }
 
     private void Update()

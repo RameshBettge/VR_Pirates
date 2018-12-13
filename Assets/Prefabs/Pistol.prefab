@@ -240,8 +240,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966889289854460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: -2.7}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.745, y: 0.786, z: -2.7}
   m_LocalScale: {x: 0.8, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4895237371354774}
@@ -389,7 +389,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4611223363850118}
   Trigger: {fileID: 4350098484781158}
   activatedTriggerRotation: -20
-  timeUntilDespawn: 5
+  timeUntilDespawn: 60
+  holster: {fileID: 0}
   discarded: 0
 --- !u!114 &114688077867482984
 MonoBehaviour:
