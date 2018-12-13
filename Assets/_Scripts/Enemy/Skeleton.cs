@@ -131,7 +131,7 @@ public class Skeleton : MonoBehaviour, IDamageable
         }
         else
         {
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         Destroy(this);
