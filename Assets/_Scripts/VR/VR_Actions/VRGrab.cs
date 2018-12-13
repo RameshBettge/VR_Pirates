@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: call pistol.shoot if index-axis is pressed
-
 public class VRGrab : MonoBehaviour
 {
     [SerializeField]

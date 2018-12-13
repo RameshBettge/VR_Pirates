@@ -103,7 +103,6 @@ public class Skeleton : MonoBehaviour, IDamageable
 
         for (int i = 0; i < bones.Length; i++)
         {
-            // TODO: Despawn bones
             bones[i].Detach(info);
         }
 

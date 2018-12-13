@@ -111,7 +111,6 @@ public class TeleportMovement : MonoBehaviour
 
     }
 
-    // TODO: Make sure teleportation always puts the head exactly at the position pointed at.
     private bool Teleportation(bool left, VRInputLookup l, bool teleported)
     {
         Renderer line = left ? leftLine : rightLine;
@@ -214,7 +213,6 @@ public class TeleportMovement : MonoBehaviour
 
     }
 
-    // TODO: Make sure turning doesn't affect the head's position
     private void DoTurn(int dir)
     {
         Vector3 headPos = finder.Head.position;

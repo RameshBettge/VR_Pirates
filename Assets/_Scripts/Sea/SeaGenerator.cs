@@ -58,7 +58,7 @@ public class SeaGenerator : MonoBehaviour
                 lastLOD = lods[i + 1];
             }
 
-            CreateLOD(lods[i], minDistance, i, lastLOD); // TODO: Make sure the vertices that are at 0 on x or z axis aren't created twice.
+            CreateLOD(lods[i], minDistance, i, lastLOD);
         }
 
         CreateSea();
@@ -107,7 +107,6 @@ public class SeaGenerator : MonoBehaviour
 
     void CreateLOD(SeaLOD lod, float min, int num, SeaLOD nextSmallerLOD)
     {
-        // TODO: This count is just valid for one of the larger quarters.
         //int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity) + 1; // +1 stands for the vertex at 0.
         //float rawRow = (lod.maxDistanceToBoat * 2f) / lod.vertexDensity);
         int rowVertexCount = Mathf.CeilToInt((lod.maxDistanceToBoat * 2f) / lod.vertexDensity); // No +1 for testing.

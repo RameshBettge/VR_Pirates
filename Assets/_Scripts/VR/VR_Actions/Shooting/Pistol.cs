@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: public Shoot()
-
 public class Pistol : MonoBehaviour
 {
     [SerializeField]
