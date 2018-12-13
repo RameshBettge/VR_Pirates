@@ -14,8 +14,6 @@ public class Limb : MonoBehaviour
 
     int health = 2;
 
-    float debug = 0;
-
     private void Awake()
     {
         bones = GetComponentsInChildren<DetachableBone>();

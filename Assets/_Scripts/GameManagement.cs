@@ -6,7 +6,16 @@ using UnityEngine;
 public class GameManagement : MonoBehaviour
 {
     [SerializeField]
+    IslandManager islandManager;
+
+    [SerializeField]
+    Transform ship;
+
+    [SerializeField]
     AnimationCurve approachCurve;
+
+    [SerializeField]
+    float harborSkeletonsDespawnBuffer = 20f;
 
     [Header("Timers")]
     [SerializeField]
@@ -39,8 +48,6 @@ public class GameManagement : MonoBehaviour
     SeaMovement sea;
 
     public GameState state = GameState.Delay;
-
-    public float debug;
 
     void Start()
     {
@@ -98,6 +105,7 @@ public class GameManagement : MonoBehaviour
         if(Time.time > startDelay)
         {
             state = GameState.Harbor;
+            harborSkeletonSpawner.gameObject.SetActive(true);
         }
     }
 
@@ -108,6 +116,14 @@ public class GameManagement : MonoBehaviour
         if (Time.time > harborPhaseEnd)
         {
             state = GameState.ApproachingSea;
+            //islandManager.DisableStage1Deco();
+        }
+        else if (Time.time > (harborPhaseEnd - harborSkeletonsDespawnBuffer))
+        {
+            if (harborSkeletonSpawner.isActiveAndEnabled)
+            {
+                harborSkeletonSpawner.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -117,11 +133,12 @@ public class GameManagement : MonoBehaviour
         float speed = percentage * seaMovementSpeed;
 
         MoveSea(speed);
-        MoveHarbor(speed);
+        MoveShip(speed);
 
         if(Time.time > seaApproachEnd)
         {
             state = GameState.OnSea;
+            islandManager.DoSetActive(false);
         }
     }
 
@@ -148,7 +165,7 @@ public class GameManagement : MonoBehaviour
         SeaAttack();
 
         MoveSea(seaMovementSpeed);
-        MoveHarbor(seaMovementSpeed);
+        MoveShip(seaMovementSpeed);
 
         if (Time.time > ghostHarborPhaseEnd)
         {
@@ -162,11 +179,15 @@ public class GameManagement : MonoBehaviour
         //throw new NotImplementedException();
     }
 
-    private void MoveHarbor(float speed)
+    private void MoveShip(float speed)
     {
         // Move harbor depending on speed * sea texture scale
         //throw new NotImplementedException();
+
+        sea.transform.position += Vector3.left * speed;
+        ship.transform.position += Vector3.left * speed;
     }
+
 
     private void MoveSea(float speed)
     {
@@ -186,8 +207,6 @@ public class GameManagement : MonoBehaviour
         }
 
         percentage = approachCurve.Evaluate(percentage);
-
-        debug = percentage;
 
         return percentage;
     }
