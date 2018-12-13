@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: public Shoot()
-
 public class Pistol : MonoBehaviour
 {
     [SerializeField]
@@ -12,15 +10,63 @@ public class Pistol : MonoBehaviour
     [SerializeField]
     Transform bulletSpawn;
 
+    [SerializeField]
+    Transform Trigger;
 
+    [SerializeField]
+    float activatedTriggerRotation = -20f;
 
-    int magazineSize = 50;
+    [SerializeField]
+    float timeUntilDespawn = 5f;
+
+    [HideInInspector]
+    public Holster holster;
+
+    [HideInInspector]
+    public bool discarded = false;
+
+    [SerializeField]
+    int magazineSize = 5;
 
     int bulletsInMagazine;
+
+    float despawnTime;
 
     private void Awake()
     {
         bulletsInMagazine = magazineSize;
+    }
+
+    public void OnGrab()
+    {
+        discarded = false;
+        holster.OnDrawPistol();
+
+    }
+
+    public void Discard()
+    {
+        discarded = true;
+        despawnTime = Time.time + timeUntilDespawn;
+
+    }
+
+    private void Update()
+    {
+        if(!discarded) { return; }
+
+        if(Time.time >= despawnTime)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetTriggerRotation(float input)
+    {
+        Vector3 localEuler = Trigger.localEulerAngles;
+        localEuler.x = activatedTriggerRotation * input;
+
+        Trigger.localEulerAngles = localEuler;
     }
 
     public void Shoot()

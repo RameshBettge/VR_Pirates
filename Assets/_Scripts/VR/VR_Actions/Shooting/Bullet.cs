@@ -10,10 +10,8 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float speed = 10f;
 
-    // TODO: Change force to a higher value - sniper needs around 100 to look good.
-    //       (Please don't forget to adjust value on perfab and not here ;) )
     [SerializeField]
-    float force = 1f;
+    float force = 100f;
 
     [SerializeField]
     int damage = 1;
@@ -75,21 +73,6 @@ public class Bullet : MonoBehaviour
                 {
                     damageable.TakeDamage(info);
                 }
-
-
-                // TODO: Remove the commented out lines - they fell out of use after IDamageable was implemented but are kept jsut to be sure.
-                //DetachableBone bone = hit.collider.transform.parent.GetComponent<DetachableBone>();
-                //if (bone == null)
-                //{
-                //    bone = hit.collider.transform.GetComponent<DetachableBone>();
-                //}
-
-                //if (bone != null)
-                //{
-
-                //    bone.TakeDamage(info);
-                //    // apply damage to bone
-                //}
 
                 // TODO: put bullet into pool instead
                 Destroy(gameObject);

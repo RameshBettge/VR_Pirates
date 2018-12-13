@@ -6,8 +6,6 @@ using UnityEditor;
 
 // TODO: (optional) disable collider when grabbed until directly after it is released.
 // TODO: put inspector in own file
-// TODO: sometimes applying angular velocity on thrown objects isn't working properly, fix it. It seems like it only occurs around the forward-axis.
-
 [RequireComponent(typeof(Rigidbody))]
 public class GrabbableObject : MonoBehaviour
 {
@@ -77,6 +75,7 @@ public class GrabbableObject : MonoBehaviour
 
     public void OnGrab(GrabData data)
     {
+
 
         if (setRotationOnGrab)
         {

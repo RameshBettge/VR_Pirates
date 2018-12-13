@@ -19,7 +19,12 @@ public class SkeletonSail : MonoBehaviour, IDamageable {
             destroyed = true;
             GetComponent<Collider>().enabled = false;
             // TODO: Change mesh
-            GetComponent<Renderer>().enabled = false;
+            Renderer rend = GetComponent<Renderer>();
+            if (rend == null)
+            {
+                rend = transform.parent.GetComponent<Renderer>();
+            }
+            rend.enabled = false;
         }
     }
 }

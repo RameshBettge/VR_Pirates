@@ -112,7 +112,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thickness: 0.08
+    - _Thickness: 0.04
     - _UVSec: 0
     - _ViewWeight: 0
     - _WorkflowMode: 1

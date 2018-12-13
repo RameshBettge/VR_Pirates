@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: call pistol.shoot if index-axis is pressed
-
 public class VRGrab : MonoBehaviour
 {
     [SerializeField]
@@ -104,6 +102,8 @@ public class VRGrab : MonoBehaviour
         {
             float indexInput = data.controller.Index.Value;
 
+            data.pistol.SetTriggerRotation(indexInput);
+
             for (int i = 0; i < 2; i++)
             {
                 data.anims[i].SetFloat("IndexValue", indexInput);
@@ -157,7 +157,6 @@ public class VRGrab : MonoBehaviour
             }
             else if (gObject.isGrabbed)
             {
-                Debug.Log(t.name + " is already grabbed");
                 continue;
             }
 
@@ -192,6 +191,8 @@ public class VRGrab : MonoBehaviour
         Pistol pistol = gObject.GetComponent<Pistol>();
         if (pistol != null)
         {
+            pistol.OnGrab();
+
             data.pistol = pistol;
 
             for (int i = 0; i < 2; i++)
@@ -213,6 +214,12 @@ public class VRGrab : MonoBehaviour
 
 
         data.grabbedObject.OnRelease(data, transform, Time.deltaTime);
+
+        if(data.pistol != null)
+        {
+            data.pistol.Discard();
+        }
+
         data.grabbedObject = null;
 
         data.isGrabbing = false;
