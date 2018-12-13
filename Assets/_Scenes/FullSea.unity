@@ -1364,7 +1364,7 @@ Transform:
   m_Children:
   - {fileID: 1796785507}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &74265251
 GameObject:
@@ -2766,7 +2766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &170180856
 GameObject:
@@ -6814,7 +6814,7 @@ GameObject:
   - component: {fileID: 431266937}
   - component: {fileID: 431266936}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: '- EnemySpawner -'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13584,6 +13584,11 @@ Transform:
   m_Father: {fileID: 1459357581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!4 &874238415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1256675377}
 --- !u!1 &878785998
 GameObject:
   m_ObjectHideFlags: 0
@@ -13848,7 +13853,7 @@ RectTransform:
   m_Children:
   - {fileID: 536919476}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16727,7 +16732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059395144
 GameObject:
@@ -19639,7 +19644,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1419779251}
     m_Modifications:
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalPosition.x
@@ -19655,7 +19660,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.y
@@ -19663,7 +19668,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.w
@@ -19671,7 +19676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -23125,7 +23130,7 @@ GameObject:
   - component: {fileID: 1419779251}
   - component: {fileID: 1419779252}
   m_Layer: 0
-  m_Name: Schiff [geunwrapet]
+  m_Name: -- Ghost Ship --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23147,8 +23152,9 @@ Transform:
   - {fileID: 246691377}
   - {fileID: 1899399110}
   - {fileID: 515947656}
+  - {fileID: 874238415}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1419779252
 MonoBehaviour:
@@ -24379,7 +24385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1483725361
 MonoBehaviour:
@@ -28793,7 +28799,7 @@ Transform:
   m_LocalScale: {x: 5000, y: 1, z: 5000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1764644300
 GameObject:
@@ -29071,7 +29077,7 @@ GameObject:
   - component: {fileID: 1778738383}
   - component: {fileID: 1778738382}
   m_Layer: 0
-  m_Name: SeaGenerator Rough
+  m_Name: '- SeaGenerator Rough -'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29157,8 +29163,6 @@ MonoBehaviour:
     vertexDensity: 25
   - maxDistanceToBoat: 1000
     vertexDensity: 35
-  debug: 0
-  debugMat: {fileID: 0}
 --- !u!4 &1778738385
 Transform:
   m_ObjectHideFlags: 0
@@ -34818,7 +34822,7 @@ Transform:
   m_Children:
   - {fileID: 1187706936}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126603906
 GameObject:

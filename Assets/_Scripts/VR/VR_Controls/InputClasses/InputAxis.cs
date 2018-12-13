@@ -71,7 +71,7 @@ public class InputAxis
         char secondLast = chars[chars.Length - 2];
         if (char.IsDigit(last))
         {
-            num += ((int)System.Char.GetNumericValue(last)) * 10;
+            num += ((int)System.Char.GetNumericValue(secondLast)) * 10;
         }
         return num;
     }

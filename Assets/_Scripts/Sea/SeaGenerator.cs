@@ -15,7 +15,6 @@ public class SeaGenerator : MonoBehaviour
 
     SeaMovement movement;
 
-    MeshRenderer rend;
     MeshFilter filter;
 
     List<Mesh> meshes;
@@ -23,17 +22,12 @@ public class SeaGenerator : MonoBehaviour
 
     List<Vector3> vertices;
 
-    public int debug = 0;
-
-    public Material debugMat;
-
     void Start()
     {
         meshes = new List<Mesh>();
 
         movement = GetComponent<SeaMovement>();
 
-        rend = GetComponent<MeshRenderer>();
         filter = GetComponent<MeshFilter>();
 
         lods = new SeaLOD[lodList.Count];
@@ -87,22 +81,6 @@ public class SeaGenerator : MonoBehaviour
         combinedMesh.uv = uvs;
 
         filter.mesh = combinedMesh;
-
-        //filter.mesh = meshes[0];
-
-
-        // USED FOR DEBUGGING: Doesn't use combine meshes but instantiates one gameObject per mesh instead. 
-        //for (int i = 0; i < meshes.Count; i++)
-        //{
-        //    Mesh mesh = meshes[i];
-
-        //    GameObject gO = new GameObject();
-        //    MeshRenderer rend = gO.AddComponent<MeshRenderer>();
-        //    rend.material = debugMat;
-        //    MeshFilter filter = gO.AddComponent<MeshFilter>();
-        //    filter.mesh = mesh;
-
-        //}
     }
 
     void CreateLOD(SeaLOD lod, float min, int num, SeaLOD nextSmallerLOD)
