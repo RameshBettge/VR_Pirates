@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Pistol : MonoBehaviour
 {
-
-
     [SerializeField]
     GameObject bullet;
 
@@ -27,7 +25,8 @@ public class Pistol : MonoBehaviour
     [HideInInspector]
     public bool discarded = false;
 
-    int magazineSize = 50;
+    [SerializeField]
+    int magazineSize = 5;
 
     int bulletsInMagazine;
 

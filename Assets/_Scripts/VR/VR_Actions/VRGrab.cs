@@ -157,7 +157,6 @@ public class VRGrab : MonoBehaviour
             }
             else if (gObject.isGrabbed)
             {
-                Debug.Log(t.name + " is already grabbed");
                 continue;
             }
 

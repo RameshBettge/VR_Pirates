@@ -111,13 +111,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25216255
+      value: 0.5069839
+      inSlope: 2.8438492
+      outSlope: 2.8438492
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.41638017
+      value: 1.1108375
+      inSlope: 1.1132631
+      outSlope: 1.1132631
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5657407
+      value: 0.9174582
+      inSlope: -0.29370856
+      outSlope: -0.29370856
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.717974
+      value: 1.0251324
+      inSlope: 0.24238232
+      outSlope: 0.24238232
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8175229
+      value: 1.0029795
+      inSlope: -0.43678084
+      outSlope: -0.43678084
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   pistolPos: {fileID: 4652760639997852}
   spawnHelper: {fileID: 4857649859424348}
-  timeUntilRespawnComplete: 3
-  respawnAnimDuration: 1
+  timeUntilRespawnComplete: 1
+  respawnAnimDuration: 0.5
   pistolPrefab: {fileID: 1966889289854460, guid: 0873fb23b3ba1de4db6c61f846c814ca,
     type: 2}
