@@ -70,6 +70,11 @@ public class BoatNavigation : MonoBehaviour
 
     void Update()
     {
+        if(bouyancy == null)
+        {
+            bouyancy = GetComponent<SimpleBouyancy>();
+        }
+
         bouyancy.UpdateBouyancy();
 
 

@@ -47,8 +47,8 @@ public class EnemyBehaiviour : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger(id_death_trigger);
-        Destroy(this, 1f);
-        Destroy(gameObject, 1f);
+        Destroy(this);
+        Destroy(gameObject);
         if (moveScript.enabled == true)
         {
             moveScript.enabled = false;

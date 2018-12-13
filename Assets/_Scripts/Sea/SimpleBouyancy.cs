@@ -7,7 +7,7 @@ public class SimpleBouyancy : MonoBehaviour
 {
 
 
-    [HideInInspector]
+    //[HideInInspector]
     public SeaMovement sea;
 
     [SerializeField]
@@ -152,6 +152,12 @@ public class SimpleBouyancy : MonoBehaviour
 
     Vector3 GetSeaPosition(Transform t)
     {
+        if(sea == null)
+        {
+            Debug.LogError(name + " is missing a reference to sea!");
+            return Vector3.zero;
+        }
+
         float height = sea.GetHeight(t.position);
         Vector3 pos = t.position;
         pos.y = height;

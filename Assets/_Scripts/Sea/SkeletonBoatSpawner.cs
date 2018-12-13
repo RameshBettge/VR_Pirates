@@ -62,6 +62,7 @@ public class SkeletonBoatSpawner : MonoBehaviour
         GameObject boat = Instantiate(boatPrefab, pos, Quaternion.identity);
 
         Docker closestDocker = GetClosestDocker(pos);
+        boat.GetComponent<SimpleBouyancy>().sea = sea;
         boat.GetComponent<BoatNavigation>().OnSpawn(closestDocker, sea);
     }
 

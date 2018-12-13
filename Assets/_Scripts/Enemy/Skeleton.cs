@@ -131,10 +131,10 @@ public class Skeleton : MonoBehaviour, IDamageable
         }
         else
         {
-            // TODO: Check if destroying is save and not despawning loose bones/items
-            Destroy(this);
-            Destroy(gameObject);
+        Destroy(gameObject);
         }
+
+        Destroy(this);
     }
 
     // Only used for sniper
