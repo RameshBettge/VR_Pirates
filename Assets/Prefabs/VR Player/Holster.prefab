@@ -109,6 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601d8aec6857aaf48a83501d53896f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   pistolPos: {fileID: 4652760639997852}
   spawnHelper: {fileID: 4857649859424348}
   timeUntilRespawnComplete: 3

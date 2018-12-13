@@ -5,6 +5,9 @@ using UnityEngine;
 public class Holster : MonoBehaviour
 {
     [SerializeField]
+    AnimationCurve spawnCurve;
+
+    [SerializeField]
     Transform pistolPos;
 
     [SerializeField]
@@ -49,26 +52,30 @@ public class Holster : MonoBehaviour
 
         if (pistolIsSpawning)
         {
-            float percentage = (timer - timeUntilRespawnStart) / respawnAnimDuration;
-
-            percentage = Mathf.Clamp(percentage, 0f, 1f);
-
-            // TODO: Create Animation curve
-            spawnHelper.localScale = Vector3.one * percentage;
-
-            if(percentage >= 1f)
-            {
-                ActivatePistol();
-            }
+            SpawnAnimation();
         }
 
         timer += Time.deltaTime;
     }
 
+    void SpawnAnimation()
+    {
+        float percentage = (timer - timeUntilRespawnStart) / respawnAnimDuration;
+
+        percentage = Mathf.Clamp(percentage, 0f, 1f);
+
+        float adjustedPercentage = spawnCurve.Evaluate(percentage);
+        
+        spawnHelper.localScale = Vector3.one * adjustedPercentage;
+
+        if (percentage >= 1f)
+        {
+            ActivatePistol();
+        }
+    }
+
     void CreatePistol()
     {
-        Debug.Log("Creating pistol");
-
         GameObject gO = Instantiate(pistolPrefab, pistolPos.position, pistolPos.rotation, spawnHelper);
 
 
@@ -96,8 +103,6 @@ public class Holster : MonoBehaviour
         {
             cols[i].enabled = true;
         }
-
-        Debug.Log("Activating Pistol");
     }
 
     // TODO: Give pistol reference to this on spawn.
@@ -106,8 +111,6 @@ public class Holster : MonoBehaviour
     {
         pistolDrawn = true;
         timer = 0f;
-
-        Debug.Log("Pistol drawn");
     }
 
 
