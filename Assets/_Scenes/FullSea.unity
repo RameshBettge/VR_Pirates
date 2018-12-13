@@ -1017,12 +1017,12 @@ GameObject:
   - component: {fileID: 431266937}
   - component: {fileID: 431266936}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawner (BOATS)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &431266936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,10 +1034,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff347bccd44109498dce0f93a1f78d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatPrefab: {fileID: 1970717983723320, guid: cc640e24b619fe44eb1e2691dd169ec3, type: 2}
+  boatPrefab: {fileID: 1759875661165224, guid: a6c303e861d67a84383138fdcfed8cda, type: 2}
   sea: {fileID: 1778738381}
   dockerParent: {fileID: 246691377}
-  spawnInterval: 1
+  spawnInterval: 10
   spawnDistance: 350
   maxSpawnZOffset: 30
   attackConeNarrowness: 30
@@ -2366,7 +2366,7 @@ RectTransform:
   m_Children:
   - {fileID: 536919476}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2869,7 +2869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065996485
 GameObject:
@@ -3456,7 +3456,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1419779251}
     m_Modifications:
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3472,7 +3472,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.y
@@ -3480,7 +3480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalRotation.w
@@ -3488,7 +3488,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4128,8 +4128,9 @@ Transform:
   - {fileID: 246691377}
   - {fileID: 515947656}
   - {fileID: 1899399110}
+  - {fileID: 1469904193}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1419779252
 MonoBehaviour:
@@ -4362,6 +4363,11 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 515947654}
   cannonSpawn: {fileID: 1971611620}
+--- !u!4 &1469904193 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4159466523970702, guid: b727218011353ca41b062b71c8249df9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1256675377}
 --- !u!1 &1483725358
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1483725359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4408,7 +4414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1483812366
 Transform:
@@ -5527,7 +5533,7 @@ Transform:
   m_LocalScale: {x: 5000, y: 1, z: 5000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778738380
 GameObject:

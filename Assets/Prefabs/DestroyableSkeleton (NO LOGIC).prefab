@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 114184649460244694}
   - component: {fileID: 114511286744640844}
   m_Layer: 0
-  m_Name: DestroyableSkeleton
+  m_Name: DestroyableSkeleton (NO LOGIC)
   m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7659,6 +7659,7 @@ MonoBehaviour:
   boneDetachCurve: {fileID: 0}
   hasLostLimb: 0
   destroyed: 0
+  boarded: 1
 --- !u!114 &114043366202715948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8285,8 +8286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7653b83e1db7489ed2d3d9545f78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathToFollow: {fileID: 114172417913151078, guid: 8bcc31acdd7ef8442990c8a6e51efeea,
-    type: 2}
+  pathToFollow: {fileID: 0}
   currentWayPointID: 0
   speed: 2.5
   rotationSpeed: 5

@@ -19,7 +19,7 @@ public class Skeleton : MonoBehaviour, IDamageable
     [HideInInspector]
     public bool destroyed = false;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool boarded = true;
 
     DetachableBone[] bones;

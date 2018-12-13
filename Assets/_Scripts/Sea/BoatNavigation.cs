@@ -127,6 +127,7 @@ public class BoatNavigation : MonoBehaviour
 
         if (percentage <= 0f)
         {
+            timer = 0f;
             state = BoatState.Moving;
         }
     }
