@@ -12,7 +12,11 @@ public class Pistol : MonoBehaviour
     [SerializeField]
     Transform bulletSpawn;
 
+    [SerializeField]
+    Transform Trigger;
 
+    [SerializeField]
+    float activatedTriggerRotation = -20f;
 
     int magazineSize = 50;
 
@@ -21,6 +25,14 @@ public class Pistol : MonoBehaviour
     private void Awake()
     {
         bulletsInMagazine = magazineSize;
+    }
+
+    public void SetTriggerRotation(float input)
+    {
+        Vector3 localEuler = Trigger.localEulerAngles;
+        localEuler.x = activatedTriggerRotation * input;
+
+        Trigger.localEulerAngles = localEuler;
     }
 
     public void Shoot()

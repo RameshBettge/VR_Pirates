@@ -104,6 +104,8 @@ public class VRGrab : MonoBehaviour
         {
             float indexInput = data.controller.Index.Value;
 
+            data.pistol.SetTriggerRotation(indexInput);
+
             for (int i = 0; i < 2; i++)
             {
                 data.anims[i].SetFloat("IndexValue", indexInput);

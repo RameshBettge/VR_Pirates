@@ -317,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 80576779}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &103998417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -579,6 +581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 237067945}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &170023060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -707,6 +711,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 181320727}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &187434897
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &211753367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 2028858796}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &481539296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1711,6 +1759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 128367242}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &699629849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1886,48 +1936,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819787123317904, guid: c7a31851bcebb114781fbf7310e65b11,
     type: 2}
   m_PrefabInternal: {fileID: 929507272}
---- !u!1001 &741616216
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744671727731646, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &756387451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,6 +2253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 948845438}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &948100473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2743,6 +2753,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 1955631172}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &1136009578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3222,6 +3234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1787894910098566, guid: 0c4658cc68624c64a8698ce94e67fea0, type: 2}
   bulletSpawn: {fileID: 1772316134}
+  Trigger: {fileID: 0}
+  activatedTriggerRotation: 20
 --- !u!65 &1496489223
 BoxCollider:
   m_ObjectHideFlags: 0
