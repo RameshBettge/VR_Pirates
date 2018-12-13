@@ -525,6 +525,8 @@ GameObject:
   - component: {fileID: 54998782291327822}
   - component: {fileID: 114035240423729436}
   - component: {fileID: 136566216650141498}
+  - component: {fileID: 114184649460244694}
+  - component: {fileID: 114511286744640844}
   m_Layer: 0
   m_Name: DestroyableSkeleton
   m_TagString: Enemy1
@@ -1365,7 +1367,6 @@ GameObject:
   - component: {fileID: 54622580869710840}
   - component: {fileID: 114146402088272292}
   - component: {fileID: 114465835356929228}
-  - component: {fileID: 114206349612165212}
   m_Layer: 13
   m_Name: Flasche-1
   m_TagString: Untagged
@@ -2032,7 +2033,6 @@ GameObject:
   - component: {fileID: 54031115797410402}
   - component: {fileID: 114543293616604206}
   - component: {fileID: 114114171881242100}
-  - component: {fileID: 114159738761804732}
   m_Layer: 13
   m_Name: Flasche-002
   m_TagString: Untagged
@@ -3996,7 +3996,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162430554732998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.63, z: 2.39}
+  m_LocalPosition: {x: -14.253692, y: 6.6507273, z: -40.757988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4899460479738450}
@@ -7655,6 +7655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exactCols: 0
+  lifeTime: 30
   boneDetachCurve: {fileID: 0}
   hasLostLimb: 0
   destroyed: 0
@@ -7713,6 +7714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114079447863873582
@@ -7792,6 +7794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114147854456220818
@@ -7805,6 +7808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114153041853575046
@@ -7813,28 +7817,6 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1420758834903072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
---- !u!114 &114159738761804732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1783327646505060}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
@@ -7884,8 +7866,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
+--- !u!114 &114184649460244694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162430554732998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c83d0513cae05b4ba565cfdfbcc6f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveScript: {fileID: 114511286744640844}
+  health: 50
 --- !u!114 &114185827113684916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7941,30 +7937,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
---- !u!114 &114206349612165212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1510498141787774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241c28f8f9337db44a6f105f1641d32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledUntilGrabbed: 0
-  maxVelocity: 8
-  velocityFactor: 2.5
-  angularVelocityFactor: 0.5
-  maxAngularVelocity: 10
-  extraGravity: 40
-  setRotationOnGrab: 0
-  setPositionOnGrab: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  defaultPos: {x: 0, y: 0, z: 0}
-  isGrabbed: 0
 --- !u!114 &114230722652318326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7998,6 +7973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114280123763031454
@@ -8055,6 +8031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114365653145422850
@@ -8156,6 +8133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114448105827172100
@@ -8235,6 +8213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114488541386563166
@@ -8270,6 +8249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114510742413404572
@@ -8294,6 +8274,22 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
+--- !u!114 &114511286744640844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162430554732998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7653b83e1db7489ed2d3d9545f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathToFollow: {fileID: 114172417913151078, guid: 8bcc31acdd7ef8442990c8a6e51efeea,
+    type: 2}
+  currentWayPointID: 0
+  speed: 2.5
+  rotationSpeed: 5
 --- !u!114 &114520549106635728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8305,6 +8301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114543293616604206
@@ -8318,6 +8315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114553810183539826
@@ -8331,6 +8329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114574267975169052
@@ -8423,6 +8422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114617780571575444
@@ -8537,6 +8537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114688923073489028
@@ -8572,6 +8573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114757227725529508
@@ -8585,6 +8587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114780157265949936
@@ -8642,6 +8645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114799046429246132
@@ -8787,6 +8791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114934686788163348
@@ -8826,6 +8831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f3703487a56a449d6777b5d44d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!135 &135141285037287690

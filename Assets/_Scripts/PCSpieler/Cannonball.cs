@@ -2,7 +2,7 @@
 
 public class Cannonball : MonoBehaviour
 {
-    public GameObject explosionEffect;
+    //public GameObject explosionEffect,    when we have one
     public float radius = 5f;
     public float damage = 10f;
 
@@ -13,7 +13,7 @@ public class Cannonball : MonoBehaviour
 
     void Explode()
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        //Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 

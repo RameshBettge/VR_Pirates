@@ -55,17 +55,6 @@ public class Shooting : MonoBehaviour
             {
                 damageable.TakeDamage(info);
             }
-
-            //EnemyBehaiviour enemy = hit.transform.GetComponent<EnemyBehaiviour>();
-            //if (enemy != null)
-            //{
-            //    enemy.TakeDamage(damage);
-            //}
-
-            //if (hit.rigidbody != null)
-            //{
-            //    hit.rigidbody.AddForce(-hit.normal * impactForce);
-            //}
         }
         timestamp = Time.time + timeBetweenShots;
         recoilScript.isRecoiling = true;

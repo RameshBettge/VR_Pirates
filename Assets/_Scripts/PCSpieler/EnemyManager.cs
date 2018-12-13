@@ -2,20 +2,35 @@
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject enemy;
-    public float spawnTime = 3f;
-    public Transform[] spawnPoints;
+    float nextSpawn;
 
-    void Start()
+    [SerializeField]
+    Transform pathParent;
+
+    EditorPath[] paths;
+    public GameObject[] skelotons;
+
+    public float spawnInterval = 10f;
+    public Transform ship;
+
+    private void Awake()
     {
-        //InvokeRepeating("Spawn", spawnTime, spawnTime);
-        Spawn();
+        paths = pathParent.GetComponentsInChildren<EditorPath>();
     }
 
-    void Spawn()
+    void Update()
     {
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        if (Time.time > nextSpawn)
+        {
+            int randomPathNum = Random.Range(0, paths.Length);
+            int randomSkelotonNum = Random.Range(0, skelotons.Length);
+            EditorPath path = paths[randomPathNum];
+            Transform pathParent = path.transform;
+            GameObject enemyInstance = Instantiate(skelotons[randomSkelotonNum], pathParent.GetChild(0).position, pathParent.GetChild(0).rotation, ship);
+            enemyInstance.GetComponent<MoveOnPath>().pathToFollow = path;
+            enemyInstance.GetComponent<Skeleton>().OnBoarding();
 
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            nextSpawn = Time.time + spawnInterval;
+        }
     }
 }

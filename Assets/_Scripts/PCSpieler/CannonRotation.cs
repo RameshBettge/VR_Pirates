@@ -11,6 +11,7 @@ public class CannonRotation : MonoBehaviour
 
     void Update()
     {
+        //move camera in relation to cannon
         float xRot = Input.GetAxis("Mouse Y");
         xRot *= -1;
         Vector3 oldRot = cameraRot;
@@ -22,6 +23,7 @@ public class CannonRotation : MonoBehaviour
         }
         thirdPersonCam.localRotation = Quaternion.Euler(cameraRot.x, thirdPersonCam.rotation.y, thirdPersonCam.rotation.z);
 
+        //move cannon on mast up and down
         float z = horizontalSpeed * Input.GetAxis("Mouse Y");
         transform.Rotate(0, 0, -z);
     }
