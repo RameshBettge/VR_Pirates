@@ -18,13 +18,42 @@ public class Pistol : MonoBehaviour
     [SerializeField]
     float activatedTriggerRotation = -20f;
 
+    [SerializeField]
+    float timeUntilDespawn = 5f;
+
+    [HideInInspector]
+    public bool discarded = false;
+
     int magazineSize = 50;
 
     int bulletsInMagazine;
 
+    float despawnTime;
+
     private void Awake()
     {
         bulletsInMagazine = magazineSize;
+    }
+
+    public void OnGrab()
+    {
+        discarded = false;
+    }
+
+    public void Discard()
+    {
+        discarded = true;
+        despawnTime = Time.time + timeUntilDespawn;
+    }
+
+    private void Update()
+    {
+        if(!discarded) { return; }
+
+        if(Time.time >= despawnTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetTriggerRotation(float input)

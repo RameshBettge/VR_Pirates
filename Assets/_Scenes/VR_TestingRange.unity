@@ -319,6 +319,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 80576779}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &103998417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -583,6 +585,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 237067945}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &170023060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -749,6 +753,21 @@ Prefab:
     - target: {fileID: 4989404903780284, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688077867482984, guid: 0873fb23b3ba1de4db6c61f846c814ca,
+        type: 2}
+      propertyPath: extraGravity
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688077867482984, guid: 0873fb23b3ba1de4db6c61f846c814ca,
+        type: 2}
+      propertyPath: angularVelocityFactor
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688077867482984, guid: 0873fb23b3ba1de4db6c61f846c814ca,
+        type: 2}
+      propertyPath: velocityFactor
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0873fb23b3ba1de4db6c61f846c814ca, type: 2}
@@ -1307,6 +1326,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 2028858796}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &481539296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1761,6 +1782,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 128367242}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &699629849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2255,6 +2278,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 948845438}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &948100473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2755,6 +2780,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1955631172}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &1136009578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3236,6 +3263,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1772316134}
   Trigger: {fileID: 0}
   activatedTriggerRotation: 20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!65 &1496489223
 BoxCollider:
   m_ObjectHideFlags: 0

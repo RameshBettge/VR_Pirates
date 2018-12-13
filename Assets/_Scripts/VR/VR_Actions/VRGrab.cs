@@ -194,6 +194,8 @@ public class VRGrab : MonoBehaviour
         Pistol pistol = gObject.GetComponent<Pistol>();
         if (pistol != null)
         {
+            pistol.OnGrab();
+
             data.pistol = pistol;
 
             for (int i = 0; i < 2; i++)
@@ -215,6 +217,12 @@ public class VRGrab : MonoBehaviour
 
 
         data.grabbedObject.OnRelease(data, transform, Time.deltaTime);
+
+        if(data.pistol != null)
+        {
+            data.pistol.Discard();
+        }
+
         data.grabbedObject = null;
 
         data.isGrabbing = false;

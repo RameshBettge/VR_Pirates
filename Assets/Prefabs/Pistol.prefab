@@ -389,6 +389,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4611223363850118}
   Trigger: {fileID: 4350098484781158}
   activatedTriggerRotation: -20
+  timeUntilDespawn: 5
+  discarded: 0
 --- !u!114 &114688077867482984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,9 +405,9 @@ MonoBehaviour:
   disabledUntilGrabbed: 1
   maxVelocity: 5
   velocityFactor: 1.5
-  angularVelocityFactor: 0.5
+  angularVelocityFactor: 0.25
   maxAngularVelocity: 10
-  extraGravity: 40
+  extraGravity: 250
   setRotationOnGrab: 1
   setPositionOnGrab: 1
   defaultRot: {x: 0.352, y: -86.81001, z: -0.138}

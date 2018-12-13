@@ -78,6 +78,7 @@ public class GrabbableObject : MonoBehaviour
     public void OnGrab(GrabData data)
     {
 
+
         if (setRotationOnGrab)
         {
             transform.localEulerAngles = defaultRot;
