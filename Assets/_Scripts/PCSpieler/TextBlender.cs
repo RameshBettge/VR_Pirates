@@ -8,6 +8,8 @@ public class TextBlender : MonoBehaviour
     float NextDisplay;
     int index = 0;
 
+    bool loading = false;
+
     void Start()
     {
         NextDisplay = Time.time;
@@ -20,9 +22,9 @@ public class TextBlender : MonoBehaviour
 
     void Blend()
     {
-        if (Time.time > NextDisplay)
+        if (Time.time > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
-            NextDisplay += 7f;
+            NextDisplay =  Time.time + 7f;
 
             if(index != 0)
             {
@@ -30,8 +32,9 @@ public class TextBlender : MonoBehaviour
             }
 
 
-            if(index == sentences.Length)
+            if(index == sentences.Length && !loading)
             {
+                loading = true;
                 // Remove all ui -> load game after 15f;
                 SceneManager.LoadScene("Poker");
             }
