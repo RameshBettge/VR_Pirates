@@ -41,8 +41,12 @@ public class GrabbableObject : MonoBehaviour
 
     Rigidbody rb;
 
+    DetachableBone bone;
+
     void Awake()
     {
+        bone = GetComponent<DetachableBone>();
+
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = disabledUntilGrabbed;
         rb.useGravity = false;
@@ -75,7 +79,10 @@ public class GrabbableObject : MonoBehaviour
 
     public void OnGrab(GrabData data)
     {
-
+        if(bone != null)
+        {
+            bone.isGrabbed = true;
+        }
 
         if (setRotationOnGrab)
         {
@@ -118,6 +125,12 @@ public class GrabbableObject : MonoBehaviour
         rb.angularVelocity = localAngularVelocity;
 
         //Debug.Log(angularVelocity.magnitude);
+
+        if (bone != null)
+        {
+            bone.isGrabbed = false;
+            bone.SetDespawnTime();
+        }
     }
 }
 
