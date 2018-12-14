@@ -10,7 +10,7 @@ public class Cannon : MonoBehaviour
 
     private Vector3 rot;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int stock = 0;
 
     GameObject childObject;

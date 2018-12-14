@@ -193,10 +193,17 @@ public class GameManagement : MonoBehaviour
 
             case GameState.Lost:
                 LoseScreen.SetActive(true);
+                ship.gameObject.SetActive(false);
+                boatSpawner.gameObject.SetActive(false);
+                harborSkeletonSpawner.gameObject.SetActive(false);
+
+                // TODO: load main menu after 5f
                 break;
 
             case GameState.Won:
                 WonScreen.SetActive(true);
+                // TODO: load main menu after 15f
+
                 break;
 
             default:

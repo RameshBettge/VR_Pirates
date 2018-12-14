@@ -6296,9 +6296,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624819263813926}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.92, y: 0.2102441, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 16.666662, z: 13.400015}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4261740259185880}
   m_Father: {fileID: 0}
@@ -7759,7 +7759,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 30519
+    m_Bits: 227127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -8206,7 +8206,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3302c04a38666f44594a6f8737312b2f, type: 2}
+  - {fileID: 2100000, guid: aabb00da1b3964c409761c95ddc83519, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8677,6 +8677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c494de98da141fa409b150f39ad1f26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
   grabThreshold: 0.3
   hardReleaseThreshold: 0.2
   softReleaseThreshold: 0.5

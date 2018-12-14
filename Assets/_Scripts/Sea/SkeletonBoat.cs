@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonBoat : MonoBehaviour
+public class SkeletonBoat : MonoBehaviour, IDamageable
 {
     [SerializeField]
     Transform skeletonParent;
@@ -30,6 +30,8 @@ public class SkeletonBoat : MonoBehaviour
 
     }
 
+
+
     public bool CheckCrewDead()
     {
         bool allDead = true;
@@ -41,6 +43,10 @@ public class SkeletonBoat : MonoBehaviour
                 allDead = false;
                 break;
             }
+        }
+        if (allDead)
+        {
+            Debug.Log("Sinking");
         }
 
         return allDead;
@@ -68,5 +74,19 @@ public class SkeletonBoat : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void TakeDamage(ShotInfo info)
+    {
+        // if hit by cannonball
+        if(info.damage > 50)
+        {
+            Debug.Log("Hit by cannonball");
+
+            for (int i = 0; i < skeletons.Length; i++)
+            {
+                skeletons[i].TakeDamage(info);
+            }
+        }
     }
 }

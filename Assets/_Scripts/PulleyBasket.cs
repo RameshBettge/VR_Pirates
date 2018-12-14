@@ -28,7 +28,7 @@ public class PulleyBasket : MonoBehaviour
             }
            
         }
-        else if (other.CompareTag("Bucker"))
+        else if (other.CompareTag("Bucket"))
         {
             GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
 

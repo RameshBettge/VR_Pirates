@@ -19,11 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4148698890554510}
-  - component: {fileID: 95594160765670786}
   - component: {fileID: 54353985163247504}
   - component: {fileID: 114506406505104150}
   - component: {fileID: 135166172873351520}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Fish-Canoone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +39,7 @@ GameObject:
   - component: {fileID: 4069204794572730}
   - component: {fileID: 33899702287065878}
   - component: {fileID: 23712433187879972}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LiedR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +56,7 @@ GameObject:
   - component: {fileID: 4687858740017120}
   - component: {fileID: 33289348077671092}
   - component: {fileID: 23378172419989600}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Kugelfish002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +73,7 @@ GameObject:
   - component: {fileID: 4246435632873784}
   - component: {fileID: 33729679947866366}
   - component: {fileID: 23574162685346952}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Plane016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +90,7 @@ GameObject:
   - component: {fileID: 4531311811805278}
   - component: {fileID: 33200566960540092}
   - component: {fileID: 23968955760699500}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sphere006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +107,7 @@ GameObject:
   - component: {fileID: 4384105719297328}
   - component: {fileID: 33180307927758306}
   - component: {fileID: 23118687057070768}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sphere007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +124,7 @@ GameObject:
   - component: {fileID: 4220353166064884}
   - component: {fileID: 33298099484762500}
   - component: {fileID: 23692963292576760}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sphere003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +141,7 @@ GameObject:
   - component: {fileID: 4459407675704354}
   - component: {fileID: 33473039761314726}
   - component: {fileID: 23611835061113094}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Plane014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +158,7 @@ GameObject:
   - component: {fileID: 4679386981135418}
   - component: {fileID: 33496857835693474}
   - component: {fileID: 23725211023968612}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Plane015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +175,7 @@ GameObject:
   - component: {fileID: 4298229092680954}
   - component: {fileID: 33394524325051268}
   - component: {fileID: 23820140166229432}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LiedL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +192,7 @@ GameObject:
   - component: {fileID: 4150529876485152}
   - component: {fileID: 33301974207764352}
   - component: {fileID: 23058843956659640}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sphere005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,24 +787,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95594160765670786
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056051770400412}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ec63327d458ac06488cb7bd292ead84d, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114506406505104150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -817,8 +798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55087e5aa387e84a884e112cc483afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  damage: 10
+  radius: 15
+  damage: 5
 --- !u!135 &135166172873351520
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -829,5 +810,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
