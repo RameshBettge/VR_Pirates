@@ -393,6 +393,7 @@ MonoBehaviour:
   holster: {fileID: 0}
   discarded: 0
   magazineSize: 10
+  ship: {fileID: 0}
 --- !u!114 &114688077867482984
 MonoBehaviour:
   m_ObjectHideFlags: 1
