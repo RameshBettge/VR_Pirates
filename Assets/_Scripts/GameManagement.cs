@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {
+    public GameObject WonScreen;
+    public GameObject LoseScreen;
+
     [SerializeField]
     Vector3 ghostHarborOffset;
 
@@ -184,9 +187,11 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case GameState.Lost:
+                LoseScreen.SetActive(true);
                 break;
 
             case GameState.Won:
+                WonScreen.SetActive(true);
                 break;
 
             default:
