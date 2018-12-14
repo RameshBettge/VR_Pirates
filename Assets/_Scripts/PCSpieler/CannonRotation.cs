@@ -9,6 +9,8 @@ public class CannonRotation : MonoBehaviour
     float horizontalSpeed = 2f;
     Vector3 cameraRot;
 
+    public float debug;
+
     void Update()
     {
         //move camera in relation to cannon
@@ -24,7 +26,25 @@ public class CannonRotation : MonoBehaviour
         thirdPersonCam.localRotation = Quaternion.Euler(cameraRot.x, thirdPersonCam.rotation.y, thirdPersonCam.rotation.z);
 
         //move cannon on mast up and down
-        float z = horizontalSpeed * Input.GetAxis("Mouse Y");
-        transform.Rotate(0, 0, -z);
+        float zAdd = -horizontalSpeed * Input.GetAxis("Mouse Y");
+
+        float maxUpTilt = 90f;
+        float maxDownTilt = 85f;
+
+        float z = transform.eulerAngles.z + zAdd;
+
+        if(z > 180f)
+        {
+            z -= 360f;
+        }
+
+        debug = z;
+
+        z = Mathf.Clamp(z, -maxUpTilt, maxDownTilt);
+
+        Vector3 cannonEuler = transform.eulerAngles;
+        cannonEuler.z = z;
+        transform.eulerAngles = cannonEuler;
+        //transform.Rotate(0, 0, -z);
     }
 }
