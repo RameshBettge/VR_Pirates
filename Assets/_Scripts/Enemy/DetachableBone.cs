@@ -8,6 +8,9 @@ public class DetachableBone : MonoBehaviour, IDamageable
     [HideInInspector]
     public float lifeTime;
 
+    [HideInInspector]
+    public bool isGrabbed;
+
     float despawnTime;
 
     [HideInInspector]
@@ -37,7 +40,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
     bool detached;
 
     float detachForceMultiplier = 0.22f;
-    float knockbackForceMultiplier = 5f;
+    float knockbackForceMultiplier = 0.15f;
 
     void Start()
     {
@@ -60,6 +63,8 @@ public class DetachableBone : MonoBehaviour, IDamageable
     private void Update()
     {
         if (!detached) { return; }
+        if (isGrabbed) { return; }
+
         if(Time.time >= despawnTime || transform.position.y < -10f)
         {
             Destroy(gameObject);
@@ -126,7 +131,11 @@ public class DetachableBone : MonoBehaviour, IDamageable
         }
 
         detached = true;
+        SetDespawnTime();
+    }
 
+    public void SetDespawnTime()
+    {
         despawnTime = Time.time + lifeTime;
     }
 

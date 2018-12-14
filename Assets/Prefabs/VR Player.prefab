@@ -8681,7 +8681,7 @@ MonoBehaviour:
   hardReleaseThreshold: 0.2
   softReleaseThreshold: 0.5
   shootThreshold: 0.8
-  shootResetThreshold: 0.3
+  shootResetThreshold: 0.5
   grabRange: 0.15
   maxVelocitySamples: 12
   mask:
