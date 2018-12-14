@@ -43,11 +43,6 @@ public class SkeletonBoat : MonoBehaviour
             }
         }
 
-        if (allDead)
-        {
-            Debug.Log("Is Crew dead!");
-        }
-
         return allDead;
     }
 

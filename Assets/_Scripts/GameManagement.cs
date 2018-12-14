@@ -41,6 +41,9 @@ public class GameManagement : MonoBehaviour
     float seaPhaseDuration = 5f;
 
     [SerializeField]
+    float seaPhaseDespawnBuffer = 5f;
+
+    [SerializeField]
     float ghostHarborPhaseDuration = 5f;
 
     [Space(10)]
@@ -117,6 +120,8 @@ public class GameManagement : MonoBehaviour
     SkeletonBoatSpawner boatSpawner;
     EnemyManager harborSkeletonSpawner;
     SeaMovement sea;
+
+    float distanceToIsland;
 
     public GameState state = GameState.Delay;
 
@@ -233,6 +238,8 @@ public class GameManagement : MonoBehaviour
 
             RenderSettings.fogDensity = onSeaFogDensity;
             RenderSettings.fogColor = onSeaFogCol;
+
+            distanceToIsland = transform.position.x - islandManager.transform.position.x;
         }
     }
 
@@ -281,13 +288,25 @@ public class GameManagement : MonoBehaviour
 
     private void OnSea()
     {
-        SeaAttack();
         MoveSea(-seaMovementSpeed);
 
-        if (Time.time > seaPhaseEnd)
+        if (Time.time >= (seaPhaseEnd - seaPhaseDespawnBuffer))
         {
-            state = GameState.GhostHarbor;
-            boatSpawner.gameObject.SetActive(false);
+            if (boatSpawner.isActiveAndEnabled)
+            {
+                boatSpawner.gameObject.SetActive(false);
+            }
+
+            if (Time.time > seaPhaseEnd)
+            {
+                state = GameState.GhostHarbor;
+
+                Vector3 islandPos = islandManager.transform.position;
+                islandPos.x = ship.transform.position.x + distanceToIsland;
+                islandManager.transform.position = islandPos;
+
+                islandManager.DoSetActive(true);
+            }
         }
     }
 
@@ -299,12 +318,6 @@ public class GameManagement : MonoBehaviour
         {
             state = GameState.Won;
         }
-    }
-
-    private void SeaAttack()
-    {
-        // Spawn Enemy boats
-        //throw new NotImplementedException();
     }
 
     private void MoveAssets(float speed)
