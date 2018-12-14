@@ -28,6 +28,10 @@ public class Pistol : MonoBehaviour
     [SerializeField]
     int magazineSize = 5;
 
+    [HideInInspector]
+    public Transform ship;
+
+
     int bulletsInMagazine;
 
     float despawnTime;
@@ -37,8 +41,10 @@ public class Pistol : MonoBehaviour
         bulletsInMagazine = magazineSize;
     }
 
-    public void OnGrab()
+    public void OnGrab(Transform ship)
     {
+        this.ship = ship;
+
         discarded = false;
         holster.OnDrawPistol();
 
@@ -78,7 +84,7 @@ public class Pistol : MonoBehaviour
         }
 
 
-        Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+        Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation, ship);
 
         bulletsInMagazine--;
         //Debug.Log("pew! bullets left: " + bulletsInMagazine);

@@ -194,7 +194,7 @@ public class VRGrab : MonoBehaviour
         Pistol pistol = gObject.GetComponent<Pistol>();
         if (pistol != null)
         {
-            pistol.OnGrab();
+            pistol.OnGrab(ship);
 
             data.pistol = pistol;
 
