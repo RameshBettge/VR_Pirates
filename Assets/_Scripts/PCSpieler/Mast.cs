@@ -2,9 +2,18 @@
 
 public class Mast : MonoBehaviour
 {
+    [SerializeField]
+    Camera onLostCam;
+
+
     public float health = 2000;
     public GameObject[] masts;
     public GameManagement GameManagement;
+
+    private void Awake()
+    {
+        onLostCam.gameObject.SetActive(false);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -22,5 +31,10 @@ public class Mast : MonoBehaviour
                 GameManagement.state = GameState.Lost;
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        onLostCam.gameObject.SetActive(true);
     }
 }

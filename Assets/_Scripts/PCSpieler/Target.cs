@@ -26,8 +26,18 @@ public class Target : MonoBehaviour
                 isBurning = true;
 
                 walkingWasTriggered = true;
-                other.GetComponentInParent<EnemyBehaiviour>().Walking();
-                other.GetComponentInParent<MoveOnPath>().speed = 2.5f;
+                EnemyBehaiviour behaviour = other.GetComponentInParent<EnemyBehaiviour>();
+                if(behaviour != null)
+                {
+                    behaviour.Walking();
+                }
+
+                MoveOnPath move = other.GetComponentInParent<MoveOnPath>();
+                if(move != null)
+                {
+                    // Why 2.5f?
+                    move.speed = 2.5f;
+                }
                 Instantiate(fireEffect, transform.position, transform.rotation, ship);
 
                 burnThreshold -= 100f;
