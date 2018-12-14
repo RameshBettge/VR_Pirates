@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {
-
+    [SerializeField]
+    Vector3 ghostHarborOffset;
 
     [SerializeField]
     IslandManager islandManager;
@@ -43,8 +44,8 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     float seaPhaseDespawnBuffer = 5f;
 
-    [SerializeField]
-    float ghostHarborPhaseDuration = 5f;
+    //[SerializeField]
+    //float seaApproachDuration = 5f;
 
     [Space(10)]
 
@@ -130,7 +131,7 @@ public class GameManagement : MonoBehaviour
         harborPhaseEnd = startDelay + harborPhaseDuration;
         seaApproachEnd = harborPhaseEnd + seaApproachDuration;
         seaPhaseEnd = seaApproachEnd + seaPhaseDuration;
-        ghostHarborPhaseEnd = seaPhaseEnd + ghostHarborPhaseDuration;
+        ghostHarborPhaseEnd = seaPhaseEnd + seaApproachDuration;
 
         boatSpawner = GetComponentInChildren<SkeletonBoatSpawner>(true);
         harborSkeletonSpawner = GetComponentInChildren<EnemyManager>(true);
@@ -231,6 +232,7 @@ public class GameManagement : MonoBehaviour
         {
             state = GameState.OnSea;
             islandManager.DoSetActive(false);
+            islandManager.SetStage1(false);
             lastColors = approachingSeaColors;
             nextColors = ghostHarborColors;
 
@@ -306,6 +308,8 @@ public class GameManagement : MonoBehaviour
                 islandManager.transform.position = islandPos;
 
                 islandManager.DoSetActive(true);
+                islandManager.SetStage3(true);
+                islandManager.transform.position += ghostHarborOffset;
             }
         }
     }

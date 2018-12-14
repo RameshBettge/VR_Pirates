@@ -18,12 +18,23 @@ public class IslandManager : MonoBehaviour {
         stage3.SetActive(false);
     }
 
-    public void DisableStage1Deco()
+
+
+    //public void SetStage1Deco(bool active)
+    //{
+    //    for (int i = 0; i < stage1Decorations.Length; i++)
+    //    {
+    //        stage1Decorations[i].SetActive(active);
+    //    }
+    //}
+    public void SetStage1(bool active)
     {
-        for (int i = 0; i < stage1Decorations.Length; i++)
-        {
-            stage1Decorations[i].SetActive(false);
-        }
+            stage1.SetActive(active);
+    }
+
+    public void SetStage3(bool active)
+    {
+        stage3.SetActive(active);
     }
 
     public void DoSetActive(bool active)
