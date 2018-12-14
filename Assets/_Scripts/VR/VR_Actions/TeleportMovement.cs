@@ -121,7 +121,9 @@ public class TeleportMovement : MonoBehaviour
         canTeleport = false;
 
         // TODO: don't set shader values if the renderer isn't active anyway
-        if (Physics.Raycast(line.transform.position, line.transform.up * lineLength, out hit, teleportRayMask))
+        Ray ray = new Ray(line.transform.position, line.transform.up);
+
+        if (Physics.Raycast(ray, out hit, lineLength, teleportRayMask, QueryTriggerInteraction.Ignore))
         {
             line.material.SetFloat("uMaxPos", hit.distance / lineLength / handScale);
 

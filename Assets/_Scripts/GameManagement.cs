@@ -36,7 +36,7 @@ public class GameManagement : MonoBehaviour
     float harborSkeletonsDespawnBuffer = 20f;
 
     [SerializeField]
-    float seaApproachDuration = 5f;
+    float approachDuration = 5f;
 
     [SerializeField]
     float seaPhaseDuration = 5f;
@@ -129,9 +129,9 @@ public class GameManagement : MonoBehaviour
     void Start()
     {
         harborPhaseEnd = startDelay + harborPhaseDuration;
-        seaApproachEnd = harborPhaseEnd + seaApproachDuration;
+        seaApproachEnd = harborPhaseEnd + approachDuration;
         seaPhaseEnd = seaApproachEnd + seaPhaseDuration;
-        ghostHarborPhaseEnd = seaPhaseEnd + seaApproachDuration;
+        ghostHarborPhaseEnd = seaPhaseEnd + approachDuration;
 
         boatSpawner = GetComponentInChildren<SkeletonBoatSpawner>(true);
         harborSkeletonSpawner = GetComponentInChildren<EnemyManager>(true);

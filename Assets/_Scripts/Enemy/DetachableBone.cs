@@ -82,6 +82,8 @@ public class DetachableBone : MonoBehaviour, IDamageable
             KnockBack(info);
         }
 
+        //Debug.Log(name + " took damage.");
+
         if (limb == null)
         {
             skeleton.TakeDamageFromBone(info, true);

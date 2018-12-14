@@ -57,8 +57,8 @@ public class Bullet : MonoBehaviour
             Ray ray = new Ray(transform.position, -dir.normalized);
 
 
-            if (Physics.Raycast(ray, out hit, dir.magnitude, mask))
-            {
+            if (Physics.Raycast(ray, out hit, dir.magnitude, mask, QueryTriggerInteraction.Ignore))
+                {
                 IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
 
                 ShotInfo info = new ShotInfo(hit.point, transform.forward, force, damage, knockbackFalloffDistance);
@@ -69,10 +69,16 @@ public class Bullet : MonoBehaviour
                     damageable = (IDamageable)parent.GetComponent(typeof(IDamageable));
                 }
 
+                //Debug.Log("Bullet hit: " + hit.collider.name + " (child of " + hit.collider.transform.parent.name + ")");
                 if (damageable != null)
                 {
                     damageable.TakeDamage(info);
                 }
+                //else
+                //{
+                //    Debug.Log("Hit object isn't damageable!");
+                //}
+
 
                 // TODO: put bullet into pool instead
                 Destroy(gameObject);
