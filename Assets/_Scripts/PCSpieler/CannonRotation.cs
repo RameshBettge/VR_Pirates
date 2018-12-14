@@ -19,7 +19,7 @@ public class CannonRotation : MonoBehaviour
         Vector3 oldRot = cameraRot;
 
         cameraRot += new Vector3(xRot, 0f, 0f);
-        if (cameraRot.x < -90 || cameraRot.x > 70f)
+        if (cameraRot.x < -5 || cameraRot.x > 20f)
         {
             cameraRot = oldRot;
         }
@@ -28,8 +28,8 @@ public class CannonRotation : MonoBehaviour
         //move cannon on mast up and down
         float zAdd = -horizontalSpeed * Input.GetAxis("Mouse Y");
 
-        float maxUpTilt = 90f;
-        float maxDownTilt = 85f;
+        float maxUpTilt = 60f;
+        float maxDownTilt = 45f;
 
         float z = transform.eulerAngles.z + zAdd;
 

@@ -60,7 +60,7 @@ public class PCPlayerMovement : MonoBehaviour
             Vector3 oldRot = cameraRot;
 
             cameraRot += new Vector3(xRot, 0f, 0f);
-            if (cameraRot.x < -90 || cameraRot.x > 50f)
+            if (cameraRot.x < -60 || cameraRot.x > 45f) // TODO: Change these values depending on which weapon is equipped
             {
                 cameraRot = oldRot;
             }
