@@ -5,6 +5,7 @@ public class Throwing : MonoBehaviour
     public GameObject bucketPrefab;
     public GameObject player;
     public Transform weaponHolder;
+    public Transform ship;
 
     public float bucketDistance = 0.75f;
     public float force = 10f;
@@ -51,8 +52,8 @@ public class Throwing : MonoBehaviour
                 //-player.transform.right -> look above comment
                 if (detachChild == true)
                 {
-                    bucket.transform.parent = null;
-                    Destroy(bucket, 3.0f);
+                    bucket.transform.parent = ship;
+                    Destroy(bucket, 2f);
                 }
                 bucket = Instantiate(bucketPrefab, bucketPrefab.transform.position, bucketPrefab.transform.rotation, weaponHolder);
                 bucket.transform.SetSiblingIndex(0);
