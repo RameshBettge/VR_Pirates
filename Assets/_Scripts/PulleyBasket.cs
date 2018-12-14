@@ -26,7 +26,6 @@ public class PulleyBasket : MonoBehaviour
 
                 //Debug.Log(cannon.stock);
             }
-           
         }
         else if (other.CompareTag("Bucket"))
         {

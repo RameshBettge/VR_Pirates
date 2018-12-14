@@ -3,14 +3,21 @@
 public class Cannonball : MonoBehaviour
 {
     //public GameObject explosionEffect,    when we have one
-    public float radius = 5f;
-    public float damage = 10f;
+    [SerializeField]
+    LayerMask mask;
+
+    float radius = 5f;
+    float damage = 10f;
 
     float force = 150f;
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name + " Has triggered ball");
+        //Debug.Log(other.gameObject.name + " Has triggered ball. Parent is: " + other.transform.parent.name);
+        //string layer = LayerMask.LayerToName(other.gameObject.layer);
+
+        float dist = (transform.position - other.ClosestPoint(transform.position)).magnitude;
+
         Explode();
     }
 
@@ -18,7 +25,7 @@ public class Cannonball : MonoBehaviour
     {
         //Instantiate(explosionEffect, transform.position, transform.rotation);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, mask);
 
         foreach (Collider nearByObject in colliders)
         {
@@ -36,6 +43,8 @@ public class Cannonball : MonoBehaviour
                 Vector3 dir = (nearByObject.transform.position - transform.position).normalized;
 
                 ShotInfo info = new ShotInfo(transform.position, dir, force, 100, 3);
+
+                damageable.TakeDamage(info);
             }
         }
 

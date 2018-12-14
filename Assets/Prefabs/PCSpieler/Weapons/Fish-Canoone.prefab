@@ -798,8 +798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55087e5aa387e84a884e112cc483afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 15
-  damage: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 155648
 --- !u!135 &135166172873351520
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -810,5 +811,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 1.6
   m_Center: {x: 0, y: 0, z: 0}
