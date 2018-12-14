@@ -10,12 +10,17 @@ public class PulleyBasket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered");
+
         if (other.CompareTag("PufferFish"))
         {
+            Debug.Log("Got Puffer");
             if (other.GetComponent<GrabbableObject>().isGrabbed == false)
             {
                 Destroy(other.gameObject);
                 cannon.stock++;
+
+                Debug.Log(cannon.stock);
             }
             else
             {
@@ -23,4 +28,5 @@ public class PulleyBasket : MonoBehaviour
             }
         }
     }
+
 }
