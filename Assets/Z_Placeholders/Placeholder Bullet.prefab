@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1787894910098566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.839, y: 0.851, z: 0.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4020267904846550}
   m_Father: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 8705
-  speed: 20
+  speed: 17
   force: 100
   damage: 1
   knockbackFalloffDistance: 2
