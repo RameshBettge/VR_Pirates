@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -247,6 +247,10 @@ Prefab:
     - target: {fileID: 4109848130293522, guid: b727218011353ca41b062b71c8249df9, type: 2}
       propertyPath: m_LocalPosition.y
       value: -59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624819263813926, guid: b727218011353ca41b062b71c8249df9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114235422959492458, guid: b727218011353ca41b062b71c8249df9, type: 2}
@@ -760,7 +764,6 @@ GameObject:
   - component: {fileID: 771453389}
   - component: {fileID: 771453392}
   - component: {fileID: 771453391}
-  - component: {fileID: 771453390}
   m_Layer: 10
   m_Name: Panel
   m_TagString: Untagged
@@ -791,23 +794,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &771453390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 771453388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15409e2ebbd82ce408b13c0862b0b7ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - {fileID: 2143082227}
-  - {fileID: 901068377}
-  - {fileID: 1231165858}
-  - {fileID: 49941989}
-  - {fileID: 1034878378}
 --- !u!114 &771453391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +989,12 @@ MonoBehaviour:
   - {fileID: 271905482}
   - {fileID: 686849960}
   - {fileID: 1852966618}
+  vrSentences:
+  - {fileID: 2143082227}
+  - {fileID: 901068377}
+  - {fileID: 1231165858}
+  - {fileID: 49941989}
+  - {fileID: 1034878378}
 --- !u!1 &1034878377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,12 +1377,12 @@ GameObject:
   - component: {fileID: 1916919114}
   - component: {fileID: 1916919113}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: VR Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1916919113
 MonoBehaviour:
   m_ObjectHideFlags: 0

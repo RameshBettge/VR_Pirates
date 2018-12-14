@@ -58,7 +58,7 @@ public class Throwing : MonoBehaviour
             {
                 end = Time.timeSinceLevelLoad;
                 force = (end - start) * forceModifier;
-                if(force > maxForce)
+                if (force > maxForce)
                 {
                     force = maxForce;
                 }
@@ -75,14 +75,15 @@ public class Throwing : MonoBehaviour
                     bucket.transform.parent = ship;
                     //Destroy(bucket, 2f);
                 }
-                bucket = Instantiate(bucketPrefab, bucketPrefab.transform.position, bucketPrefab.transform.rotation, weaponHolder);
+                Vector3 spawnPos = player.transform.position + player.transform.forward * bucketDistance + -player.transform.right * 0.6f;
+                bucket = Instantiate(bucketPrefab, spawnPos, bucketPrefab.transform.rotation, weaponHolder);
                 bucket.GetComponent<Rigidbody>().isKinematic = true;
                 bucket.GetComponent<Collider>().enabled = false;
 
 
                 bucket.transform.SetSiblingIndex(0);
-                
-                if(stock > 0)
+
+                if (stock > 0)
                 {
                     bucket.GetComponent<Bucket>().filled = true;
                     stock--;

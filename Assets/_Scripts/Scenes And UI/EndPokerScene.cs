@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EndPokerScene : MonoBehaviour
 {
-    float timeTilSwitch = 30f;
+    float timeTilSwitch = 20f;
 
     bool loading = false;
-
-    private void Awake()
-    {
-        
-    }
 
     void Update()
     {

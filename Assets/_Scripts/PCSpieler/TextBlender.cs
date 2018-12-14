@@ -8,6 +8,9 @@ public class TextBlender : MonoBehaviour
     float NextDisplay;
     int index = 0;
 
+    [SerializeField]
+    Transform[] vrSentences;
+
     bool loading = false;
 
     void Start()
@@ -22,7 +25,7 @@ public class TextBlender : MonoBehaviour
 
     void Blend()
     {
-        if (Time.timeSinceLevelLoad > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+        if (Time.timeSinceLevelLoad > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0))
         {
             if (loading) { return; }
 
@@ -31,6 +34,7 @@ public class TextBlender : MonoBehaviour
             if(index != 0)
             {
                 sentences[index -1].gameObject.SetActive(false);
+                vrSentences[index -1].gameObject.SetActive(false);
             }
 
 
@@ -43,6 +47,7 @@ public class TextBlender : MonoBehaviour
 
             if(index >= sentences.Length) { return; }
             sentences[index].gameObject.SetActive(true);
+            vrSentences[index].gameObject.SetActive(true);
             index++;
         }
     }
