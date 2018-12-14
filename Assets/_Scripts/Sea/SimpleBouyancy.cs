@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SimpleBouyancy : MonoBehaviour
 {
-
+    [SerializeField]
+    bool useHighestPos;
 
     //[HideInInspector]
     public SeaMovement sea;
@@ -126,7 +127,19 @@ public class SimpleBouyancy : MonoBehaviour
     {
         Vector3 newPos = GetSeaPosition(transform);
 
-        float seaHeight = newPos.y;
+        if (useHighestPos)
+        {
+            float highest = newPos.y;
+
+            highest = TestIfHigher(front, highest);
+            highest = TestIfHigher(back, highest);
+            highest = TestIfHigher(left, highest);
+            highest = TestIfHigher(right, highest);
+
+            newPos.y = highest;
+        }
+
+        //float seaHeight = newPos.y;
 
         if (heightSamples == 1)
         {
@@ -155,6 +168,12 @@ public class SimpleBouyancy : MonoBehaviour
         {
             heightSamples++;
         }
+    }
+
+    float TestIfHigher(Transform boyancyHelper, float highest)
+    {
+        float seaPos = GetSeaPosition(boyancyHelper).y;
+        return Mathf.Max(seaPos, highest);
     }
 
     void SetTilt()
