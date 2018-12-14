@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 8705
+    m_Bits: 139777
   speed: 23
   force: 100
   damage: 1
