@@ -8,14 +8,16 @@ public class PulleyBasket : MonoBehaviour
     Cannon cannon;
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Triggered");
 
         if (other.CompareTag("PufferFish"))
         {
+            string theName = other.gameObject.name; 
             Debug.Log("Got Puffer");
-            if (other.GetComponent<GrabbableObject>().isGrabbed == false)
+            GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
+            if (grabbable != null && grabbable.isGrabbed == false)
             {
                 Destroy(other.gameObject);
                 cannon.stock++;

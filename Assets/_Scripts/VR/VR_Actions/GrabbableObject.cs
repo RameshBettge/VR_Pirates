@@ -34,7 +34,7 @@ public class GrabbableObject : MonoBehaviour
     public Vector3 defaultPos;
 
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isGrabbed;
 
     Vector3 grabEuler;
