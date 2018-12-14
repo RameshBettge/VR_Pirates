@@ -40,7 +40,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
     bool detached;
 
     float detachForceMultiplier = 0.22f;
-    float knockbackForceMultiplier = 5f;
+    float knockbackForceMultiplier = 0.15f;
 
     void Start()
     {
