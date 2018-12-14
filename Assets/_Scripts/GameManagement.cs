@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {
+
+
     [SerializeField]
     IslandManager islandManager;
 
     [SerializeField]
-    Transform ship;
+    SimpleBouyancy ship;
 
     [SerializeField]
     AnimationCurve approachCurve;
 
+    [SerializeField]
+    AnimationCurve seaHeightCurve;
+
+    [Space(10)]
     [SerializeField]
     float harborSkeletonsDespawnBuffer = 20f;
 
@@ -36,7 +42,25 @@ public class GameManagement : MonoBehaviour
     [Space(10)]
 
     [SerializeField]
+    float environmentMovement;
+
+    [SerializeField]
+    float departTime = 5f;
+
+    [Space(10)]
+    [Header("SeaBehaviour")]
+    [SerializeField]
     float seaMovementSpeed;
+
+    [SerializeField]
+    float calmSeaHeight = 3f;
+
+    [SerializeField]
+    float stormySeaHeight = 8f;
+
+
+    //[SerializeField]
+    //float boatSinkLimit = 5f;
 
     float harborPhaseEnd;
     float seaApproachEnd;
@@ -44,7 +68,7 @@ public class GameManagement : MonoBehaviour
     float ghostHarborPhaseEnd;
 
     SkeletonBoatSpawner boatSpawner;
-    EnemyManager harborSkeletonSpawner;
+    public EnemyManager harborSkeletonSpawner;
     SeaMovement sea;
 
     public GameState state = GameState.Delay;
@@ -62,6 +86,8 @@ public class GameManagement : MonoBehaviour
 
         boatSpawner.gameObject.SetActive(false);
         harborSkeletonSpawner.gameObject.SetActive(false);
+
+        sea.heightModifier = calmSeaHeight;
     }
 
     void Update()
@@ -99,10 +125,9 @@ public class GameManagement : MonoBehaviour
         }
     }
 
-
     private void Delay()
     {
-        if(Time.time > startDelay)
+        if (Time.time > startDelay)
         {
             state = GameState.Harbor;
             harborSkeletonSpawner.gameObject.SetActive(true);
@@ -113,59 +138,67 @@ public class GameManagement : MonoBehaviour
     {
         // Spawn Enemies via Celina's script
 
-        if (Time.time > harborPhaseEnd)
-        {
-            state = GameState.ApproachingSea;
-            //islandManager.DisableStage1Deco();
-        }
-        else if (Time.time > (harborPhaseEnd - harborSkeletonsDespawnBuffer))
+        if (Time.time > (harborPhaseEnd - harborSkeletonsDespawnBuffer))
         {
             if (harborSkeletonSpawner.isActiveAndEnabled)
             {
                 harborSkeletonSpawner.gameObject.SetActive(false);
+            }
+            if (Time.time > harborPhaseEnd)
+            {
+                state = GameState.ApproachingSea;
+
+                ship.OnDepart(departTime);
+                //ship.SetHeightLimit(boatSinkLimit);
+                ship.enabled = true;
             }
         }
     }
 
     private void ApproachSea()
     {
-        float percentage = GetAproachPercentage(harborPhaseEnd, seaApproachEnd);
-        float speed = percentage * seaMovementSpeed;
+        MoveEnvironment(harborPhaseEnd, seaApproachEnd,  false);
 
-        MoveSea(speed);
-        MoveShip(speed);
-
-        if(Time.time > seaApproachEnd)
+        if (Time.time > seaApproachEnd)
         {
             state = GameState.OnSea;
             islandManager.DoSetActive(false);
         }
     }
 
+    private void MoveEnvironment(float start, float end, bool inverted)
+    {
+        float percentage = GetAproachPercentage(start, end, true);
+
+        if (inverted)
+        {
+            percentage = 1 - percentage;
+        }
+
+        float speed = approachCurve.Evaluate(percentage);
+
+        float heightPercentage = seaHeightCurve.Evaluate(percentage);
+
+        sea.heightModifier = Mathf.Lerp(calmSeaHeight, stormySeaHeight, heightPercentage);
+
+        MoveSea(speed * -seaMovementSpeed);
+        MoveAssets(speed * environmentMovement);
+    }
+
     private void OnSea()
     {
         SeaAttack();
-        MoveSea(seaMovementSpeed);
+        MoveSea(environmentMovement);
 
         if (Time.time > seaPhaseEnd)
         {
             state = GameState.GhostHarbor;
-
-            // Increase Spawn interval when entering state and Set the islands position and rotation
         }
     }
 
     private void ApproachGhostHarbor()
     {
-        float percentage = 1 - GetAproachPercentage(seaPhaseEnd, ghostHarborPhaseEnd);
-        float speed = percentage * seaMovementSpeed;
-
-        //debug = percentage;
-
-        SeaAttack();
-
-        MoveSea(seaMovementSpeed);
-        MoveShip(seaMovementSpeed);
+        MoveEnvironment(seaPhaseEnd, ghostHarborPhaseEnd, true);
 
         if (Time.time > ghostHarborPhaseEnd)
         {
@@ -179,11 +212,8 @@ public class GameManagement : MonoBehaviour
         //throw new NotImplementedException();
     }
 
-    private void MoveShip(float speed)
+    private void MoveAssets(float speed)
     {
-        // Move harbor depending on speed * sea texture scale
-        //throw new NotImplementedException();
-
         sea.transform.position += Vector3.left * speed;
         ship.transform.position += Vector3.left * speed;
     }
@@ -191,10 +221,10 @@ public class GameManagement : MonoBehaviour
 
     private void MoveSea(float speed)
     {
-        //throw new NotImplementedException();
+        sea.extraMovement += speed;
     }
 
-    float GetAproachPercentage(float start, float end)
+    float GetAproachPercentage(float start, float end, bool raw)
     {
         end -= start;
         float current = Time.time - start;
@@ -206,7 +236,10 @@ public class GameManagement : MonoBehaviour
             percentage = 1f;
         }
 
+        if (!raw)
+        {
         percentage = approachCurve.Evaluate(percentage);
+        }
 
         return percentage;
     }
