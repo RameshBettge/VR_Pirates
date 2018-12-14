@@ -75,7 +75,6 @@ public class Skeleton : MonoBehaviour, IDamageable
         if (behaviour == null)
         {
             behaviour = GetComponent<EnemyBehaiviour>();
-
         }
         behaviour.Board();
 
@@ -131,7 +130,7 @@ public class Skeleton : MonoBehaviour, IDamageable
         }
         else
         {
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         Destroy(this);

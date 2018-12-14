@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class SimpleBouyancy : MonoBehaviour
 {
+    [SerializeField]
+    bool useHighestPos;
 
+    [SerializeField]
+    float heightOffset = 0.25f;
 
     //[HideInInspector]
     public SeaMovement sea;
@@ -17,9 +21,10 @@ public class SimpleBouyancy : MonoBehaviour
     int maxTiltSamples = 10;
     int tiltSamples;
 
-    [SerializeField]
-    int maxHeightSamples = 10;
-    int heightSamples;
+    public int maxHeightSamples = 10;
+
+    [HideInInspector]
+    public int heightSamples;
 
     public bool manualUpdate;
 
@@ -43,7 +48,18 @@ public class SimpleBouyancy : MonoBehaviour
     [HideInInspector]
     public Vector3 averageRight;
 
-    float averageHeight;
+    [HideInInspector]
+    public float averageHeight;
+
+    bool departing = false;
+    float departHeight;
+    float departStart;
+    float departEnd;
+
+    //[HideInInspector]
+    //public bool sinkingIsLimited = false;
+    //float sinkLimit;
+
 
 
     private void Start()
@@ -55,10 +71,50 @@ public class SimpleBouyancy : MonoBehaviour
 
     private void Update()
     {
+        String debug = name;
+
         if (!manualUpdate)
         {
             UpdateBouyancy();
         }
+
+        if (departing)
+        {
+            Depart();
+        }
+    }
+
+    //public void SetHeightLimit(float limit)
+    //{
+    //    sinkingIsLimited = true;
+    //    sinkLimit = limit;
+    //}
+
+    private void Depart()
+    {
+        float end = departEnd - departStart;
+        float current = Time.time - departStart;
+
+        float percentage = current / end;
+
+        if (percentage >= 1f)
+        {
+            departing = false;
+            return;
+        }
+
+        Vector3 pos = transform.position;
+        pos.y = Mathf.Lerp(departHeight, pos.y, percentage);
+
+        transform.position = pos;
+    }
+
+    public void OnDepart(float departDuration)
+    {
+        departHeight = transform.position.y;
+        departing = true;
+        departStart = Time.time;
+        departEnd = departStart + departDuration;
     }
 
     public void UpdateBouyancy()
@@ -74,6 +130,19 @@ public class SimpleBouyancy : MonoBehaviour
     {
         Vector3 newPos = GetSeaPosition(transform);
 
+        if (useHighestPos)
+        {
+            float highest = newPos.y;
+
+            highest = TestIfHigher(front, highest);
+            highest = TestIfHigher(back, highest);
+            highest = TestIfHigher(left, highest);
+            highest = TestIfHigher(right, highest);
+
+            newPos.y = highest;
+        }
+
+        //float seaHeight = newPos.y;
 
         if (heightSamples == 1)
         {
@@ -86,25 +155,28 @@ public class SimpleBouyancy : MonoBehaviour
             averageHeight += newPos.y / heightSamples;
         }
 
-        //float heightDifference = newPos.y - transform.position.y;
-
-        //float sign = Mathf.Sign(heightDifference);
-
-        //float absDifference = Mathf.Abs(heightDifference);
-        //float maxMovement = maxUpMovementPerSecond * Time.deltaTime;
-        //if (absDifference > maxMovement)
+        //if (sinkingIsLimited)
         //{
-        //    absDifference = maxMovement;
+        //    if (averageHeight < seaHeight + sinkLimit)
+        //    {
+        //        averageHeight = seaHeight + sinkLimit;
+        //    }
         //}
 
-        //newPos.y = transform.position.y + absDifference * sign;
         newPos.y = averageHeight;
         transform.position = newPos;
+
 
         if (heightSamples < maxHeightSamples)
         {
             heightSamples++;
         }
+    }
+
+    float TestIfHigher(Transform boyancyHelper, float highest)
+    {
+        float seaPos = GetSeaPosition(boyancyHelper).y;
+        return Mathf.Max(seaPos, highest);
     }
 
     void SetTilt()
@@ -152,15 +224,17 @@ public class SimpleBouyancy : MonoBehaviour
 
     Vector3 GetSeaPosition(Transform t)
     {
-        if(sea == null)
+        if (sea == null)
         {
             Debug.LogError(name + " is missing a reference to sea!");
             return Vector3.zero;
         }
 
         float height = sea.GetHeight(t.position);
+        height += sea.transform.position.y;
+
         Vector3 pos = t.position;
-        pos.y = height;
+        pos.y = height + heightOffset;
 
         return pos;
     }

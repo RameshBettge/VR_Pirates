@@ -24,7 +24,6 @@ public class EnemyBehaiviour : MonoBehaviour
 
     public void Board()
     {
-
         anim.SetTrigger("Boarding");
     }
 

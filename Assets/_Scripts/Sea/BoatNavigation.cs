@@ -43,7 +43,7 @@ public class BoatNavigation : MonoBehaviour
 
     Vector3 directionToDocker;
 
-    BoatState state = BoatState.Surfacing;
+    public BoatState state = BoatState.Surfacing;
 
     SimpleBouyancy bouyancy;
 

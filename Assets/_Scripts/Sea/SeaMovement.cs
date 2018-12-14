@@ -19,12 +19,14 @@ public class SeaMovement : MonoBehaviour
     Vector2 offsetSpeed = new Vector2(10f, 10f);
     [Space(10)]
 
-    [SerializeField]
-    float heightModifier = 10f;
+    public float heightModifier = 10f;
     [Space(10)]
 
     [SerializeField]
     float normalRecalculationInterval = 0.05f;
+
+    //[HideInInspector]
+    public float extraMovement;
 
 
 
@@ -73,6 +75,9 @@ public class SeaMovement : MonoBehaviour
 
     public float GetHeight(float x, float z)
     {
+        x += transform.position.x;
+        z += transform.position.z;
+
         float xUV = x * texScale;
         float zUV = z * texScale;
 
@@ -84,6 +89,9 @@ public class SeaMovement : MonoBehaviour
 
         xOffsetUV += offsetSpeed.x * Time.time;
         zOffsetUV += offsetSpeed.y * Time.time;
+
+        xOffsetUV += extraMovement;
+        xUV += extraMovement;
 
         // movement gets stuck after hitting 2040 somehow.
         if (movement > halfTexWidth)
