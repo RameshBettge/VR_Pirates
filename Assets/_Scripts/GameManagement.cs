@@ -132,6 +132,8 @@ public class GameManagement : MonoBehaviour
 
     public GameState state = GameState.Delay;
 
+    bool returningToMenu;
+
     void Start()
     {
         pufferFishSpawner.gameObject.SetActive(false);
@@ -193,15 +195,30 @@ public class GameManagement : MonoBehaviour
 
             case GameState.Lost:
                 LoseScreen.SetActive(true);
-                ship.gameObject.SetActive(false);
+                //ship.gameObject.SetActive(false);
+
+                // TODO: Put vr player near lostCam.position
+
                 boatSpawner.gameObject.SetActive(false);
                 harborSkeletonSpawner.gameObject.SetActive(false);
+
+                if (!returningToMenu)
+                {
+                    returningToMenu = true;
+                    Invoke("ReturnToMenu", 10f);
+                }
 
                 // TODO: load main menu after 5f
                 break;
 
             case GameState.Won:
                 WonScreen.SetActive(true);
+
+                if (!returningToMenu)
+                {
+                    returningToMenu = true;
+                    Invoke("ReturnToMenu", 15f);
+                }
                 // TODO: load main menu after 15f
 
                 break;
@@ -209,6 +226,11 @@ public class GameManagement : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    void ReturnToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Full Menu");
     }
 
     private void Delay()
