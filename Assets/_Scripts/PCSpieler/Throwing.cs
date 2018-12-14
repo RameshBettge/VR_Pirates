@@ -8,7 +8,13 @@ public class Throwing : MonoBehaviour
     public Transform ship;
 
     public float bucketDistance = 0.75f;
-    public float force = 10f;
+    float force;
+
+    [SerializeField]
+    float maxForce = 5000f;
+    [SerializeField]
+    float forceModifier = 2000f;
+
     public float height = 100f;
 
     public bool detachChild;
@@ -28,6 +34,9 @@ public class Throwing : MonoBehaviour
     {
         bucket = Instantiate(bucketPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-90f, 0f, 0f), weaponHolder);
         bucket.transform.SetSiblingIndex(0);
+        bucket.GetComponent<Rigidbody>().isKinematic = true;
+        bucket.GetComponent<Collider>().enabled = false;
+
     }
 
     void Update()
@@ -48,9 +57,17 @@ public class Throwing : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 end = Time.timeSinceLevelLoad;
-                force = (end - start) * 2000;
+                force = (end - start) * forceModifier;
+                if(force > maxForce)
+                {
+                    force = maxForce;
+                }
+
                 holdingBucket = false;
+                bucket.GetComponent<Rigidbody>().isKinematic = false;
                 bucket.GetComponent<Rigidbody>().useGravity = true;
+                bucket.GetComponent<Collider>().enabled = true;
+
                 bucket.GetComponent<Rigidbody>().AddForce(-player.transform.right * force + player.transform.up * height);
                 //-player.transform.right -> look above comment
                 if (detachChild == true)
@@ -59,6 +76,10 @@ public class Throwing : MonoBehaviour
                     //Destroy(bucket, 2f);
                 }
                 bucket = Instantiate(bucketPrefab, bucketPrefab.transform.position, bucketPrefab.transform.rotation, weaponHolder);
+                bucket.GetComponent<Rigidbody>().isKinematic = true;
+                bucket.GetComponent<Collider>().enabled = false;
+
+
                 bucket.transform.SetSiblingIndex(0);
                 
                 if(stock > 0)
