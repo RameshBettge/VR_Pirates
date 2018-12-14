@@ -42,7 +42,8 @@ public class Shooting : MonoBehaviour
 
             IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
 
-            Vector3 knockbackDir =Vector3.Lerp (transform.forward, transform.up, upwardsKnockbackModifier);
+            //Vector3 knockbackDir =Vector3.Lerp (transform.forward, transform.up, upwardsKnockbackModifier);
+            Vector3 knockbackDir = cam.transform.forward;
             ShotInfo info = new ShotInfo(hit.point, knockbackDir, impactForce, damage, knockbackFalloffDistance);
 
             Transform parent = hit.collider.transform.parent;
