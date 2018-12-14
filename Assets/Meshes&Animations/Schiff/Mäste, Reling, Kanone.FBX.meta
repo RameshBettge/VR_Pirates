@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: 96aeac7f09d75ed4db945ddff8f8cd6f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box018
+    100002: Box026
+    100004: Box027
+    100006: Box033
+    100008: Box034
+    100010: Cylinder021
+    100012: Cylinder024
+    100014: Cylinder028
+    100016: Cylinder031
+    100018: Fahrstuhl
+    100020: Fahrstulplatte
+    100022: Kanone
+    100024: "Kanonenst\xFCtze"
+    100026: Line005
+    100028: Line017
+    100030: Line018
+    100032: //RootNode
+    100034: Object002
+    100036: Object006
+    100038: Object014
+    100040: Object022
+    100042: Object024
+    100044: Object026
+    100046: Object036
+    100048: Object039
+    100050: Object040
+    100052: Object041
+    100054: Object042
+    400000: Box018
+    400002: Box026
+    400004: Box027
+    400006: Box033
+    400008: Box034
+    400010: Cylinder021
+    400012: Cylinder024
+    400014: Cylinder028
+    400016: Cylinder031
+    400018: Fahrstuhl
+    400020: Fahrstulplatte
+    400022: Kanone
+    400024: "Kanonenst\xFCtze"
+    400026: Line005
+    400028: Line017
+    400030: Line018
+    400032: //RootNode
+    400034: Object002
+    400036: Object006
+    400038: Object014
+    400040: Object022
+    400042: Object024
+    400044: Object026
+    400046: Object036
+    400048: Object039
+    400050: Object040
+    400052: Object041
+    400054: Object042
+    2100000: 01 - Default
+    2300000: Box018
+    2300002: Box026
+    2300004: Box027
+    2300006: Box033
+    2300008: Box034
+    2300010: Cylinder021
+    2300012: Cylinder024
+    2300014: Cylinder028
+    2300016: Cylinder031
+    2300018: Fahrstuhl
+    2300020: Fahrstulplatte
+    2300022: Kanone
+    2300024: "Kanonenst\xFCtze"
+    2300026: Line005
+    2300028: Line017
+    2300030: Line018
+    2300032: Object002
+    2300034: Object006
+    2300036: Object014
+    2300038: Object022
+    2300040: Object024
+    2300042: Object026
+    2300044: Object036
+    2300046: Object039
+    2300048: Object040
+    2300050: Object041
+    2300052: Object042
+    3300000: Box018
+    3300002: Box026
+    3300004: Box027
+    3300006: Box033
+    3300008: Box034
+    3300010: Cylinder021
+    3300012: Cylinder024
+    3300014: Cylinder028
+    3300016: Cylinder031
+    3300018: Fahrstuhl
+    3300020: Fahrstulplatte
+    3300022: Kanone
+    3300024: "Kanonenst\xFCtze"
+    3300026: Line005
+    3300028: Line017
+    3300030: Line018
+    3300032: Object002
+    3300034: Object006
+    3300036: Object014
+    3300038: Object022
+    3300040: Object024
+    3300042: Object026
+    3300044: Object036
+    3300046: Object039
+    3300048: Object040
+    3300050: Object041
+    3300052: Object042
+    4300000: Box018
+    4300002: Kanone
+    4300004: Object039
+    4300006: Object036
+    4300008: "Kanonenst\xFCtze"
+    4300010: Object024
+    4300012: Object022
+    4300014: Cylinder031
+    4300016: Cylinder028
+    4300018: Object040
+    4300020: Box026
+    4300022: Object014
+    4300024: Line018
+    4300026: Line017
+    4300028: Cylinder024
+    4300030: Line005
+    4300032: Fahrstuhl
+    4300034: Object006
+    4300036: Object002
+    4300038: Cylinder021
+    4300040: Fahrstulplatte
+    4300042: Object026
+    4300044: Box027
+    4300046: Box033
+    4300048: Box034
+    4300050: Object041
+    4300052: Object042
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
