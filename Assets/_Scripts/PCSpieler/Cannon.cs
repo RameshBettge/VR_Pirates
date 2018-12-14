@@ -10,13 +10,20 @@ public class Cannon : MonoBehaviour
 
     private Vector3 rot;
 
+    [HideInInspector]
+    public int stock = 0;
+
     GameObject childObject;
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Fire();
+            if (stock > 0)
+            {
+                Fire();
+                stock--;
+            }
         }
     }
 

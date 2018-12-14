@@ -11,6 +11,8 @@ TagManager:
   - Enemy1
   - Fire
   - Bucket
+  - PufferFish
+  - Basket
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - DEPRECATED
   - Skeleton
   - BulletIgnore
-  - 
+  - Basket
   - 
   - 
   - 
