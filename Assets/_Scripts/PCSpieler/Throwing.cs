@@ -7,17 +7,17 @@ public class Throwing : MonoBehaviour
     public Transform weaponHolder;
 
     public float bucketDistance = 0.75f;
+    public float force = 10f;
+
+    public bool detachChild;
+
+    private GameObject bucket;
+    Transform childBucket;
 
     private bool holdingBucket = true;
 
-    private GameObject bucket;
-
-    Transform childBucket;
-    public bool detachChild;
-
     float start;
     float end;
-    public float force = 10f;
 
     void Start()
     {

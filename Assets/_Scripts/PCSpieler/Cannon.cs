@@ -5,6 +5,7 @@ public class Cannon : MonoBehaviour
     public float shootForce;
     public GameObject cannonBallPrefab;
     public GameObject player;
+    public Transform ship;
     public Transform cannonSpawn;
 
     private Vector3 rot;
@@ -21,7 +22,7 @@ public class Cannon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject cannonBall = Instantiate(cannonBallPrefab, cannonSpawn.transform.position, cannonSpawn.transform.rotation);
+        GameObject cannonBall = Instantiate(cannonBallPrefab, cannonSpawn.transform.position, cannonSpawn.transform.rotation, ship);
         Rigidbody rb = cannonBall.GetComponent<Rigidbody>();
         rb.AddForce(-cannonSpawn.transform.right * shootForce, ForceMode.VelocityChange);
         //-cannonSpawn.transform.right, because pivot of object is twisted
