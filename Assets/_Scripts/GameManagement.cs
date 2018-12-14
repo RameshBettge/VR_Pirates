@@ -205,10 +205,8 @@ public class GameManagement : MonoBehaviour
                 if (!returningToMenu)
                 {
                     returningToMenu = true;
-                    Invoke("ReturnToMenu", 10f);
+                    Invoke("ReturnToMenu", 3.5f);
                 }
-
-                // TODO: load main menu after 5f
                 break;
 
             case GameState.Won:
@@ -217,9 +215,8 @@ public class GameManagement : MonoBehaviour
                 if (!returningToMenu)
                 {
                     returningToMenu = true;
-                    Invoke("ReturnToMenu", 15f);
+                    Invoke("ReturnToMenu", 3.5f);
                 }
-                // TODO: load main menu after 15f
 
                 break;
 
@@ -230,6 +227,8 @@ public class GameManagement : MonoBehaviour
 
     void ReturnToMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Full Menu");
     }
 
