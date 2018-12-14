@@ -161,7 +161,6 @@ public class TeleportMovement : MonoBehaviour
                 transform.position = hit.point;
                 finder.Head.localPosition = newHeadPos;
 
-
                 teleported = true;
             }
         }
