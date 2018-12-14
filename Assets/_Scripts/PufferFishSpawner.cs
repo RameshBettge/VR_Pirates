@@ -11,7 +11,8 @@ public class PufferFishSpawner : MonoBehaviour
 
     Transform[] spawnPoints;
 
-    float force = 40f;
+    float minForce = 34f;
+    float maxForce = 44f;
 
     float spawnInterval = 10f;
 
@@ -40,6 +41,8 @@ public class PufferFishSpawner : MonoBehaviour
 
         GameObject puffer = Instantiate(pufferFishPrefab, spawnPoints[spawnNum].position /*+ pufferOffset*/, Quaternion.identity, transform.parent);
         Rigidbody rb = puffer.GetComponent<Rigidbody>();
+
+        float force = UnityEngine.Random.Range(minForce, maxForce);
         rb.AddForce(spawnPoints[spawnNum].forward * force, ForceMode.VelocityChange);
 
         //puffer.transform.position = spawnPoints[spawnNum].position + pufferOffset;
