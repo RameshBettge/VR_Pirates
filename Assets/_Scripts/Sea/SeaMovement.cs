@@ -75,6 +75,9 @@ public class SeaMovement : MonoBehaviour
 
     public float GetHeight(float x, float z)
     {
+        x += transform.position.x;
+        z += transform.position.z;
+
         float xUV = x * texScale;
         float zUV = z * texScale;
 

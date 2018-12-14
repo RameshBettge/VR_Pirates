@@ -20,7 +20,7 @@ public class GameManagement : MonoBehaviour
     AnimationCurve seaHeightCurve;
 
     [SerializeField]
-    AnimationCurve islandSinkCurve;
+    AnimationCurve seaRiseCurve;
 
     [Space(10)]
     [SerializeField]
@@ -51,7 +51,7 @@ public class GameManagement : MonoBehaviour
     float departTime = 5f;
 
     [SerializeField]
-    float islandSinkDepth = -100f;
+    float seaRiseHeight = -100f;
 
     [Space(10)]
     [Header("SeaBehaviour")]
@@ -74,6 +74,9 @@ public class GameManagement : MonoBehaviour
     [Header("SeaColors")]
 
     [SerializeField]
+    Renderer seaPlane;
+
+    [SerializeField]
     AnimationCurve colorChangeCurve;
 
     [SerializeField]
@@ -88,7 +91,7 @@ public class GameManagement : MonoBehaviour
 
     Material seaMat;
 
-    float islandStartHeight;
+    float startSeaHight;
 
 
     //[SerializeField]
@@ -125,11 +128,13 @@ public class GameManagement : MonoBehaviour
 
         seaMat.SetFloat("_Height", calmMaterialHeight);
 
-        islandStartHeight = islandManager.transform.position.y;
+        startSeaHight = sea.transform.position.y;
 
         seaMat.SetColor("_TopColor", startColors.TopColor);
         seaMat.SetColor("_BottomColor", startColors.BottomColor);
-        lastColors = startColors;
+        seaPlane.material.color = startColors.BottomColor;
+        RenderSettings.fogColor = startColors.FogColor;
+       lastColors = startColors;
         nextColors = openSeaColors;
     }
 
@@ -216,7 +221,11 @@ public class GameManagement : MonoBehaviour
         float adjustedPercentage = colorChangeCurve.Evaluate(percentage);
 
         seaMat.SetColor("_TopColor", Color.Lerp(lastColors.TopColor, nextColors.TopColor, adjustedPercentage));
-        seaMat.SetColor("_BottomColor", Color.Lerp(lastColors.BottomColor, nextColors.BottomColor, adjustedPercentage));
+
+        Color bottomCol = Color.Lerp(lastColors.BottomColor, nextColors.BottomColor, adjustedPercentage);
+        seaMat.SetColor("_BottomColor", bottomCol);
+        seaPlane.material.color = bottomCol;
+        RenderSettings.fogColor = Color.Lerp(lastColors.FogColor, nextColors.FogColor, adjustedPercentage);
     }
 
     private void MoveEnvironment(float start, float end, bool inverted)
@@ -236,11 +245,11 @@ public class GameManagement : MonoBehaviour
 
         float heightPercentage = seaHeightCurve.Evaluate(percentage);
 
-        float islandSinkPercentage = islandSinkCurve.Evaluate(percentage);
+        float seaRisePercentage = seaRiseCurve.Evaluate(percentage);
 
-        Vector3 islandPos = islandManager.transform.position;
-        islandPos.y = islandStartHeight + islandSinkDepth * islandSinkPercentage;
-        islandManager.transform.position = islandPos;
+        Vector3 seaPos = sea.transform.position;
+        seaPos.y = startSeaHight + seaRiseHeight * seaRisePercentage;
+        sea.transform.position = seaPos;
 
         sea.heightModifier = Mathf.Lerp(calmSeaHeight, stormySeaHeight, heightPercentage);
         seaMat.SetFloat("_Height", Mathf.Lerp(calmMaterialHeight, stormyMaterialheight, heightPercentage));
@@ -320,4 +329,5 @@ public struct SeaColors
 {
     public Color TopColor;
     public Color BottomColor;
+    public Color FogColor;
 }

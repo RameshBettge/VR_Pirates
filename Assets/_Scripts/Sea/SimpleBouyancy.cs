@@ -228,6 +228,8 @@ public class SimpleBouyancy : MonoBehaviour
         }
 
         float height = sea.GetHeight(t.position);
+        height += sea.transform.position.y;
+
         Vector3 pos = t.position;
         pos.y = height;
 
