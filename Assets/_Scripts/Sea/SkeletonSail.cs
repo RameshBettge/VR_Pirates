@@ -10,8 +10,6 @@ public class SkeletonSail : MonoBehaviour, IDamageable {
 
     void IDamageable.TakeDamage(ShotInfo info)
     {
-        Debug.Log(info.damage);
-
         health -= info.damage;
 
         if(health < 1)

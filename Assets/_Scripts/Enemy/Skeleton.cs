@@ -75,7 +75,6 @@ public class Skeleton : MonoBehaviour, IDamageable
         if (behaviour == null)
         {
             behaviour = GetComponent<EnemyBehaiviour>();
-
         }
         behaviour.Board();
 
@@ -131,10 +130,10 @@ public class Skeleton : MonoBehaviour, IDamageable
         }
         else
         {
-            // TODO: Check if destroying is save and not despawning loose bones/items
-            Destroy(this);
             Destroy(gameObject);
         }
+
+        Destroy(this);
     }
 
     // Only used for sniper

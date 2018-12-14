@@ -38,7 +38,7 @@ public class Shooting : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, mask))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //Debug.Log(hit.collider.gameObject.name);
 
             IDamageable damageable = (IDamageable)hit.collider.GetComponent(typeof(IDamageable));
 

@@ -33,4 +33,5 @@ public class EnemyManager : MonoBehaviour
             nextSpawn = Time.time + spawnInterval;
         }
     }
+
 }

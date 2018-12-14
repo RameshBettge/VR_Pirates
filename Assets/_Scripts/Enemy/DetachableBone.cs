@@ -117,8 +117,6 @@ public class DetachableBone : MonoBehaviour, IDamageable
         rb.isKinematic = false;
         rb.useGravity = true;
 
-        Vector3 dist = transform.position - info.hitPos;
-
 
         if (GetComponent<GrabbableObject>() != null)
         {

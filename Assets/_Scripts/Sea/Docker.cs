@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class Docker : MonoBehaviour
 {
-    public Transform spawnPoint;
+    [SerializeField]
+    EditorPath[] paths;
+
+    //[SerializeField]
+    //int startPathNode;
+
     Transform ship;
 
     void Awake()
@@ -30,11 +35,18 @@ public class Docker : MonoBehaviour
         // TODO: make celina's logic work from here
         skeleton.GetComponent<Rigidbody>().isKinematic = false;
 
-        Vector3 spawnPosition = spawnPoint.position;
+        EditorPath path = paths[UnityEngine.Random.Range(0, paths.Length)];
+
+        Vector3 spawnPosition = path.pathObjs[0].position;
         //spawnPosition.x += UnityEngine.Random.Range(-2, 2);
         skeleton.transform.position = spawnPosition;
         //skeleton.transform.localRotation = spawnPoint.localRotation;
         skeleton.transform.rotation = Quaternion.identity;
+
+        //skeleton.GetComponent<MoveOnPath>().currentWayPointID = startPathNode + 1;
+        MoveOnPath moveScript = skeleton.GetComponent<MoveOnPath>();
+        moveScript.currentWayPointID = 1;
+        moveScript.pathToFollow = path;
 
         skeleton.transform.parent = ship;
     }

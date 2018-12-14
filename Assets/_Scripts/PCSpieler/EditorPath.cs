@@ -10,7 +10,7 @@ public class EditorPath : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = rayColor;
-        theArray = GetComponentsInChildren<Transform>();
+        theArray = GetComponentsInChildren<Transform>(true);
         pathObjs.Clear();
 
         //search for pathObject and put it in the list, if not this transform
