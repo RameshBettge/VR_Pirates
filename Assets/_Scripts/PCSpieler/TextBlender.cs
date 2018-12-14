@@ -24,6 +24,8 @@ public class TextBlender : MonoBehaviour
     {
         if (Time.time > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
+            if (loading) { return; }
+
             NextDisplay =  Time.time + 7f;
 
             if(index != 0)
@@ -38,6 +40,8 @@ public class TextBlender : MonoBehaviour
                 // Remove all ui -> load game after 15f;
                 SceneManager.LoadScene("Poker");
             }
+
+            if(index >= sentences.Length) { return; }
             sentences[index].gameObject.SetActive(true);
             index++;
         }

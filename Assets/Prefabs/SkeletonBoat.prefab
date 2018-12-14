@@ -26078,8 +26078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4407ea435f71842b4dfff763bbfd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  sailSpeedBonus: 1
+  speed: 3
+  sailSpeedBonus: 7
   driftSpeed: 7
   dockingDistance: 3
   dockingTime: 1.5
