@@ -8,7 +8,9 @@ public class CameraZoom : MonoBehaviour
     [HideInInspector]
     public bool isZoomed = false;
     bool hasCrossHair = false;
+    bool hasScope = false;
     public GameObject crosshair;
+    public GameObject scop;
 
     Camera cam;
 
@@ -24,17 +26,20 @@ public class CameraZoom : MonoBehaviour
             isZoomed = false;
             cam.fieldOfView = normal;
             hasCrossHair = true;
+            hasScope = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha3))
         {
             hasCrossHair = false;
+            hasScope = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             isZoomed = !isZoomed;
             hasCrossHair = !hasCrossHair;
+            hasScope = !hasScope;
         }
 
         if (isZoomed)
@@ -53,6 +58,15 @@ public class CameraZoom : MonoBehaviour
         else
         {
             crosshair.SetActive(false);
+        }
+
+        if (hasScope)
+        {
+            scop.SetActive(true);
+        }
+        else
+        {
+            scop.SetActive(false);
         }
     }
 }
