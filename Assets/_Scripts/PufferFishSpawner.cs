@@ -7,13 +7,13 @@ public class PufferFishSpawner : MonoBehaviour
     [SerializeField]
     GameObject pufferFishPrefab;
 
-    Vector3 pufferOffset = new Vector3(1.7467f, -0.16686f, 3.1605f);
+    //Vector3 pufferOffset = new Vector3(1.7467f, -0.16686f, 3.1605f);
 
     Transform[] spawnPoints;
 
     float force = 30f;
 
-    float spawnInterval = 1f;
+    float spawnInterval = 10f;
 
     float nextSpawn;
 

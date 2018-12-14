@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4980473398698012}
   - component: {fileID: 33564543698279234}
   - component: {fileID: 23022569649931994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fist-NoRig001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 65826621952343300}
   - component: {fileID: 114398062219063966}
   - component: {fileID: 114783098982381724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bucket_Fillable
   m_TagString: Bucket
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4656138113309822}
   - component: {fileID: 33215307863147966}
   - component: {fileID: 23796116094473962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4544234284544558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fahrstulplatte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4477733427765130}
   - component: {fileID: 33050280302891118}
   - component: {fileID: 23107228837331636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

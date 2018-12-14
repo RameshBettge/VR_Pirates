@@ -18,6 +18,11 @@ public class EnemyManager : MonoBehaviour
         paths = pathParent.GetComponentsInChildren<EditorPath>();
     }
 
+    private void OnEnable()
+    {
+        nextSpawn = Time.timeSinceLevelLoad + spawnInterval;
+    }
+
     void Update()
     {
         if (Time.timeSinceLevelLoad> nextSpawn)

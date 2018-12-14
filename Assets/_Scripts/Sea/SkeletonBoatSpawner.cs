@@ -39,6 +39,11 @@ public class SkeletonBoatSpawner : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        nextSpawn = Time.timeSinceLevelLoad + spawnInterval;
+    }
+
     void Update()
     {
         if (Time.timeSinceLevelLoad> nextSpawn)
