@@ -34,6 +34,16 @@ public class PulleyBasket : MonoBehaviour
 
             if (grabbable != null && grabbable.isGrabbed == false)
             {
+                Bucket bucket = GetComponent<Bucket>();
+
+                if(bucket == null)
+                {
+                    Debug.LogError(other.name + " has Bucket-Tag but no bucket script attached.");
+                    return;
+                }
+
+                if (!bucket.filled) { return; }
+
                 Destroy(other.gameObject);
                 throwing.stock++;
 

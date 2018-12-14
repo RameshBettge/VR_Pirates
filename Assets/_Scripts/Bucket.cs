@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Bucket : MonoBehaviour
 {
-
     public bool filled = false;
 }
