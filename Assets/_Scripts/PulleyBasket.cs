@@ -33,7 +33,7 @@ public class PulleyBasket : MonoBehaviour
 
             if (grabbable != null && grabbable.isGrabbed == false)
             {
-                Bucket bucket = GetComponent<Bucket>();
+                Bucket bucket = other.GetComponent<Bucket>();
 
                 if(bucket == null)
                 {

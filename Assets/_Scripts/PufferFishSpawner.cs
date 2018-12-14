@@ -11,7 +11,7 @@ public class PufferFishSpawner : MonoBehaviour
 
     Transform[] spawnPoints;
 
-    float force = 30f;
+    float force = 40f;
 
     float spawnInterval = 10f;
 

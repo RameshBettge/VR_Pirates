@@ -26547,7 +26547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useHighestPos: 0
-  heightOffset: 1.25
+  heightOffset: 3
   sea: {fileID: 0}
   adjustTilt: 1
   maxTiltSamples: 10
