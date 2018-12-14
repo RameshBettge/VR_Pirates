@@ -21,6 +21,9 @@ public class Throwing : MonoBehaviour
     float start;
     float end;
 
+    //[HideInInspector]
+    public int stock = 3;
+
     void Start()
     {
         bucket = Instantiate(bucketPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-90f, 0f, 0f), weaponHolder);
@@ -53,10 +56,17 @@ public class Throwing : MonoBehaviour
                 if (detachChild == true)
                 {
                     bucket.transform.parent = ship;
-                    Destroy(bucket, 2f);
+                    //Destroy(bucket, 2f);
                 }
                 bucket = Instantiate(bucketPrefab, bucketPrefab.transform.position, bucketPrefab.transform.rotation, weaponHolder);
                 bucket.transform.SetSiblingIndex(0);
+                
+                if(stock > 0)
+                {
+                    bucket.GetComponent<Bucket>().filled = true;
+                    stock--;
+                }
+
                 holdingBucket = true;
             }
         }

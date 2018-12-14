@@ -7,28 +7,38 @@ public class PulleyBasket : MonoBehaviour
     [SerializeField]
     Cannon cannon;
 
+    [SerializeField]
+    Throwing throwing;
+
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Triggered");
+        //Debug.Log("Triggered");
 
         if (other.CompareTag("PufferFish"))
         {
             string theName = other.gameObject.name; 
-            Debug.Log("Got Puffer");
             GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
             if (grabbable != null && grabbable.isGrabbed == false)
             {
                 Destroy(other.gameObject);
                 cannon.stock++;
 
-                Debug.Log(cannon.stock);
+                //Debug.Log(cannon.stock);
             }
-            else
+           
+        }
+        else if (other.CompareTag("Bucker"))
+        {
+            GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
+
+            if (grabbable != null && grabbable.isGrabbed == false)
             {
-                // check if bucket which is full
+                Destroy(other.gameObject);
+                throwing.stock++;
+
+                Debug.Log("Added water." + cannon.stock);
             }
         }
     }
-
 }

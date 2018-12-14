@@ -40,6 +40,13 @@ public class Target : MonoBehaviour
 
         if (other.gameObject.tag == "Bucket")
         {
+            Bucket bucket = other.GetComponent<Bucket>();
+            if (bucket == null) { return; }
+            if (!bucket.filled)
+            {
+                return;
+            }
+
             Instantiate(waterSplash, transform.position, transform.rotation, ship);
             isBurning = false;
         }
