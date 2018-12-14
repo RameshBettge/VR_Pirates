@@ -69,9 +69,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4310555718727484}
   - component: {fileID: 54988839201604318}
+  - component: {fileID: 135585683425645072}
   m_Layer: 0
   m_Name: Eimer Richtig
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,3 +231,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &135585683425645072
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707087995625896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

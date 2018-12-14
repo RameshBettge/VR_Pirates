@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Zone
   - Enemy1
+  - Fire
+  - Bucket
   layers:
   - Default
   - TransparentFX
