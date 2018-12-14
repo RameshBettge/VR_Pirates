@@ -38,7 +38,7 @@ public class Cannonball : MonoBehaviour
 
             if(damageable != null)
             {
-                Debug.Log(nearByObject.name + " hit by canooon " + nearByObject.transform.parent.name);
+                //Debug.Log(nearByObject.name + " hit by canooon " + nearByObject.transform.parent.name);
 
                 Vector3 dir = (nearByObject.transform.position - transform.position).normalized;
 

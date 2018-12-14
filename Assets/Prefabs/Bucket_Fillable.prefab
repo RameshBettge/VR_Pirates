@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 54582852627213416}
   - component: {fileID: 65826621952343300}
   - component: {fileID: 114398062219063966}
+  - component: {fileID: 114783098982381724}
   m_Layer: 0
   m_Name: Bucket_Fillable
   m_TagString: Bucket
@@ -339,3 +340,15 @@ MonoBehaviour:
   defaultRot: {x: 0, y: 0, z: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   isGrabbed: 0
+--- !u!114 &114783098982381724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088655970240000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2eeeeb3ddc72c419576d8e6013c064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filled: 0
