@@ -213,7 +213,7 @@ public class GameManagement : MonoBehaviour
 
     private void Delay()
     {
-        if (Time.time > startDelay)
+        if (Time.timeSinceLevelLoad > startDelay)
         {
             state = GameState.Harbor;
             harborSkeletonSpawner.gameObject.SetActive(true);
@@ -224,13 +224,13 @@ public class GameManagement : MonoBehaviour
     {
         // Spawn Enemies via Celina's script
 
-        if (Time.time > (harborPhaseEnd - harborSkeletonsDespawnBuffer))
+        if (Time.timeSinceLevelLoad > (harborPhaseEnd - harborSkeletonsDespawnBuffer))
         {
             if (harborSkeletonSpawner.isActiveAndEnabled)
             {
                 harborSkeletonSpawner.gameObject.SetActive(false);
             }
-            if (Time.time > harborPhaseEnd)
+            if (Time.timeSinceLevelLoad > harborPhaseEnd)
             {
                 state = GameState.ApproachingSea;
 
@@ -245,7 +245,7 @@ public class GameManagement : MonoBehaviour
     {
         MoveEnvironment(harborPhaseEnd, seaApproachEnd, false);
 
-        if (Time.time > seaApproachEnd)
+        if (Time.timeSinceLevelLoad > seaApproachEnd)
         {
             state = GameState.OnSea;
             islandManager.DoSetActive(false);
@@ -311,14 +311,14 @@ public class GameManagement : MonoBehaviour
     {
         MoveSea(-seaMovementSpeed);
 
-        if (Time.time >= (seaPhaseEnd - seaPhaseDespawnBuffer))
+        if (Time.timeSinceLevelLoad >= (seaPhaseEnd - seaPhaseDespawnBuffer))
         {
             if (boatSpawner.isActiveAndEnabled)
             {
                 boatSpawner.gameObject.SetActive(false);
             }
 
-            if (Time.time > seaPhaseEnd)
+            if (Time.timeSinceLevelLoad > seaPhaseEnd)
             {
                 state = GameState.GhostHarbor;
 
@@ -337,7 +337,7 @@ public class GameManagement : MonoBehaviour
     {
         MoveEnvironment(seaPhaseEnd, ghostHarborPhaseEnd, true);
 
-        if (Time.time > ghostHarborPhaseEnd)
+        if (Time.timeSinceLevelLoad > ghostHarborPhaseEnd)
         {
             state = GameState.Won;
         }
@@ -358,7 +358,7 @@ public class GameManagement : MonoBehaviour
     float GetAproachPercentage(float start, float end, bool raw)
     {
         end -= start;
-        float current = Time.time - start;
+        float current = Time.timeSinceLevelLoad - start;
 
         float percentage = current / end;
 

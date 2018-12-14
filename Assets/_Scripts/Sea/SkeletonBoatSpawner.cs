@@ -41,7 +41,7 @@ public class SkeletonBoatSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (Time.timeSinceLevelLoad> nextSpawn)
         {
             float xOffset = Random.Range(-maxSpawnZOffset, maxSpawnZOffset);
 
@@ -51,7 +51,7 @@ public class SkeletonBoatSpawner : MonoBehaviour
             Vector3 spawnPos = new Vector3(xOffset, 0f, attackConeNarrowness);
             spawnPos = spawnPos.normalized * spawnDistance;
             SpawnBoat(spawnPos);
-            nextSpawn = Time.time + spawnInterval;
+            nextSpawn = Time.timeSinceLevelLoad+ spawnInterval;
         }
     }
 

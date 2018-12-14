@@ -27,10 +27,10 @@ public class PufferFishSpawner : MonoBehaviour
 
     void Update()
     {
-        if(Time.time >= nextSpawn)
+        if(Time.timeSinceLevelLoad>= nextSpawn)
         {
             SpawnPuffer();
-            nextSpawn = Time.time + spawnInterval;
+            nextSpawn = Time.timeSinceLevelLoad+ spawnInterval;
         }
     }
 

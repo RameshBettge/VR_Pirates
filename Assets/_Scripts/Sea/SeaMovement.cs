@@ -56,7 +56,7 @@ public class SeaMovement : MonoBehaviour
             verts[i] = new Vector3(verts[i].x, yPos, verts[i].z);
         }
 
-        if (Time.time >= nextTest)
+        if (Time.timeSinceLevelLoad>= nextTest)
         {
             filter.mesh.RecalculateNormals();
             nextTest = normalRecalculationInterval;

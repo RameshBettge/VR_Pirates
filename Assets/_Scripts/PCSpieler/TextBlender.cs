@@ -12,7 +12,7 @@ public class TextBlender : MonoBehaviour
 
     void Start()
     {
-        NextDisplay = Time.time;
+        NextDisplay = Time.timeSinceLevelLoad;
     }
 
     private void Update()
@@ -22,11 +22,11 @@ public class TextBlender : MonoBehaviour
 
     void Blend()
     {
-        if (Time.time > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+        if (Time.timeSinceLevelLoad > NextDisplay || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (loading) { return; }
 
-            NextDisplay =  Time.time + 7f;
+            NextDisplay =  Time.timeSinceLevelLoad + 7f;
 
             if(index != 0)
             {

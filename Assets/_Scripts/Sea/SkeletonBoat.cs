@@ -54,7 +54,7 @@ public class SkeletonBoat : MonoBehaviour, IDamageable
 
     public bool Board(Docker docker)
     {
-        if (Time.time >= nextBoarding)
+        if (Time.timeSinceLevelLoad >= nextBoarding)
         {
             for (int i = 0; i < skeletons.Length; i++)
             {
@@ -62,7 +62,7 @@ public class SkeletonBoat : MonoBehaviour, IDamageable
                 {
                     docker.OnDocking(skeletons[i]);
                     skeletons[i].OnBoarding();
-                    nextBoarding = Time.time + boardingInterval;
+                    nextBoarding = Time.timeSinceLevelLoad + boardingInterval;
 
                     break;
                 }

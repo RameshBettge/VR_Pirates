@@ -53,7 +53,7 @@ public class Pistol : MonoBehaviour
     public void Discard()
     {
         discarded = true;
-        despawnTime = Time.time + timeUntilDespawn;
+        despawnTime = Time.timeSinceLevelLoad + timeUntilDespawn;
 
     }
 
@@ -61,7 +61,7 @@ public class Pistol : MonoBehaviour
     {
         if(!discarded) { return; }
 
-        if(Time.time >= despawnTime)
+        if(Time.timeSinceLevelLoad >= despawnTime)
         {
             Destroy(gameObject);
         }

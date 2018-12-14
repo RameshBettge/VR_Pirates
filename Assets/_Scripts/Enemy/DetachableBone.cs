@@ -65,7 +65,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
         if (!detached) { return; }
         if (isGrabbed) { return; }
 
-        if(Time.time >= despawnTime || transform.position.y < -10f)
+        if(Time.timeSinceLevelLoad>= despawnTime || transform.position.y < -10f)
         {
             Destroy(gameObject);
             // Not destroying this script because it should only cause harm if it was null
@@ -136,7 +136,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
 
     public void SetDespawnTime()
     {
-        despawnTime = Time.time + lifeTime;
+        despawnTime = Time.timeSinceLevelLoad+ lifeTime;
     }
 
     void KnockBack(ShotInfo info)

@@ -176,7 +176,7 @@ public class TeleportMovement : MonoBehaviour
     {
         float input = turnAxis.Value;
 
-        bool turnTime = (Time.time - lastTurn) > turnInterval;
+        bool turnTime = (Time.timeSinceLevelLoad- lastTurn) > turnInterval;
 
         if (turnedRight && !turnTime)
         {

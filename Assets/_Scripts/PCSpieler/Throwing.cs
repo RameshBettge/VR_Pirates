@@ -43,11 +43,11 @@ public class Throwing : MonoBehaviour
             //-player.transform.right, because pivot of object is twisted
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                start = Time.time;
+                start = Time.timeSinceLevelLoad;
             }
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                end = Time.time;
+                end = Time.timeSinceLevelLoad;
                 force = (end - start) * 2000;
                 holdingBucket = false;
                 bucket.GetComponent<Rigidbody>().useGravity = true;

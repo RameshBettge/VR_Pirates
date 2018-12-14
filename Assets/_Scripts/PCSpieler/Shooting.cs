@@ -27,7 +27,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= timestamp && Input.GetKeyDown(KeyCode.Mouse0))
+        if (Time.timeSinceLevelLoad >= timestamp && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour
                 damageable.TakeDamage(info);
             }
         }
-        timestamp = Time.time + timeBetweenShots;
+        timestamp = Time.timeSinceLevelLoad + timeBetweenShots;
         recoilScript.isRecoiling = true;
     }
 }

@@ -93,7 +93,7 @@ public class SimpleBouyancy : MonoBehaviour
     private void Depart()
     {
         float end = departEnd - departStart;
-        float current = Time.time - departStart;
+        float current = Time.timeSinceLevelLoad - departStart;
 
         float percentage = current / end;
 
@@ -113,7 +113,7 @@ public class SimpleBouyancy : MonoBehaviour
     {
         departHeight = transform.position.y;
         departing = true;
-        departStart = Time.time;
+        departStart = Time.timeSinceLevelLoad;
         departEnd = departStart + departDuration;
     }
 

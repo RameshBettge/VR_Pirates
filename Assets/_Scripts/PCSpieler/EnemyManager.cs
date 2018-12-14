@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (Time.timeSinceLevelLoad> nextSpawn)
         {
             int randomPathNum = Random.Range(0, paths.Length);
             int randomSkelotonNum = Random.Range(0, skelotons.Length);
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
             enemyInstance.GetComponent<MoveOnPath>().pathToFollow = path;
             enemyInstance.GetComponent<Skeleton>().OnBoarding();
 
-            nextSpawn = Time.time + spawnInterval;
+            nextSpawn = Time.timeSinceLevelLoad+ spawnInterval;
         }
     }
 
