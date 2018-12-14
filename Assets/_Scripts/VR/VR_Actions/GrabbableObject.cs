@@ -103,7 +103,7 @@ public class GrabbableObject : MonoBehaviour
         rb.isKinematic = true;
         isGrabbed = true;
     }
-    public void OnRelease(GrabData data, Transform rootObject, float deltaTime)
+    public void OnRelease(GrabData data, Transform rootObject, float deltaTime, Transform ship)
     {
         rb.isKinematic = false;
         isGrabbed = false;
@@ -131,6 +131,8 @@ public class GrabbableObject : MonoBehaviour
             bone.isGrabbed = false;
             bone.SetDespawnTime();
         }
+
+        transform.parent = ship;
     }
 }
 

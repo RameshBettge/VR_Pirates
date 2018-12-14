@@ -5,6 +5,9 @@ using UnityEngine;
 public class VRGrab : MonoBehaviour
 {
     [SerializeField]
+    Transform ship;
+
+    [SerializeField]
     float grabThreshold = 0.25f;
     [Tooltip("When the grabbed object is dropped")]
     [SerializeField]
@@ -213,7 +216,7 @@ public class VRGrab : MonoBehaviour
         data.grabbedObject.transform.parent = null;
 
 
-        data.grabbedObject.OnRelease(data, transform, Time.deltaTime);
+        data.grabbedObject.OnRelease(data, transform, Time.deltaTime, ship);
 
         if(data.pistol != null)
         {
