@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public const string level101name = "01";
+    public const string level101name = "Text";
 
     void OnEnable()
     {
@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene("01");
+        SceneManager.LoadScene("Text");
     }
 
     //public void ChangeScene(string sceneName)
