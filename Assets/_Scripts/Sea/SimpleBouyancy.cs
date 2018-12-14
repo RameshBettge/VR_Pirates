@@ -8,6 +8,9 @@ public class SimpleBouyancy : MonoBehaviour
     [SerializeField]
     bool useHighestPos;
 
+    [SerializeField]
+    float heightOffset = 0.25f;
+
     //[HideInInspector]
     public SeaMovement sea;
 
@@ -18,9 +21,9 @@ public class SimpleBouyancy : MonoBehaviour
     int maxTiltSamples = 10;
     int tiltSamples;
 
-    [HideInInspector]
     public int maxHeightSamples = 10;
 
+    [HideInInspector]
     public int heightSamples;
 
     public bool manualUpdate;
@@ -231,7 +234,7 @@ public class SimpleBouyancy : MonoBehaviour
         height += sea.transform.position.y;
 
         Vector3 pos = t.position;
-        pos.y = height;
+        pos.y = height + heightOffset;
 
         return pos;
     }

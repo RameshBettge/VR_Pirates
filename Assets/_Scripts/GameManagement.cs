@@ -134,7 +134,8 @@ public class GameManagement : MonoBehaviour
         seaMat.SetColor("_BottomColor", startColors.BottomColor);
         seaPlane.material.color = startColors.BottomColor;
         RenderSettings.fogColor = startColors.FogColor;
-       lastColors = startColors;
+        RenderSettings.fogDensity = startColors.fogDensity;
+        lastColors = startColors;
         nextColors = openSeaColors;
     }
 
@@ -226,6 +227,7 @@ public class GameManagement : MonoBehaviour
         seaMat.SetColor("_BottomColor", bottomCol);
         seaPlane.material.color = bottomCol;
         RenderSettings.fogColor = Color.Lerp(lastColors.FogColor, nextColors.FogColor, adjustedPercentage);
+        RenderSettings.fogDensity = Mathf.Lerp(lastColors.fogDensity, nextColors.fogDensity, adjustedPercentage);
     }
 
     private void MoveEnvironment(float start, float end, bool inverted)
@@ -329,5 +331,8 @@ public struct SeaColors
 {
     public Color TopColor;
     public Color BottomColor;
+    [Space(5)]
     public Color FogColor;
+    public float fogDensity;
+
 }
