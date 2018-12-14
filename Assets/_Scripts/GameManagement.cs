@@ -19,6 +19,9 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     AnimationCurve seaHeightCurve;
 
+    [SerializeField]
+    AnimationCurve islandSinkCurve;
+
     [Space(10)]
     [SerializeField]
     float harborSkeletonsDespawnBuffer = 20f;
@@ -42,10 +45,13 @@ public class GameManagement : MonoBehaviour
     [Space(10)]
 
     [SerializeField]
-    float environmentMovement;
+    float environmentMovementSpeed;
 
     [SerializeField]
     float departTime = 5f;
+
+    [SerializeField]
+    float islandSinkDepth = -100f;
 
     [Space(10)]
     [Header("SeaBehaviour")]
@@ -58,6 +64,16 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     float stormySeaHeight = 8f;
 
+    [SerializeField]
+    float calmMaterialHeight = 8f;
+
+    [SerializeField]
+    float stormyMaterialheight = 60f;
+
+    Material seaMat;
+
+    float islandStartHeight;
+
 
     //[SerializeField]
     //float boatSinkLimit = 5f;
@@ -68,7 +84,7 @@ public class GameManagement : MonoBehaviour
     float ghostHarborPhaseEnd;
 
     SkeletonBoatSpawner boatSpawner;
-    public EnemyManager harborSkeletonSpawner;
+    EnemyManager harborSkeletonSpawner;
     SeaMovement sea;
 
     public GameState state = GameState.Delay;
@@ -88,6 +104,12 @@ public class GameManagement : MonoBehaviour
         harborSkeletonSpawner.gameObject.SetActive(false);
 
         sea.heightModifier = calmSeaHeight;
+
+        seaMat = sea.GetComponent<Renderer>().material;
+
+        seaMat.SetFloat("_Height", calmMaterialHeight);
+
+        islandStartHeight = islandManager.transform.position.y;
     }
 
     void Update()
@@ -157,7 +179,7 @@ public class GameManagement : MonoBehaviour
 
     private void ApproachSea()
     {
-        MoveEnvironment(harborPhaseEnd, seaApproachEnd,  false);
+        MoveEnvironment(harborPhaseEnd, seaApproachEnd, false);
 
         if (Time.time > seaApproachEnd)
         {
@@ -179,16 +201,24 @@ public class GameManagement : MonoBehaviour
 
         float heightPercentage = seaHeightCurve.Evaluate(percentage);
 
+        float islandSinkPercentage = islandSinkCurve.Evaluate(percentage);
+
+        Vector3 islandPos = islandManager.transform.position;
+        islandPos.y = islandStartHeight + islandSinkDepth * islandSinkPercentage;
+        islandManager.transform.position = islandPos;
+
         sea.heightModifier = Mathf.Lerp(calmSeaHeight, stormySeaHeight, heightPercentage);
+        seaMat.SetFloat("_Height", Mathf.Lerp(calmMaterialHeight, stormyMaterialheight, heightPercentage));
+
 
         MoveSea(speed * -seaMovementSpeed);
-        MoveAssets(speed * environmentMovement);
+        MoveAssets(speed * environmentMovementSpeed);
     }
 
     private void OnSea()
     {
         SeaAttack();
-        MoveSea(environmentMovement);
+        MoveSea(-seaMovementSpeed);
 
         if (Time.time > seaPhaseEnd)
         {
@@ -214,14 +244,14 @@ public class GameManagement : MonoBehaviour
 
     private void MoveAssets(float speed)
     {
-        sea.transform.position += Vector3.left * speed;
-        ship.transform.position += Vector3.left * speed;
+        sea.transform.position += Vector3.left * speed * Time.deltaTime;
+        ship.transform.position += Vector3.left * speed * Time.deltaTime;
     }
 
 
     private void MoveSea(float speed)
     {
-        sea.extraMovement += speed;
+        sea.extraMovement += speed * Time.deltaTime;
     }
 
     float GetAproachPercentage(float start, float end, bool raw)
@@ -238,7 +268,7 @@ public class GameManagement : MonoBehaviour
 
         if (!raw)
         {
-        percentage = approachCurve.Evaluate(percentage);
+            percentage = approachCurve.Evaluate(percentage);
         }
 
         return percentage;

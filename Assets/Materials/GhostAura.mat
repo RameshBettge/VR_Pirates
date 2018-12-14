@@ -80,8 +80,8 @@ Material:
     - _Blend: 0
     - _BlendScrollX: 1.41
     - _BlendScrollY: 0.61
-    - _BlendSpeed: 0.5
-    - _BlendStrength: 0.2
+    - _BlendSpeed: 0.1
+    - _BlendStrength: 0.007
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5

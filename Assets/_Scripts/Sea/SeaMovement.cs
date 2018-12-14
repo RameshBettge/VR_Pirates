@@ -25,7 +25,7 @@ public class SeaMovement : MonoBehaviour
     [SerializeField]
     float normalRecalculationInterval = 0.05f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float extraMovement;
 
 
