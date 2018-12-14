@@ -4,6 +4,7 @@ public class Mast : MonoBehaviour
 {
     public float health = 2000;
     public GameObject[] masts;
+    public GameManagement GameManagement;
 
     void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,8 @@ public class Mast : MonoBehaviour
                 {
                     Destroy(masts[i]);
                 }
+
+                GameManagement.state = GameState.Lost;
             }
         }
     }
