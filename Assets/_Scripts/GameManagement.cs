@@ -9,6 +9,9 @@ public class GameManagement : MonoBehaviour
     public GameObject LoseScreen;
 
     [SerializeField]
+    PufferFishSpawner pufferFishSpawner;
+
+    [SerializeField]
     Vector3 ghostHarborOffset;
 
     [SerializeField]
@@ -131,6 +134,8 @@ public class GameManagement : MonoBehaviour
 
     void Start()
     {
+        pufferFishSpawner.gameObject.SetActive(false);
+
         harborPhaseEnd = startDelay + harborPhaseDuration;
         seaApproachEnd = harborPhaseEnd + approachDuration;
         seaPhaseEnd = seaApproachEnd + seaPhaseDuration;
@@ -247,6 +252,8 @@ public class GameManagement : MonoBehaviour
             RenderSettings.fogColor = onSeaFogCol;
 
             distanceToIsland = transform.position.x - islandManager.transform.position.x;
+
+            pufferFishSpawner.gameObject.SetActive(true);
         }
     }
 
