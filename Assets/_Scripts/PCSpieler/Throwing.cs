@@ -8,6 +8,7 @@ public class Throwing : MonoBehaviour
 
     public float bucketDistance = 0.75f;
     public float force = 10f;
+    public float height = 100f;
 
     public bool detachChild;
 
@@ -43,10 +44,10 @@ public class Throwing : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 end = Time.time;
-                force = (end - start) * 1000;
+                force = (end - start) * 2000;
                 holdingBucket = false;
                 bucket.GetComponent<Rigidbody>().useGravity = true;
-                bucket.GetComponent<Rigidbody>().AddForce(-player.transform.right * force);
+                bucket.GetComponent<Rigidbody>().AddForce(-player.transform.right * force + player.transform.up * height);
                 //-player.transform.right -> look above comment
                 if (detachChild == true)
                 {
