@@ -70,6 +70,22 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     float stormyMaterialheight = 60f;
 
+    [Space(20)]
+    [Header("SeaColors")]
+
+    [SerializeField]
+    AnimationCurve colorChangeCurve;
+
+    [SerializeField]
+    SeaColors startColors;
+    [SerializeField]
+    SeaColors openSeaColors;
+    [SerializeField]
+    SeaColors ghostHarborColors;
+
+    SeaColors lastColors;
+    SeaColors nextColors;
+
     Material seaMat;
 
     float islandStartHeight;
@@ -110,6 +126,11 @@ public class GameManagement : MonoBehaviour
         seaMat.SetFloat("_Height", calmMaterialHeight);
 
         islandStartHeight = islandManager.transform.position.y;
+
+        seaMat.SetColor("_TopColor", startColors.TopColor);
+        seaMat.SetColor("_BottomColor", startColors.BottomColor);
+        lastColors = startColors;
+        nextColors = openSeaColors;
     }
 
     void Update()
@@ -185,17 +206,31 @@ public class GameManagement : MonoBehaviour
         {
             state = GameState.OnSea;
             islandManager.DoSetActive(false);
+            lastColors = openSeaColors;
+            nextColors = ghostHarborColors;
         }
+    }
+
+    void ChangeSeaColor(float percentage)
+    {
+        float adjustedPercentage = colorChangeCurve.Evaluate(percentage);
+
+        seaMat.SetColor("_TopColor", Color.Lerp(lastColors.TopColor, nextColors.TopColor, adjustedPercentage));
+        seaMat.SetColor("_BottomColor", Color.Lerp(lastColors.BottomColor, nextColors.BottomColor, adjustedPercentage));
     }
 
     private void MoveEnvironment(float start, float end, bool inverted)
     {
         float percentage = GetAproachPercentage(start, end, true);
 
+        // Has to be uninverted!
+        ChangeSeaColor(percentage);
+
         if (inverted)
         {
             percentage = 1 - percentage;
         }
+
 
         float speed = approachCurve.Evaluate(percentage);
 
@@ -278,4 +313,11 @@ public class GameManagement : MonoBehaviour
 public enum GameState
 {
     Delay, Harbor, ApproachingSea, OnSea, GhostHarbor, Lost, Won
+}
+
+[System.Serializable]
+public struct SeaColors
+{
+    public Color TopColor;
+    public Color BottomColor;
 }
