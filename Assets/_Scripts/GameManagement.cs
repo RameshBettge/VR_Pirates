@@ -23,8 +23,6 @@ public class GameManagement : MonoBehaviour
     AnimationCurve seaRiseCurve;
 
     [Space(10)]
-    [SerializeField]
-    float harborSkeletonsDespawnBuffer = 20f;
 
     [Header("Timers")]
     [SerializeField]
@@ -32,6 +30,9 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField]
     float harborPhaseDuration = 5f;
+
+    [SerializeField]
+    float harborSkeletonsDespawnBuffer = 20f;
 
     [SerializeField]
     float seaApproachDuration = 5f;
@@ -81,8 +82,19 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField]
     SeaColors startColors;
+    [Space(5)]
+
     [SerializeField]
-    SeaColors openSeaColors;
+    SeaColors approachingSeaColors;
+    [Space(5)]
+
+    [SerializeField]
+    Color onSeaFogCol;
+    [SerializeField]
+    float onSeaFogDensity;
+    [Space(5)]
+
+
     [SerializeField]
     SeaColors ghostHarborColors;
 
@@ -136,7 +148,9 @@ public class GameManagement : MonoBehaviour
         RenderSettings.fogColor = startColors.FogColor;
         RenderSettings.fogDensity = startColors.fogDensity;
         lastColors = startColors;
-        nextColors = openSeaColors;
+        nextColors = approachingSeaColors;
+
+
     }
 
     void Update()
@@ -212,8 +226,13 @@ public class GameManagement : MonoBehaviour
         {
             state = GameState.OnSea;
             islandManager.DoSetActive(false);
-            lastColors = openSeaColors;
+            lastColors = approachingSeaColors;
             nextColors = ghostHarborColors;
+
+            boatSpawner.gameObject.SetActive(true);
+
+            RenderSettings.fogDensity = onSeaFogDensity;
+            RenderSettings.fogColor = onSeaFogCol;
         }
     }
 
@@ -242,7 +261,6 @@ public class GameManagement : MonoBehaviour
             percentage = 1 - percentage;
         }
 
-
         float speed = approachCurve.Evaluate(percentage);
 
         float heightPercentage = seaHeightCurve.Evaluate(percentage);
@@ -269,6 +287,7 @@ public class GameManagement : MonoBehaviour
         if (Time.time > seaPhaseEnd)
         {
             state = GameState.GhostHarbor;
+            boatSpawner.gameObject.SetActive(false);
         }
     }
 

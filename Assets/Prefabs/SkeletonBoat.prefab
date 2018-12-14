@@ -24875,6 +24875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonParent: {fileID: 4931671018667760}
+  skeletons: []
   boardingInterval: 0.8
 --- !u!114 &114236600848869954
 MonoBehaviour:
@@ -25058,10 +25059,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edbe571d5698684b94ea6d5043f4e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useHighestPos: 0
+  heightOffset: 0.25
   sea: {fileID: 0}
   adjustTilt: 1
   maxTiltSamples: 10
-  maxHeightSamples: 3
+  maxHeightSamples: 2
+  heightSamples: 0
   manualUpdate: 0
   front: {fileID: 4833491493124006}
   back: {fileID: 4944627685224484}
@@ -25069,6 +25073,7 @@ MonoBehaviour:
   right: {fileID: 4323615553370518}
   averageFwd: {x: 0, y: 0, z: 0}
   averageRight: {x: 0, y: 0, z: 0}
+  averageHeight: 0
 --- !u!114 &114274423500162960
 MonoBehaviour:
   m_ObjectHideFlags: 1

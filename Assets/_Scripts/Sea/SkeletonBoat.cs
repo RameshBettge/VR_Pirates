@@ -7,7 +7,7 @@ public class SkeletonBoat : MonoBehaviour
     [SerializeField]
     Transform skeletonParent;
 
-    Skeleton[] skeletons;
+    public Skeleton[] skeletons;
 
     [SerializeField]
     float boardingInterval = 0.5f;
@@ -43,6 +43,11 @@ public class SkeletonBoat : MonoBehaviour
             }
         }
 
+        if (allDead)
+        {
+            Debug.Log("Is Crew dead!");
+        }
+
         return allDead;
     }
 
@@ -60,7 +65,7 @@ public class SkeletonBoat : MonoBehaviour
 
                     break;
                 }
-                else if(i == skeletons.Length - 1)
+                else if (i == skeletons.Length - 1)
                 {
                     return true;
                 }
