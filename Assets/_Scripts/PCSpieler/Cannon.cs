@@ -24,6 +24,16 @@ public class Cannon : MonoBehaviour
     {
         GameObject cannonBall = Instantiate(cannonBallPrefab, cannonSpawn.transform.position, cannonSpawn.transform.rotation, ship);
         Rigidbody rb = cannonBall.GetComponent<Rigidbody>();
+
+        Vector3 randomRot = Vector3.zero;
+
+        for (int i = 0; i < 3; i++)
+        {
+            randomRot[i] = Random.Range(-500f, 500f);
+        }
+
+        rb.AddTorque(randomRot);
+
         rb.AddForce(-cannonSpawn.transform.right * shootForce, ForceMode.VelocityChange);
         //-cannonSpawn.transform.right, because pivot of object is twisted
     }
