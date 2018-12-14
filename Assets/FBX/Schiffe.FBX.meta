@@ -1,0 +1,900 @@
+fileFormatVersion: 2
+guid: d926d32ec2d7fa44c94c2747b3bcfc50
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box018
+    100002: Box026
+    100004: Box027
+    100006: Box032
+    100008: Box033
+    100010: Box034
+    100012: Box035
+    100014: Box036
+    100016: Box037
+    100018: Box038
+    100020: Box039
+    100022: Box040
+    100024: Box047
+    100026: Box048
+    100028: Box049
+    100030: Box050
+    100032: Box051
+    100034: Box052
+    100036: Box053
+    100038: Box054
+    100040: Box055
+    100042: Box056
+    100044: Box057
+    100046: Box058
+    100048: Cylinder024
+    100050: Cylinder028
+    100052: Cylinder029
+    100054: Cylinder032
+    100056: Cylinder033
+    100058: Cylinder034
+    100060: Cylinder035
+    100062: Cylinder043
+    100064: Cylinder044
+    100066: Cylinder045
+    100068: Cylinder046
+    100070: Cylinder047
+    100072: Cylinder048
+    100074: Cylinder049
+    100076: Fahrstuhl001
+    100078: Fahrstuhl002
+    100080: Fahrstulplatte
+    100082: Fahrstulplatte001
+    100084: Fahrstulplatte003
+    100086: Fahrstulplatte004
+    100088: Kanone001
+    100090: Kanone002
+    100092: "Kanonenst\xFCtze001"
+    100094: "Kanonenst\xFCtze002"
+    100096: Line005
+    100098: Line017
+    100100: Line018
+    100102: Line019
+    100104: Line020
+    100106: Line021
+    100108: Line025
+    100110: Line026
+    100112: Line027
+    100114: Line028
+    100116: Line029
+    100118: Line030
+    100120: Object002
+    100122: Object006
+    100124: Object008
+    100126: Object011
+    100128: Object012
+    100130: Object014
+    100132: Object020
+    100134: Object022
+    100136: Object024
+    100138: Object026
+    100140: Object036
+    100142: Object037
+    100144: Object038
+    100146: Object039
+    100148: Object040
+    100150: Object041
+    100152: Object042
+    100154: Object043
+    100156: Object044
+    100158: Object045
+    100160: Object046
+    100162: Object047
+    100164: Object048
+    100166: Object049
+    100168: Object050
+    100170: Object051
+    100172: Object052
+    100174: Object053
+    100176: Object054
+    100178: Object055
+    100180: Object071
+    100182: Object072
+    100184: Object073
+    100186: Object074
+    100188: Object075
+    100190: Object076
+    100192: Object077
+    100194: Object078
+    100196: Object079
+    100198: Object080
+    100200: Object082
+    100202: Object083
+    100204: Object084
+    100206: Object085
+    100208: Object086
+    100210: Object087
+    100212: Object088
+    100214: Object089
+    100216: Object090
+    100218: Object091
+    100220: Object092
+    100222: Object093
+    100224: Object094
+    100226: Object095
+    100228: Object096
+    100230: Object097
+    100232: Object098
+    100234: Object099
+    100236: Object100
+    100238: Object101
+    100240: Plane001
+    100242: Plane005
+    100244: Plane006
+    100246: Plane007
+    100248: Plane010
+    100250: Plane011
+    100252: Plane012
+    100254: Plane013
+    100256: Platform 007
+    100258: Platform 008
+    100260: Platform 009
+    100262: Platform 010
+    100264: Platform 011
+    100266: Platform 012
+    100268: Platform 013
+    100270: Platform 014
+    100272: Platform 015
+    100274: Platform 016
+    100276: Platform 024
+    100278: Platform 025
+    100280: Platform 026
+    100282: Platform 027
+    100284: Platform 028
+    100286: Platform 029
+    100288: Platform 030
+    100290: Platform 031
+    100292: Platform 032
+    100294: Platform 033
+    100296: Platform 034
+    100298: Platform 035
+    100300: Platform 036
+    100302: Platform 037
+    100304: Platform 1
+    100306: Platform 2
+    100308: Platform 3
+    100310: Platform 6
+    100312: Schiff
+    100314: Schiff001
+    100316: Schiff003
+    100318: Schiff004
+    100320: //RootNode
+    100322: Schiffsspitze
+    100324: Schiffsspitze001
+    100326: Schiffsspitze003
+    100328: Schiffsspitze004
+    100330: Segel 004
+    100332: Segel 005
+    100334: Segel 006
+    100336: Segel 010
+    100338: Segel 013
+    100340: Segel 014
+    100342: Segel 015
+    100344: Segel 016
+    100346: Segel 017
+    100348: Segel 1
+    100350: Segel 2
+    100352: Segel 3
+    400000: Box018
+    400002: Box026
+    400004: Box027
+    400006: Box032
+    400008: Box033
+    400010: Box034
+    400012: Box035
+    400014: Box036
+    400016: Box037
+    400018: Box038
+    400020: Box039
+    400022: Box040
+    400024: Box047
+    400026: Box048
+    400028: Box049
+    400030: Box050
+    400032: Box051
+    400034: Box052
+    400036: Box053
+    400038: Box054
+    400040: Box055
+    400042: Box056
+    400044: Box057
+    400046: Box058
+    400048: Cylinder024
+    400050: Cylinder028
+    400052: Cylinder029
+    400054: Cylinder032
+    400056: Cylinder033
+    400058: Cylinder034
+    400060: Cylinder035
+    400062: Cylinder043
+    400064: Cylinder044
+    400066: Cylinder045
+    400068: Cylinder046
+    400070: Cylinder047
+    400072: Cylinder048
+    400074: Cylinder049
+    400076: Fahrstuhl001
+    400078: Fahrstuhl002
+    400080: Fahrstulplatte
+    400082: Fahrstulplatte001
+    400084: Fahrstulplatte003
+    400086: Fahrstulplatte004
+    400088: Kanone001
+    400090: Kanone002
+    400092: "Kanonenst\xFCtze001"
+    400094: "Kanonenst\xFCtze002"
+    400096: Line005
+    400098: Line017
+    400100: Line018
+    400102: Line019
+    400104: Line020
+    400106: Line021
+    400108: Line025
+    400110: Line026
+    400112: Line027
+    400114: Line028
+    400116: Line029
+    400118: Line030
+    400120: Object002
+    400122: Object006
+    400124: Object008
+    400126: Object011
+    400128: Object012
+    400130: Object014
+    400132: Object020
+    400134: Object022
+    400136: Object024
+    400138: Object026
+    400140: Object036
+    400142: Object037
+    400144: Object038
+    400146: Object039
+    400148: Object040
+    400150: Object041
+    400152: Object042
+    400154: Object043
+    400156: Object044
+    400158: Object045
+    400160: Object046
+    400162: Object047
+    400164: Object048
+    400166: Object049
+    400168: Object050
+    400170: Object051
+    400172: Object052
+    400174: Object053
+    400176: Object054
+    400178: Object055
+    400180: Object071
+    400182: Object072
+    400184: Object073
+    400186: Object074
+    400188: Object075
+    400190: Object076
+    400192: Object077
+    400194: Object078
+    400196: Object079
+    400198: Object080
+    400200: Object082
+    400202: Object083
+    400204: Object084
+    400206: Object085
+    400208: Object086
+    400210: Object087
+    400212: Object088
+    400214: Object089
+    400216: Object090
+    400218: Object091
+    400220: Object092
+    400222: Object093
+    400224: Object094
+    400226: Object095
+    400228: Object096
+    400230: Object097
+    400232: Object098
+    400234: Object099
+    400236: Object100
+    400238: Object101
+    400240: Plane001
+    400242: Plane005
+    400244: Plane006
+    400246: Plane007
+    400248: Plane010
+    400250: Plane011
+    400252: Plane012
+    400254: Plane013
+    400256: Platform 007
+    400258: Platform 008
+    400260: Platform 009
+    400262: Platform 010
+    400264: Platform 011
+    400266: Platform 012
+    400268: Platform 013
+    400270: Platform 014
+    400272: Platform 015
+    400274: Platform 016
+    400276: Platform 024
+    400278: Platform 025
+    400280: Platform 026
+    400282: Platform 027
+    400284: Platform 028
+    400286: Platform 029
+    400288: Platform 030
+    400290: Platform 031
+    400292: Platform 032
+    400294: Platform 033
+    400296: Platform 034
+    400298: Platform 035
+    400300: Platform 036
+    400302: Platform 037
+    400304: Platform 1
+    400306: Platform 2
+    400308: Platform 3
+    400310: Platform 6
+    400312: Schiff
+    400314: Schiff001
+    400316: Schiff003
+    400318: Schiff004
+    400320: //RootNode
+    400322: Schiffsspitze
+    400324: Schiffsspitze001
+    400326: Schiffsspitze003
+    400328: Schiffsspitze004
+    400330: Segel 004
+    400332: Segel 005
+    400334: Segel 006
+    400336: Segel 010
+    400338: Segel 013
+    400340: Segel 014
+    400342: Segel 015
+    400344: Segel 016
+    400346: Segel 017
+    400348: Segel 1
+    400350: Segel 2
+    400352: Segel 3
+    2100000: 01 - Default
+    2100002: 08 - Default
+    2300000: Box018
+    2300002: Box026
+    2300004: Box027
+    2300006: Box033
+    2300008: Box034
+    2300010: Box035
+    2300012: Box036
+    2300014: Box037
+    2300016: Box039
+    2300018: Box040
+    2300020: Box047
+    2300022: Box048
+    2300024: Box049
+    2300026: Box051
+    2300028: Box052
+    2300030: Box053
+    2300032: Box054
+    2300034: Box055
+    2300036: Box057
+    2300038: Box058
+    2300040: Cylinder024
+    2300042: Cylinder028
+    2300044: Cylinder032
+    2300046: Cylinder033
+    2300048: Cylinder034
+    2300050: Cylinder043
+    2300052: Cylinder044
+    2300054: Cylinder046
+    2300056: Cylinder047
+    2300058: Cylinder048
+    2300060: Fahrstuhl001
+    2300062: Fahrstuhl002
+    2300064: Fahrstulplatte
+    2300066: Fahrstulplatte001
+    2300068: Fahrstulplatte003
+    2300070: Fahrstulplatte004
+    2300072: Kanone001
+    2300074: Kanone002
+    2300076: "Kanonenst\xFCtze001"
+    2300078: "Kanonenst\xFCtze002"
+    2300080: Line005
+    2300082: Line017
+    2300084: Line018
+    2300086: Line019
+    2300088: Line020
+    2300090: Line021
+    2300092: Line025
+    2300094: Line026
+    2300096: Line027
+    2300098: Line028
+    2300100: Line029
+    2300102: Line030
+    2300104: Object002
+    2300106: Object006
+    2300108: Object008
+    2300110: Object012
+    2300112: Object014
+    2300114: Object020
+    2300116: Object022
+    2300118: Object024
+    2300120: Object026
+    2300122: Object036
+    2300124: Object037
+    2300126: Object038
+    2300128: Object039
+    2300130: Object040
+    2300132: Object041
+    2300134: Object042
+    2300136: Object043
+    2300138: Object045
+    2300140: Object046
+    2300142: Object047
+    2300144: Object048
+    2300146: Object049
+    2300148: Object050
+    2300150: Object051
+    2300152: Object052
+    2300154: Object053
+    2300156: Object054
+    2300158: Object055
+    2300160: Object071
+    2300162: Object072
+    2300164: Object073
+    2300166: Object074
+    2300168: Object076
+    2300170: Object077
+    2300172: Object078
+    2300174: Object079
+    2300176: Object080
+    2300178: Object082
+    2300180: Object083
+    2300182: Object084
+    2300184: Object085
+    2300186: Object086
+    2300188: Object087
+    2300190: Object088
+    2300192: Object089
+    2300194: Object091
+    2300196: Object092
+    2300198: Object093
+    2300200: Object094
+    2300202: Object095
+    2300204: Object096
+    2300206: Object097
+    2300208: Object098
+    2300210: Object099
+    2300212: Object100
+    2300214: Object101
+    2300216: Platform 007
+    2300218: Platform 008
+    2300220: Platform 009
+    2300222: Platform 010
+    2300224: Platform 011
+    2300226: Platform 012
+    2300228: Platform 013
+    2300230: Platform 014
+    2300232: Platform 015
+    2300234: Platform 016
+    2300236: Platform 024
+    2300238: Platform 025
+    2300240: Platform 026
+    2300242: Platform 027
+    2300244: Platform 028
+    2300246: Platform 029
+    2300248: Platform 030
+    2300250: Platform 031
+    2300252: Platform 032
+    2300254: Platform 033
+    2300256: Platform 034
+    2300258: Platform 035
+    2300260: Platform 036
+    2300262: Platform 037
+    2300264: Platform 1
+    2300266: Platform 2
+    2300268: Platform 3
+    2300270: Platform 6
+    2300272: Schiffsspitze
+    2300274: Schiffsspitze001
+    2300276: Schiffsspitze003
+    2300278: Schiffsspitze004
+    2300280: Segel 004
+    2300282: Segel 005
+    2300284: Segel 006
+    2300286: Segel 010
+    2300288: Segel 013
+    2300290: Segel 014
+    2300292: Segel 015
+    2300294: Segel 016
+    2300296: Segel 017
+    2300298: Segel 1
+    2300300: Segel 2
+    2300302: Segel 3
+    3300000: Box018
+    3300002: Box026
+    3300004: Box027
+    3300006: Box033
+    3300008: Box034
+    3300010: Box035
+    3300012: Box036
+    3300014: Box037
+    3300016: Box039
+    3300018: Box040
+    3300020: Box047
+    3300022: Box048
+    3300024: Box049
+    3300026: Box051
+    3300028: Box052
+    3300030: Box053
+    3300032: Box054
+    3300034: Box055
+    3300036: Box057
+    3300038: Box058
+    3300040: Cylinder024
+    3300042: Cylinder028
+    3300044: Cylinder032
+    3300046: Cylinder033
+    3300048: Cylinder034
+    3300050: Cylinder043
+    3300052: Cylinder044
+    3300054: Cylinder046
+    3300056: Cylinder047
+    3300058: Cylinder048
+    3300060: Fahrstuhl001
+    3300062: Fahrstuhl002
+    3300064: Fahrstulplatte
+    3300066: Fahrstulplatte001
+    3300068: Fahrstulplatte003
+    3300070: Fahrstulplatte004
+    3300072: Kanone001
+    3300074: Kanone002
+    3300076: "Kanonenst\xFCtze001"
+    3300078: "Kanonenst\xFCtze002"
+    3300080: Line005
+    3300082: Line017
+    3300084: Line018
+    3300086: Line019
+    3300088: Line020
+    3300090: Line021
+    3300092: Line025
+    3300094: Line026
+    3300096: Line027
+    3300098: Line028
+    3300100: Line029
+    3300102: Line030
+    3300104: Object002
+    3300106: Object006
+    3300108: Object008
+    3300110: Object012
+    3300112: Object014
+    3300114: Object020
+    3300116: Object022
+    3300118: Object024
+    3300120: Object026
+    3300122: Object036
+    3300124: Object037
+    3300126: Object038
+    3300128: Object039
+    3300130: Object040
+    3300132: Object041
+    3300134: Object042
+    3300136: Object043
+    3300138: Object045
+    3300140: Object046
+    3300142: Object047
+    3300144: Object048
+    3300146: Object049
+    3300148: Object050
+    3300150: Object051
+    3300152: Object052
+    3300154: Object053
+    3300156: Object054
+    3300158: Object055
+    3300160: Object071
+    3300162: Object072
+    3300164: Object073
+    3300166: Object074
+    3300168: Object076
+    3300170: Object077
+    3300172: Object078
+    3300174: Object079
+    3300176: Object080
+    3300178: Object082
+    3300180: Object083
+    3300182: Object084
+    3300184: Object085
+    3300186: Object086
+    3300188: Object087
+    3300190: Object088
+    3300192: Object089
+    3300194: Object091
+    3300196: Object092
+    3300198: Object093
+    3300200: Object094
+    3300202: Object095
+    3300204: Object096
+    3300206: Object097
+    3300208: Object098
+    3300210: Object099
+    3300212: Object100
+    3300214: Object101
+    3300216: Platform 007
+    3300218: Platform 008
+    3300220: Platform 009
+    3300222: Platform 010
+    3300224: Platform 011
+    3300226: Platform 012
+    3300228: Platform 013
+    3300230: Platform 014
+    3300232: Platform 015
+    3300234: Platform 016
+    3300236: Platform 024
+    3300238: Platform 025
+    3300240: Platform 026
+    3300242: Platform 027
+    3300244: Platform 028
+    3300246: Platform 029
+    3300248: Platform 030
+    3300250: Platform 031
+    3300252: Platform 032
+    3300254: Platform 033
+    3300256: Platform 034
+    3300258: Platform 035
+    3300260: Platform 036
+    3300262: Platform 037
+    3300264: Platform 1
+    3300266: Platform 2
+    3300268: Platform 3
+    3300270: Platform 6
+    3300272: Schiffsspitze
+    3300274: Schiffsspitze001
+    3300276: Schiffsspitze003
+    3300278: Schiffsspitze004
+    3300280: Segel 004
+    3300282: Segel 005
+    3300284: Segel 006
+    3300286: Segel 010
+    3300288: Segel 013
+    3300290: Segel 014
+    3300292: Segel 015
+    3300294: Segel 016
+    3300296: Segel 017
+    3300298: Segel 1
+    3300300: Segel 2
+    3300302: Segel 3
+    4300000: Object037
+    4300002: Object039
+    4300004: Object038
+    4300006: Platform 009
+    4300008: Box018
+    4300010: Box026
+    4300012: Box033
+    4300014: Box034
+    4300016: Box027
+    4300018: Platform 008
+    4300020: Platform 007
+    4300022: Platform 3
+    4300024: Platform 2
+    4300026: Platform 1
+    4300028: Object024
+    4300030: Object002
+    4300032: Segel 2
+    4300034: Object022
+    4300036: Segel 3
+    4300038: Cylinder028
+    4300040: Schiffsspitze
+    4300042: Platform 6
+    4300044: Object040
+    4300046: Object014
+    4300048: Line018
+    4300050: Line017
+    4300052: Cylinder024
+    4300054: Line005
+    4300056: Object036
+    4300058: Object012
+    4300060: Object006
+    4300062: Fahrstulplatte
+    4300064: Object026
+    4300066: Segel 1
+    4300068: Object008
+    4300070: Object020
+    4300072: Object071
+    4300074: Segel 010
+    4300076: Object052
+    4300078: Cylinder032
+    4300080: Cylinder033
+    4300082: Cylinder034
+    4300084: Schiffsspitze001
+    4300086: Fahrstulplatte001
+    4300088: "Kanonenst\xFCtze001"
+    4300090: Line019
+    4300092: Object051
+    4300094: Line020
+    4300096: Line021
+    4300098: Object042
+    4300100: Object043
+    4300102: Object045
+    4300104: Object046
+    4300106: Object047
+    4300108: Object048
+    4300110: Segel 006
+    4300112: Object049
+    4300114: Fahrstuhl001
+    4300116: Kanone001
+    4300118: Object041
+    4300120: Segel 005
+    4300122: Object050
+    4300124: Segel 004
+    4300126: Object053
+    4300128: Object054
+    4300130: Object055
+    4300132: Platform 010
+    4300134: Platform 011
+    4300136: Platform 012
+    4300138: Box035
+    4300140: Box036
+    4300142: Box037
+    4300144: Box039
+    4300146: Box040
+    4300148: Platform 013
+    4300150: Platform 014
+    4300152: Platform 015
+    4300154: Platform 016
+    4300156: Object083
+    4300158: Cylinder043
+    4300160: Cylinder044
+    4300162: Schiffsspitze003
+    4300164: Fahrstulplatte003
+    4300166: Line025
+    4300168: Object082
+    4300170: Line026
+    4300172: Line027
+    4300174: Object073
+    4300176: Object074
+    4300178: Object076
+    4300180: Object077
+    4300182: Object078
+    4300184: Object079
+    4300186: Segel 014
+    4300188: Object080
+    4300190: Object072
+    4300192: Segel 013
+    4300194: Object084
+    4300196: Object085
+    4300198: Object086
+    4300200: Platform 024
+    4300202: Platform 025
+    4300204: Platform 026
+    4300206: Box047
+    4300208: Box048
+    4300210: Box049
+    4300212: Box051
+    4300214: Box052
+    4300216: Platform 027
+    4300218: Platform 028
+    4300220: Platform 029
+    4300222: Platform 030
+    4300224: Object098
+    4300226: Cylinder046
+    4300228: Cylinder047
+    4300230: Cylinder048
+    4300232: Schiffsspitze004
+    4300234: Fahrstulplatte004
+    4300236: "Kanonenst\xFCtze002"
+    4300238: Line028
+    4300240: Object097
+    4300242: Line029
+    4300244: Line030
+    4300246: Object088
+    4300248: Object089
+    4300250: Object091
+    4300252: Object092
+    4300254: Object093
+    4300256: Object094
+    4300258: Segel 017
+    4300260: Object095
+    4300262: Fahrstuhl002
+    4300264: Kanone002
+    4300266: Object087
+    4300268: Segel 016
+    4300270: Object096
+    4300272: Segel 015
+    4300274: Object099
+    4300276: Object100
+    4300278: Object101
+    4300280: Platform 031
+    4300282: Platform 032
+    4300284: Platform 033
+    4300286: Box053
+    4300288: Box054
+    4300290: Box055
+    4300292: Box057
+    4300294: Box058
+    4300296: Platform 034
+    4300298: Platform 035
+    4300300: Platform 036
+    4300302: Platform 037
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: abae09203fd889945b4407b6f1a29c97
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Beschlag
+    100002: Beschlag002
+    100004: Box002
+    100006: Box003
+    100008: deckel/Boden/tisch003
+    100010: deckel/Boden/tisch005
+    100012: deckel/Boden/tisch006
+    100014: deckel/Boden/tisch007
+    100016: deckel/Boden/tisch008
+    100018: //RootNode
+    100020: Deco
+    100022: Fass
+    100024: Fass001
+    100026: Helix003
+    100028: Helix005
+    100030: Hocker-Eckig
+    100032: Hocker-Eckig001
+    100034: Hocker-Rund
+    100036: Hocker-Rund001
+    100038: Kiste
+    100040: Kiste001
+    100042: KleinSeil
+    100044: Line012
+    100046: Line013
+    100048: Netz-Crap
+    100050: NetzKiste
+    100052: Paddle
+    100054: Paddle001
+    100056: SeilSpule Dunkel
+    100058: SeilSpule Hell
+    100060: Sphere009
+    100062: Stuhl-Eckig-Lehne
+    100064: Stuhl-Eckig-Lehne001
+    100066: Stuhl-Rund-Lehne
+    100068: Stuhl-Rund-Lehne001
+    100070: TischEckig
+    100072: TischEckig001
+    100074: TischRund
+    100076: TischRund001
+    100078: Truhe003
+    100080: Truhe004
+    400000: Beschlag
+    400002: Beschlag002
+    400004: Box002
+    400006: Box003
+    400008: deckel/Boden/tisch003
+    400010: deckel/Boden/tisch005
+    400012: deckel/Boden/tisch006
+    400014: deckel/Boden/tisch007
+    400016: deckel/Boden/tisch008
+    400018: //RootNode
+    400020: Deco
+    400022: Fass
+    400024: Fass001
+    400026: Helix003
+    400028: Helix005
+    400030: Hocker-Eckig
+    400032: Hocker-Eckig001
+    400034: Hocker-Rund
+    400036: Hocker-Rund001
+    400038: Kiste
+    400040: Kiste001
+    400042: KleinSeil
+    400044: Line012
+    400046: Line013
+    400048: Netz-Crap
+    400050: NetzKiste
+    400052: Paddle
+    400054: Paddle001
+    400056: SeilSpule Dunkel
+    400058: SeilSpule Hell
+    400060: Sphere009
+    400062: Stuhl-Eckig-Lehne
+    400064: Stuhl-Eckig-Lehne001
+    400066: Stuhl-Rund-Lehne
+    400068: Stuhl-Rund-Lehne001
+    400070: TischEckig
+    400072: TischEckig001
+    400074: TischRund
+    400076: TischRund001
+    400078: Truhe003
+    400080: Truhe004
+    2100000: 01 - Default
+    2100002: 21 - Default
+    2100004: 03 - Default
+    2100006: 02 - Default
+    2300000: Beschlag
+    2300002: Beschlag002
+    2300004: Box002
+    2300006: Box003
+    2300008: deckel/Boden/tisch005
+    2300010: deckel/Boden/tisch006
+    2300012: deckel/Boden/tisch007
+    2300014: deckel/Boden/tisch008
+    2300016: Fass
+    2300018: Fass001
+    2300020: Helix003
+    2300022: Helix005
+    2300024: Hocker-Eckig
+    2300026: Hocker-Eckig001
+    2300028: Hocker-Rund
+    2300030: Hocker-Rund001
+    2300032: Kiste
+    2300034: Kiste001
+    2300036: KleinSeil
+    2300038: Line012
+    2300040: Line013
+    2300042: Netz-Crap
+    2300044: NetzKiste
+    2300046: Paddle
+    2300048: Paddle001
+    2300050: SeilSpule Dunkel
+    2300052: SeilSpule Hell
+    2300054: Sphere009
+    2300056: Stuhl-Eckig-Lehne
+    2300058: Stuhl-Eckig-Lehne001
+    2300060: Stuhl-Rund-Lehne
+    2300062: Stuhl-Rund-Lehne001
+    2300064: TischEckig
+    2300066: TischEckig001
+    2300068: TischRund
+    2300070: TischRund001
+    2300072: Truhe003
+    2300074: Truhe004
+    3300000: Beschlag
+    3300002: Beschlag002
+    3300004: Box002
+    3300006: Box003
+    3300008: deckel/Boden/tisch005
+    3300010: deckel/Boden/tisch006
+    3300012: deckel/Boden/tisch007
+    3300014: deckel/Boden/tisch008
+    3300016: Fass
+    3300018: Fass001
+    3300020: Helix003
+    3300022: Helix005
+    3300024: Hocker-Eckig
+    3300026: Hocker-Eckig001
+    3300028: Hocker-Rund
+    3300030: Hocker-Rund001
+    3300032: Kiste
+    3300034: Kiste001
+    3300036: KleinSeil
+    3300038: Line012
+    3300040: Line013
+    3300042: Netz-Crap
+    3300044: NetzKiste
+    3300046: Paddle
+    3300048: Paddle001
+    3300050: SeilSpule Dunkel
+    3300052: SeilSpule Hell
+    3300054: Sphere009
+    3300056: Stuhl-Eckig-Lehne
+    3300058: Stuhl-Eckig-Lehne001
+    3300060: Stuhl-Rund-Lehne
+    3300062: Stuhl-Rund-Lehne001
+    3300064: TischEckig
+    3300066: TischEckig001
+    3300068: TischRund
+    3300070: TischRund001
+    3300072: Truhe003
+    3300074: Truhe004
+    4300000: Fass
+    4300002: Beschlag
+    4300004: deckel/Boden/tisch005
+    4300006: deckel/Boden/tisch006
+    4300008: Kiste
+    4300010: TischRund
+    4300012: Hocker-Eckig
+    4300014: TischEckig
+    4300016: Stuhl-Eckig-Lehne
+    4300018: Stuhl-Rund-Lehne
+    4300020: Paddle
+    4300022: Fass001
+    4300024: deckel/Boden/tisch007
+    4300026: Beschlag002
+    4300028: deckel/Boden/tisch008
+    4300030: Kiste001
+    4300032: Box003
+    4300034: Hocker-Eckig001
+    4300036: Stuhl-Eckig-Lehne001
+    4300038: Stuhl-Rund-Lehne001
+    4300040: TischEckig001
+    4300042: TischRund001
+    4300044: Paddle001
+    4300046: Truhe004
+    4300048: Truhe003
+    4300050: Hocker-Rund001
+    4300052: Box002
+    4300054: Hocker-Rund
+    4300056: KleinSeil
+    4300058: SeilSpule Hell
+    4300060: Line012
+    4300062: Helix003
+    4300064: SeilSpule Dunkel
+    4300066: Line013
+    4300068: Helix005
+    4300070: NetzKiste
+    4300072: Netz-Crap
+    4300074: Sphere009
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

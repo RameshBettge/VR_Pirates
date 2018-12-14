@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0279a7a31f59646969e8ba49511090, type: 3}
+  m_Name: OculusInput
+  m_EditorClassIdentifier: 
+  Right:
+    button1_Touch: 10
+    button2_Touch: 11
+    index_Touch: 15
+    thumb_Touch: 17
+    button1: 0
+    button2: 1
+    thumb_Press: 9
+    thumbX: 4
+    thumbXInverted: 0
+    thumbY: 5
+    thumbYInverted: 1
+    index: 10
+    indexInverted: 0
+    grab: 12
+    grabInverted: 0
+    Button1:
+      button: 330
+    Button1_Touch:
+      button: 340
+    Button2:
+      button: 331
+    Button2_Touch:
+      button: 341
+    ThumbX:
+      name: Axis4
+      inverted: 0
+    ThumbY:
+      name: Axis5
+      inverted: 1
+    ThumbAxes:
+      x:
+        name: Axis4
+        inverted: 0
+      y:
+        name: Axis5
+        inverted: 1
+    Thumb_Touch:
+      button: 347
+    Thumb_Press:
+      button: 339
+    Index:
+      name: Axis10
+      inverted: 0
+    Index_Touch:
+      button: 345
+    Grab:
+      name: Axis12
+      inverted: 0
+  Left:
+    button1_Touch: 12
+    button2_Touch: 13
+    index_Touch: 14
+    thumb_Touch: 16
+    button1: 2
+    button2: 3
+    thumb_Press: 8
+    thumbX: 1
+    thumbXInverted: 0
+    thumbY: 2
+    thumbYInverted: 1
+    index: 9
+    indexInverted: 0
+    grab: 11
+    grabInverted: 0
+    Button1:
+      button: 332
+    Button1_Touch:
+      button: 342
+    Button2:
+      button: 333
+    Button2_Touch:
+      button: 343
+    ThumbX:
+      name: Axis1
+      inverted: 0
+    ThumbY:
+      name: Axis2
+      inverted: 1
+    ThumbAxes:
+      x:
+        name: Axis1
+        inverted: 0
+      y:
+        name: Axis2
+        inverted: 1
+    Thumb_Touch:
+      button: 346
+    Thumb_Press:
+      button: 338
+    Index:
+      name: Axis9
+      inverted: 0
+    Index_Touch:
+      button: 344
+    Grab:
+      name: Axis11
+      inverted: 0
+  LastApplied: 12/6/2018 - 9:42 AM
