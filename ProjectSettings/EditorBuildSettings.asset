@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/_Scenes/FullSea.unity
     guid: bd357fb544e49a243b18543f95657e56
   - enabled: 1
+    path: Assets/_Scenes/Gari - Level Complete.unity
+    guid: 538d2c052f9c0514e99545aad2df4424
+  - enabled: 1
+    path: Assets/_Scenes/Text.unity
+    guid: 61b9c576a96aa134a99f0e7d42c766eb
+  - enabled: 1
+    path: Assets/_Scenes/Poker.unity
+    guid: 883db353759ce5b4f8332ad0626e25fe
+  - enabled: 1
     path: Assets/_Scenes/FULL GAME.unity
     guid: dcfe89bccddb2c343b86c2b8d9f52754
   m_configObjects: {}
