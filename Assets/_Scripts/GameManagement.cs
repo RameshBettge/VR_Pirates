@@ -9,6 +9,9 @@ public class GameManagement : MonoBehaviour
     public GameObject LoseScreen;
 
     [SerializeField]
+    GameObject scopeParent;
+
+    [SerializeField]
     PufferFishSpawner pufferFishSpawner;
 
     [SerializeField]
@@ -202,6 +205,8 @@ public class GameManagement : MonoBehaviour
                 boatSpawner.gameObject.SetActive(false);
                 harborSkeletonSpawner.gameObject.SetActive(false);
 
+                scopeParent.SetActive(false);
+
                 if (!returningToMenu)
                 {
                     returningToMenu = true;
@@ -211,6 +216,8 @@ public class GameManagement : MonoBehaviour
 
             case GameState.Won:
                 WonScreen.SetActive(true);
+
+
 
                 if (!returningToMenu)
                 {
