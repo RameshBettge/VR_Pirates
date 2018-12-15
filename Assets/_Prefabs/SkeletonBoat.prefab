@@ -26081,7 +26081,7 @@ MonoBehaviour:
   speed: 2
   sailSpeedBonus: 3
   driftSpeed: 7
-  dockingDistance: 5
+  dockingDistance: 4
   dockingTime: 1.5
   sinkTime: 5
   driftStartTimePercentage: 0.5
