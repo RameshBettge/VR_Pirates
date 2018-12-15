@@ -26081,7 +26081,7 @@ MonoBehaviour:
   speed: 2
   sailSpeedBonus: 3
   driftSpeed: 7
-  dockingDistance: 3
+  dockingDistance: 5
   dockingTime: 1.5
   sinkTime: 5
   driftStartTimePercentage: 0.5
@@ -26546,8 +26546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edbe571d5698684b94ea6d5043f4e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useHighestPos: 0
-  heightOffset: 3
+  useHighestPos: 1
+  heightOffset: 0.5
   sea: {fileID: 0}
   adjustTilt: 1
   maxTiltSamples: 10
