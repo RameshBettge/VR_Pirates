@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Throwing : MonoBehaviour
 {
+    [SerializeField]
+    Text stockDisplay;
+
     public GameObject bucketPrefab;
     public GameObject player;
     public Transform weaponHolder;
@@ -28,7 +32,8 @@ public class Throwing : MonoBehaviour
     float end;
 
     //[HideInInspector]
-    public int stock = 3;
+    [SerializeField]
+    int stock = 3;
 
     void Start()
     {
@@ -43,6 +48,9 @@ public class Throwing : MonoBehaviour
             bucket.GetComponent<Bucket>().Fill();
             stock--;
         }
+
+        UpdateStock(0);
+
     }
 
     void Update()
@@ -92,11 +100,19 @@ public class Throwing : MonoBehaviour
                 if (stock > 0)
                 {
                     bucket.GetComponent<Bucket>().Fill();
-                    stock--;
+                    
+                    UpdateStock(-1);
                 }
 
                 holdingBucket = true;
             }
         }
+    }
+
+    public void UpdateStock(int num)
+    {
+        stock += num;
+
+        stockDisplay.text = "Water Stock: " + stock.ToString();
     }
 }

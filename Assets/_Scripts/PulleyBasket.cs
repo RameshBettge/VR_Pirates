@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PulleyBasket : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class PulleyBasket : MonoBehaviour
                 if (!bucket.filled) { return; }
 
                 Destroy(other.gameObject);
-                throwing.stock += waterRestockNumber;
+                throwing.UpdateStock(waterRestockNumber);
 
                 Debug.Log("Added water." + cannon.stock);
             }
