@@ -19,11 +19,6 @@ public class PCPlayerMovement : MonoBehaviour
 
     private Vector3 cameraRot;
 
-    void Start()
-    {
-        //Cursor.lockState = CursorLockMode.Locked;
-    }
-
     void Update()
     {
         Rotate();

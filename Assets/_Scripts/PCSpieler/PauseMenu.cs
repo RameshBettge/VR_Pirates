@@ -9,6 +9,12 @@ public class PauseMenu : MonoBehaviour
     public PCPlayerMovement pcPlayerScript;
     public Throwing throwingScript;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -37,6 +43,9 @@ public class PauseMenu : MonoBehaviour
         }
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Pause()
@@ -52,6 +61,9 @@ public class PauseMenu : MonoBehaviour
         }
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void QuitGame()
