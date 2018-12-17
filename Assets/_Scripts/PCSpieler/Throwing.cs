@@ -35,19 +35,26 @@ public class Throwing : MonoBehaviour
     [SerializeField]
     int stock = 3;
 
+    private void OnEnable()
+    {
+        if (stock > 0)
+        {
+            Bucket bucketScript = bucket.GetComponent<Bucket>();
+
+            if (!bucketScript.filled)
+            {
+                bucketScript.Fill();
+                stock--;
+            }
+        }
+    }
+
     void Start()
     {
         bucket = Instantiate(bucketPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-90f, 0f, 0f), weaponHolder);
         bucket.transform.SetSiblingIndex(0);
         bucket.GetComponent<Rigidbody>().isKinematic = true;
         bucket.GetComponent<Collider>().enabled = false;
-
-
-        if (stock > 0)
-        {
-            bucket.GetComponent<Bucket>().Fill();
-            stock--;
-        }
 
         UpdateStock(0);
 
@@ -100,7 +107,7 @@ public class Throwing : MonoBehaviour
                 if (stock > 0)
                 {
                     bucket.GetComponent<Bucket>().Fill();
-                    
+
                     UpdateStock(-1);
                 }
 

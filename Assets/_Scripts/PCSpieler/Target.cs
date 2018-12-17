@@ -15,11 +15,6 @@ public class Target : MonoBehaviour
 
     GameObject particleFire;
 
-    private void Awake()
-    {
-        StartBurn();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (isBurning)

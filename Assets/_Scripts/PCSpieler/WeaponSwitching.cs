@@ -22,6 +22,8 @@ public class WeaponSwitching : MonoBehaviour
         throwingScript.enabled = true;
         cannonScript.enabled = false;
         rotationScript.enabled = false;
+
+        SwitchToSniper();
     }
 
     void Update()
@@ -54,26 +56,7 @@ public class WeaponSwitching : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            selectedWeapon = 1;
-            if (throwingScript.enabled == true)
-            {
-                throwingScript.enabled = false;
-            }
-            switchScript.FirstPerson();
-            if (cannonScript.enabled == true)
-            {
-                cannonScript.enabled = false;
-            }
-            cannonScript.DeactivateCannon();
-            if (rotationScript.enabled == true)
-            {
-                rotationScript.enabled = false;
-            }
-            cannonSelected = false;
-            fist1.SetActive(false);
-            fist2.SetActive(false);
-            sniper.SetActive(false);
-            crosshair.SetActive(true);
+            SwitchToSniper();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -126,5 +109,29 @@ public class WeaponSwitching : MonoBehaviour
             }
             i++;
         }
+    }
+
+    void SwitchToSniper()
+    {
+        selectedWeapon = 1;
+        if (throwingScript.enabled == true)
+        {
+            throwingScript.enabled = false;
+        }
+        switchScript.FirstPerson();
+        if (cannonScript.enabled == true)
+        {
+            cannonScript.enabled = false;
+        }
+        cannonScript.DeactivateCannon();
+        if (rotationScript.enabled == true)
+        {
+            rotationScript.enabled = false;
+        }
+        cannonSelected = false;
+        fist1.SetActive(false);
+        fist2.SetActive(false);
+        sniper.SetActive(false);
+        crosshair.SetActive(true);
     }
 }

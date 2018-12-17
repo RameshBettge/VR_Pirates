@@ -2,6 +2,9 @@
 
 public class CameraZoom : MonoBehaviour
 {
+    [SerializeField]
+    GameObject sniper;
+
     int zoom = 10;
     int normal = 60;
     float smooth = 5f;
@@ -17,6 +20,10 @@ public class CameraZoom : MonoBehaviour
     private void Awake()
     {
         cam = GetComponent<Camera>();
+
+        //isZoomed = !isZoomed;
+        hasCrossHair = !hasCrossHair;
+        //hasScope = !hasScope;
     }
 
     void Update()
@@ -27,6 +34,8 @@ public class CameraZoom : MonoBehaviour
             cam.fieldOfView = normal;
             hasCrossHair = true;
             hasScope = false;
+
+            sniper.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha3))
@@ -40,6 +49,15 @@ public class CameraZoom : MonoBehaviour
             isZoomed = !isZoomed;
             hasCrossHair = !hasCrossHair;
             hasScope = !hasScope;
+
+            if (isZoomed)
+            {
+                sniper.SetActive(false);
+            }
+            else
+            {
+                sniper.SetActive(true);
+            }
         }
 
         if (isZoomed)
