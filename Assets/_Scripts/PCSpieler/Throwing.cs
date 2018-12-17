@@ -85,7 +85,7 @@ public class Throwing : MonoBehaviour
 
                 if (stock > 0)
                 {
-                    bucket.GetComponent<Bucket>().filled = true;
+                    bucket.GetComponent<Bucket>().Fill();
                     stock--;
                 }
 

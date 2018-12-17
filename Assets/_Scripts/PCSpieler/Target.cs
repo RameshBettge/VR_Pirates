@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
                 if(move != null)
                 {
                     // Why 2.5f?
-                    move.speed = 2.5f;
+                    move.speed = 2f;
                 }
                 Instantiate(fireEffect, transform.position, transform.rotation, ship);
 
@@ -59,6 +59,7 @@ public class Target : MonoBehaviour
             walkingWasTriggered = false;
 
             Instantiate(waterSplash, transform.position, transform.rotation, ship);
+            bucket.Empty();
             isBurning = false;
         }
     }

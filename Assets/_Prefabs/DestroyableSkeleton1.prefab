@@ -7677,6 +7677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114048701911984776
@@ -7691,6 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114049411981072622
@@ -7705,6 +7707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114057086064796238
@@ -7763,6 +7766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114086364614319894
@@ -7944,6 +7948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114256758288720574
@@ -8002,6 +8007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114278422518986152
@@ -8170,6 +8176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114407680641306422
@@ -8184,6 +8191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114411493989239322
@@ -8316,6 +8324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114480790388511242
@@ -8343,6 +8352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114538459398452008
@@ -8357,6 +8367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114558643403962452
@@ -8371,6 +8382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114573979991144536
@@ -8429,6 +8441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114617658256555440
@@ -8443,6 +8456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114640906362641928
@@ -8567,6 +8581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114760395731338890
@@ -8582,7 +8597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathToFollow: {fileID: 0}
   currentWayPointID: 0
-  speed: 2
+  speed: 3
   rotationSpeed: 5
 --- !u!114 &114765269090990434
 MonoBehaviour:
@@ -8618,6 +8633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114829954334774580
@@ -8632,6 +8648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114840122358769388
@@ -8690,6 +8707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114889453748643020
@@ -8761,6 +8779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114913035998151674
@@ -8797,6 +8816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
+  isGrabbed: 0
   limb: {fileID: 0}
   skeleton: {fileID: 0}
 --- !u!114 &114930678128525444
