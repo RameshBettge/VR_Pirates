@@ -42,6 +42,8 @@ public class CameraZoom : MonoBehaviour
         {
             hasCrossHair = false;
             hasScope = false;
+
+            sniper.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))

@@ -56,14 +56,19 @@ public class Cannon : MonoBehaviour
 
     public void ActivateCannon()
     {
-        childObject = GameObject.Find("CannonHolder");
+        childObject = transform.parent.gameObject;
+
+        //childObject = GameObject.Find("CannonHolder");
         childObject.transform.parent = GameObject.Find("WeaponHolder").transform;
     }
 
     public void DeactivateCannon()
     {
-        childObject = GameObject.Find("CannonHolder");
-        childObject.transform.parent = GameObject.Find("Schiff [geunwrapet]").transform;
+        childObject = transform.parent.gameObject;
+
+        //childObject = GameObject.Find("CannonHolder");
+        //childObject.transform.parent = GameObject.Find("Schiff [geunwrapet]").transform;
+        childObject.transform.parent = ship;
     }
 
     public void UpdateStock(int num)

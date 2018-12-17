@@ -39,6 +39,7 @@ public class Throwing : MonoBehaviour
     {
         if (stock > 0)
         {
+            if(bucket == null) { return; }
             Bucket bucketScript = bucket.GetComponent<Bucket>();
 
             if (!bucketScript.filled)
