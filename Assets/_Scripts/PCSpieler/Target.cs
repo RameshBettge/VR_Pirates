@@ -47,20 +47,15 @@ public class Target : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
 
-        if (other.gameObject.tag == "Bucket")
-        {
-            Bucket bucket = other.GetComponent<Bucket>();
-            if (bucket == null) { return; }
-            if (!bucket.filled)
-            {
-                return;
-            }
-            walkingWasTriggered = false;
+    public void Extinguish()
+    {
+        if (!isBurning) { return; }
 
-            Instantiate(waterSplash, transform.position, transform.rotation, ship);
-            bucket.Empty();
-            isBurning = false;
-        }
+        walkingWasTriggered = false;
+
+        Instantiate(waterSplash, transform.position, transform.rotation, ship);
+        isBurning = false;
     }
 }
