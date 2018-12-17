@@ -28,7 +28,7 @@ public class PulleyBasket : MonoBehaviour
             if (grabbable != null && grabbable.isGrabbed == false)
             {
                 Destroy(other.gameObject);
-                cannon.stock += cannonballRestockNumber;
+                cannon.UpdateStock(cannonballRestockNumber);
 
                 //Debug.Log(cannon.stock);
             }
@@ -51,8 +51,6 @@ public class PulleyBasket : MonoBehaviour
 
                 Destroy(other.gameObject);
                 throwing.UpdateStock(waterRestockNumber);
-
-                Debug.Log("Added water." + cannon.stock);
             }
         }
     }

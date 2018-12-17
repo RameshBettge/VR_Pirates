@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Cannon : MonoBehaviour
 {
+    [SerializeField]
+    Text ballStockDisplay;
+
     public float shootForce;
     public GameObject cannonBallPrefab;
     public GameObject player;
@@ -10,10 +14,15 @@ public class Cannon : MonoBehaviour
 
     private Vector3 rot;
 
-    //[HideInInspector]
-    public int stock = 0;
+    [SerializeField]
+    int stock = 0;
 
     GameObject childObject;
+
+    private void Awake()
+    {
+        UpdateStock(0);
+    }
 
     public void Update()
     {
@@ -55,5 +64,12 @@ public class Cannon : MonoBehaviour
     {
         childObject = GameObject.Find("CannonHolder");
         childObject.transform.parent = GameObject.Find("Schiff [geunwrapet]").transform;
+    }
+
+    public void UpdateStock(int num)
+    {
+        stock += num;
+
+        ballStockDisplay.text = "CannonBalls: " + stock.ToString();
     }
 }
