@@ -7,7 +7,7 @@ public class Cannonball : MonoBehaviour
     LayerMask mask;
 
     float radius = 5f;
-    float damage = 10f;
+    int damage = 1000;
 
     float force = 150f;
 
@@ -42,7 +42,7 @@ public class Cannonball : MonoBehaviour
 
                 Vector3 dir = (nearByObject.transform.position - transform.position).normalized;
 
-                ShotInfo info = new ShotInfo(transform.position, dir, force, 100, 3);
+                ShotInfo info = new ShotInfo(transform.position, dir, force, damage, 3);
 
                 damageable.TakeDamage(info);
             }

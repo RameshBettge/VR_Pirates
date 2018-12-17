@@ -10,7 +10,7 @@ public class PC_Head : MonoBehaviour
     float headTiltSpeed = 12f;
 
     float currentXRotation;
-    float currentYRotation;
+    //float currentYRotation;
     float convertedRotation;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class PC_Head : MonoBehaviour
         transform.localEulerAngles = locEuler;
 
         currentXRotation = 0f;
-        currentYRotation = transform.eulerAngles.y;
+        //currentYRotation = transform.eulerAngles.y;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -37,14 +37,14 @@ public class PC_Head : MonoBehaviour
         float maxUpTilt = 65f;
         float maxDownTilt = 40f;
 
-        float maxYTilt = 75;
+        //float maxYTilt = 75;
 
 
 
         float yRotation = Input.GetAxis("Mouse X");
         yRotator.Rotate(Vector3.up, yRotation * headTiltSpeed * Time.deltaTime);
 
-        float clampedZ = Mathf.Clamp(yRotator.eulerAngles.y, -maxYTilt, maxYTilt);
+        //float clampedZ = Mathf.Clamp(yRotator.eulerAngles.y, -maxYTilt, maxYTilt);
         //yRotator.localEulerAngles = Vector3.up * clampedY;
 
 

@@ -9,7 +9,7 @@ public class LoadSceneDirectly : MonoBehaviour
 
     public void LoadScene(string sceneToLoad)
     {
-        if(SceneManager.GetSceneByName(sceneToLoad) == null)
+        if(!Application.CanStreamedLevelBeLoaded(sceneToLoad))
         {
             Debug.LogError(sceneToLoad + " cannot be loaded - it doesn't exist in build!");
         }
