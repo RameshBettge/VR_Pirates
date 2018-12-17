@@ -56,6 +56,7 @@ public class Target : MonoBehaviour
             {
                 return;
             }
+            walkingWasTriggered = false;
 
             Instantiate(waterSplash, transform.position, transform.rotation, ship);
             isBurning = false;
