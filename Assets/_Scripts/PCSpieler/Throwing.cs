@@ -37,6 +37,12 @@ public class Throwing : MonoBehaviour
         bucket.GetComponent<Rigidbody>().isKinematic = true;
         bucket.GetComponent<Collider>().enabled = false;
 
+
+        if (stock > 0)
+        {
+            bucket.GetComponent<Bucket>().Fill();
+            stock--;
+        }
     }
 
     void Update()

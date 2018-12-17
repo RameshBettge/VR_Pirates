@@ -155,8 +155,6 @@ GameObject:
   - component: {fileID: 4719394034351822}
   - component: {fileID: 33320282385005594}
   - component: {fileID: 23419081614063496}
-  - component: {fileID: 114779269120011538}
-  - component: {fileID: 114540545060689374}
   - component: {fileID: 199398745731391824}
   - component: {fileID: 198178499506967582}
   - component: {fileID: 82056056387972396}
@@ -532,31 +530,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 1
---- !u!114 &114540545060689374
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1748632884730328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039587c051912eb4ead9e58344c5f3ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplier: 1
---- !u!114 &114779269120011538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1748632884730328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29014cd42b6d273408e0ceefd336c0b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDuration: 15
-  maxDuration: 20
 --- !u!198 &198056697106876342
 ParticleSystem:
   m_ObjectHideFlags: 1

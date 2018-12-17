@@ -10,6 +10,11 @@ public class PulleyBasket : MonoBehaviour
     [SerializeField]
     Throwing throwing;
 
+    [SerializeField]
+    int cannonballRestockNumber = 3;
+
+    [SerializeField]
+    int waterRestockNumber = 3;
 
     private void OnTriggerStay(Collider other)
     {
@@ -22,7 +27,7 @@ public class PulleyBasket : MonoBehaviour
             if (grabbable != null && grabbable.isGrabbed == false)
             {
                 Destroy(other.gameObject);
-                cannon.stock++;
+                cannon.stock += cannonballRestockNumber;
 
                 //Debug.Log(cannon.stock);
             }
@@ -44,7 +49,7 @@ public class PulleyBasket : MonoBehaviour
                 if (!bucket.filled) { return; }
 
                 Destroy(other.gameObject);
-                throwing.stock++;
+                throwing.stock += waterRestockNumber;
 
                 Debug.Log("Added water." + cannon.stock);
             }
