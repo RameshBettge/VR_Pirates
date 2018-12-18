@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndPokerScene : MonoBehaviour
 {
-    float timeTilSwitch = 20f;
+    float timeTilSwitch = 200f;
 
     bool loading = false;
 

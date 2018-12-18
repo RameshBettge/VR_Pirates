@@ -29,6 +29,7 @@ public class Shooting : MonoBehaviour
     {
         if (Time.timeSinceLevelLoad >= timestamp && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Debug.Log("Pew");
             Shoot();
         }
     }
