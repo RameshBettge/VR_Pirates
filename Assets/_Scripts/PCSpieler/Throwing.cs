@@ -121,6 +121,6 @@ public class Throwing : MonoBehaviour
     {
         stock += num;
 
-        stockDisplay.text = "Water Stock: " + stock.ToString();
+        stockDisplay.text = "Buckets o' Water: " + stock.ToString();
     }
 }
