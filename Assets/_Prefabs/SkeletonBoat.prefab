@@ -26334,6 +26334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exactCols: 0
+  parentBonesToShip: 1
   lifeTime: 30
   boneDetachCurve: {fileID: 0}
   hasLostLimb: 0
@@ -26609,6 +26610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exactCols: 0
+  parentBonesToShip: 1
   lifeTime: 30
   boneDetachCurve: {fileID: 0}
   hasLostLimb: 0
@@ -26970,6 +26972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exactCols: 0
+  parentBonesToShip: 1
   lifeTime: 30
   boneDetachCurve: {fileID: 0}
   hasLostLimb: 0

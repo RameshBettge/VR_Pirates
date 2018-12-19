@@ -7,6 +7,8 @@ public class Skeleton : MonoBehaviour, IDamageable
     [Tooltip("If disabled, skeletons will only have an approximate hitbox when in boat.")]
     public bool exactCols = false;
 
+    public bool parentBonesToShip;
+
     [SerializeField]
     float lifeTime = 30f;
 

@@ -132,6 +132,11 @@ public class DetachableBone : MonoBehaviour, IDamageable
 
         detached = true;
         SetDespawnTime();
+
+        if (skeleton.parentBonesToShip)
+        {
+            transform.parent = skeleton.transform.parent;
+        }
     }
 
     public void SetDespawnTime()
