@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disabledUntilGrabbed: 1
   maxVelocity: 5
-  velocityFactor: 1.5
+  velocityFactor: 1.8
   angularVelocityFactor: 0.25
   maxAngularVelocity: 10
   extraGravity: 250
