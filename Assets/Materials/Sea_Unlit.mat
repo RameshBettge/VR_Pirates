@@ -71,7 +71,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Height: 38.1
+    - _Height: 632.93
     - _MaxHeight: 36.2
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -90,6 +90,8 @@ Material:
     - Color_655770C4: {r: 0.4481132, g: 0.6503277, b: 1, a: 0}
     - Color_C61FC855: {r: 0.080188684, g: 0.6354171, b: 1, a: 0}
     - Vector3_1DB4BD89: {r: 0.6, g: -7.87, b: 0, a: 0}
+    - _BottomColor: {r: 0.080188684, g: 0.6354171, b: 1, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TopColor: {r: 0.5322179, g: 0.9811321, b: 0.941267, a: 0}
