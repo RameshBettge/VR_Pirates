@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
     public GameObject waterSplash;
     public Transform ship;
     public float health = 800;
-    float burnThreshold = 400f;
+    public float burnThreshold = 400f;
     float burnThresholdIncrement = 100f;
 
     bool walkingWasTriggered = false;

@@ -42,6 +42,8 @@ public class Bucket : MonoBehaviour
 
     void TryToExtinguish()
     {
+        Debug.Log("Extinguish");
+
         Collider[] cols = Physics.OverlapSphere(transform.position, extinguishRadius, targetMask);
 
         for (int i = 0; i < cols.Length; i++)
