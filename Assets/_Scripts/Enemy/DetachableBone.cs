@@ -133,7 +133,7 @@ public class DetachableBone : MonoBehaviour, IDamageable
         detached = true;
         SetDespawnTime();
 
-        if (skeleton.parentBonesToShip)
+        if (skeleton.parentBonesToShip && skeleton.boarded)
         {
             transform.parent = skeleton.transform.parent;
         }
