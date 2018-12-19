@@ -29,7 +29,7 @@ public class Cannonball : MonoBehaviour
 
         foreach (Collider nearByObject in colliders)
         {
-            IDamageable damageable = GetComponent<IDamageable>();
+            IDamageable damageable = nearByObject.GetComponent<IDamageable>();
 
             if (damageable == null && nearByObject.transform.parent != null)
             {

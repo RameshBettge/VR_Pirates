@@ -14,6 +14,7 @@ public class PufferFishSpawner : MonoBehaviour
     float minForce = 34f;
     float maxForce = 44f;
 
+    [SerializeField]
     float spawnInterval = 8f;
 
     float nextSpawn;
