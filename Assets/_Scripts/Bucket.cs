@@ -13,6 +13,8 @@ public class Bucket : MonoBehaviour
     [SerializeField]
     LayerMask targetMask;
 
+    GrabbableObject grabbable;
+
     public bool filled { get; private set; }
 
     bool emptied;
@@ -20,6 +22,8 @@ public class Bucket : MonoBehaviour
     private void Awake()
     {
         waterVisual.enabled = false;
+
+        grabbable = GetComponent<GrabbableObject>();
     }
 
     public void Fill()
