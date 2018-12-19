@@ -86,7 +86,16 @@ public class GrabbableObject : MonoBehaviour
 
         if (setRotationOnGrab)
         {
-            transform.localEulerAngles = defaultRot;
+
+            Vector3 euler = defaultRot;
+
+            // TODO: ONLY IF Bucket
+            if (data.isLeft && GetComponent<Bucket>() != null)
+            {
+                euler.y += 180f;
+            }
+
+            transform.localEulerAngles = euler;
         }
         if (setPositionOnGrab)
         {
