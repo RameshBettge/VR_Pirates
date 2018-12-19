@@ -12,7 +12,7 @@ public class Limb : MonoBehaviour
 
     DetachableBone[] bones;
 
-    int health = 2;
+    int health = 1;
 
     private void Awake()
     {

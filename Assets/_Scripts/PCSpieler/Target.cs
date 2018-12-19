@@ -5,7 +5,7 @@ public class Target : MonoBehaviour
     public GameObject fireEffect;
     public GameObject waterSplash;
     public Transform ship;
-    float health = 800;
+    public float health = 800;
     float burnThreshold = 400f;
     float burnThresholdIncrement = 100f;
 
@@ -28,6 +28,8 @@ public class Target : MonoBehaviour
             health -= 10;
             if (health <= burnThreshold && !walkingWasTriggered)
             {
+                Debug.Log("Starting to burn. Threshold & health: " + burnThreshold + " & " + health);
+
                 StartBurn();
 
                 EnemyBehaiviour behaviour = other.GetComponentInParent<EnemyBehaiviour>();

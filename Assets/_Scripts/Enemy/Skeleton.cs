@@ -22,11 +22,13 @@ public class Skeleton : MonoBehaviour, IDamageable
     //[HideInInspector]
     public bool boarded = true;
 
+    //float postBoardingSkeletonScale = 0.6f;
+
     DetachableBone[] bones;
 
     EnemyBehaiviour behaviour;
 
-    int health = 5;
+    int health = 4;
 
     private void Start()
     {
@@ -71,6 +73,8 @@ public class Skeleton : MonoBehaviour, IDamageable
 
     public void OnBoarding()
     {
+        transform.localScale = Vector3.one;
+
         boarded = true;
         if (behaviour == null)
         {
