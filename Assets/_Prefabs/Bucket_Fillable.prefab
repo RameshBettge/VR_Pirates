@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterVisual: {fileID: 23987646615503400}
-  extinguishRadius: 1.5
+  extinguishRadius: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 262144
